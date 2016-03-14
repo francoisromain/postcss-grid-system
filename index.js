@@ -133,7 +133,7 @@ module.exports = postcss.plugin('postcss-structure', function (options) {
                 }
 
                 for (b = 1; b <= a; b++) {
-                    for (var col = 1; col <= a; col++) {
+                    for (var col = 1; col <= b; col++) {
                         var idx1 = false;
                         if (col >= a) {
                             idx1 = a;
