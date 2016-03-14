@@ -3,13 +3,14 @@ var postcss = require('postcss');
 module.exports = postcss.plugin('postcss-structure', function (options) {
     options = options || {};
     var opts = {
-        width: 0,
+        width: 18.75,
         gutter: 1.5,
-        padding: 0,
-        max: 0,
-        min: 0,
-        thumb: 0,
-        type: 0
+        padding: 1.5,
+        max: 8,
+        min: 2,
+        thumb: 3,
+        align: "center",
+        type: "float"
     };
     var sizes = ['xxs', 'xs', 's', 'm', 'l', 'xl', 'xxl', 'xxxl'];
     var r = postcss.root();
