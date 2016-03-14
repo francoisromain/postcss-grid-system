@@ -81,14 +81,8 @@ module.exports = postcss.plugin('postcss-structure', function (options) {
             columns.append({ prop: 'column-gap', value: opts.gutter + 'rem'});
             r.append(columns);  
 
-            for (a = 1; a <= opts.max; a++) {
-                if (a < opts.min) {
-                    totalWidth = opts.min * opts.width - opts.gutter;
-                } else if (a > opts.max) {
-                    totalWidth = opts.max * opts.width - opts.gutter;
-                } else {
-                    totalWidth = a * opts.width - opts.gutter;
-                }
+            for (a = opts.min; a <= opts.max; a++) {
+                totalWidth = a * opts.width - opts.gutter;
 
                 var media = postcss.atRule({
                     name: 'media',
@@ -104,7 +98,7 @@ module.exports = postcss.plugin('postcss-structure', function (options) {
                 show.append({ prop: 'visibility', value: 'visible !important' });
                 media.append(show);
 
-                var floatRight = postcss.rule({ selector: '.' + a + '-right' });
+                var floatRight = postcss.rule({ selector: '.right-' + a });
                 floatRight.append({ prop: 'float', value: 'right' });
                 media.append(floatRight);
 
