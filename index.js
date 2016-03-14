@@ -56,7 +56,7 @@ module.exports = postcss.plugin('postcss-structure', function (options) {
         }
     };
 
-    var createMediaQuerie = function (a, cssRoot) {
+    var createMediaQuerie = function (a) {
         var b, col, off, idx;
         var containerWidth = a * opts.width - opts.gutter + 2 * opts.padding;
         var totalWidth = a * opts.width - opts.gutter + 4 * opts.padding;
@@ -122,7 +122,7 @@ module.exports = postcss.plugin('postcss-structure', function (options) {
             }
         }
 
-        cssRoot.append(media);
+        r.append(media);
     };
 
     return function (css) {
@@ -215,7 +215,7 @@ module.exports = postcss.plugin('postcss-structure', function (options) {
             r.append(columns);
 
             for (var a = opts.min; a <= opts.max; a++) {
-                createMediaQuerie(opts, a, r);
+                createMediaQuerie(a);
             }
 
             rule.replaceWith(r);
