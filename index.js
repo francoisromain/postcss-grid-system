@@ -10,7 +10,7 @@ module.exports = postcss.plugin('postcss-structure', function (options) {
         min: 2,
         thumb: 3,
         align: 'center',
-        type: 'float'
+        display: 'flex'
     };
     var r = postcss.root();
 
@@ -75,25 +75,32 @@ module.exports = postcss.plugin('postcss-structure', function (options) {
         media.append(show);
 
         var floatRight = postcss.rule({ selector: '.right-' + a });
-        floatRight.append({ prop: 'float', value: 'right' });
+        if (opts.display === 'flex') {
+            floatRight.append({ prop: 'margin-left', value: 'auto' });
+        } else if (opts.display === 'float') {
+            floatRight.append({ prop: 'float', value: 'right' });
+        }
         media.append(floatRight);
 
-        var blocFloat = postcss.rule();
-        blocFloat.append({ prop: 'float', value: 'left' });
-        blocFloat.append({ prop: 'clear', value: 'none' });
-        for (col = a; col > 0; col--) {
-            blocFloat.selector = blocFloat.selector ?
-                blocFloat.selector + ', .bloc-' + a + '-' + col :
+
+        if (opts.display === 'float') {
+            var blocFloat = postcss.rule();
+            blocFloat.append({ prop: 'float', value: 'left' });
+            blocFloat.append({ prop: 'clear', value: 'none' });
+            for (col = a; col > 0; col--) {
+                blocFloat.selector = blocFloat.selector ?
+                    blocFloat.selector + ', .bloc-' + a + '-' + col :
                     '.bloc-' + a + '-' + col;
 
-            if (col > 1 && col < opts.max) {
-                for (off = 1; off <= opts.max - col; off++) {
-                    blocFloat.selector = blocFloat.selector +
-                        ', .bloc-' + a + '-' + col + '-' + off;
+                if (col > 1 && col < opts.max) {
+                    for (off = 1; off <= opts.max - col; off++) {
+                        blocFloat.selector = blocFloat.selector +
+                            ', .bloc-' + a + '-' + col + '-' + off;
+                    }
                 }
             }
+            media.append(blocFloat);
         }
-        media.append(blocFloat);
 
         var blocWidth = {},
             columnCount = {},
@@ -101,10 +108,17 @@ module.exports = postcss.plugin('postcss-structure', function (options) {
         for (idx = 1; idx <= a; idx++) {
             blocWidth[idx] = postcss.rule();
             blocWidthValue = opts.width * idx - opts.gutter;
-            blocWidth[idx].append({
-                prop: 'width',
-                value: blocWidthValue + 'rem'
-            });
+            if (opts.display === 'flex') {
+                blocWidth[idx].append({
+                    prop: 'flex',
+                    value: '0 1 ' + blocWidthValue + 'rem'
+                });
+            } else if (opts.display === 'float') {
+                blocWidth[idx].append({
+                    prop: 'width',
+                    value: blocWidthValue + 'rem'
+                });
+            }
             columnCount[idx] = postcss.rule();
             columnCount[idx].append({
                 prop: 'column-count',
@@ -127,13 +141,11 @@ module.exports = postcss.plugin('postcss-structure', function (options) {
 
     return function (css) {
         css.walkAtRules('structure', function (rule) {
-            var thumbQty = 1;
-
             rule.each(function (decl) {
                 if (decl.prop in opts) {
-                    opts[decl.prop] = parseFloat(decl.value) ?
-                        parseFloat(decl.value) :
-                        decl.value;
+                    opts[decl.prop] = Number(decl.value) ?
+                        Number(decl.value) :
+                        decl.value.substring(1, decl.value.length - 1);
                 }
             });
 
@@ -146,8 +158,10 @@ module.exports = postcss.plugin('postcss-structure', function (options) {
                 prop: 'padding-right',
                 value: opts.padding + 'rem'
             });
-            container.append({ prop: 'margin-left', value: 'auto' });
-            container.append({ prop: 'margin-right', value: 'auto' });
+            if (opts.align === 'center') {
+                container.append({ prop: 'margin-left', value: 'auto' });
+                container.append({ prop: 'margin-right', value: 'auto' });
+            }
             r.append(container);
 
             var grid = postcss.rule({ selector: '.grid' });
@@ -156,6 +170,12 @@ module.exports = postcss.plugin('postcss-structure', function (options) {
                 prop: 'margin-right',
                 value: '-' + opts.gutter + 'rem'
             });
+            if (opts.display === 'flex') {
+                grid.append({ prop: 'display', value: 'flex' });
+                grid.append({ prop: 'flex-flow', value: 'row wrap' });
+                grid.append({ prop: 'align-items', value: 'flex-start' });
+                grid.append({ prop: 'align-content', value: 'flex-start' });
+            }
             r.append(grid);
 
             var gridAfter = postcss.rule({ selector: '.grid:after' });
@@ -167,47 +187,91 @@ module.exports = postcss.plugin('postcss-structure', function (options) {
             var bloc = postcss.rule({ selector: '.bloc' });
             bloc.append({ prop: 'margin-right', value: opts.gutter + 'rem' });
             bloc.append({ prop: 'margin-bottom', value: opts.gutter + 'rem' });
-            bloc.append({ prop: 'clear', value: 'both' });
+            if (opts.display === 'flex') {
+                bloc.append({ prop: 'flex', value: '0 1 100%' });
+            } else if (opts.display === 'float') {
+                bloc.append({ prop: 'clear', value: 'both' });
+            }
             r.append(bloc);
 
             var blocLeft = postcss.rule({ selector: '.bloc-left' });
-            blocLeft.append({ prop: 'float', value: 'left' });
-            blocLeft.append({ prop: 'clear', value: 'none' });
+            if (opts.display === 'flex') {
+                blocLeft.append({ prop: 'flex', value: '0 1 auto' });
+            } else if (opts.display === 'float') {
+                blocLeft.append({ prop: 'float', value: 'left' });
+                blocLeft.append({ prop: 'clear', value: 'none' });
+                blocLeft.selector +=
+                    ', .bloc-one-half, .bloc-one-third' +
+                    ', .bloc-two-third, .bloc-thumb';
+            }
             r.append(blocLeft);
 
-            blocLeft.selector +=
-            ', .bloc-1/2, .bloc-1/3, .bloc-2/3, .bloc-thumb';
-
-            var blocOneHalf = postcss.rule({ selector: '.bloc-1/2' });
+            var blocOneHalf = postcss.rule({ selector: '.bloc-one-half' });
             var blocOneHalfValue = opts.width / 2 - opts.gutter;
-            blocOneHalf.append({
-                prop: 'width',
-                value: blocOneHalfValue + 'rem'
-            });
+            if (opts.display === 'flex') {
+                blocOneHalf.append({
+                    prop: 'flex',
+                    value: '0 1 ' + blocOneHalfValue + 'rem'
+                });
+            } else if (opts.display === 'float') {
+                blocOneHalf.append({
+                    prop: 'width',
+                    value: blocOneHalfValue + 'rem'
+                });
+            }
             r.append(blocOneHalf);
 
-            var blocOneThird = postcss.rule({ selector: '.bloc-1/3' });
+            var blocOneThird = postcss.rule({ selector: '.bloc-one-third' });
             var blocOneThirdValue = opts.width / 3 - opts.gutter;
-            blocOneThird.append({
-                prop: 'width',
-                value: blocOneThirdValue + 'rem'
-            });
+            if (opts.display === 'flex') {
+                blocOneThird.append({
+                    prop: 'flex',
+                    value: '0 1 ' + blocOneThirdValue + 'rem'
+                });
+            } else if (opts.display === 'float') {
+                blocOneThird.append({
+                    prop: 'width',
+                    value: blocOneHalfValue + 'rem'
+                });
+            }
             r.append(blocOneThird);
 
-            var blocTwoThird = postcss.rule({ selector: '.bloc-2/3' });
+            var blocTwoThird = postcss.rule({ selector: '.bloc-two-third' });
             var blocTwoThirdValue = opts.width * 2 / 3 - opts.gutter;
-            blocTwoThird.append({
-                prop: 'width',
-                value: blocTwoThirdValue + 'rem'
-            });
+            if (opts.display === 'flex') {
+                blocTwoThird.append({
+                    prop: 'flex',
+                    value: '0 1 ' + blocTwoThirdValue + 'rem'
+                });
+            } else if (opts.display === 'float') {
+                blocTwoThird.append({
+                    prop: 'width',
+                    value: blocTwoThirdValue + 'rem'
+                });
+            }
             r.append(blocTwoThird);
 
+            var thumbQty = 1;
             var blocThumb = postcss.rule({ selector: '.bloc-thumb' });
-            while (opts.width / thumbQty - opts.gutter > opts.width) {
+            blocThumb.append({
+                prop: 'text-align',
+                value: 'center'
+            });
+            while (opts.width / thumbQty - opts.gutter > opts.thumb) {
                 thumbQty++;
             }
             var blocThumbValue = opts.width / (thumbQty - 1) - opts.gutter;
-            blocThumb.append({ prop: 'width', value: blocThumbValue + 'rem' });
+            if (opts.display === 'flex') {
+                blocThumb.append({
+                    prop: 'flex',
+                    value: '0 1 ' + blocThumbValue + 'rem'
+                });
+            } else if (opts.display === 'float') {
+                blocThumb.append({
+                    prop: 'width',
+                    value: blocThumbValue + 'rem'
+                });
+            }
             r.append(blocThumb);
 
             var columns = postcss.rule({ selector: '.columns' });
@@ -224,7 +288,8 @@ module.exports = postcss.plugin('postcss-structure', function (options) {
 });
 
 /*
-size:    bloc
+size
+-------------------------------
 xxs:     1
 xs:      2
 s:       3
@@ -241,23 +306,23 @@ xxxl:    8
 -------------------------------
 width       1              2                3                4             5
 -----------------------------------------------------------------------------
-bloc = 1
-   xxs      1 to 7 /a      -                -                -             -
+a = 1
+b = 1       1 to 7 /a      -                -                -             -
 
-bloc = 2
-  xxs       (1)            2 to 7 /a        -                -             -
-  xs        1 /b           2 to 7 /a        -                -             -
+a = 2
+b = 1       (1)            2 to 7 /a        -                -             -
+b = 2       1 /b           2 to 7 /a        -                -             -
 
-bloc = 3
-  xxs       (1)            (2)              3 to 7 /a        -             -
-  xs        (1)            (2)              3 to 7 /a        -             -
-  s         1 /b           2 /b             3 to 7 /a        -             -
+a = 3
+b = 1       (1)            (2)              3 to 7 /a        -             -
+b = 2       (1)            (2)              3 to 7 /a        -             -
+b = 3       1 /b           2 /b             3 to 7 /a        -             -
 
-bloc = 4
- xxs        (1)            (2)              (3)              4 to 7 /a     -
- xs         (1)            (2)              (3)              4 to 7 /a     -
- s          (1)            (2)              (3)              4 to 7 /a     -
- m          1 /b           2 /b             3 /b             4 to 7 /a     -
+a = 4
+b = 1       (1)            (2)              (3)              4 to 7 /a     -
+b = 2       (1)            (2)              (3)              4 to 7 /a     -
+b = 3       (1)            (2)              (3)              4 to 7 /a     -
+b = 4       1 /b           2 /b             3 /b             4 to 7 /a     -
 
 etc.
 */
@@ -267,21 +332,21 @@ etc.
 ------------------------------
 width       1              2                3                4             5
 -----------------------------------------------------------------------------
-bloc = 1
+a = 1
             2-1 > 2-6      -                -                -             -
             3-1 > 3-5      -                -                -             -
             4-1 > 4-4      -                -                -             -
             5-1 > 5-3      -                -                -             -
             etc.
 
-bloc = 2
+a = 2
             (2-1 > 2-6)    -                -                -             -
             (3-1 > 3-5)    -                -                -             -
             (4-1 > 4-4)    -                -                -             -
             (5-1 > 5-3)    -                -                -             -
             etc.
 
-bloc = 3
+a = 3
             (2-2 > 2-6)    2-1              -                -             -
             (3-2 > 3-5)    3-1              -                -             -
             (4-2 > 4-4)    4-1              -                -             -
@@ -289,7 +354,7 @@ bloc = 3
             (6-2)          6-1              -                -             -
             -              7-1              -                -             -
 
-bloc = 4
+a = 4
             (2-3 > 2-6)    2-2 (2-1)        -                -             -
             (3-3 > 3-5)    3-2              3-1              -             -
             (4-3 > 4-4)    4-2              4-1              -             -
@@ -297,7 +362,7 @@ bloc = 4
             -              6-2              6-1              -             -
             -              -                7-1              -             -
 
-bloc = 5
+a = 5
             (2-4 > 2-6)    2-3 (2-1 > 2-2)  -                -             -
             (3-4 > 3-5)    3-3              3-2 (3-1)        -             -
             (4-4)          4-3              4-2              4-1           -
@@ -305,7 +370,7 @@ bloc = 5
             -              -                6-2              6-1           -
             -              -                -                7-1
 
-bloc = 6
+a = 6
             (2-5 > 2-6)    2-4 (2-1 > 2-3)  -                -             -
             (3-5)          3-4              3-3 (3-2 > 3-1)  -             -
             -              4-4              4-3              4-2 (4-1)     -
