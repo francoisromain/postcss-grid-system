@@ -14,50 +14,124 @@ module.exports = postcss.plugin('postcss-structure', function (options) {
     };
     var r = postcss.root();
 
-    var createGrid = function (a, b, blocWidth, columnCount) {
-        for (var col = 1; col <= b; col++) {
-            var i1 = false;
-            if (col >= a) {
-                i1 = a;
-            } else if (a === b) {
-                i1 = col;
-            }
-            if (i1) {
-                blocWidth[i1].selector = blocWidth[i1].selector ?
-                    blocWidth[i1].selector + ', .bloc-' + b + '-' + col :
-                    '.bloc-' + b + '-' + col;
-                columnCount[i1].selector = columnCount[i1].selector ?
-                    columnCount[i1].selector + ', .columns-' + b + '-' + col :
-                    '.columns-' + b + '-' + col;
-            }
+    var createBlocs = function (a, b, media) {
 
-            if (col > 1 && col < opts.max) {
-                for (var off = 1; off <= opts.max - col; off++) {
-                    var i2 = false;
-                    if (col + off <= a && a === b) {
-                        i2 = col;
-                    } else if (col + off >= a && a - off >= 1) {
-                        i2 = a - off;
-                    } else if (a === b) {
-                        i2 = 1;
-                    }
-                    if (i2) {
-                        blocWidth[i2].selector = blocWidth[i2].selector ?
-                            blocWidth[i2].selector +
-                            ', .bloc-' + b + '-' + col + '-' + off :
-                            '.bloc-' + b + '-' + col + '-' + off;
-                        columnCount[i2].selector = columnCount[i2].selector ?
-                            columnCount[i2].selector +
-                            ', .columns-' + b + '-' + col + '-' + off :
-                            '.columns-' + b + '-' + col + '-' + off;
+        var blocWidth = {},
+            blocWidthValue, idx;
+        for (idx = 1; idx <= a; idx++) {
+            blocWidth[idx] = postcss.rule();
+            blocWidthValue = opts.width * idx - opts.gutter;
+            if (opts.display === 'flex') {
+                blocWidth[idx].append({
+                    prop: 'flex',
+                    value: '0 1 ' + blocWidthValue + 'rem'
+                });
+            } else if (opts.display === 'float') {
+                blocWidth[idx].append({
+                    prop: 'width',
+                    value: blocWidthValue + 'rem'
+                });
+            }
+        }
+
+        for (b = 1; b <= a; b++) {
+            for (var col = 1; col <= b; col++) {
+                var i1 = false;
+                if (col >= a) {
+                    i1 = a;
+                } else if (a === b) {
+                    i1 = col;
+                }
+                if (i1) {
+                    blocWidth[i1].selector = blocWidth[i1].selector ?
+                        blocWidth[i1].selector + ', .bloc-' + b + '-' + col :
+                        '.bloc-' + b + '-' + col;
+                }
+
+                if (col > 1 && col < opts.max) {
+                    for (var off = 1; off <= opts.max - col; off++) {
+                        var i2 = false;
+                        if (col + off <= a && a === b) {
+                            i2 = col;
+                        } else if (col + off >= a && a - off >= 1) {
+                            i2 = a - off;
+                        } else if (a === b) {
+                            i2 = 1;
+                        }
+                        if (i2) {
+                            blocWidth[i2].selector = blocWidth[i2].selector ?
+                                blocWidth[i2].selector +
+                                ', .bloc-' + b + '-' + col + '-' + off :
+                                '.bloc-' + b + '-' + col + '-' + off;
+                        }
                     }
                 }
+            }
+        }
+        for (idx = 1; idx <= a; idx++) {
+            if (blocWidth[idx].selector) {
+                media.append(blocWidth[idx]);
+            }
+        }
+    };
+
+    var createColumns = function (a, b, media) {
+
+        var columnCount = {},
+            idx;
+        for (idx = 1; idx <= a; idx++) {
+            columnCount[idx] = postcss.rule();
+            columnCount[idx].append({
+                prop: 'column-count',
+                value: idx.toString()
+            });
+        }
+
+        for (b = 1; b <= a; b++) {
+            for (var col = 1; col <= opts.max; col++) {
+                var i1 = false;
+                if (col >= a) {
+                    i1 = a;
+                } else if (a === b) {
+                    i1 = col;
+                }
+                if (i1) {
+                    columnCount[i1].selector = columnCount[i1].selector ?
+                        columnCount[i1].selector +
+                        ', .columns-' + b + '-' + col :
+                        '.columns-' + b + '-' + col;
+                }
+
+                if (col > 1 && col < opts.max) {
+                    for (var off = 1; off <= opts.max - col; off++) {
+                        var i2 = false;
+                        if (col + off <= a && a === b) {
+                            i2 = col;
+                        } else if (col + off >= a && a - off >= 1) {
+                            i2 = a - off;
+                        } else if (a === b) {
+                            i2 = 1;
+                        }
+                        if (i2) {
+                            columnCount[i2].selector =
+                                columnCount[i2].selector ?
+                                columnCount[i2].selector +
+                                ', .columns-' + b + '-' + col + '-' + off :
+                                '.columns-' + b + '-' + col + '-' + off;
+                        }
+                    }
+                }
+            }
+        }
+        for (idx = 1; idx <= a; idx++) {
+            if (columnCount[idx].selector) {
+                media.append(columnCount[idx]);
             }
         }
     };
 
     var createMediaQuerie = function (a) {
-        var b, col, off, idx;
+        var b, col, off;
         var containerWidth = a * opts.width - opts.gutter + 2 * opts.padding;
         var totalWidth = a * opts.width - opts.gutter + 4 * opts.padding;
         var media = postcss.atRule({
@@ -102,39 +176,8 @@ module.exports = postcss.plugin('postcss-structure', function (options) {
             media.append(blocFloat);
         }
 
-        var blocWidth = {},
-            columnCount = {},
-            blocWidthValue;
-        for (idx = 1; idx <= a; idx++) {
-            blocWidth[idx] = postcss.rule();
-            blocWidthValue = opts.width * idx - opts.gutter;
-            if (opts.display === 'flex') {
-                blocWidth[idx].append({
-                    prop: 'flex',
-                    value: '0 1 ' + blocWidthValue + 'rem'
-                });
-            } else if (opts.display === 'float') {
-                blocWidth[idx].append({
-                    prop: 'width',
-                    value: blocWidthValue + 'rem'
-                });
-            }
-            columnCount[idx] = postcss.rule();
-            columnCount[idx].append({
-                prop: 'column-count',
-                value: idx.toString()
-            });
-        }
-
-        for (b = 1; b <= a; b++) {
-            createGrid(a, b, blocWidth, columnCount);
-        }
-        for (idx = 1; idx <= a; idx++) {
-            if (blocWidth[idx].selector) {
-                media.append(blocWidth[idx]);
-                media.append(columnCount[idx]);
-            }
-        }
+        createColumns(a, b, media);
+        createBlocs(a, b, media);
 
         r.append(media);
     };
