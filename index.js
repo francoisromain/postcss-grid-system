@@ -24,11 +24,11 @@ module.exports = postcss.plugin('postcss-structure', function (options) {
             }
             if (i1) {
                 blocWidth[i1].selector = blocWidth[i1].selector ?
-                blocWidth[i1].selector + ', .bloc-' + b + '-' + col :
-                '.bloc-' + b + '-' + col;
+                    blocWidth[i1].selector + ', .bloc-' + b + '-' + col :
+                    '.bloc-' + b + '-' + col;
                 columnCount[i1].selector = columnCount[i1].selector ?
-                columnCount[i1].selector + ', .columns-' + b + '-' + col :
-                '.columns-' + b + '-' + col;
+                    columnCount[i1].selector + ', .columns-' + b + '-' + col :
+                    '.columns-' + b + '-' + col;
             }
 
             if (col > 1 && col < opts.max) {
@@ -43,13 +43,13 @@ module.exports = postcss.plugin('postcss-structure', function (options) {
                     }
                     if (i2) {
                         blocWidth[i2].selector = blocWidth[i2].selector ?
-                        blocWidth[i2].selector +
-                        ', .bloc-' + b + '-' + col + '-' + off :
-                        '.bloc-' + b + '-' + col + '-' + off;
+                            blocWidth[i2].selector +
+                            ', .bloc-' + b + '-' + col + '-' + off :
+                            '.bloc-' + b + '-' + col + '-' + off;
                         columnCount[i2].selector = columnCount[i2].selector ?
-                        columnCount[i2].selector +
-                        ', .columns-' + b + '-' + col + '-' + off :
-                        '.columns-' + b + '-' + col + '-' + off;
+                            columnCount[i2].selector +
+                            ', .columns-' + b + '-' + col + '-' + off :
+                            '.columns-' + b + '-' + col + '-' + off;
                     }
                 }
             }
@@ -84,7 +84,7 @@ module.exports = postcss.plugin('postcss-structure', function (options) {
         for (col = a; col > 0; col--) {
             blocFloat.selector = blocFloat.selector ?
                 blocFloat.selector + ', .bloc-' + a + '-' + col :
-                '.bloc-' + a + '-' + col;
+                    '.bloc-' + a + '-' + col;
 
             if (col > 1 && col < opts.max) {
                 for (off = 1; off <= opts.max - col; off++) {
