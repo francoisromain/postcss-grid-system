@@ -16,145 +16,130 @@ module.exports = postcss.plugin('postcss-structure', function (options) {
     };
     var r = postcss.root();
 
-    var makeStatic = function () {
-        var container = postcss.rule({ selector: '.container' });
-        container.append({
-            prop: 'padding-left',
-            value: opts.padding + 'rem'
+    var makeBlocs = function () {
+
+        var grid = postcss.rule({ selector: '.grid' });
+        grid.append({ prop: 'clear', value: 'both' });
+        grid.append({
+            prop: 'margin-right',
+            value: '-' + opts.gutter + 'rem'
         });
-        container.append({
-            prop: 'padding-right',
-            value: opts.padding + 'rem'
-        });
-        if (opts.align === 'center') {
-            container.append({ prop: 'margin-left', value: 'auto' });
-            container.append({ prop: 'margin-right', value: 'auto' });
+        if (opts.display === 'flex') {
+            grid.append({ prop: 'display', value: 'flex' });
+            grid.append({ prop: 'flex-flow', value: 'row wrap' });
+            grid.append({ prop: 'align-items', value: 'flex-start' });
+            grid.append({ prop: 'align-content', value: 'flex-start' });
         }
-        r.append(container);
+        r.append(grid);
 
-        if (opts.blocs) {
-            var grid = postcss.rule({ selector: '.grid' });
-            grid.append({ prop: 'clear', value: 'both' });
-            grid.append({
-                prop: 'margin-right',
-                value: '-' + opts.gutter + 'rem'
+        var gridAfter = postcss.rule({ selector: '.grid:after' });
+        gridAfter.append({ prop: 'content', value: '""' });
+        gridAfter.append({ prop: 'display', value: 'table' });
+        gridAfter.append({ prop: 'clear', value: 'both' });
+        r.append(gridAfter);
+
+        var bloc = postcss.rule({ selector: '.bloc' });
+        bloc.append({ prop: 'margin-right', value: opts.gutter + 'rem' });
+        bloc.append({ prop: 'margin-bottom', value: opts.gutter + 'rem' });
+        if (opts.display === 'flex') {
+            bloc.append({ prop: 'flex', value: '0 1 100%' });
+        } else if (opts.display === 'float') {
+            bloc.append({ prop: 'clear', value: 'both' });
+        }
+        r.append(bloc);
+
+        var blocLeft = postcss.rule({ selector: '.bloc-left' });
+        if (opts.display === 'flex') {
+            blocLeft.append({ prop: 'flex', value: '0 1 auto' });
+        } else if (opts.display === 'float') {
+            blocLeft.append({ prop: 'float', value: 'left' });
+            blocLeft.append({ prop: 'clear', value: 'none' });
+            blocLeft.selector +=
+                ', .bloc-one-half, .bloc-one-third' +
+                ', .bloc-two-third, .bloc-thumb';
+        }
+        r.append(blocLeft);
+
+        var blocOneHalf = postcss.rule({ selector: '.bloc-one-half' });
+        var blocOneHalfValue = opts.width / 2 - opts.gutter;
+        if (opts.display === 'flex') {
+            blocOneHalf.append({
+                prop: 'flex',
+                value: '0 1 ' + blocOneHalfValue + 'rem'
             });
-            if (opts.display === 'flex') {
-                grid.append({ prop: 'display', value: 'flex' });
-                grid.append({ prop: 'flex-flow', value: 'row wrap' });
-                grid.append({ prop: 'align-items', value: 'flex-start' });
-                grid.append({ prop: 'align-content', value: 'flex-start' });
-            }
-            r.append(grid);
+        } else if (opts.display === 'float') {
+            blocOneHalf.append({
+                prop: 'width',
+                value: blocOneHalfValue + 'rem'
+            });
+        }
+        r.append(blocOneHalf);
 
-            var gridAfter = postcss.rule({ selector: '.grid:after' });
-            gridAfter.append({ prop: 'content', value: '""' });
-            gridAfter.append({ prop: 'display', value: 'table' });
-            gridAfter.append({ prop: 'clear', value: 'both' });
-            r.append(gridAfter);
+        var blocOneThird = postcss.rule({ selector: '.bloc-one-third' });
+        var blocOneThirdValue = opts.width / 3 - opts.gutter;
+        if (opts.display === 'flex') {
+            blocOneThird.append({
+                prop: 'flex',
+                value: '0 1 ' + blocOneThirdValue + 'rem'
+            });
+        } else if (opts.display === 'float') {
+            blocOneThird.append({
+                prop: 'width',
+                value: blocOneHalfValue + 'rem'
+            });
+        }
+        r.append(blocOneThird);
 
-            var bloc = postcss.rule({ selector: '.bloc' });
-            bloc.append({ prop: 'margin-right', value: opts.gutter + 'rem' });
-            bloc.append({ prop: 'margin-bottom', value: opts.gutter + 'rem' });
-            if (opts.display === 'flex') {
-                bloc.append({ prop: 'flex', value: '0 1 100%' });
-            } else if (opts.display === 'float') {
-                bloc.append({ prop: 'clear', value: 'both' });
-            }
-            r.append(bloc);
+        var blocTwoThird = postcss.rule({ selector: '.bloc-two-third' });
+        var blocTwoThirdValue = opts.width * 2 / 3 - opts.gutter;
+        if (opts.display === 'flex') {
+            blocTwoThird.append({
+                prop: 'flex',
+                value: '0 1 ' + blocTwoThirdValue + 'rem'
+            });
+        } else if (opts.display === 'float') {
+            blocTwoThird.append({
+                prop: 'width',
+                value: blocTwoThirdValue + 'rem'
+            });
+        }
+        r.append(blocTwoThird);
 
-            var blocLeft = postcss.rule({ selector: '.bloc-left' });
-            if (opts.display === 'flex') {
-                blocLeft.append({ prop: 'flex', value: '0 1 auto' });
-            } else if (opts.display === 'float') {
-                blocLeft.append({ prop: 'float', value: 'left' });
-                blocLeft.append({ prop: 'clear', value: 'none' });
-                blocLeft.selector +=
-                    ', .bloc-one-half, .bloc-one-third' +
-                    ', .bloc-two-third, .bloc-thumb';
-            }
-            r.append(blocLeft);
-
-            var blocOneHalf = postcss.rule({ selector: '.bloc-one-half' });
-            var blocOneHalfValue = opts.width / 2 - opts.gutter;
-            if (opts.display === 'flex') {
-                blocOneHalf.append({
-                    prop: 'flex',
-                    value: '0 1 ' + blocOneHalfValue + 'rem'
-                });
-            } else if (opts.display === 'float') {
-                blocOneHalf.append({
-                    prop: 'width',
-                    value: blocOneHalfValue + 'rem'
-                });
-            }
-            r.append(blocOneHalf);
-
-            var blocOneThird = postcss.rule({ selector: '.bloc-one-third' });
-            var blocOneThirdValue = opts.width / 3 - opts.gutter;
-            if (opts.display === 'flex') {
-                blocOneThird.append({
-                    prop: 'flex',
-                    value: '0 1 ' + blocOneThirdValue + 'rem'
-                });
-            } else if (opts.display === 'float') {
-                blocOneThird.append({
-                    prop: 'width',
-                    value: blocOneHalfValue + 'rem'
-                });
-            }
-            r.append(blocOneThird);
-
-            var blocTwoThird = postcss.rule({ selector: '.bloc-two-third' });
-            var blocTwoThirdValue = opts.width * 2 / 3 - opts.gutter;
-            if (opts.display === 'flex') {
-                blocTwoThird.append({
-                    prop: 'flex',
-                    value: '0 1 ' + blocTwoThirdValue + 'rem'
-                });
-            } else if (opts.display === 'float') {
-                blocTwoThird.append({
-                    prop: 'width',
-                    value: blocTwoThirdValue + 'rem'
-                });
-            }
-            r.append(blocTwoThird);
-
-            var thumbQty = 1;
-            var blocThumb = postcss.rule({ selector: '.bloc-thumb' });
+        var thumbQty = 1;
+        var blocThumb = postcss.rule({ selector: '.bloc-thumb' });
+        blocThumb.append({
+            prop: 'text-align',
+            value: 'center'
+        });
+        while (opts.width / thumbQty - opts.gutter > opts.thumb) {
+            thumbQty++;
+        }
+        var blocThumbValue = opts.width / (thumbQty - 1) - opts.gutter;
+        if (opts.display === 'flex') {
             blocThumb.append({
-                prop: 'text-align',
-                value: 'center'
+                prop: 'flex',
+                value: '0 1 ' + blocThumbValue + 'rem'
             });
-            while (opts.width / thumbQty - opts.gutter > opts.thumb) {
-                thumbQty++;
-            }
-            var blocThumbValue = opts.width / (thumbQty - 1) - opts.gutter;
-            if (opts.display === 'flex') {
-                blocThumb.append({
-                    prop: 'flex',
-                    value: '0 1 ' + blocThumbValue + 'rem'
-                });
-            } else if (opts.display === 'float') {
-                blocThumb.append({
-                    prop: 'width',
-                    value: blocThumbValue + 'rem'
-                });
-            }
-            r.append(blocThumb);
+        } else if (opts.display === 'float') {
+            blocThumb.append({
+                prop: 'width',
+                value: blocThumbValue + 'rem'
+            });
         }
-
-        if (opts.columns) {
-            var columns = postcss.rule({ selector: '.columns' });
-            columns.append({ prop: 'column-gap', value: opts.gutter + 'rem' });
-            r.append(columns);
-        }
+        r.append(blocThumb);
     };
 
-    var makeBlocs = function (a, b, media) {
+    var makeColumns = function () {
+        var columns = postcss.rule({ selector: '.columns' });
+        columns.append({ prop: 'column-gap', value: opts.gutter + 'rem' });
+        r.append(columns);
+    };
+
+    var makeBlocsQuery = function (a, media) {
 
         var blocWidth = {},
             blocWidthValue, idx;
+
         for (idx = 1; idx <= a; idx++) {
             blocWidth[idx] = postcss.rule();
             blocWidthValue = opts.width * idx - opts.gutter;
@@ -171,7 +156,7 @@ module.exports = postcss.plugin('postcss-structure', function (options) {
             }
         }
 
-        for (b = 1; b <= a; b++) {
+        for (var b = 1; b <= a; b++) {
             for (var col = 1; col <= b; col++) {
                 var i1 = false;
                 if (col >= a) {
@@ -212,10 +197,45 @@ module.exports = postcss.plugin('postcss-structure', function (options) {
         }
     };
 
-    var makeColumns = function (a, b, media) {
+    var makeBlocsFloatQuery = function (a, media) {
+        var show = postcss.rule({ selector: '.show-' + a });
+        show.append({ prop: 'display', value: 'block !important' });
+        show.append({ prop: 'visibility', value: 'visible !important' });
+        media.append(show);
+
+        var floatRight = postcss.rule({ selector: '.right-' + a });
+        if (opts.display === 'flex') {
+            floatRight.append({ prop: 'margin-left', value: 'auto' });
+        } else if (opts.display === 'float') {
+            floatRight.append({ prop: 'float', value: 'right' });
+        }
+        media.append(floatRight);
+
+        if (opts.display === 'float') {
+            var blocFloat = postcss.rule();
+            blocFloat.append({ prop: 'float', value: 'left' });
+            blocFloat.append({ prop: 'clear', value: 'none' });
+            for (var coll = a; coll > 0; coll--) {
+                blocFloat.selector = blocFloat.selector ?
+                    blocFloat.selector + ', .bloc-' + a + '-' + coll :
+                    '.bloc-' + a + '-' + coll;
+
+                if (coll > 1 && coll < opts.max) {
+                    for (var offf = 1; offf <= opts.max - coll; offf++) {
+                        blocFloat.selector = blocFloat.selector +
+                            ', .bloc-' + a + '-' + coll + '-' + offf;
+                    }
+                }
+            }
+            media.append(blocFloat);
+        }
+    };
+
+    var makeColumnsQuery = function (a, media) {
 
         var columnCount = {},
             idx;
+
         for (idx = 1; idx <= a; idx++) {
             columnCount[idx] = postcss.rule();
             columnCount[idx].append({
@@ -224,7 +244,7 @@ module.exports = postcss.plugin('postcss-structure', function (options) {
             });
         }
 
-        for (b = 1; b <= a; b++) {
+        for (var b = 1; b <= a; b++) {
             for (var col = 1; col <= opts.max; col++) {
                 var i1 = false;
                 if (col >= a) {
@@ -267,62 +287,6 @@ module.exports = postcss.plugin('postcss-structure', function (options) {
         }
     };
 
-    var makeMediaQuerie = function (a) {
-        var b, col, off;
-        var containerWidth = a * opts.width - opts.gutter + 2 * opts.padding;
-        var totalWidth = a * opts.width - opts.gutter + 4 * opts.padding;
-        var media = postcss.atRule({
-            name: 'media',
-            params: '(width > ' + totalWidth + 'rem)'
-        });
-
-        var container = postcss.rule({ selector: '.container' });
-        container.append({ prop: 'width', value: containerWidth + 'rem' });
-        media.append(container);
-
-        if (opts.blocs) {
-            var show = postcss.rule({ selector: '.show-' + a });
-            show.append({ prop: 'display', value: 'block !important' });
-            show.append({ prop: 'visibility', value: 'visible !important' });
-            media.append(show);
-
-            var floatRight = postcss.rule({ selector: '.right-' + a });
-            if (opts.display === 'flex') {
-                floatRight.append({ prop: 'margin-left', value: 'auto' });
-            } else if (opts.display === 'float') {
-                floatRight.append({ prop: 'float', value: 'right' });
-            }
-            media.append(floatRight);
-
-
-            if (opts.display === 'float') {
-                var blocFloat = postcss.rule();
-                blocFloat.append({ prop: 'float', value: 'left' });
-                blocFloat.append({ prop: 'clear', value: 'none' });
-                for (col = a; col > 0; col--) {
-                    blocFloat.selector = blocFloat.selector ?
-                        blocFloat.selector + ', .bloc-' + a + '-' + col :
-                        '.bloc-' + a + '-' + col;
-
-                    if (col > 1 && col < opts.max) {
-                        for (off = 1; off <= opts.max - col; off++) {
-                            blocFloat.selector = blocFloat.selector +
-                                ', .bloc-' + a + '-' + col + '-' + off;
-                        }
-                    }
-                }
-                media.append(blocFloat);
-            }
-            makeBlocs(a, b, media);
-        }
-
-        if (opts.columns) {
-            makeColumns(a, b, media);
-        }
-
-        r.append(media);
-    };
-
     return function (css) {
         css.walkAtRules('structure', function (rule) {
             rule.each(function (decl) {
@@ -333,10 +297,56 @@ module.exports = postcss.plugin('postcss-structure', function (options) {
                 }
             });
 
-            makeStatic();
+            var container = postcss.rule({ selector: '.container' });
+            container.append({
+                prop: 'padding-left',
+                value: opts.padding + 'rem'
+            });
+            container.append({
+                prop: 'padding-right',
+                value: opts.padding + 'rem'
+            });
+            if (opts.align === 'center') {
+                container.append({ prop: 'margin-left', value: 'auto' });
+                container.append({ prop: 'margin-right', value: 'auto' });
+            }
+            r.append(container);
+
+            if (opts.blocs) {
+                makeBlocs();
+            }
+
+            if (opts.columns) {
+                makeColumns();
+            }
 
             for (var a = opts.min; a <= opts.max; a++) {
-                makeMediaQuerie(a);
+                var containerWidth = a * opts.width - opts.gutter +
+                    2 * opts.padding;
+                var totalWidth = a * opts.width - opts.gutter +
+                    4 * opts.padding;
+                var mediaQuery = postcss.atRule({
+                    name: 'media',
+                    params: '(width > ' + totalWidth + 'rem)'
+                });
+
+                var containerQuery = postcss.rule({ selector: '.container' });
+                containerQuery.append({
+                    prop: 'width',
+                    value: containerWidth + 'rem'
+                });
+                mediaQuery.append(containerQuery);
+
+                if (opts.blocs) {
+                    makeBlocsFloatQuery(a, mediaQuery);
+                    makeBlocsQuery(a, mediaQuery);
+                }
+
+                if (opts.columns) {
+                    makeColumnsQuery(a, mediaQuery);
+                }
+
+                r.append(mediaQuery);
             }
 
             rule.replaceWith(r);
