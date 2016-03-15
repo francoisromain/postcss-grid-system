@@ -10,14 +10,14 @@ PostCSS Structure creates a grid based on the width of a "bloc". This bloc has t
 
 ```css
 @structure {
-  width:    18;     
-  gutter:   1.5;   
-  padding:  1.5;  
-  max:      2;        
-  min:      8;        
-  thumb:    3;         
-  display:  flex;
-  align:    center;    
+  width: 18,
+  gutter: 1.5,
+  padding: 1.5,
+  max: 8,
+  min: 2,
+  thumb: 3,
+  align: 'center',
+  display: 'flex'   
 }
 ```
 
