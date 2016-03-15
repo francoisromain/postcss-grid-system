@@ -198,18 +198,6 @@ module.exports = postcss.plugin('postcss-structure', function (options) {
     };
 
     var makeBlocsFloatQuery = function (a, media) {
-        var show = postcss.rule({ selector: '.show-' + a });
-        show.append({ prop: 'display', value: 'block !important' });
-        show.append({ prop: 'visibility', value: 'visible !important' });
-        media.append(show);
-
-        var floatRight = postcss.rule({ selector: '.right-' + a });
-        if (opts.display === 'flex') {
-            floatRight.append({ prop: 'margin-left', value: 'auto' });
-        } else if (opts.display === 'float') {
-            floatRight.append({ prop: 'float', value: 'right' });
-        }
-        media.append(floatRight);
 
         if (opts.display === 'float') {
             var blocFloat = postcss.rule();
@@ -229,6 +217,19 @@ module.exports = postcss.plugin('postcss-structure', function (options) {
             }
             media.append(blocFloat);
         }
+
+        var show = postcss.rule({ selector: '.show-' + a });
+        show.append({ prop: 'display', value: 'block !important' });
+        show.append({ prop: 'visibility', value: 'visible !important' });
+        media.append(show);
+
+        var floatRight = postcss.rule({ selector: '.right-' + a });
+        if (opts.display === 'flex') {
+            floatRight.append({ prop: 'margin-left', value: 'auto' });
+        } else if (opts.display === 'float') {
+            floatRight.append({ prop: 'float', value: 'right' });
+        }
+        media.append(floatRight);
     };
 
     var makeColumnsQuery = function (a, media) {
