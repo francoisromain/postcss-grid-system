@@ -18,25 +18,25 @@ module.exports = postcss.plugin('postcss-structure', function (options) {
 
     var makeBlocs = function () {
 
-        var grid = postcss.rule({ selector: '.grid' });
-        grid.append({ prop: 'clear', value: 'both' });
-        grid.append({
+        var row = postcss.rule({ selector: '.row' });
+        row.append({ prop: 'clear', value: 'both' });
+        row.append({
             prop: 'margin-right',
             value: '-' + opts.gutter + 'rem'
         });
         if (opts.display === 'flex') {
-            grid.append({ prop: 'display', value: 'flex' });
-            grid.append({ prop: 'flex-flow', value: 'row wrap' });
-            grid.append({ prop: 'align-items', value: 'flex-start' });
-            grid.append({ prop: 'align-content', value: 'flex-start' });
+            row.append({ prop: 'display', value: 'flex' });
+            row.append({ prop: 'flex-flow', value: 'row wrap' });
+            row.append({ prop: 'align-items', value: 'flex-start' });
+            row.append({ prop: 'align-content', value: 'flex-start' });
         }
-        r.append(grid);
+        r.append(row);
 
-        var gridAfter = postcss.rule({ selector: '.grid:after' });
-        gridAfter.append({ prop: 'content', value: '""' });
-        gridAfter.append({ prop: 'display', value: 'table' });
-        gridAfter.append({ prop: 'clear', value: 'both' });
-        r.append(gridAfter);
+        var rowAfter = postcss.rule({ selector: '.row:after' });
+        rowAfter.append({ prop: 'content', value: '""' });
+        rowAfter.append({ prop: 'display', value: 'table' });
+        rowAfter.append({ prop: 'clear', value: 'both' });
+        r.append(rowAfter);
 
         var bloc = postcss.rule({ selector: '.bloc' });
         bloc.append({ prop: 'margin-right', value: opts.gutter + 'rem' });
