@@ -1,7 +1,6 @@
 var postcss = require('postcss');
 var blocs = require('./lib/blocs.js');
 var blocsSub = require('./lib/blocs-sub.js');
-var blocsSubPad = require('./lib/blocs-sub-pad.js');
 var columns = require('./lib/columns.js');
 var blocsQuery = require('./lib/blocs-query.js');
 var blocsFloatQuery = require('./lib/blocs-float-query.js');
@@ -12,8 +11,7 @@ module.exports = postcss.plugin('postcss-structure', function (options) {
     var opts = {
         width: 18,
         gutter: 1.5,
-        padding: 1,
-        margin: 1.5,
+        padding: 1.5,
         max: 8,
         min: 2,
         thumb: 3,
@@ -37,11 +35,11 @@ module.exports = postcss.plugin('postcss-structure', function (options) {
             var container = postcss.rule({ selector: '.container' });
             container.append({
                 prop: 'padding-left',
-                value: opts.margin + 'rem'
+                value: opts.padding + 'rem'
             });
             container.append({
                 prop: 'padding-right',
-                value: opts.margin + 'rem'
+                value: opts.padding + 'rem'
             });
             if (opts.align === 'center') {
                 container.append({ prop: 'margin-left', value: 'auto' });
@@ -52,7 +50,6 @@ module.exports = postcss.plugin('postcss-structure', function (options) {
             if (opts.blocs) {
                 blocs(opts, rootCss);
                 blocsSub(opts, rootCss);
-                blocsSubPad(opts, rootCss);
             }
 
             if (opts.columns) {
@@ -62,7 +59,7 @@ module.exports = postcss.plugin('postcss-structure', function (options) {
             for (var breakPoint = opts.min; breakPoint <= opts.max;
                  breakPoint++) {
                 var queryWidth = breakPoint * opts.width - opts.gutter +
-                    4 * opts.margin;
+                    4 * opts.padding;
                 var mediaQuery = postcss.atRule({
                     name: 'media',
                     params: '(width > ' + queryWidth + 'rem)'
@@ -70,7 +67,7 @@ module.exports = postcss.plugin('postcss-structure', function (options) {
 
                 var containerQuery = postcss.rule({ selector: '.container' });
                 var containerWidth = breakPoint * opts.width - opts.gutter +
-                    2 * opts.margin;
+                    2 * opts.padding;
                 containerQuery.append({
                     prop: 'width',
                     value: containerWidth + 'rem'
