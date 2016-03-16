@@ -1,7 +1,7 @@
 var postcss = require('postcss');
 var blocs = require('./lib/blocs.js');
-var blocsUtils = require('./lib/blocs-utils.js');
-var blocsUtilsPad = require('./lib/blocs-utils-pad.js');
+var blocsSub = require('./lib/blocs-sub.js');
+var blocsSubPad = require('./lib/blocs-sub-pad.js');
 var columns = require('./lib/columns.js');
 var blocsQuery = require('./lib/blocs-query.js');
 var blocsFloatQuery = require('./lib/blocs-float-query.js');
@@ -51,16 +51,17 @@ module.exports = postcss.plugin('postcss-structure', function (options) {
 
             if (opts.blocs) {
                 blocs(opts, rootCss);
-                blocsUtils(opts, rootCss);
-                blocsUtilsPad(opts, rootCss);
+                blocsSub(opts, rootCss);
+                blocsSubPad(opts, rootCss);
             }
 
             if (opts.columns) {
                 columns(opts, rootCss);
             }
 
-            for (var breakpoint = opts.min; breakpoint <= opts.max; breakpoint++) {
-                var queryWidth = breakpoint * opts.width - opts.gutter +
+            for (var breakPoint = opts.min; breakPoint <= opts.max;
+                 breakPoint++) {
+                var queryWidth = breakPoint * opts.width - opts.gutter +
                     4 * opts.margin;
                 var mediaQuery = postcss.atRule({
                     name: 'media',
@@ -68,7 +69,7 @@ module.exports = postcss.plugin('postcss-structure', function (options) {
                 });
 
                 var containerQuery = postcss.rule({ selector: '.container' });
-                var containerWidth = breakpoint * opts.width - opts.gutter +
+                var containerWidth = breakPoint * opts.width - opts.gutter +
                     2 * opts.margin;
                 containerQuery.append({
                     prop: 'width',
@@ -77,12 +78,12 @@ module.exports = postcss.plugin('postcss-structure', function (options) {
                 mediaQuery.append(containerQuery);
 
                 if (opts.blocs) {
-                    blocsFloatQuery(opts, breakpoint, mediaQuery);
-                    blocsQuery(opts, breakpoint, mediaQuery);
+                    blocsFloatQuery(opts, breakPoint, mediaQuery);
+                    blocsQuery(opts, breakPoint, mediaQuery);
                 }
 
                 if (opts.columns) {
-                    columnsQuery(opts, breakpoint, mediaQuery);
+                    columnsQuery(opts, breakPoint, mediaQuery);
                 }
 
                 rootCss.append(mediaQuery);
@@ -94,21 +95,7 @@ module.exports = postcss.plugin('postcss-structure', function (options) {
 });
 
 /*
-breakpoint
--------------------------------
-xxs:     1
-xs:      2
-s:       3
-m:       4
-l:       5
-xl:      6
-xxl:     7
-xxxl:    8
-
-*/
-
-/*
-            bloc-col
+            bloc-size-col
 -------------------------------
 width       1              2                3                4             5
 -----------------------------------------------------------------------------
@@ -134,7 +121,7 @@ etc.
 */
 
 /*
-            bloc-col-off
+            bloc-size-col-off
 ------------------------------
 width       1              2                3                4             5
 -----------------------------------------------------------------------------
