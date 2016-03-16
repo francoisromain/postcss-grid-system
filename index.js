@@ -219,8 +219,8 @@ module.exports = postcss.plugin('postcss-structure', function (options) {
         }
 
         var show = postcss.rule({ selector: '.show-' + a });
-        show.append({ prop: 'display', value: 'block !important' });
-        show.append({ prop: 'visibility', value: 'visible !important' });
+        show.append({ prop: 'display', value: 'block' });
+        show.append({ prop: 'visibility', value: 'visible' });
         media.append(show);
 
         var floatRight = postcss.rule({ selector: '.right-' + a });
