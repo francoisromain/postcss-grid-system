@@ -157,7 +157,7 @@ module.exports = postcss.plugin('postcss-structure', function (options) {
         }
 
         for (var b = 1; b <= a; b++) {
-            for (var col = 1; col <= b; col++) {
+            for (var col = 1; col <= opts.max; col++) {
                 var i1 = false;
                 if (col >= a) {
                     i1 = a;
@@ -203,15 +203,15 @@ module.exports = postcss.plugin('postcss-structure', function (options) {
             var blocFloat = postcss.rule();
             blocFloat.append({ prop: 'float', value: 'left' });
             blocFloat.append({ prop: 'clear', value: 'none' });
-            for (var coll = a; coll > 0; coll--) {
+            for (var col = opts.max; col > 0; col--) {
                 blocFloat.selector = blocFloat.selector ?
-                    blocFloat.selector + ', .bloc-' + a + '-' + coll :
-                    '.bloc-' + a + '-' + coll;
+                    blocFloat.selector + ', .bloc-' + a + '-' + col :
+                    '.bloc-' + a + '-' + col;
 
-                if (coll > 1 && coll < opts.max) {
-                    for (var offf = 1; offf <= opts.max - coll; offf++) {
+                if (col > 1 && col < opts.max) {
+                    for (var off = 1; off <= opts.max - col; off++) {
                         blocFloat.selector = blocFloat.selector +
-                            ', .bloc-' + a + '-' + coll + '-' + offf;
+                            ', .bloc-' + a + '-' + col + '-' + off;
                     }
                 }
             }
