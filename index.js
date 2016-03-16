@@ -85,7 +85,7 @@ module.exports = postcss.plugin('postcss-structure', function (options) {
         } else if (opts.display === 'float') {
             blocOneThird.append({
                 prop: 'width',
-                value: blocOneHalfValue + 'rem'
+                value: blocOneThirdValue + 'rem'
             });
         }
         r.append(blocOneThird);
