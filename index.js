@@ -1,10 +1,5 @@
 var postcss = require('postcss');
-var blocs = require('./lib/blocs.js');
-var blocsSub = require('./lib/blocs-sub.js');
-var columns = require('./lib/columns.js');
-var blocsQuery = require('./lib/blocs-query.js');
-var blocsFloatQuery = require('./lib/blocs-float-query.js');
-var columnsQuery = require('./lib/columns-query.js');
+var structure = require('./lib/structure.js');
 
 module.exports = postcss.plugin('postcss-structure', function (options) {
     options = options || {};
@@ -32,59 +27,7 @@ module.exports = postcss.plugin('postcss-structure', function (options) {
                 }
             });
 
-            var container = postcss.rule({ selector: '.container' });
-            container.append({
-                prop: 'padding-left',
-                value: opts.padding + 'rem'
-            });
-            container.append({
-                prop: 'padding-right',
-                value: opts.padding + 'rem'
-            });
-            if (opts.align === 'center') {
-                container.append({ prop: 'margin-left', value: 'auto' });
-                container.append({ prop: 'margin-right', value: 'auto' });
-            }
-            rootCss.append(container);
-
-            if (opts.blocs) {
-                blocs(opts, rootCss);
-                blocsSub(opts, rootCss);
-            }
-
-            if (opts.columns) {
-                columns(opts, rootCss);
-            }
-
-            for (var breakPoint = opts.min; breakPoint <= opts.max;
-                 breakPoint++) {
-                var queryWidth = breakPoint * opts.width - opts.gutter +
-                    4 * opts.padding;
-                var mediaQuery = postcss.atRule({
-                    name: 'media',
-                    params: '(width > ' + queryWidth + 'rem)'
-                });
-
-                var containerQuery = postcss.rule({ selector: '.container' });
-                var containerWidth = breakPoint * opts.width - opts.gutter +
-                    2 * opts.padding;
-                containerQuery.append({
-                    prop: 'width',
-                    value: containerWidth + 'rem'
-                });
-                mediaQuery.append(containerQuery);
-
-                if (opts.blocs) {
-                    blocsFloatQuery(opts, breakPoint, mediaQuery);
-                    blocsQuery(opts, breakPoint, mediaQuery);
-                }
-
-                if (opts.columns) {
-                    columnsQuery(opts, breakPoint, mediaQuery);
-                }
-
-                rootCss.append(mediaQuery);
-            }
+            structure(opts, rootCss);
 
             rule.replaceWith(rootCss);
         });
@@ -96,23 +39,24 @@ module.exports = postcss.plugin('postcss-structure', function (options) {
 -------------------------------
 width       1              2                3                4             5
 -----------------------------------------------------------------------------
+
 a = 1
-b = 1       1 to 7 /a      -                -                -             -
+b = 1       1 to 7         -                -                -             -
 
 a = 2
-b = 1       (1)            2 to 7 /a        -                -             -
-b = 2       1 /b           2 to 7 /a        -                -             -
+b = 1       (1)            2 to 7           -                -             -
+b = 2       1              2 to 7           -                -             -
 
 a = 3
-b = 1       (1)            (2)              3 to 7 /a        -             -
-b = 2       (1)            (2)              3 to 7 /a        -             -
-b = 3       1 /b           2 /b             3 to 7 /a        -             -
+b = 1       (1)            (2)              3 to 7           -             -
+b = 2       (1)            (2)              3 to 7           -             -
+b = 3       1              2                3 to 7           -             -
 
 a = 4
-b = 1       (1)            (2)              (3)              4 to 7 /a     -
-b = 2       (1)            (2)              (3)              4 to 7 /a     -
-b = 3       (1)            (2)              (3)              4 to 7 /a     -
-b = 4       1 /b           2 /b             3 /b             4 to 7 /a     -
+b = 1       (1)            (2)              (3)              4 to 7        -
+b = 2       (1)            (2)              (3)              4 to 7        -
+b = 3       (1)            (2)              (3)              4 to 7        -
+b = 4       1              2                3                4 to 7        -
 
 etc.
 */
@@ -122,6 +66,7 @@ etc.
 ------------------------------
 width       1              2                3                4             5
 -----------------------------------------------------------------------------
+
 a = 1
             2-1 > 2-6      -                -                -             -
             3-1 > 3-5      -                -                -             -
