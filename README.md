@@ -2,13 +2,21 @@
 
 [PostCSS] plugin to create grids based on a fixed block width.
 
+See in action here: [structure.css](http://francoisromain.github.io/structure.css/#grids)
+
 [PostCSS]: https://github.com/postcss/postcss
 [ci-img]:  https://travis-ci.org/francoisromain/postcss-structure.svg
 [ci]:      https://travis-ci.org/francoisromain/postcss-structure
 
 PostCSS Structure creates a grid based on the width of a "bloc". This bloc has the same width whatever the size of the screen is. Media-queries are created depending the number of bloc that fits in the page. 
 
-```css
+## Usage
+
+``` js
+postcss([ require('postcss-structure') ])
+```
+
+``` css
 @structure {
   width: 18,
   gutter: 1.5,
@@ -21,10 +29,12 @@ PostCSS Structure creates a grid based on the width of a "bloc". This bloc has t
 }
 ```
 
-## Usage
+This will output a few classes to build grid. 
 
-```js
-postcss([ require('postcss-structure') ])
-```
 
-See [PostCSS] docs for examples for your environment.
+## To do
+
+- [ ] Add unit to declaration (p.e.: width: 18rem) 
+
+
+
