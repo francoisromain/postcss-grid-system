@@ -18,14 +18,17 @@ postcss([ require('postcss-structure') ])
 
 ``` css
 @structure {
-  width: 18,
-  gutter: 1.5,
-  padding: 1.5,
-  max: 8,
-  min: 2,
-  thumb: 3,
-  align: 'center',
-  display: 'flex'   
+  width: 18,        /* width of a bloc in rem */  
+  gutter: 1.5,      /* width of the gutter in rem */  
+  padding: 1.5,     /* padding of the main conatiner in rem */  
+  max: 8,           /* maximum number of blocs */ 
+  min: 2,           /* minimum number of blocs */  
+  thumb: 3,         /* number of .bloc-thumb fitting in one bloc */ 
+  align: 'center',  /* center or left */     
+  display: 'flex',  /* float or flex */
+  columns:  1,      /* activate (1) or desactivate (0) columns */
+  blocs:    1       /* activate (1) or desactivate (0) blocs */
+
 }
 ```
 
@@ -38,3 +41,13 @@ This will output a few classes to build grid.
 
 
 
+
+
+
+
+ 
+
+
+
+/* activate (1) or desactivate (0) columns 
+/* activate (1) or desactivate (0) blocs */
