@@ -1,6 +1,6 @@
 {
   "name": "postcss-structure",
-  "version": "0.1.13",
+  "version": "0.1.14",
   "description": "PostCSS plugin that create a grid based on a fixed block width",
   "keywords": [
     "postcss",
@@ -27,7 +27,7 @@
   },
   "devDependencies": {
     "ava": "^0.13.0",
-    "eslint": "^2.4.0",
+    "eslint": "^2.6.0",
     "eslint-config-postcss": "^2.0.2"
   },
   "scripts": {

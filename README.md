@@ -37,17 +37,6 @@ This will output a few classes to build grid.
 
 ## To do
 
+- [ ] Add markup example in README.md
+- [ ] Add Css output example in README.md
 - [ ] Add unit to declaration (p.e.: width: 18rem) 
-
-
-
-
-
-
-
- 
-
-
-
-/* activate (1) or desactivate (0) columns 
-/* activate (1) or desactivate (0) blocs */
