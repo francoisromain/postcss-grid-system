@@ -13,7 +13,10 @@ module.exports = postcss.plugin('postcss-structure', function (options) {
         align: 'center',
         display: 'flex',
         columns: 1,
-        blocs: 1
+        blocs: 1,
+        blobs: 1,
+        right: 1,
+        show: 1
     };
     var rootCss = postcss.root();
 

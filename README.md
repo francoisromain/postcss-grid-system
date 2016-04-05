@@ -26,13 +26,23 @@ postcss([ require('postcss-structure') ])
   thumb: 3,         /* number of .bloc-thumb fitting in one bloc */ 
   align: 'center',  /* center or left */     
   display: 'flex',  /* float or flex */
-  columns:  1,      /* activate (1) or desactivate (0) columns */
-  blocs:    1       /* activate (1) or desactivate (0) blocs */
-
+  columns:  1,      /* on (1) / off (0) .columns-(screen-size)-(col) */
+  blocs:    1       /* on (1) / off (0) .bloc-(screen-size)-(col)-(offset) */
+  blobs:    1       /* on (1) / off (0) .blob-(screen-size)-(ratio)-(total) */
+  right:    1       /* on (1) / off (0) .right-(screen-size) */
+  show:     1       /* on (1) / off (0) .show-(screen-size) */
 }
 ```
 
 This will output a few classes to build grid. 
+
+### Output example
+
+(to-do)
+
+### Markup example
+
+(to-do)
 
 
 ## To do
