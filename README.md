@@ -29,8 +29,8 @@ postcss([ require('postcss-structure') ])
   columns:  1,      /* on (1) / off (0) .columns-(screen-size)-(col) */
   blocs:    1       /* on (1) / off (0) .bloc-(screen-size)-(col)-(offset) */
   blobs:    1       /* on (1) / off (0) .blob-(screen-size)-(ratio)-(total) */
-  right:    1       /* on (1) / off (0) .right-(screen-size) */
-  show:     1       /* on (1) / off (0) .show-(screen-size) */
+  rights:    1      /* on (1) / off (0) .right-(screen-size) */
+  shows:     1      /* on (1) / off (0) .show-(screen-size) */
 }
 ```
 
