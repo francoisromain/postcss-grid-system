@@ -4,7 +4,7 @@ var structure = require('./lib/structure.js');
 module.exports = postcss.plugin('postcss-structure', function (options) {
     options = options || {};
     var opts = {
-        width: 18,
+        unit: 18,
         gutter: 1.5,
         padding: 1.5,
         max: 8,

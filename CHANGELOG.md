@@ -1,3 +1,6 @@
+0.3.0
+- fix: change the name in the definition from 'width' to 'unit'
+
 0.2.5
 - fix: blob width now uses calc((totalwidth/ratio-%)- gutter-rem)
 

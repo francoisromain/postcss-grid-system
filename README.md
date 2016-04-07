@@ -10,7 +10,7 @@ See in action here: [structure.css](http://francoisromain.github.io/structure.cs
 
 PostCSS-structure outputs a few CSS classes to make grids. 
 
-The idea behind PostCSS-structure is that the bloc width is fixed and doesn't change depending on the screen-size. Media-queries are created depending the number of bloc that fits in the page. 
+The idea behind PostCSS-structure is that the bloc width doesn't change depending on the screen-size. Media-queries are created depending the number of units that fit into the page. 
 
 ## Usage
 
@@ -20,7 +20,7 @@ postcss([ require('postcss-structure') ])
 
 ``` css
 @structure {
-  width:   18,       /* width of a bloc in rem */  
+  unit:    18,       /* width of a single bloc in rem */  
   gutter:  1.5,      /* width of the gutter in rem */  
   padding: 1.5,      /* padding of the main conatiner in rem */  
   max:     8,        /* maximum number of blocs */ 
@@ -38,9 +38,9 @@ postcss([ require('postcss-structure') ])
 
 ## Options
 
-##### width
+##### unit
 
-The width of one bloc (in rem): integer, default to `18`.
+The width of a single bloc (in rem): integer, default to `18`.
 
 #### gutter
 
