@@ -1,6 +1,6 @@
 # PostCSS-structure [![Build Status][ci-img]][ci]
 
-[PostCSS] plugin to create grids based on a fixed block width.
+[PostCSS] plugin to create a grid based on a fixed block width.
 
 See in action here: [structure.css](http://francoisromain.github.io/structure.css/#grids)
 
