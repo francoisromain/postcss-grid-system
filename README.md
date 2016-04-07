@@ -38,57 +38,19 @@ postcss([ require('postcss-structure') ])
 
 ## Options
 
-##### unit
-
-The width of a single bloc (in rem): integer, default to `18`.
-
-#### gutter
-
-The width of the gutter between blocs (in rem): integer, default to `1.5`. 
-
-#### padding
-
-The padding of the main container (in rem): integer, default to `1.5`.
-
-#### max
-
-The maximum amount of blocs on wide screens: integer, default to `8`. 
-
-#### min 
-
-The minimum amount of blocs on narrow screens: integer, default to `2`.
-
-#### thumb
-
-The number of .bloc-thumb fitting in one bloc: integer, default to `3`. This output something like: `.bloc-thumb { width: width / thumb }`. 
-
-#### align
-
-Center or align-left the main container: `'center'` (default) or `'left'`.
-
-#### display
-
-Use floats or flexbox: `'flex'` (default) or `'float'`.
-
-#### blocs
-
-Output .blocs classes: `1` (default) or `0`. 
-
-#### blobs
-
-Output .blobs classes: `1` (default) or `0`. 
-
-#### columns
-
-Output .columns classes: `1` (default) or `0`. 
-
-#### rights
-
-Output .rights classes: `1` (default) or `0`. 
-
-#### shows
-
-Output .shows classes: `1` (default) or `0`. 
+- unit: the width of a single bloc (in rem): integer, default to `18`.
+- gutter: the width of the gutter between blocs (in rem): integer, default to `1.5`.
+- padding: the padding of the main container (in rem): integer, default to `1.5`.
+- max: the maximum amount of blocs on wide screens: integer, default to `8`. 
+- min: the minimum amount of blocs on narrow screens: integer, default to `2`.
+- thumb: the number of .bloc-thumb fitting in one bloc: integer, default to `3`. This output something like: `.bloc-thumb { width: width / thumb }`. 
+- align: center or align-left the main container: `'center'` (default) or `'left'`.
+- display: use floats or flexbox: `'flex'` (default) or `'float'`.
+- blocs: output .blocs classes: `1` (default) or `0`. 
+- blobs: output .blobs classes: `1` (default) or `0`. 
+- columns: output .columns classes: `1` (default) or `0`. 
+- rights: output .rights classes: `1` (default) or `0`. 
+- shows: output .shows classes: `1` (default) or `0`. 
 
 ## Output example
 
