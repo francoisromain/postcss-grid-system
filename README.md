@@ -18,6 +18,8 @@ The idea behind PostCSS-structure is that the bloc width doesn't change dependin
 postcss([ require('postcss-structure') ])
 ```
 
+## Options and default values
+
 ``` css
 @structure {
   unit:    18,       /* width of a single bloc in rem */  
@@ -35,22 +37,6 @@ postcss([ require('postcss-structure') ])
   shows:   1         /* on (1) / off (0) .show-(screen-size) */
 }
 ```
-
-## Options
-
-- unit: the width of a single bloc (in rem): integer, default to `18`.
-- gutter: the width of the gutter between blocs (in rem): integer, default to `1.5`.
-- padding: the padding of the main container (in rem): integer, default to `1.5`.
-- max: the maximum amount of blocs on wide screens: integer, default to `8`. 
-- min: the minimum amount of blocs on narrow screens: integer, default to `2`.
-- thumb: the number of .bloc-thumb fitting in one bloc: integer, default to `3`. This output something like: `.bloc-thumb { width: width / thumb }`. 
-- align: center or align-left the main container: `'center'` (default) or `'left'`.
-- display: use floats or flexbox: `'flex'` (default) or `'float'`.
-- blocs: output .blocs classes: `1` (default) or `0`. 
-- blobs: output .blobs classes: `1` (default) or `0`. 
-- columns: output .columns classes: `1` (default) or `0`. 
-- rights: output .rights classes: `1` (default) or `0`. 
-- shows: output .shows classes: `1` (default) or `0`. 
 
 ## Output example
 
