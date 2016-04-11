@@ -1,3 +1,6 @@
+0.4.0
+- feat: ability to apply styles on custom rules
+
 0.3.0
 - fix: change the name in the definition from 'width' to 'unit'
 

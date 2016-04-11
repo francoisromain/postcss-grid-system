@@ -1,6 +1,6 @@
 {
   "name": "postcss-structure",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "PostCSS plugin that creates a grid based on a fixed block width.",
   "keywords": [
     "postcss",
@@ -16,7 +16,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url":  "https://github.com/francoisromain/postcss-structure.git"
+    "url": "https://github.com/francoisromain/postcss-structure.git"
   },
   "bugs": {
     "url": "https://github.com/francoisromain/postcss-structure/issues"
@@ -26,7 +26,7 @@
     "postcss": "^5.0.19"
   },
   "devDependencies": {
-    "ava": "^0.13.0",
+    "ava": "^0.14.0",
     "eslint": "^2.7.0",
     "eslint-config-postcss": "^2.0.2"
   },
