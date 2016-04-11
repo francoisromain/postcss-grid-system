@@ -1,8 +1,8 @@
 # PostCSS-structure [![Build Status][ci-img]][ci]
 
-[PostCSS] plugin to create a grid based on a fixed block width.
+http://francoisromain.github.io/postcss-structure/
 
-See in action here: [structure.css](http://francoisromain.github.io/structure.css/#grids)
+A [PostCSS] plugin to create CSS grids based on a fixed block width.
 
 [PostCSS]: https://github.com/postcss/postcss
 [ci-img]:  https://travis-ci.org/francoisromain/postcss-structure.svg
@@ -30,22 +30,17 @@ postcss([ require('postcss-structure') ])
   thumb:   3,        /* number of .bloc-thumb fitting in one bloc */ 
   align:   'center', /* 'center' or 'left' */     
   display: 'flex',   /* 'float' or 'flex' */
-  blocs:   1         /* 1 or 0 (on / off) .bloc-(screen-size)-(col)-(offset) */
-  blobs:   1         /* 1 or 0 (on / off) .blob-(screen-size)-(ratio)-(total) */
-  columns: 1,        /* 1 or 0 (on / off) .columns-(screen-size)-(col) */
-  rights:  1         /* 1 or 0 (on / off) .right-(screen-size) */
-  shows:   1         /* 1 or 0 (on / off) .show-(screen-size) */
 }
 ```
 
 ## Output example
 
-See here: [structure.css](https://github.com/francoisromain/structure.css/blob/gh-pages/dist/css/styles.css#L1286)
+to-do
 
 
 ## Markup example
 
-See here: [structure.css](https://github.com/francoisromain/structure.css/blob/gh-pages/index.html#L265)
+to-do
 
 
 ## To do
@@ -54,3 +49,6 @@ See here: [structure.css](https://github.com/francoisromain/structure.css/blob/g
 - [ ] Add Css output example in README.md
 - [ ] Add unit to declaration (p.e.: width: 18rem) 
 - [ ] Make rtl
+- [ ] re-write in ES6
+- [ ] switch linter to airbnb
+- [ ] write tests
