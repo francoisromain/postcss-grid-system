@@ -1,3 +1,6 @@
+0.5.0
+- feat: update to es6 / babel
+
 0.4.0
 - feat: apply styles on custom declarations
 
