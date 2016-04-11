@@ -1,13 +1,8 @@
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var utils = {
+const utils = {
   flatten: function flatten(arr) {
-    var that = this;
+    const that = this;
 
-    return arr.reduce(function (flat, next) {
+    return arr.reduce((flat, next) => {
       if (!next) {
         return flat;
       }
@@ -17,9 +12,11 @@ var utils = {
   },
   selectorsAdd: function selectorsAdd(rule, selectors) {
     if (selectors) {
-      var r = rule;
+      const r = rule;
 
-      r.selector = r.selector ? r.selector + ", " + selectors.toString() : selectors.toString();
+      r.selector = r.selector ?
+        `${r.selector}, ${selectors.toString()}` :
+        selectors.toString();
     }
   },
   declClean: function declClean(decl) {
@@ -28,7 +25,7 @@ var utils = {
     } else {
       decl.remove();
     }
-  }
+  },
 };
 
-exports.default = utils;
+export default utils;

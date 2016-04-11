@@ -49,6 +49,4 @@ to-do
 - [ ] Add Css output example in README.md
 - [ ] Add unit to declaration (p.e.: width: 18rem) 
 - [ ] Make rtl
-- [ ] re-write in ES6
-- [ ] switch linter to airbnb
 - [ ] write tests

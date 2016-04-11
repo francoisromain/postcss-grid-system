@@ -1,22 +1,12 @@
-'use strict';
+import postcss from 'postcss';
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _postcss = require('postcss');
-
-var _postcss2 = _interopRequireDefault(_postcss);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = function (opts, rootCss, rows) {
+export default (opts, rootCss, rows) => {
   if (rows.length) {
-    var row = _postcss2.default.rule();
+    const row = postcss.rule();
 
     row.selectors = rows;
     row.append({ prop: 'clear', value: 'both' });
-    row.append({ prop: 'margin-right', value: '-' + opts.gutter + 'rem' });
+    row.append({ prop: 'margin-right', value: `-${opts.gutter}rem` });
 
     if (opts.display === 'flex') {
       row.append({ prop: 'display', value: 'flex' });
@@ -27,10 +17,8 @@ exports.default = function (opts, rootCss, rows) {
 
     rootCss.append(row);
 
-    var rowClearfixSelectors = rows.map(function (selector) {
-      return selector + ':after';
-    });
-    var rowClearfix = _postcss2.default.rule();
+    const rowClearfixSelectors = rows.map((selector) => `${selector}:after`);
+    const rowClearfix = postcss.rule();
 
     rowClearfix.selectors = rowClearfixSelectors;
     rowClearfix.append({ prop: 'content', value: '""' });

@@ -1,18 +1,19 @@
-var postcss = require('postcss');
-var structure = require('./lib/structure.js');
-var utils = require('./lib/utils.js');
+import postcss from 'postcss';
+import structure from './structure';
+import utils from './utils';
 
-module.exports = postcss.plugin('postcss-structure', function postcssStructure() {
-  var opts = {
+module.exports = postcss.plugin('postcss-structure', () => {
+  const opts = {
     unit: 18,
     gutter: 1.5,
     padding: 1.5,
     max: 8,
     min: 2,
     align: 'center',
-    display: 'flex'
+    display: 'flex',
   };
-  var e = {
+
+  const e = {
     containers: [],
     rows: [],
     blocs: [],
@@ -20,13 +21,14 @@ module.exports = postcss.plugin('postcss-structure', function postcssStructure()
     blobs: [],
     columns: [],
     rights: [],
-    shows: []
+    shows: [],
   };
-  var rootCss = postcss.root();
 
-  return function structureReturn(css) {
-    css.walkAtRules('structure', function walkAtRules(rule) {
-      rule.each(function ruleEach(decl) {
+  const rootCss = postcss.root();
+
+  return (css) => {
+    css.walkAtRules('structure', (rule) => {
+      rule.each((decl) => {
         if (decl.prop in opts) {
           opts[decl.prop] = isNaN(decl.value) ?
             decl.value.substring(1, decl.value.length - 1) :
@@ -34,8 +36,7 @@ module.exports = postcss.plugin('postcss-structure', function postcssStructure()
         }
       });
 
-      css.walkDecls(function walkDecls(decl) {
-        var i;
+      css.walkDecls((decl) => {
         if (decl.prop.match(/^structure-element/)) {
           if (decl.value === 'container') {
             e.containers.push(decl.parent.selector);
@@ -45,41 +46,51 @@ module.exports = postcss.plugin('postcss-structure', function postcssStructure()
             utils.declClean(decl);
           }
         } else if (decl.prop.match(/^structure-bloc/)) {
-          i = decl.value.split('-');
+          const i = decl.value.split('-');
+
           i[2] = i[2] || '0';
           e.blocs[i[0]] = e.blocs[i[0]] || [];
           e.blocs[i[0]][i[1]] = e.blocs[i[0]][i[1]] || [];
           e.blocs[i[0]][i[1]][i[2]] = e.blocs[i[0]][i[1]][i[2]] || [];
           e.blocs[i[0]][i[1]][i[2]].push(decl.parent.selector);
+
           utils.declClean(decl);
         } else if (decl.prop.match(/^structure-fraction/)) {
-          i = decl.value.split('/');
+          const i = decl.value.split('/');
+
           e.fractions[i[1]] = e.fractions[i[1]] || [];
           e.fractions[i[1]][i[0]] = e.fractions[i[1]][i[0]] || [];
           e.fractions[i[1]][i[0]].push(decl.parent.selector);
+
           utils.declClean(decl);
         } else if (decl.prop.match(/^structure-blob/)) {
-          i = decl.value.replace('/', '-').split('-');
+          const i = decl.value.replace('/', '-').split('-');
+
           e.blobs[i[0]] = e.blobs[i[0]] || [];
           e.blobs[i[0]][i[2]] = e.blobs[i[0]][i[2]] || [];
           e.blobs[i[0]][i[2]][i[1]] = e.blobs[i[0]][i[2]][i[1]] || [];
           e.blobs[i[0]][i[2]][i[1]].push(decl.parent.selector);
+
           utils.declClean(decl);
         } else if (decl.prop.match(/^structure-columns/)) {
-          i = decl.value.split('-');
+          const i = decl.value.split('-');
+
           i[2] = i[2] || '0';
           e.columns[i[0]] = e.columns[i[0]] || [];
           e.columns[i[0]][i[1]] = e.columns[i[0]][i[1]] || [];
           e.columns[i[0]][i[1]][i[2]] = e.columns[i[0]][i[1]][i[2]] || [];
           e.columns[i[0]][i[1]][i[2]].push(decl.parent.selector);
+
           utils.declClean(decl);
         } else if (decl.prop.match(/^structure-show/)) {
           e.shows[decl.value] = e.shows[decl.value] || [];
           e.shows[decl.value].push(decl.parent.selector);
+
           utils.declClean(decl);
         } else if (decl.prop.match(/^structure-right/)) {
           e.rights[decl.value] = e.rights[decl.value] || [];
           e.rights[decl.value].push(decl.parent.selector);
+
           utils.declClean(decl);
         }
       });
