@@ -1,7 +1,7 @@
 import postcss from 'postcss';
 import test from 'ava';
 
-import plugin from './';
+import plugin from './src/index';
 
 function run(t, input, output, opts = {}) {
   return postcss([plugin(opts)]).process(input)
@@ -11,6 +11,4 @@ function run(t, input, output, opts = {}) {
     });
 }
 
-test('does something', t => {
-  return run(t, 'a{ }', 'a{ }', {});
-});
+test('does something', t => run(t, 'a{ }', 'a{ }', {}));
