@@ -2,9 +2,8 @@ import postcss from 'postcss';
 import utils from './utils';
 
 export default (opts, breakpoint, mediaQuery, blocs) => {
-  const max = blocs[breakpoint].length;
-
-  if (opts.display === 'float' && blocs) {
+  if (blocs.length && blocs[breakpoint].length && opts.display === 'float') {
+    const max = blocs[breakpoint].length;
     const blocFloat = postcss.rule();
     blocFloat.append({ prop: 'float', value: 'left' });
     blocFloat.append({ prop: 'clear', value: 'none' });

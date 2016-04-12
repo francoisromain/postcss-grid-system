@@ -2,7 +2,7 @@ import postcss from 'postcss';
 import utils from './utils';
 
 export default (opts, breakpoint, mediaQuery, blobs) => {
-  if (opts.display === 'float' && blobs) {
+  if (blobs.length && blobs[breakpoint].length && opts.display === 'float') {
     const blobFloat = postcss.rule();
 
     blobFloat.append({ prop: 'float', value: 'left' });

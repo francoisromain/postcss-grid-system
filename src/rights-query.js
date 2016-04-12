@@ -1,7 +1,7 @@
 import postcss from 'postcss';
 
 export default (opts, breakpoint, mediaQuery, rights) => {
-  if (rights[breakpoint]) {
+  if (rights.length && rights[breakpoint].length) {
     const right = postcss.rule();
 
     right.selectors = rights[breakpoint];

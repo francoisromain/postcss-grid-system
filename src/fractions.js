@@ -2,7 +2,7 @@ import postcss from 'postcss';
 import utils from './utils';
 
 export default (opts, rootCss, fractions) => {
-  if (fractions.length > 0) {
+  if (fractions.length) {
     const fractionFloat = postcss.rule();
 
     fractionFloat.selectors = utils.flatten(fractions);
