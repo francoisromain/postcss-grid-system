@@ -1,6 +1,7 @@
 import postcss from 'postcss';
 import structure from './structure';
 import utils from './utils';
+// import util from 'util';
 
 module.exports = postcss.plugin('postcss-structure', () => {
   const opts = {
@@ -94,7 +95,7 @@ module.exports = postcss.plugin('postcss-structure', () => {
           utils.declClean(decl);
         }
       });
-
+      // console.log(util.inspect(e.blocs, false, null));
       structure(opts, rootCss, e);
       rule.replaceWith(rootCss);
     });

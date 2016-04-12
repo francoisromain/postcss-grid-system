@@ -4,7 +4,6 @@ import utils from './utils';
 export default (opts, breakpoint, mediaQuery, columns) => {
   if (columns.length && columns[breakpoint].length) {
     const columnCount = {};
-    const max = columns[breakpoint].length;
 
     for (let index = 1; index <= breakpoint; index++) {
       columnCount[index] = postcss.rule();
@@ -12,7 +11,7 @@ export default (opts, breakpoint, mediaQuery, columns) => {
     }
 
     for (let units = 1; units <= breakpoint; units++) {
-      for (let width = 1; width <= max; width++) {
+      for (let width = 1; width <= opts.max; width++) {
         if (columns[units][width]) {
           let i1 = false;
           if (width >= breakpoint) {
@@ -24,8 +23,8 @@ export default (opts, breakpoint, mediaQuery, columns) => {
             utils.selectorsAdd(columnCount[i1], columns[units][width][0]);
           }
 
-          if (width > 1 && width < max) {
-            for (let offset = 1; offset <= max - width; offset++) {
+          if (width > 1 && width < opts.max) {
+            for (let offset = 1; offset <= opts.max - width; offset++) {
               let i2 = false;
               if (width + offset <= breakpoint && breakpoint === units) {
                 i2 = width;
