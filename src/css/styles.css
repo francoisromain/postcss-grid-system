@@ -8,7 +8,7 @@
 @import "structure.css/forms.css";
 @import "structure.css/tables.css";
 @import "structure.css/utils.css";
-@import "./grid.css";
+@import "grid.css";
 @import "structure.css/margins.css";
 @import "structure.css/ui.css";
 @import "theme.css";
