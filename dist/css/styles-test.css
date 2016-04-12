@@ -1,0 +1,334 @@
+/*
+    Structure.css / settings
+------------------------------- 
+
+http://francoisromain.github.io/structure.css
+*/
+
+/*
+    Debug trick 
+------------------------------- 
+    Un-comment to see in action
+    http://qr.ae/ROqymT
+*/
+
+/*
+ * { background-color: rgba(255,0,0,.2); }
+ * * { background-color: rgba(0,255,0,.2); }
+ * * * { background-color: rgba(0,0,255,.2); }
+ * * * * { background-color: rgba(255,0,255,.2); }
+ * * * * * { background-color: rgba(0,255,255,.2); }
+ * * * * * * { background-color: rgba(255,255,0,.2); }
+
+*/
+
+:root {
+
+/*
+    Colors
+------------------------------- 
+*/ 
+
+/*
+    Base units
+------------------------------- 
+*/                          /* font-size: 1      rem  = 16 px  */                        /* base:      1.5    rem  = 24 px  */   /* line:      0.0625 rem  = 1  px  */    /* xxs:       0.25   rem  = 4  px  */    /* xs:        0.5    rem  = 8  px  */    /* s:         0.75   rem  = 12 px  */  /* m:         1      rem  = 16 px  */  /* l:         2.25   rem  = 36 px  */    /* xl:        3      rem  = 48 px  */  /* xxl:       2.5    rem  = 60 px  */
+  
+/*
+    Text sizes
+------------------------------- 
+ typographic scale and vertical rhythm:
+ cf http://type-scale.com/ or http://www.gridlover.net/app/
+
+*/
+                                                                     /* style:       font-size 
+                                                                                     / line-height */ /* h6, .xs:     10px / 12px */   /* h5, .s:      12px / 24px */   /* h4, .m:      16px / 24px */   /* h3, .l:      20px / 24px */ /* h2, .xl:     24px / 36px */ /* h1, .xxl:    24px / 36px */   /* .lead:       20px / 36px */   /* .blockquote: 20px / 24px */   /* margin-bottom:      24px */
+  
+
+/*
+    Buttons
+------------------------------- 
+*/
+
+
+/*
+    Lists
+------------------------------- 
+*/
+
+/*
+    Grid
+------------------------------- 
+  breakpoints formula 
+
+  for (col = min; col <= max; col ++) {
+    containerWidth = (width * col) - gutter + (padding * 2);
+  }
+
+*/       /* width of a single bloc in rem */      /* width of the gutter in rem */        /* padding of the main conatiner in rem */        /* maximum number of blocs */        /* minimum number of blocs */        /* number of bloc-thumb fitting in one bloc */  /* float or flex */ /* center or left */
+
+/*
+    Utils
+------------------------------- 
+
+*/                     /* adding of class .pad and .pad-h */
+
+}
+
+/*
+      Margins
+-------------------------------
+
+*/
+
+.margin-right {
+	margin-right: 12px;
+	margin-right: 0.75rem;
+}
+
+.margin-left {
+	margin-left: 12px;
+	margin-left: 0.75rem;
+}
+
+.margin-top {
+	margin-top: 24px;
+	margin-top: 1.5rem;
+}
+
+.margin-top-xxs {
+	margin-top: 4px;
+	margin-top: 0.25rem;
+}
+
+.margin-top-xs {
+	margin-top: 8px;
+	margin-top: 0.5rem;
+}
+
+.margin-top-s {
+	margin-top: 12px;
+	margin-top: 0.75rem;
+}
+
+.margin-top-m {
+	margin-top: 16px;
+	margin-top: 1rem;
+}
+
+.margin-top-l {
+	margin-top: 36px;
+	margin-top: 2.25rem;
+}
+
+.margin-top-xl {
+	margin-top: 48px;
+	margin-top: 3rem;
+}
+
+.margin-bottom {
+	margin-bottom: 24px;
+	margin-bottom: 1.5rem;
+}
+
+.margin-bottom-xxs {
+	margin-bottom: 4px;
+	margin-bottom: 0.25rem;
+}
+
+.margin-bottom-xs {
+	margin-bottom: 8px;
+	margin-bottom: 0.5rem;
+}
+
+.margin-bottom-s {
+	margin-bottom: 12px;
+	margin-bottom: 0.75rem;
+}
+
+.margin-bottom-m {
+	margin-bottom: 16px;
+	margin-bottom: 1rem;
+}
+
+.margin-bottom-l {
+	margin-bottom: 36px;
+	margin-bottom: 2.25rem;
+}
+
+.margin-bottom-xl {
+	margin-bottom: 48px;
+	margin-bottom: 3rem;
+}
+
+.margin-bottom-0 {
+  margin-bottom: 0;
+}
+
+/*
+    UI elements 
+------------------------------- 
+
+*/
+
+.tooltip {
+  position: relative;
+}
+
+.tooltip span {
+  position: absolute;
+  color: #f8f7f3;
+  background: #bcb9af;
+  text-align: center;
+  border-radius: 0.5rem;
+  top: -2px;
+  right: 0;
+  padding: 2px 12px;
+  z-index: 999;
+}
+
+.tooltip span:after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  right: 24px;
+  right: 1.5rem;
+  border-top: 8px solid #bcb9af;
+  border-top: 0.5rem solid #bcb9af;
+  border-right: 8px solid transparent;
+  border-right: 0.5rem solid transparent;
+  border-left: 8px solid transparent;
+  border-left: 0.5rem solid transparent;
+}
+
+.alert {
+  width: 100%;
+  padding: 8px 12px;
+  font-style: italic;
+}
+
+.alert-info {
+  color: white;
+  background: #5798AA;
+}
+
+.alert-error {
+  color: white;
+  background: #E82239;
+}
+
+.alert-warning {
+  color: white;
+  background: #FF891C;
+}
+
+.alert-success {
+  color: white;
+  background: #6EA040;
+}
+
+.label {
+  padding: 0 0.8em;
+  text-align: center;
+  color: white;
+  background-color: #bcb9af;
+}
+
+.label-color {
+  background-color: #bf3f00;
+}
+
+.label-s-color {
+  padding: 0.2em 0.6em 0.25em 0.5em;
+  text-align: center;
+  color: white;
+  background-color: #bf3f00;
+}
+
+/*
+    Theme
+------------------------------- 
+
+*/
+
+body,
+html {
+  height: 100%;
+}
+
+.page {
+  min-height: 100%;
+  margin-bottom: -48px;
+  margin-bottom: -3rem;
+}
+
+.page:after {
+  content: "";
+  display: block;
+}
+
+.footer, .page:after {
+  height: 48px;
+  height: 3rem;
+}
+
+a {
+  text-decoration: none;
+  border-bottom: 1px solid;
+  color: #3d3d35
+}
+
+a:visited {
+color: #3d3d35;
+
+}
+
+a:hover,
+  a:active,
+  a:focus {
+color: #bf3f00;
+
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  letter-spacing: -0.01em;
+  font-weight: 700;
+}
+
+b,
+strong,
+.strong {
+  font-weight: 700;
+}
+
+header {
+  padding-top: 48px;
+  padding-top: 3rem;
+}
+
+.bloc-mini {
+  float: left;
+  width: 100%;
+}
+
+.bloc-left {
+  float: left;
+  clear: none;
+}
+
+.img-left {
+  float: left;
+  margin-right: 1.5;
+  max-width: 18;
+}
+
+.img-right {
+  float: right;
+  margin-left: 1.5;
+  max-width: 18;
+}

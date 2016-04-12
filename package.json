@@ -4,8 +4,18 @@
   "scripts": {
     "babel": "babel postcss-structure/src --out-dir postcss-structure/lib",
     "css": "postcss --local-plugins -u postcss-import -u postcss-custom-properties -u ./postcss-structure/lib/index.js -u postcss-cssnext -i src/css/styles.css -o dist/css/styles.css",
+    "css-test": "postcss -u postcss-import -u postcss-cssnext -i src/css/styles-test.css -o dist/css/styles-test.css",
+    "css-structure": "postcss -u postcss-import -u postcss-cssnext -i src/css/structure.css -o dist/css/structure.css",
+    "css-1": "postcss --local-plugins -u ./postcss-structure/lib/index.js -u autoprefixer -u postcss-media-minmax -i src/css/grid-1.css -o dist/css/grid-1.css",
+    "css-2": "postcss --local-plugins -u ./postcss-structure/lib/index.js -u autoprefixer -u postcss-media-minmax -i src/css/grid-2.css -o dist/css/grid-2.css",
+    "css-3": "postcss --local-plugins -u ./postcss-structure/lib/index.js -u autoprefixer -u postcss-media-minmax -i src/css/grid-3.css -o dist/css/grid-3.css",
+    "css-4": "postcss --local-plugins -u ./postcss-structure/lib/index.js -u autoprefixer -u postcss-media-minmax -i src/css/grid-4.css -o dist/css/grid-4.css",
+    "css-5": "postcss --local-plugins -u ./postcss-structure/lib/index.js -u autoprefixer -u postcss-media-minmax -i src/css/grid-5.css -o dist/css/grid-5.css",
+    "css-6": "postcss --local-plugins -u ./postcss-structure/lib/index.js -u autoprefixer -u postcss-media-minmax -i src/css/grid-6.css -o dist/css/grid-6.css",
+    "css-7": "postcss --local-plugins -u ./postcss-structure/lib/index.js -u autoprefixer -u postcss-media-minmax -i src/css/grid-7.css -o dist/css/grid-7.css",
     "build": "npm run babel && npm run css",
-    "watch": "onchange 'index.html' 'postcss-structure/src/**/*.*' -- npm run build",
+    "build-test": "npm run babel && npm run css && npm run css-structure && npm run css-test && npm run css-1 && npm run css-2 && npm run css-3 && npm run css-4 && npm run css-5 && npm run css-6 && npm run css-7",
+    "watch": "onchange 'index.html' 'src/css/**/*.*' 'postcss-structure/src/**/*.*' -- npm run build",
     "reload": "livereload",
     "start": "npm-run-all --parallel watch reload"
   },
@@ -14,13 +24,13 @@
     "babel-preset-es2015": "^6.6.0",
     "livereload": "^0.4.1",
     "npm-run-all": "^1.7.0",
-    "onchange": "^2.2.0",
+    "onchange": "^2.3.0",
     "postcss": "^5.0.19",
     "postcss-cli": "^2.5.1",
     "postcss-cssnext": "^2.5.2",
     "postcss-import": "^8.1.0",
-    "postcss-structure": "0.5.3",
-    "structure.css": "^0.4.1"
+    "postcss-structure": "0.5.4",
+    "structure.css": "^0.4.3"
   },
   "babel": {
     "presets": [

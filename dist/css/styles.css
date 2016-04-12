@@ -65,7 +65,7 @@ http://francoisromain.github.io/structure.css
     containerWidth = (width * col) - gutter + (padding * 2);
   }
 
-*/    /* width of a single bloc in rem */      /* width of the gutter in rem */      /* padding of the main conatiner in rem */        /* maximum number of blocs */        /* minimum number of blocs */        /* number of bloc-thumb fitting in one bloc */  /* float or flex */ /* center or left */
+*/       /* width of a single bloc in rem */      /* width of the gutter in rem */        /* padding of the main conatiner in rem */        /* maximum number of blocs */        /* minimum number of blocs */        /* number of bloc-thumb fitting in one bloc */  /* float or flex */ /* center or left */
 
 /*
     Utils
@@ -1309,26 +1309,26 @@ float: left;
 }
 
 .bloc-one-half {
-width: 126px;
-width: 7.875rem;
+width: 120px;
+width: 7.5rem;
 
 }
 
 .bloc-one-third {
-width: 76px;
-width: 4.75rem;
+width: 72px;
+width: 4.5rem;
 
 }
 
 .bloc-two-third {
-width: 176px;
-width: 11rem;
+width: 168px;
+width: 10.5rem;
 
 }
 
 .bloc-thumb {
-width: 51px;
-width: 3.1875rem;
+width: 48px;
+width: 3rem;
 
 }
 
@@ -1494,10 +1494,10 @@ width: calc(87.5% - 1.5rem);
 
 }
 
-@media (min-width: 20.251rem) {
+@media (min-width: 19.501rem) {
 
 .container {
-width: 17.25rem;
+width: 16.5rem;
 
 }
 
@@ -1508,7 +1508,7 @@ clear: none;
 }
 
 .bloc-1-1, .bloc-1-2, .bloc-1-2-1, .bloc-1-2-2, .bloc-1-2-3, .bloc-1-2-4, .bloc-1-2-5, .bloc-1-2-6, .bloc-1-3, .bloc-1-3-1, .bloc-1-3-2, .bloc-1-3-3, .bloc-1-3-4, .bloc-1-3-5, .bloc-1-4, .bloc-1-4-1, .bloc-1-4-2, .bloc-1-4-3, .bloc-1-4-4, .bloc-1-5, .bloc-1-5-1, .bloc-1-5-2, .bloc-1-5-3, .bloc-1-6, .bloc-1-6-1, .bloc-1-6-2, .bloc-1-7, .bloc-1-7-1, .bloc-1-8 {
-width: 17.25rem;
+width: 16.5rem;
 
 }
 
@@ -1678,10 +1678,10 @@ float: right;
 
 }
 
-@media (min-width: 39.001rem) {
+@media (min-width: 37.501rem) {
 
 .container {
-width: 36rem;
+width: 34.5rem;
 
 }
 
@@ -1691,13 +1691,13 @@ clear: none;
 
 }
 
-.bloc-1-2-1, .bloc-1-3-1, .bloc-1-4-1, .bloc-1-5-1, .bloc-1-6-1, .bloc-1-7-1, .bloc-2-1, .bloc-2-2-1, .bloc-2-2-2, .bloc-2-2-3, .bloc-2-2-4, .bloc-2-2-5, .bloc-2-2-6, .bloc-2-3-1, .bloc-2-3-2, .bloc-2-3-3, .bloc-2-3-4, .bloc-2-3-5, .bloc-2-4-1, .bloc-2-4-2, .bloc-2-4-3, .bloc-2-4-4, .bloc-2-5-1, .bloc-2-5-2, .bloc-2-5-3, .bloc-2-6-1, .bloc-2-6-2, .bloc-2-7-1 {
-width: 17.25rem;
+.bloc-2-1, .bloc-2-2-1, .bloc-2-2-2, .bloc-2-2-3, .bloc-2-2-4, .bloc-2-2-5, .bloc-2-2-6, .bloc-2-3-1, .bloc-2-3-2, .bloc-2-3-3, .bloc-2-3-4, .bloc-2-3-5, .bloc-2-4-1, .bloc-2-4-2, .bloc-2-4-3, .bloc-2-4-4, .bloc-2-5-1, .bloc-2-5-2, .bloc-2-5-3, .bloc-2-6-1, .bloc-2-6-2, .bloc-2-7-1 {
+width: 16.5rem;
 
 }
 
 .bloc-1-2, .bloc-1-3, .bloc-1-4, .bloc-1-5, .bloc-1-6, .bloc-1-7, .bloc-1-8, .bloc-2-2, .bloc-2-3, .bloc-2-4, .bloc-2-5, .bloc-2-6, .bloc-2-7, .bloc-2-8 {
-width: 36rem;
+width: 34.5rem;
 
 }
 
@@ -1874,10 +1874,10 @@ float: right;
 
 }
 
-@media (min-width: 57.751rem) {
+@media (min-width: 55.501rem) {
 
 .container {
-width: 54.75rem;
+width: 52.5rem;
 
 }
 
@@ -1887,18 +1887,18 @@ clear: none;
 
 }
 
-.bloc-1-2-2, .bloc-1-3-2, .bloc-1-4-2, .bloc-1-5-2, .bloc-1-6-2, .bloc-2-2-2, .bloc-2-3-2, .bloc-2-4-2, .bloc-2-5-2, .bloc-2-6-2, .bloc-3-1, .bloc-3-2-2, .bloc-3-2-3, .bloc-3-2-4, .bloc-3-2-5, .bloc-3-2-6, .bloc-3-3-2, .bloc-3-3-3, .bloc-3-3-4, .bloc-3-3-5, .bloc-3-4-2, .bloc-3-4-3, .bloc-3-4-4, .bloc-3-5-2, .bloc-3-5-3, .bloc-3-6-2 {
-width: 17.25rem;
+.bloc-3-1, .bloc-3-2-2, .bloc-3-2-3, .bloc-3-2-4, .bloc-3-2-5, .bloc-3-2-6, .bloc-3-3-2, .bloc-3-3-3, .bloc-3-3-4, .bloc-3-3-5, .bloc-3-4-2, .bloc-3-4-3, .bloc-3-4-4, .bloc-3-5-2, .bloc-3-5-3, .bloc-3-6-2 {
+width: 16.5rem;
 
 }
 
 .bloc-1-2-1, .bloc-1-3-1, .bloc-1-4-1, .bloc-1-5-1, .bloc-1-6-1, .bloc-1-7-1, .bloc-2-2-1, .bloc-2-3-1, .bloc-2-4-1, .bloc-2-5-1, .bloc-2-6-1, .bloc-2-7-1, .bloc-3-2, .bloc-3-2-1, .bloc-3-3-1, .bloc-3-4-1, .bloc-3-5-1, .bloc-3-6-1, .bloc-3-7-1 {
-width: 36rem;
+width: 34.5rem;
 
 }
 
 .bloc-1-3, .bloc-1-4, .bloc-1-5, .bloc-1-6, .bloc-1-7, .bloc-1-8, .bloc-2-3, .bloc-2-4, .bloc-2-5, .bloc-2-6, .bloc-2-7, .bloc-2-8, .bloc-3-3, .bloc-3-4, .bloc-3-5, .bloc-3-6, .bloc-3-7, .bloc-3-8 {
-width: 54.75rem;
+width: 52.5rem;
 
 }
 
@@ -2082,10 +2082,10 @@ float: right;
 
 }
 
-@media (min-width: 76.501rem) {
+@media (min-width: 73.501rem) {
 
 .container {
-width: 73.5rem;
+width: 70.5rem;
 
 }
 
@@ -2095,23 +2095,23 @@ clear: none;
 
 }
 
-.bloc-1-2-3, .bloc-1-3-3, .bloc-1-4-3, .bloc-1-5-3, .bloc-2-2-3, .bloc-2-3-3, .bloc-2-4-3, .bloc-2-5-3, .bloc-3-2-3, .bloc-3-3-3, .bloc-3-4-3, .bloc-3-5-3, .bloc-4-1, .bloc-4-2-3, .bloc-4-2-4, .bloc-4-2-5, .bloc-4-2-6, .bloc-4-3-3, .bloc-4-3-4, .bloc-4-3-5, .bloc-4-4-3, .bloc-4-4-4, .bloc-4-5-3 {
-width: 17.25rem;
+.bloc-4-1, .bloc-4-2-3, .bloc-4-2-4, .bloc-4-2-5, .bloc-4-2-6, .bloc-4-3-3, .bloc-4-3-4, .bloc-4-3-5, .bloc-4-4-3, .bloc-4-4-4, .bloc-4-5-3 {
+width: 16.5rem;
 
 }
 
 .bloc-1-2-2, .bloc-1-3-2, .bloc-1-4-2, .bloc-1-5-2, .bloc-1-6-2, .bloc-2-2-2, .bloc-2-3-2, .bloc-2-4-2, .bloc-2-5-2, .bloc-2-6-2, .bloc-3-2-2, .bloc-3-3-2, .bloc-3-4-2, .bloc-3-5-2, .bloc-3-6-2, .bloc-4-2, .bloc-4-2-1, .bloc-4-2-2, .bloc-4-3-2, .bloc-4-4-2, .bloc-4-5-2, .bloc-4-6-2 {
-width: 36rem;
+width: 34.5rem;
 
 }
 
 .bloc-1-3-1, .bloc-1-4-1, .bloc-1-5-1, .bloc-1-6-1, .bloc-1-7-1, .bloc-2-3-1, .bloc-2-4-1, .bloc-2-5-1, .bloc-2-6-1, .bloc-2-7-1, .bloc-3-3-1, .bloc-3-4-1, .bloc-3-5-1, .bloc-3-6-1, .bloc-3-7-1, .bloc-4-3, .bloc-4-3-1, .bloc-4-4-1, .bloc-4-5-1, .bloc-4-6-1, .bloc-4-7-1 {
-width: 54.75rem;
+width: 52.5rem;
 
 }
 
 .bloc-1-4, .bloc-1-5, .bloc-1-6, .bloc-1-7, .bloc-1-8, .bloc-2-4, .bloc-2-5, .bloc-2-6, .bloc-2-7, .bloc-2-8, .bloc-3-4, .bloc-3-5, .bloc-3-6, .bloc-3-7, .bloc-3-8, .bloc-4-4, .bloc-4-5, .bloc-4-6, .bloc-4-7, .bloc-4-8 {
-width: 73.5rem;
+width: 70.5rem;
 
 }
 
@@ -2302,10 +2302,10 @@ float: right;
 
 }
 
-@media (min-width: 95.251rem) {
+@media (min-width: 91.501rem) {
 
 .container {
-width: 92.25rem;
+width: 88.5rem;
 
 }
 
@@ -2315,28 +2315,28 @@ clear: none;
 
 }
 
-.bloc-1-2-4, .bloc-1-3-4, .bloc-1-4-4, .bloc-2-2-4, .bloc-2-3-4, .bloc-2-4-4, .bloc-3-2-4, .bloc-3-3-4, .bloc-3-4-4, .bloc-4-2-4, .bloc-4-3-4, .bloc-4-4-4, .bloc-5-1, .bloc-5-2-4, .bloc-5-2-5, .bloc-5-2-6, .bloc-5-3-4, .bloc-5-3-5, .bloc-5-4-4 {
-width: 17.25rem;
+.bloc-5-1, .bloc-5-2-4, .bloc-5-2-5, .bloc-5-2-6, .bloc-5-3-4, .bloc-5-3-5, .bloc-5-4-4 {
+width: 16.5rem;
 
 }
 
 .bloc-1-2-3, .bloc-1-3-3, .bloc-1-4-3, .bloc-1-5-3, .bloc-2-2-3, .bloc-2-3-3, .bloc-2-4-3, .bloc-2-5-3, .bloc-3-2-3, .bloc-3-3-3, .bloc-3-4-3, .bloc-3-5-3, .bloc-4-2-3, .bloc-4-3-3, .bloc-4-4-3, .bloc-4-5-3, .bloc-5-2, .bloc-5-2-1, .bloc-5-2-2, .bloc-5-2-3, .bloc-5-3-3, .bloc-5-4-3, .bloc-5-5-3 {
-width: 36rem;
+width: 34.5rem;
 
 }
 
 .bloc-1-3-2, .bloc-1-4-2, .bloc-1-5-2, .bloc-1-6-2, .bloc-2-3-2, .bloc-2-4-2, .bloc-2-5-2, .bloc-2-6-2, .bloc-3-3-2, .bloc-3-4-2, .bloc-3-5-2, .bloc-3-6-2, .bloc-4-3-2, .bloc-4-4-2, .bloc-4-5-2, .bloc-4-6-2, .bloc-5-3, .bloc-5-3-1, .bloc-5-3-2, .bloc-5-4-2, .bloc-5-5-2, .bloc-5-6-2 {
-width: 54.75rem;
+width: 52.5rem;
 
 }
 
 .bloc-1-4-1, .bloc-1-5-1, .bloc-1-6-1, .bloc-1-7-1, .bloc-2-4-1, .bloc-2-5-1, .bloc-2-6-1, .bloc-2-7-1, .bloc-3-4-1, .bloc-3-5-1, .bloc-3-6-1, .bloc-3-7-1, .bloc-4-4-1, .bloc-4-5-1, .bloc-4-6-1, .bloc-4-7-1, .bloc-5-4, .bloc-5-4-1, .bloc-5-5-1, .bloc-5-6-1, .bloc-5-7-1 {
-width: 73.5rem;
+width: 70.5rem;
 
 }
 
 .bloc-1-5, .bloc-1-6, .bloc-1-7, .bloc-1-8, .bloc-2-5, .bloc-2-6, .bloc-2-7, .bloc-2-8, .bloc-3-5, .bloc-3-6, .bloc-3-7, .bloc-3-8, .bloc-4-5, .bloc-4-6, .bloc-4-7, .bloc-4-8, .bloc-5-5, .bloc-5-6, .bloc-5-7, .bloc-5-8 {
-width: 92.25rem;
+width: 88.5rem;
 
 }
 
@@ -2534,10 +2534,10 @@ float: right;
 
 }
 
-@media (min-width: 114.001rem) {
+@media (min-width: 109.501rem) {
 
 .container {
-width: 111rem;
+width: 106.5rem;
 
 }
 
@@ -2547,33 +2547,33 @@ clear: none;
 
 }
 
-.bloc-1-2-5, .bloc-1-3-5, .bloc-2-2-5, .bloc-2-3-5, .bloc-3-2-5, .bloc-3-3-5, .bloc-4-2-5, .bloc-4-3-5, .bloc-5-2-5, .bloc-5-3-5, .bloc-6-1, .bloc-6-2-5, .bloc-6-2-6, .bloc-6-3-5 {
-width: 17.25rem;
+.bloc-6-1, .bloc-6-2-5, .bloc-6-2-6, .bloc-6-3-5 {
+width: 16.5rem;
 
 }
 
 .bloc-1-2-4, .bloc-1-3-4, .bloc-1-4-4, .bloc-2-2-4, .bloc-2-3-4, .bloc-2-4-4, .bloc-3-2-4, .bloc-3-3-4, .bloc-3-4-4, .bloc-4-2-4, .bloc-4-3-4, .bloc-4-4-4, .bloc-5-2-4, .bloc-5-3-4, .bloc-5-4-4, .bloc-6-2, .bloc-6-2-1, .bloc-6-2-2, .bloc-6-2-3, .bloc-6-2-4, .bloc-6-3-4, .bloc-6-4-4 {
-width: 36rem;
+width: 34.5rem;
 
 }
 
 .bloc-1-3-3, .bloc-1-4-3, .bloc-1-5-3, .bloc-2-3-3, .bloc-2-4-3, .bloc-2-5-3, .bloc-3-3-3, .bloc-3-4-3, .bloc-3-5-3, .bloc-4-3-3, .bloc-4-4-3, .bloc-4-5-3, .bloc-5-3-3, .bloc-5-4-3, .bloc-5-5-3, .bloc-6-3, .bloc-6-3-1, .bloc-6-3-2, .bloc-6-3-3, .bloc-6-4-3, .bloc-6-5-3 {
-width: 54.75rem;
+width: 52.5rem;
 
 }
 
 .bloc-1-4-2, .bloc-1-5-2, .bloc-1-6-2, .bloc-2-4-2, .bloc-2-5-2, .bloc-2-6-2, .bloc-3-4-2, .bloc-3-5-2, .bloc-3-6-2, .bloc-4-4-2, .bloc-4-5-2, .bloc-4-6-2, .bloc-5-4-2, .bloc-5-5-2, .bloc-5-6-2, .bloc-6-4, .bloc-6-4-1, .bloc-6-4-2, .bloc-6-5-2, .bloc-6-6-2 {
-width: 73.5rem;
+width: 70.5rem;
 
 }
 
 .bloc-1-5-1, .bloc-1-6-1, .bloc-1-7-1, .bloc-2-5-1, .bloc-2-6-1, .bloc-2-7-1, .bloc-3-5-1, .bloc-3-6-1, .bloc-3-7-1, .bloc-4-5-1, .bloc-4-6-1, .bloc-4-7-1, .bloc-5-5-1, .bloc-5-6-1, .bloc-5-7-1, .bloc-6-5, .bloc-6-5-1, .bloc-6-6-1, .bloc-6-7-1 {
-width: 92.25rem;
+width: 88.5rem;
 
 }
 
 .bloc-1-6, .bloc-1-7, .bloc-1-8, .bloc-2-6, .bloc-2-7, .bloc-2-8, .bloc-3-6, .bloc-3-7, .bloc-3-8, .bloc-4-6, .bloc-4-7, .bloc-4-8, .bloc-5-6, .bloc-5-7, .bloc-5-8, .bloc-6-6, .bloc-6-7, .bloc-6-8 {
-width: 111rem;
+width: 106.5rem;
 
 }
 
@@ -2778,10 +2778,10 @@ float: right;
 
 }
 
-@media (min-width: 132.751rem) {
+@media (min-width: 127.501rem) {
 
 .container {
-width: 129.75rem;
+width: 124.5rem;
 
 }
 
@@ -2791,38 +2791,38 @@ clear: none;
 
 }
 
-.bloc-1-2-6, .bloc-2-2-6, .bloc-3-2-6, .bloc-4-2-6, .bloc-5-2-6, .bloc-6-2-6, .bloc-7-1, .bloc-7-2-6 {
-width: 17.25rem;
+.bloc-7-1, .bloc-7-2-6 {
+width: 16.5rem;
 
 }
 
 .bloc-1-2-5, .bloc-1-3-5, .bloc-2-2-5, .bloc-2-3-5, .bloc-3-2-5, .bloc-3-3-5, .bloc-4-2-5, .bloc-4-3-5, .bloc-5-2-5, .bloc-5-3-5, .bloc-6-2-5, .bloc-6-3-5, .bloc-7-2, .bloc-7-2-1, .bloc-7-2-2, .bloc-7-2-3, .bloc-7-2-4, .bloc-7-2-5, .bloc-7-3-5 {
-width: 36rem;
+width: 34.5rem;
 
 }
 
 .bloc-1-3-4, .bloc-1-4-4, .bloc-2-3-4, .bloc-2-4-4, .bloc-3-3-4, .bloc-3-4-4, .bloc-4-3-4, .bloc-4-4-4, .bloc-5-3-4, .bloc-5-4-4, .bloc-6-3-4, .bloc-6-4-4, .bloc-7-3, .bloc-7-3-1, .bloc-7-3-2, .bloc-7-3-3, .bloc-7-3-4, .bloc-7-4-4 {
-width: 54.75rem;
+width: 52.5rem;
 
 }
 
 .bloc-1-4-3, .bloc-1-5-3, .bloc-2-4-3, .bloc-2-5-3, .bloc-3-4-3, .bloc-3-5-3, .bloc-4-4-3, .bloc-4-5-3, .bloc-5-4-3, .bloc-5-5-3, .bloc-6-4-3, .bloc-6-5-3, .bloc-7-4, .bloc-7-4-1, .bloc-7-4-2, .bloc-7-4-3, .bloc-7-5-3 {
-width: 73.5rem;
+width: 70.5rem;
 
 }
 
 .bloc-1-5-2, .bloc-1-6-2, .bloc-2-5-2, .bloc-2-6-2, .bloc-3-5-2, .bloc-3-6-2, .bloc-4-5-2, .bloc-4-6-2, .bloc-5-5-2, .bloc-5-6-2, .bloc-6-5-2, .bloc-6-6-2, .bloc-7-5, .bloc-7-5-1, .bloc-7-5-2, .bloc-7-6-2 {
-width: 92.25rem;
+width: 88.5rem;
 
 }
 
 .bloc-1-6-1, .bloc-1-7-1, .bloc-2-6-1, .bloc-2-7-1, .bloc-3-6-1, .bloc-3-7-1, .bloc-4-6-1, .bloc-4-7-1, .bloc-5-6-1, .bloc-5-7-1, .bloc-6-6-1, .bloc-6-7-1, .bloc-7-6, .bloc-7-6-1, .bloc-7-7-1 {
-width: 111rem;
+width: 106.5rem;
 
 }
 
 .bloc-1-7, .bloc-1-8, .bloc-2-7, .bloc-2-8, .bloc-3-7, .bloc-3-8, .bloc-4-7, .bloc-4-8, .bloc-5-7, .bloc-5-8, .bloc-6-7, .bloc-6-8, .bloc-7-7, .bloc-7-8 {
-width: 129.75rem;
+width: 124.5rem;
 
 }
 
@@ -3034,10 +3034,10 @@ float: right;
 
 }
 
-@media (min-width: 151.501rem) {
+@media (min-width: 145.501rem) {
 
 .container {
-width: 148.5rem;
+width: 142.5rem;
 
 }
 
@@ -3048,42 +3048,42 @@ clear: none;
 }
 
 .bloc-8-1 {
-width: 17.25rem;
+width: 16.5rem;
 
 }
 
 .bloc-1-2-6, .bloc-2-2-6, .bloc-3-2-6, .bloc-4-2-6, .bloc-5-2-6, .bloc-6-2-6, .bloc-7-2-6, .bloc-8-2, .bloc-8-2-1, .bloc-8-2-2, .bloc-8-2-3, .bloc-8-2-4, .bloc-8-2-5, .bloc-8-2-6 {
-width: 36rem;
+width: 34.5rem;
 
 }
 
 .bloc-1-3-5, .bloc-2-3-5, .bloc-3-3-5, .bloc-4-3-5, .bloc-5-3-5, .bloc-6-3-5, .bloc-7-3-5, .bloc-8-3, .bloc-8-3-1, .bloc-8-3-2, .bloc-8-3-3, .bloc-8-3-4, .bloc-8-3-5 {
-width: 54.75rem;
+width: 52.5rem;
 
 }
 
 .bloc-1-4-4, .bloc-2-4-4, .bloc-3-4-4, .bloc-4-4-4, .bloc-5-4-4, .bloc-6-4-4, .bloc-7-4-4, .bloc-8-4, .bloc-8-4-1, .bloc-8-4-2, .bloc-8-4-3, .bloc-8-4-4 {
-width: 73.5rem;
+width: 70.5rem;
 
 }
 
 .bloc-1-5-3, .bloc-2-5-3, .bloc-3-5-3, .bloc-4-5-3, .bloc-5-5-3, .bloc-6-5-3, .bloc-7-5-3, .bloc-8-5, .bloc-8-5-1, .bloc-8-5-2, .bloc-8-5-3 {
-width: 92.25rem;
+width: 88.5rem;
 
 }
 
 .bloc-1-6-2, .bloc-2-6-2, .bloc-3-6-2, .bloc-4-6-2, .bloc-5-6-2, .bloc-6-6-2, .bloc-7-6-2, .bloc-8-6, .bloc-8-6-1, .bloc-8-6-2 {
-width: 111rem;
+width: 106.5rem;
 
 }
 
 .bloc-1-7-1, .bloc-2-7-1, .bloc-3-7-1, .bloc-4-7-1, .bloc-5-7-1, .bloc-6-7-1, .bloc-7-7-1, .bloc-8-7, .bloc-8-7-1 {
-width: 129.75rem;
+width: 124.5rem;
 
 }
 
 .bloc-1-8, .bloc-2-8, .bloc-3-8, .bloc-4-8, .bloc-5-8, .bloc-6-8, .bloc-7-8, .bloc-8-8 {
-width: 148.5rem;
+width: 142.5rem;
 
 }
 
@@ -3484,22 +3484,17 @@ html {
 }
 
 .page {
-  clear: both;
   min-height: 100%;
-  height: auto !important;
-  height: 100%;
-  margin-bottom: 48px;
-  margin-bottom: 3rem;
+  margin-bottom: -48px;
+  margin-bottom: -3rem;
 }
 
-.page .push-footer {
-  height: 48px;
-  height: 3rem;
+.page:after {
+  content: "";
+  display: block;
 }
 
-.footer {
-  clear: both;
-  position: relative;
+.footer, .page:after {
   height: 48px;
   height: 3rem;
 }
@@ -3538,6 +3533,11 @@ strong,
   font-weight: 700;
 }
 
+header {
+  padding-top: 48px;
+  padding-top: 3rem;
+}
+
 .bloc-mini {
   float: left;
   width: 100%;
@@ -3551,11 +3551,11 @@ strong,
 .img-left {
   float: left;
   margin-right: 1.5;
-  max-width: 18.75;
+  max-width: 18;
 }
 
 .img-right {
   float: right;
   margin-left: 1.5;
-  max-width: 18.75;
+  max-width: 18;
 }

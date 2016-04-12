@@ -1,0 +1,33 @@
+@structure {
+  unit: 18;
+  gutter: 1.5;
+  padding: 1.5;
+  max: 8;
+  min: 2;
+  display: "float";
+  align: "center";
+}
+
+.container {
+  structure-element: container;
+}
+
+.row {
+  structure-element: row;
+}
+
+.bloc-3-2-6 {
+  structure-bloc: 3-2-6;
+}
+
+.bloc-3-3-5 {
+  structure-bloc: 3-3-5;
+}
+
+.bloc-6-6-1 {
+  structure-bloc: 6-6-1;
+}
+
+.bloc-3-3-5-bis {
+  structure-bloc: 3-3-5;
+}

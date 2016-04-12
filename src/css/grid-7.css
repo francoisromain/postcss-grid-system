@@ -1,0 +1,41 @@
+.row {
+  clear: both;
+  margin-right: -1.5rem
+}
+
+.bloc {
+  width: 16.5rem;
+  margin-right: 1.5rem;
+  margin-bottom: 1.5rem;
+  float: left;
+}
+
+@structure {
+  unit: 18;
+  gutter: 1.5;
+  padding: 1.5;
+  max: 8;
+  min: 2;
+  display: "float";
+  align: "center";
+}
+
+.container {
+  structure-element: container;
+}
+
+.right-3 {
+  structure-right: 3;
+}
+
+.right-5 {
+  structure-right: 5;
+}
+
+.show-2 {
+  structure-show: 2;
+}
+
+.show-7 {
+  structure-show: 7;
+}
