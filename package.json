@@ -1,6 +1,6 @@
 {
   "name": "postcss-structure",
-  "version": "0.5.3",
+  "version": "0.5.4",
   "description": "A PostCSS plugin to create CSS grids based on a fixed block width.",
   "keywords": [
     "postcss",
@@ -26,6 +26,7 @@
     "postcss": "^5.0.19"
   },
   "scripts": {
+    "build": "babel src --out-dir lib",
     "test": "ava && eslint *.js"
   },
   "main": "./lib/index.js",

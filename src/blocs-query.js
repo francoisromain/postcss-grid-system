@@ -2,44 +2,45 @@ import postcss from 'postcss';
 import utils from './utils';
 
 export default (opts, breakpoint, mediaQuery, blocs) => {
-  if (blocs.length && blocs[breakpoint]) {
+  if (blocs.length) {
     const blocWidth = {};
-    const max = blocs[breakpoint].length;
 
-    for (let idx = 1; idx <= breakpoint; idx++) {
-      blocWidth[idx] = postcss.rule();
-      const blocWidthValue = opts.unit * idx - opts.gutter;
+    for (let i = 1; i <= breakpoint; i++) {
+      blocWidth[i] = postcss.rule();
+      const blocWidthValue = opts.unit * i - opts.gutter;
       if (opts.display === 'flex') {
-        blocWidth[idx].append({ prop: 'flex', value: `0 1 ${blocWidthValue}rem` });
+        blocWidth[i].append({ prop: 'flex', value: `0 1 ${blocWidthValue}rem` });
       } else if (opts.display === 'float') {
-        blocWidth[idx].append({ prop: 'width', value: `${blocWidthValue}rem` });
+        blocWidth[i].append({ prop: 'width', value: `${blocWidthValue}rem` });
       }
     }
 
     for (let units = 1; units <= breakpoint; units++) {
-      if (blocs[units] && blocs[units].length) {
-        for (let width = 1; width <= max; width++) {
-          if (blocs[units][width] && blocs[units][width].length) {
+      if (blocs[units]) {
+        for (let width = 1; width <= opts.max; width++) {
+          if (blocs[units][width]) {
             let i1 = false;
             if (width >= breakpoint) {
               i1 = breakpoint;
-            } else if (breakpoint === units) {
+            } else if (units === breakpoint) {
               i1 = width;
             }
+
             if (i1) {
               utils.selectorsAdd(blocWidth[i1], blocs[units][width][0]);
             }
 
-            if (width > 1 && width < max) {
-              for (let offset = 1; offset <= max - width; offset++) {
+            if (width > 1 && width < opts.max) {
+              for (let offset = 1; offset + width <= opts.max; offset++) {
                 let i2 = false;
-                if (width + offset <= breakpoint && breakpoint === units) {
+                if (width + offset <= breakpoint && units === breakpoint) {
                   i2 = width;
-                } else if (width + offset >= breakpoint && breakpoint - offset >= 1) {
+                } else if (width + offset >= breakpoint && breakpoint - offset > 1) {
                   i2 = breakpoint - offset;
-                } else if (breakpoint === units) {
+                } else if (units === breakpoint) {
                   i2 = 1;
                 }
+
                 if (i2) {
                   utils.selectorsAdd(blocWidth[i2], blocs[units][width][offset]);
                 }
@@ -49,9 +50,10 @@ export default (opts, breakpoint, mediaQuery, blocs) => {
         }
       }
     }
-    for (let idx = 1; idx <= breakpoint; idx++) {
-      if (blocWidth[idx].selector) {
-        mediaQuery.append(blocWidth[idx]);
+
+    for (let i = 1; i <= breakpoint; i++) {
+      if (blocWidth[i].selector) {
+        mediaQuery.append(blocWidth[i]);
       }
     }
   }

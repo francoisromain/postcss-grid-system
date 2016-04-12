@@ -22,6 +22,7 @@ export default (opts, breakpoint, mediaQuery, blocs) => {
         }
       }
     }
+
     mediaQuery.append(blocFloat);
   }
 };

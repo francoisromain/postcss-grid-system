@@ -1,7 +1,7 @@
 import postcss from 'postcss';
 
 export default (breakpoint, mediaQuery, shows) => {
-  if (shows.length && shows[breakpoint].length) {
+  if (shows.length && shows[breakpoint] && shows[breakpoint].length) {
     const show = postcss.rule();
 
     show.selectors = shows[breakpoint];

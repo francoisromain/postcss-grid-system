@@ -11,5 +11,6 @@ export default (opts, rootCss, blocs) => {
   } else if (opts.display === 'float') {
     bloc.append({ prop: 'clear', value: 'both' });
   }
+
   rootCss.append(bloc);
 };

@@ -2,7 +2,7 @@ import postcss from 'postcss';
 import utils from './utils';
 
 export default (opts, breakpoint, mediaQuery, blobs) => {
-  if (blobs.length && blobs[breakpoint].length) {
+  if (blobs.length && blobs[breakpoint] && blobs[breakpoint].length) {
     for (let total = 2; total <= blobs[breakpoint].length; total++) {
       if (blobs[breakpoint][total]) {
         for (let ratio = 1; ratio < blobs[breakpoint][total].length; ratio++) {

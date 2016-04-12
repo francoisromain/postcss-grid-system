@@ -95,7 +95,7 @@ module.exports = postcss.plugin('postcss-structure', () => {
           utils.declClean(decl);
         }
       });
-      // console.log(util.inspect(e.blocs, false, null));
+      // console.log(util.inspect(e.columns, false, null));
       structure(opts, rootCss, e);
       rule.replaceWith(rootCss);
     });
@@ -103,53 +103,53 @@ module.exports = postcss.plugin('postcss-structure', () => {
 });
 
 /*
-            bloc-size-col
+bloc-units-width
 -------------------------------
-width       1              2                3                4             5
+size            1              2                3                4             5
 -----------------------------------------------------------------------------
 
-a = 1
-b = 1       1 to 7         -                -                -             -
+breakpoint 1
+width 1         1 to 7         -                -                -             -
 
-a = 2
-b = 1       (1)            2 to 7           -                -             -
-b = 2       1              2 to 7           -                -             -
+breakpoint 2
+width 1         (1)            2 to 7           -                -             -
+width 2         1              2 to 7           -                -             -
 
-a = 3
-b = 1       (1)            (2)              3 to 7           -             -
-b = 2       (1)            (2)              3 to 7           -             -
-b = 3       1              2                3 to 7           -             -
+breakpoint 3
+width 1         (1)            (2)              3 to 7           -             -
+width 2         (1)            (2)              3 to 7           -             -
+width 3         1              2                3 to 7           -             -
 
-a = 4
-b = 1       (1)            (2)              (3)              4 to 7        -
-b = 2       (1)            (2)              (3)              4 to 7        -
-b = 3       (1)            (2)              (3)              4 to 7        -
-b = 4       1              2                3                4 to 7        -
+breakpoint = 4
+width 1         (1)            (2)              (3)              4 to 7        -
+width 2         (1)            (2)              (3)              4 to 7        -
+width 3         (1)            (2)              (3)              4 to 7        -
+width 4         1              2                3                4 to 7        -
 
 etc.
 */
 
 /*
-            bloc-size-col-off
+bloc-units-width-offset
 ------------------------------
-width       1              2                3                4             5
+size        1              2                3                4             5
 -----------------------------------------------------------------------------
 
-a = 1
+breakpoint 1
             2-1 > 2-6      -                -                -             -
             3-1 > 3-5      -                -                -             -
             4-1 > 4-4      -                -                -             -
             5-1 > 5-3      -                -                -             -
             etc.
 
-a = 2
+breakpoint 2
             (2-1 > 2-6)    -                -                -             -
             (3-1 > 3-5)    -                -                -             -
             (4-1 > 4-4)    -                -                -             -
             (5-1 > 5-3)    -                -                -             -
             etc.
 
-a = 3
+breakpoint 3
             (2-2 > 2-6)    2-1              -                -             -
             (3-2 > 3-5)    3-1              -                -             -
             (4-2 > 4-4)    4-1              -                -             -
@@ -157,7 +157,7 @@ a = 3
             (6-2)          6-1              -                -             -
             -              7-1              -                -             -
 
-a = 4
+breakpoint 4
             (2-3 > 2-6)    2-2 (2-1)        -                -             -
             (3-3 > 3-5)    3-2              3-1              -             -
             (4-3 > 4-4)    4-2              4-1              -             -
@@ -165,7 +165,7 @@ a = 4
             -              6-2              6-1              -             -
             -              -                7-1              -             -
 
-a = 5
+breakpoint 5
             (2-4 > 2-6)    2-3 (2-1 > 2-2)  -                -             -
             (3-4 > 3-5)    3-3              3-2 (3-1)        -             -
             (4-4)          4-3              4-2              4-1           -
@@ -173,7 +173,7 @@ a = 5
             -              -                6-2              6-1           -
             -              -                -                7-1
 
-a = 6
+breakpoint 6
             (2-5 > 2-6)    2-4 (2-1 > 2-3)  -                -             -
             (3-5)          3-4              3-3 (3-2 > 3-1)  -             -
             -              4-4              4-3              4-2 (4-1)     -

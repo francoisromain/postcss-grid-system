@@ -19,22 +19,24 @@ export default (opts, rootCss, fractions) => {
     rootCss.append(fractionFloat);
 
     for (let total = 2; total < fractions.length; total++) {
-      for (let ratio = 1; ratio < fractions[total].length; ratio++) {
-        const fractionSelectors = fractions[total][ratio];
+      if (fractions[total]) {
+        for (let ratio = 1; ratio < fractions[total].length; ratio++) {
+          const fractionSelectors = fractions[total][ratio];
 
-        if (fractionSelectors) {
-          const fraction = postcss.rule();
-          const fractionValue = opts.unit * ratio / total - opts.gutter;
+          if (fractionSelectors) {
+            const fraction = postcss.rule();
+            const fractionValue = opts.unit * ratio / total - opts.gutter;
 
-          fraction.selectors = fractionSelectors;
+            fraction.selectors = fractionSelectors;
 
-          if (opts.display === 'flex') {
-            fraction.append({ prop: 'flex', value: `0 1 ${fractionValue}rem` });
-          } else if (opts.display === 'float') {
-            fraction.append({ prop: 'width', value: `${fractionValue}rem` });
+            if (opts.display === 'flex') {
+              fraction.append({ prop: 'flex', value: `0 1 ${fractionValue}rem` });
+            } else if (opts.display === 'float') {
+              fraction.append({ prop: 'width', value: `${fractionValue}rem` });
+            }
+
+            rootCss.append(fraction);
           }
-
-          rootCss.append(fraction);
         }
       }
     }

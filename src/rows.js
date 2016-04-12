@@ -3,6 +3,7 @@ import postcss from 'postcss';
 export default (opts, rootCss, rows) => {
   if (rows.length) {
     const row = postcss.rule();
+    const rowClearfix = postcss.rule();
 
     row.selectors = rows;
     row.append({ prop: 'clear', value: 'both' });
@@ -17,10 +18,7 @@ export default (opts, rootCss, rows) => {
 
     rootCss.append(row);
 
-    const rowClearfixSelectors = rows.map((selector) => `${selector}:after`);
-    const rowClearfix = postcss.rule();
-
-    rowClearfix.selectors = rowClearfixSelectors;
+    rowClearfix.selectors = rows.map((selector) => `${selector}:after`);
     rowClearfix.append({ prop: 'content', value: '""' });
     rowClearfix.append({ prop: 'display', value: 'table' });
     rowClearfix.append({ prop: 'clear', value: 'both' });
