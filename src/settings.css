@@ -19,8 +19,8 @@ http://francoisromain.github.io/structure.css
  * * * * { background-color: rgba(255,0,255,.2); }
  * * * * * { background-color: rgba(0,255,255,.2); }
  * * * * * * { background-color: rgba(255,255,0,.2); }
-
 */
+
 :root {
 
 /*
@@ -121,11 +121,11 @@ http://francoisromain.github.io/structure.css
 
 */
 
-  --structure-unit:     18rem; 
+  --structure-unit:     20.5rem; 
   --structure-gutter:   var(--base-unit);
   --structure-padding:  var(--base-unit);
   --structure-max:      8;
-  --structure-min:      1;
+  --structure-min:      2;
   --structure-display:  flex;
   --structure-align:    center;
 
@@ -135,6 +135,6 @@ http://francoisromain.github.io/structure.css
 
 */
 
-  --pad:    var(--base-unit-m);;                     /* adding of class .pad and .pad-h */
+  --pad:    var(--base-unit-s);
 
 }

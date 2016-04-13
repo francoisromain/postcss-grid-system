@@ -18,7 +18,7 @@
     "css-10": "postcss --local-plugins -u ./postcss-structure/lib/index.js -i test/src/10.css -o test/dist/10.css",
     "build": "npm run babel && npm run css",
     "build-test": "npm run babel && npm run css && npm run css-structure && npm run css-test && npm run css-01 && npm run css-02 && npm run css-03 && npm run css-04 && npm run css-05 && npm run css-06 && npm run css-07 && npm run css-08 && npm run css-09 && npm run css-10",
-    "watch": "onchange 'index.html' 'src/**/*.*' 'postcss-structure/src/**/*.*' -- npm run build",
+    "watch": "onchange 'index.html' 'src/**/*.*' 'postcss-structure/src/**/*.*' -- npm run css",
     "reload": "livereload",
     "start": "npm-run-all --parallel watch reload"
   },
@@ -32,7 +32,7 @@
     "postcss-cli": "^2.5.1",
     "postcss-cssnext": "^2.5.2",
     "postcss-import": "^8.1.0",
-    "postcss-structure": "0.7.0",
+    "postcss-structure": "0.7.1",
     "structure.css": "^0.4.4"
   },
   "babel": {
