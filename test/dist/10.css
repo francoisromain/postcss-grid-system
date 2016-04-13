@@ -35,10 +35,6 @@
   .container {
     width: 55.5rem
   }
-
-  .right-3 {
-    float: right
-  }
 }
 
 @media (min-width: 76.5rem) {
@@ -52,10 +48,6 @@
 
   .container {
     width: 91.5rem
-  }
-
-  .right-5 {
-    float: right
   }
 }
 

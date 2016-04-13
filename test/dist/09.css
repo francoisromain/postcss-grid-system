@@ -39,11 +39,6 @@
   .container {
     width: 37.5rem
   }
-
-  .show-2 {
-    display: block;
-    visibility: visible
-  }
 }
 
 @media (min-width: 58.5rem) {
@@ -78,11 +73,6 @@
 
   .container {
     width: 127.5rem
-  }
-
-  .show-7 {
-    display: block;
-    visibility: visible
   }
 }
 

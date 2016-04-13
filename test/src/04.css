@@ -9,25 +9,25 @@
 }
 
 .container {
-  structure-element: container;
+  structure: container;
 }
 
 .row {
-  structure-element: row;
+  structure: row;
 }
 
 .bloc-3-2-6 {
-  structure-bloc: 3-2-6;
+  structure: bloc 3-2-6;
 }
 
 .bloc-3-3-5 {
-  structure-bloc: 3-3-5;
+  structure: bloc 3-3-5;
 }
 
 .bloc-2-6-1 {
-  structure-bloc: 2-6-1;
+  structure: bloc 2-6-1;
 }
 
 .bloc-3-3-5-bis {
-  structure-bloc: 3-3-5;
+  structure: bloc 3-3-5;
 }
