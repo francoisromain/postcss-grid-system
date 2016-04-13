@@ -10,21 +10,43 @@ A [PostCSS] plugin to create CSS grids based on a fixed block width.
 
 ## Usage
 
+Install PostCSS-structure from npm:
+
+```
+$ npm install postcss-structure --save-dev
+```
+
+Add PostCSS-structure to the required PostCSS plugins:
+
 ``` js
 postcss([ require('postcss-structure') ])
 ```
 
+Check [PostCSS usage instructions](https://github.com/postcss/postcss#usage) to setup with Gulp, Grunt, Webpack, Npm scripts… 
+
 ## Settings
 
-A media-query is created for each _unit_ multiple, from _min_ to _max_.
+- [Global](#global)
+- [Container](#containers)
+- [Rows](#rows)
+- [Blocs](#blocs)
+- [Bloc fractions](#bloc-fractions)
+- [Blobs](#blobs)
+- [Columns](#columns)
+- [Show](#show)
+- [Right](#right)
 
-- unit: width of a single column
-- gutter: width of the gutter
-- padding: padding of the main container
-- max: maximum number of blocs
-- min: minimum number of blocs
-- align: center or left
-- display: float or flex
+### Global
+
+- _unit_: width of a single column
+- _gutter_: width of the gutter
+- _padding_: padding of the main container
+- _max_: maximum number of blocs
+- _min_: minimum number of blocs
+- _align_: center or left
+- _display_: float or flex
+
+A media-query is created for each _unit_ multiple, from _min_ to _max_.
 
 ``` css
 
@@ -42,9 +64,11 @@ A media-query is created for each _unit_ multiple, from _min_ to _max_.
 ```
 
 
-## Containers
+### Containers
 
 `structure-element: container`
+
+The container width is defined for each media-query.
 
 ``` css
 
@@ -54,9 +78,13 @@ A media-query is created for each _unit_ multiple, from _min_ to _max_.
 
 ```
 
-## Rows
+Example: [input](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/src/01.css), [output](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/dist/01.css), [markup](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/01.html)
+
+### Rows
 
 `structure-element: row`
+
+Rows have a negative right margin and are intended to contain either a _bloc_ or a _blob_ element.
 
 ``` css
 
@@ -66,16 +94,17 @@ A media-query is created for each _unit_ multiple, from _min_ to _max_.
 
 ```
 
+Example: [input](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/src/02.css), [output](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/dist/02.css), [markup](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/02.html)
 
-## Blocs
+### Blocs
 
 `structure-bloc: breakpoint-width(-offset)`
 
 Blocs have a fixed width.
 
-- breakpoint: defined by the number of _units_ that fit into the screen. If the screen is narrower than the _breakpoint_, the bloc takes full width.
-- width: width of the bloc.
-- offset (optional): remaining space before the bloc can take its width. if (_width_ + _offset_) is wider than _breakpoint_, then _width_ shrinks first.
+- _breakpoint_: defined by the number of _units_ that fit into the screen. If the screen is narrower than the _breakpoint_, the bloc takes full width.
+- _width_: width of the bloc.
+- _offset_ (optional): remaining space before the bloc can take its width. if (_width_ + _offset_) is wider than _breakpoint_, then _width_ shrinks first.
 
 ``` css
 
@@ -89,16 +118,16 @@ Blocs have a fixed width.
 
 ```
 
-Example: [input](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/src/grid-1.css), [output](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/dist/grid-1.css), [markup](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/index-1.css)
+Example: [input](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/src/03.css), [output](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/dist/03.css), [markup](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/03.html)
 
-Example (with offset): [input](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/src/grid-2.css), [output](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/dist/grid-2.css), [markup](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/index-2.css)
+Example (with offset): [input](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/src/04.css), [output](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/dist/04.css), [markup](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/04.html)
 
-## Bloc fractions
+### Bloc fractions
 
 `structure-fraction: ratio/total`
 
-- ratio: fraction of the total in one row.
-- total: aribitrary divider, relative to _unit_.
+- _ratio_: fraction of the total in one row.
+- _total_: aribitrary divider, relative to _unit_.
 
 ``` css
 
@@ -108,17 +137,17 @@ Example (with offset): [input](https://github.com/francoisromain/postcss-structu
 
 ```
 
-Example: [input](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/src/grid-3.css), [output](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/dist/grid-3.css), [markup](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/index-3.css)
+Example: [input](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/src/05.css), [output](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/dist/05.css), [markup](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/05.html)
 
-## Blobs
+### Blobs
 
 `structure-blob: breakpoint-ratio/total`
 
 Unlike blocs, blobs width will change depending on the breakpoint.
 
-- breakpoint: defined by the number of _units_ that fit in the screen.
-- ratio: fraction of the _total_.
-- total: aribitrary divider, relative to the _breakpoint_.
+- _breakpoint_: defined by the number of _units_ that fit in the screen.
+- _ratio_: fraction of the _total_.
+- _total_: aribitrary divider, relative to the _breakpoint_.
 
 ``` css
 
@@ -128,15 +157,15 @@ Unlike blocs, blobs width will change depending on the breakpoint.
 
 ```
 
-Example: [input](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/src/grid-4.css), [output](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/dist/grid-4.css), [markup](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/index-4.css)
+Example: [input](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/src/06.css), [output](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/dist/06.css), [markup](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/06.html)
 
-## Columns
+### Columns
 
 `structure-columns: breakpoint-columns(-offset)`
 
-- breakpoint:  defined by the number of _units_ that fit into the screen. If the screen is narrower than the _breakpoint_, the element has one column.
-- columns: number of columns.
-- offset (optional): remaining space before the columns are active. If (_columns_ + _offset_) is greater than _breakpoint_, then _columns_ shrinks first.
+- _breakpoint_:  defined by the number of _units_ that fit into the screen. If the screen is narrower than the _breakpoint_, the element has one column.
+- _columns_: number of columns.
+- _offset_ (optional): remaining space before the columns are active. If (_columns_ + _offset_) is greater than _breakpoint_, then _columns_ shrinks first.
 
 ``` css
 
@@ -150,15 +179,15 @@ Example: [input](https://github.com/francoisromain/postcss-structure/blob/gh-pag
 
 ```
 
-Example: [input](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/src/grid-7.css), [output](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/dist/grid-5.css), [markup](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/index-5.css)
+Example: [input](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/src/07.css), [output](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/dist/07.css), [markup](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/07.html)
 
-Example (with offset): [input](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/src/grid-6.css), [output](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/dist/grid-6.css), [markup](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/index-6.css)
+Example (with offset): [input](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/src/08.css), [output](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/dist/08.css), [markup](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/08.html)
 
-## Show
+### Show
 
 `structure-show: breakpoint`
 
-- breakpoint: the element is made visible when the screen is wider than _breakpoint_. A class has to be defined above in the CSS to make it invisible. 
+- _breakpoint_: the element is made visible when the screen is wider than _breakpoint_. A class has to be defined above in the CSS to make it invisible. 
 
 ``` css
 .my-element {
@@ -166,13 +195,13 @@ Example (with offset): [input](https://github.com/francoisromain/postcss-structu
 }
 ```
 
-Example: [input](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/src/grid-7.css), [output](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/dist/grid-7.css), [markup](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/index-7.css)
+Example: [input](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/src/09.css), [output](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/dist/09.css), [markup](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/09.html)
 
-## Right
+### Right
 
 `structure-right: breakpoint`
 
-- breakpoint: the element is made visible when the screen is wider than _breakpoint_. A class has to be defined above in the CSS to make it invisible. 
+- _breakpoint_: the element is pushed to the right when the screen is wider than _breakpoint_.
 
 ``` css
 .my-element {
@@ -180,7 +209,7 @@ Example: [input](https://github.com/francoisromain/postcss-structure/blob/gh-pag
 }
 ```
 
-Example: [input](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/src/grid-8.css), [output](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/dist/grid-8.css), [markup](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/index-8.css)
+Example: [input](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/src/10.css), [output](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/dist/10.css), [markup](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/10.html)
 
 ## To do
 

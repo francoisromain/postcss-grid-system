@@ -43,6 +43,9 @@
     "extends": "airbnb"
   },
   "ava": {
+    "files": [
+      "test/tests.js"
+    ],
     "require": [
       "babel-register"
     ]
