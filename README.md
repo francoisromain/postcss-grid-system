@@ -8,19 +8,15 @@ http://francoisromain.github.io/postcss-structure/
 
 A [PostCSS] plugin to create CSS grids based on a fixed column width.
 
-> The rule: The fewer differences in the size of the illustrations, the quieter the impression created by the design. 
-
-(Josef Muller Brockmann in _The designer and the grid_)
-
 ## Installation
 
-Install PostCSS-structure from npm:
+Install PostCSS-structure from [npm](https://www.npmjs.com/package/postcss-structure):
 
 ```
 $ npm install postcss-structure --save-dev
 ```
 
-Check [PostCSS usage instructions](https://github.com/postcss/postcss#usage) to setup with Gulp, Grunt, Webpack, Npm scripts… 
+Check [PostCSS usage instructions](https://github.com/postcss/postcss#usage) to setup with Gulp, Grunt, Webpack, npm scripts… 
 
 Add PostCSS-structure to the required PostCSS plugins:
 
@@ -28,7 +24,7 @@ Add PostCSS-structure to the required PostCSS plugins:
 postcss([ require('postcss-structure') ])
 ```
 
-For example with a [Npm script](https://docs.npmjs.com/misc/scripts) and [postcss-cli](https://www.npmjs.com/package/postcss-cli), add this to package.json: 
+For example with a [npm script](https://docs.npmjs.com/misc/scripts) and [postcss-cli](https://www.npmjs.com/package/postcss-cli), add this to package.json: 
 
 ```
 "scripts": {
