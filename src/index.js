@@ -5,7 +5,7 @@ import utils from './utils';
 
 module.exports = postcss.plugin('postcss-structure', () => {
   const opts = {
-    unit: 18,
+    unit: 20.5,
     gutter: 1.5,
     padding: 1.5,
     max: 8,

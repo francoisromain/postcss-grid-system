@@ -1,6 +1,6 @@
 const tests = {
   input: `@structure {
-  unit: 18rem;
+  unit: 20.5rem;
   gutter: 1.5rem;
   padding: 1.5rem;
   max: 8;
@@ -36,6 +36,7 @@ const tests = {
   output: `.container {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
+    overflow: hidden;
     margin-left: auto;
     margin-right: auto
 }
@@ -53,77 +54,77 @@ const tests = {
     margin-bottom: 1.5rem;
     clear: both
 }
-@media (min-width: 40.5rem) {
+@media (min-width: 43.5rem) {
     .container {
-        width: 37.5rem
+        width: 42.5rem
     }
     .bloc-2-6-1 {
         float: left;
         clear: none
     }
     .bloc-2-6-1 {
-        width: 16.5rem
+        width: 19rem
     }
 }
-@media (min-width: 58.5rem) {
+@media (min-width: 64rem) {
     .container {
-        width: 55.5rem
+        width: 63rem
     }
     .bloc-3-3-5,.bloc-3-3-5-bis, .bloc-3-2-6 {
         float: left;
         clear: none
     }
     .bloc-3-2-6, .bloc-3-3-5,.bloc-3-3-5-bis {
-        width: 16.5rem
+        width: 19rem
     }
     .bloc-2-6-1 {
-        width: 34.5rem
+        width: 39.5rem
     }
 }
-@media (min-width: 76.5rem) {
+@media (min-width: 84.5rem) {
     .container {
-        width: 73.5rem
+        width: 83.5rem
     }
     .bloc-2-6-1 {
-        width: 52.5rem
+        width: 60rem
     }
 }
-@media (min-width: 94.5rem) {
+@media (min-width: 105rem) {
     .container {
-        width: 91.5rem
+        width: 104rem
     }
     .bloc-2-6-1 {
-        width: 70.5rem
+        width: 80.5rem
     }
 }
-@media (min-width: 112.5rem) {
+@media (min-width: 125.5rem) {
     .container {
-        width: 109.5rem
+        width: 124.5rem
     }
     .bloc-2-6-1 {
-        width: 88.5rem
+        width: 101rem
     }
 }
-@media (min-width: 130.5rem) {
+@media (min-width: 146rem) {
     .container {
-        width: 127.5rem
+        width: 145rem
     }
     .bloc-3-3-5,.bloc-3-3-5-bis {
-        width: 34.5rem
+        width: 39.5rem
     }
     .bloc-2-6-1 {
-        width: 106.5rem
+        width: 121.5rem
     }
 }
-@media (min-width: 148.5rem) {
+@media (min-width: 166.5rem) {
     .container {
-        width: 145.5rem
+        width: 165.5rem
     }
     .bloc-3-2-6 {
-        width: 34.5rem
+        width: 39.5rem
     }
     .bloc-3-3-5,.bloc-3-3-5-bis {
-        width: 52.5rem
+        width: 60rem
     }
 }
 `,

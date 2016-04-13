@@ -14,7 +14,7 @@ import blobsFloatQuery from './blobs-float-query';
 import columnsQuery from './columns-query';
 
 export default (opts, rootCss, e) => {
-  const scrollbarsWidth = 3;
+  const scrollbarsWidth = 1;
 
   containers(opts, rootCss, e.containers);
   rows(opts, rootCss, e.rows);

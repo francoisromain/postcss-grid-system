@@ -7,6 +7,7 @@ export default (opts, rootCss, containers) => {
     container.selectors = containers;
     container.append({ prop: 'padding-left', value: `${opts.padding}rem` });
     container.append({ prop: 'padding-right', value: `${opts.padding}rem` });
+    container.append({ prop: 'overflow', value: 'hidden' });
 
     if (opts.align === 'center') {
       container.append({ prop: 'margin-left', value: 'auto' });

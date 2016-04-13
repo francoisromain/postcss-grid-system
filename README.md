@@ -2,13 +2,16 @@
 
 http://francoisromain.github.io/postcss-structure/
 
-A [PostCSS] plugin to create CSS grids based on a fixed block width.
+A [PostCSS] plugin to create CSS grids based on a fixed column width.
 
 [PostCSS]: https://github.com/postcss/postcss
 [ci-img]:  https://travis-ci.org/francoisromain/postcss-structure.svg
 [ci]:      https://travis-ci.org/francoisromain/postcss-structure
 
-## Usage
+
+
+
+## Installation
 
 Install PostCSS-structure from npm:
 
@@ -69,7 +72,7 @@ A media-query is created for each _unit_ multiple, from _min_ to _max_.
 /* default values */ 
 
 @structure {
-  unit:    18rem,
+  unit:    20.5rem,
   gutter:  1.5rem,
   padding: 1.5rem,
   max:     8,
