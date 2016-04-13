@@ -1,4 +1,5 @@
-0.6.0
+0.7.3
+- feat: add hide feature
 
 0.5.0
 - feat: update to es6 / babel

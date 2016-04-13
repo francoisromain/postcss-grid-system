@@ -23,6 +23,7 @@ module.exports = postcss.plugin('postcss-structure', () => {
     columns: [],
     rights: [],
     shows: [],
+    hides: [],
   };
 
   const rootCss = postcss.root();
@@ -43,7 +44,7 @@ module.exports = postcss.plugin('postcss-structure', () => {
 
       css.walkDecls((decl) => {
         if (decl.prop.match(/^structure/)) {
-          let value = decl.value.split(' ');
+          const value = decl.value.split(' ');
           if (value[0] === 'container') {
             e.containers.push(decl.parent.selector);
             utils.declClean(decl);
@@ -89,6 +90,11 @@ module.exports = postcss.plugin('postcss-structure', () => {
           } else if (value[0] === 'show') {
             e.shows[value[1]] = e.shows[value[1]] || [];
             e.shows[value[1]].push(decl.parent.selector);
+
+            utils.declClean(decl);
+          } else if (value[0] === 'hide') {
+            e.hides[value[1]] = e.hides[value[1]] || [];
+            e.hides[value[1]].push(decl.parent.selector);
 
             utils.declClean(decl);
           } else if (value[0] === 'right') {

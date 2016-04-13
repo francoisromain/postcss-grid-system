@@ -217,6 +217,18 @@ Example (with offset): [input](https://github.com/francoisromain/postcss-structu
 
 Example: [input](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/src/09.css), [output](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/dist/09.css), [markup](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/09.html)
 
+### Hide
+
+`structure: hide [breakpoint]`
+
+- _breakpoint_: the element is hidden when the screen is wider than _breakpoint_. 
+
+``` css
+.my-element {
+  structure: hide 3;
+}
+```
+
 ### Right
 
 `structure: right [breakpoint]`

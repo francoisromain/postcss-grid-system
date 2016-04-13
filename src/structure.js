@@ -7,6 +7,7 @@ import containersQuery from './containers-query';
 import blocsQuery from './blocs-query';
 import columns from './columns';
 import showsQuery from './shows-query';
+import hidesQuery from './hides-query';
 import rightsQuery from './rights-query';
 import blocsFloatQuery from './blocs-float-query';
 import blobsQuery from './blobs-query';
@@ -35,6 +36,7 @@ export default (opts, rootCss, e) => {
     blobsFloatQuery(opts, breakpoint, mediaQuery, e.blobs);
     blobsQuery(opts, breakpoint, mediaQuery, e.blobs);
     showsQuery(breakpoint, mediaQuery, e.shows);
+    hidesQuery(breakpoint, mediaQuery, e.hides);
     rightsQuery(opts, breakpoint, mediaQuery, e.rights);
     columnsQuery(opts, breakpoint, mediaQuery, e.columns);
     rootCss.append(mediaQuery);
