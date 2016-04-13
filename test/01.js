@@ -10,7 +10,7 @@ const tests = {
 }
 
 .container {
-  structure-element: container;
+  structure: container;
 }
 `,
   output: `.container {

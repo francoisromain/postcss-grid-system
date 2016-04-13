@@ -16,13 +16,29 @@ Install PostCSS-structure from npm:
 $ npm install postcss-structure --save-dev
 ```
 
+Check [PostCSS usage instructions](https://github.com/postcss/postcss#usage) to setup with Gulp, Grunt, Webpack, Npm scripts… 
+
 Add PostCSS-structure to the required PostCSS plugins:
 
 ``` js
 postcss([ require('postcss-structure') ])
 ```
 
-Check [PostCSS usage instructions](https://github.com/postcss/postcss#usage) to setup with Gulp, Grunt, Webpack, Npm scripts… 
+For example with a [Npm script](https://docs.npmjs.com/misc/scripts) and [postcss-cli](https://www.npmjs.com/package/postcss-cli), add this to package.json: 
+
+```
+"scripts": {
+  "start": "postcss -u postcss-structure -i src/styles.css -o dist/styles.css"
+}
+// -i is the input -o is the output
+```
+
+Run the script: 
+
+```
+$ npm start
+```
+
 
 ## Settings
 
@@ -66,14 +82,14 @@ A media-query is created for each _unit_ multiple, from _min_ to _max_.
 
 ### Containers
 
-`structure-element: container`
+`structure: container`
 
 The container width is defined for each media-query.
 
 ``` css
 
 .my-container {
-  structure-element: container;
+  structure: container;
 }
 
 ```
@@ -82,14 +98,14 @@ Example: [input](https://github.com/francoisromain/postcss-structure/blob/gh-pag
 
 ### Rows
 
-`structure-element: row`
+`structure: row`
 
 Rows have a negative right margin and are intended to contain either a _bloc_ or a _blob_ element.
 
 ``` css
 
 .my-row {
-  structure-element: row;
+  structure: row;
 }
 
 ```
@@ -98,22 +114,22 @@ Example: [input](https://github.com/francoisromain/postcss-structure/blob/gh-pag
 
 ### Blocs
 
-`structure-bloc: breakpoint-width(-offset)`
+`structure: bloc [breakpoint]-[width](-[offset])`
 
 Blocs have a fixed width.
 
-- _breakpoint_: defined by the number of _units_ that fit into the screen. If the screen is narrower than the _breakpoint_, the bloc takes full width.
+- _breakpoint_: number of _units_ that fit into the screen. If the screen is narrower than the _breakpoint_, the bloc takes full width.
 - _width_: width of the bloc.
 - _offset_ (optional): remaining space before the bloc can take its width. if (_width_ + _offset_) is wider than _breakpoint_, then _width_ shrinks first.
 
 ``` css
 
 .my-bloc {
-  structure-bloc: 3-2;
+  structure: bloc 3-2;
 }
 
 .my-bloc-with-offset {
-  structure-bloc: 3-2-3;
+  structure: bloc 3-2-3;
 }
 
 ```
@@ -124,7 +140,7 @@ Example (with offset): [input](https://github.com/francoisromain/postcss-structu
 
 ### Bloc fractions
 
-`structure-fraction: ratio/total`
+`structure: fraction [ratio]/[total]`
 
 - _ratio_: fraction of the total in one row.
 - _total_: aribitrary divider, relative to _unit_.
@@ -132,7 +148,7 @@ Example (with offset): [input](https://github.com/francoisromain/postcss-structu
 ``` css
 
 .my-fraction {
-  structure-fraction: 3/2;
+  structure: fraction 3/2;
 }
 
 ```
@@ -141,18 +157,18 @@ Example: [input](https://github.com/francoisromain/postcss-structure/blob/gh-pag
 
 ### Blobs
 
-`structure-blob: breakpoint-ratio/total`
+`structure: blob [breakpoint]-[ratio]/[total]`
 
 Unlike blocs, blobs width will change depending on the breakpoint.
 
-- _breakpoint_: defined by the number of _units_ that fit in the screen.
+- _breakpoint_: number of _units_ that fit in the screen.
 - _ratio_: fraction of the _total_.
 - _total_: aribitrary divider, relative to the _breakpoint_.
 
 ``` css
 
 .my-blob {
-  structure-blob: 3-2/3;
+  structure: blob 3-2/3;
 }
 
 ```
@@ -161,20 +177,20 @@ Example: [input](https://github.com/francoisromain/postcss-structure/blob/gh-pag
 
 ### Columns
 
-`structure-columns: breakpoint-columns(-offset)`
+`structure: columns [breakpoint]-[columns](-[offset])`
 
-- _breakpoint_:  defined by the number of _units_ that fit into the screen. If the screen is narrower than the _breakpoint_, the element has one column.
+- _breakpoint_:  number of _units_ that fit into the screen. If the screen is narrower than the _breakpoint_, the element has one column.
 - _columns_: number of columns.
 - _offset_ (optional): remaining space before the columns are active. If (_columns_ + _offset_) is greater than _breakpoint_, then _columns_ shrinks first.
 
 ``` css
 
 .my-columns {
-  structure-columns: 3-4;
+  structure: columns 3-4;
 }
 
 .my-columns-with-offset {
-  structure-columns: 3-4-2;
+  structure: columns 3-4-2;
 }
 
 ```
@@ -185,13 +201,13 @@ Example (with offset): [input](https://github.com/francoisromain/postcss-structu
 
 ### Show
 
-`structure-show: breakpoint`
+`structure: show [breakpoint]`
 
 - _breakpoint_: the element is made visible when the screen is wider than _breakpoint_. A class has to be defined above in the CSS to make it invisible. 
 
 ``` css
 .my-element {
-  structure-show: 3;
+  structure: show 3;
 }
 ```
 
@@ -199,19 +215,14 @@ Example: [input](https://github.com/francoisromain/postcss-structure/blob/gh-pag
 
 ### Right
 
-`structure-right: breakpoint`
+`structure: right [breakpoint]`
 
 - _breakpoint_: the element is pushed to the right when the screen is wider than _breakpoint_.
 
 ``` css
 .my-element {
-  structure-show: 3;
+  structure: right 3;
 }
 ```
 
 Example: [input](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/src/10.css), [output](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/dist/10.css), [markup](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/10.html)
-
-## To do
-
-- [ ] Make rtl
-- [ ] write tests

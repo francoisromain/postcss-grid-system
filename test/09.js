@@ -28,19 +28,19 @@ const tests = {
 }
 
 .container {
-  structure-element: container;
+  structure: container;
 }
 
 .row {
-  structure-element: row;
+  structure: row;
 }
 
 .show-2 {
-  structure-show: 2;
+  structure: show 2;
 }
 
 .show-7 {
-  structure-show: 7;
+  structure: show 7;
 }
 `,
   output: `.row {

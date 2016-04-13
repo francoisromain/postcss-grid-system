@@ -10,19 +10,19 @@ const tests = {
 }
 
 .container {
-  structure-element: container;
+  structure: container;
 }
 
 .row {
-  structure-element: row;
+  structure: row;
 }
 
 .bloc-one-third {
-  structure-fraction: 1/3;
+  structure: fraction 1/3;
 }
 
 .bloc-three-fourth {
-  structure-fraction: 3/4;
+  structure: fraction 3/4;
 }
 `,
   output: `.container {

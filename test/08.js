@@ -10,19 +10,19 @@ const tests = {
 }
 
 .container {
-  structure-element: container;
+  structure: container;
 }
 
 .columns-2-2-4 {
-  structure-columns: 2-2-4;
+  structure: columns 2-2-4;
 }
 
 .columns-4-2-2 {
-  structure-columns: 4-2-2;
+  structure: columns 4-2-2;
 }
 
 .columns-2-2-4-bis {
-  structure-columns: 2-2-4;
+  structure: columns 2-2-4;
 }
 `,
   output: `.container {

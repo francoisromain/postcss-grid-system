@@ -10,11 +10,11 @@ const tests = {
 }
 
 .container {
-  structure-element: container;
+  structure: container;
 }
 
 .row {
-  structure-element: row;
+  structure: row;
 }
 `,
   output: `.container {

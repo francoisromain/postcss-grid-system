@@ -28,15 +28,15 @@ const tests = {
 }
 
 .container {
-  structure-element: container;
+  structure: container;
 }
 
 .right-3 {
-  structure-right: 3;
+  structure: right 3;
 }
 
 .right-5 {
-  structure-right: 5;
+  structure: right 5;
 }
 `,
   output: `.row {

@@ -10,23 +10,23 @@ const tests = {
 }
 
 .container {
-  structure-element: container;
+  structure: container;
 }
 
 .row {
-  structure-element: row;
+  structure: row;
 }
 
 .bloc-3-2 {
-  structure-bloc: 3-2;
+  structure: bloc 3-2;
 }
 
 .bloc-5-3 {
-  structure-bloc: 5-3;
+  structure: bloc 5-3;
 }
 
 .bloc-3-2-bis {
-  structure-bloc: 3-2;
+  structure: bloc 3-2;
 }
 `,
   output: `.container {

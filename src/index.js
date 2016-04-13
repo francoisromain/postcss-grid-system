@@ -31,10 +31,10 @@ module.exports = postcss.plugin('postcss-structure', () => {
     css.walkAtRules('structure', (rule) => {
       rule.walkDecls((decl) => {
         if (decl.prop.match(/^unit/) ||
-            decl.prop.match(/^gutter/) ||
-            decl.prop.match(/^padding/) ||
-            decl.prop.match(/^max/) ||
-            decl.prop.match(/^min/)) {
+          decl.prop.match(/^gutter/) ||
+          decl.prop.match(/^padding/) ||
+          decl.prop.match(/^max/) ||
+          decl.prop.match(/^min/)) {
           opts[decl.prop] = parseFloat(decl.value, 10);
         } else if (decl.prop.match(/^align/) || decl.prop.match(/^display/)) {
           opts[decl.prop] = decl.value;
@@ -42,60 +42,61 @@ module.exports = postcss.plugin('postcss-structure', () => {
       });
 
       css.walkDecls((decl) => {
-        if (decl.prop.match(/^structure-element/)) {
-          if (decl.value === 'container') {
+        if (decl.prop.match(/^structure/)) {
+          let value = decl.value.split(' ');
+          if (value[0] === 'container') {
             e.containers.push(decl.parent.selector);
             utils.declClean(decl);
-          } else if (decl.value === 'row') {
+          } else if (value[0] === 'row') {
             e.rows.push(decl.parent.selector);
             utils.declClean(decl);
+          } else if (value[0] === 'bloc') {
+            const i = value[1].split('-');
+
+            i[2] = i[2] || '0';
+            e.blocs[i[0]] = e.blocs[i[0]] || [];
+            e.blocs[i[0]][i[1]] = e.blocs[i[0]][i[1]] || [];
+            e.blocs[i[0]][i[1]][i[2]] = e.blocs[i[0]][i[1]][i[2]] || [];
+            e.blocs[i[0]][i[1]][i[2]].push(decl.parent.selector);
+
+            utils.declClean(decl);
+          } else if (value[0] === 'fraction') {
+            const i = value[1].split('/');
+
+            e.fractions[i[1]] = e.fractions[i[1]] || [];
+            e.fractions[i[1]][i[0]] = e.fractions[i[1]][i[0]] || [];
+            e.fractions[i[1]][i[0]].push(decl.parent.selector);
+
+            utils.declClean(decl);
+          } else if (value[0] === 'blob') {
+            const i = value[1].replace('/', '-').split('-');
+            e.blobs[i[0]] = e.blobs[i[0]] || [];
+            e.blobs[i[0]][i[2]] = e.blobs[i[0]][i[2]] || [];
+            e.blobs[i[0]][i[2]][i[1]] = e.blobs[i[0]][i[2]][i[1]] || [];
+            e.blobs[i[0]][i[2]][i[1]].push(decl.parent.selector);
+
+            utils.declClean(decl);
+          } else if (value[0] === 'columns') {
+            const i = value[1].split('-');
+
+            i[2] = i[2] || '0';
+            e.columns[i[0]] = e.columns[i[0]] || [];
+            e.columns[i[0]][i[1]] = e.columns[i[0]][i[1]] || [];
+            e.columns[i[0]][i[1]][i[2]] = e.columns[i[0]][i[1]][i[2]] || [];
+            e.columns[i[0]][i[1]][i[2]].push(decl.parent.selector);
+
+            utils.declClean(decl);
+          } else if (value[0] === 'show') {
+            e.shows[value[1]] = e.shows[value[1]] || [];
+            e.shows[value[1]].push(decl.parent.selector);
+
+            utils.declClean(decl);
+          } else if (value[0] === 'right') {
+            e.rights[value[1]] = e.rights[value[1]] || [];
+            e.rights[value[1]].push(decl.parent.selector);
+
+            utils.declClean(decl);
           }
-        } else if (decl.prop.match(/^structure-bloc/)) {
-          const i = decl.value.split('-');
-
-          i[2] = i[2] || '0';
-          e.blocs[i[0]] = e.blocs[i[0]] || [];
-          e.blocs[i[0]][i[1]] = e.blocs[i[0]][i[1]] || [];
-          e.blocs[i[0]][i[1]][i[2]] = e.blocs[i[0]][i[1]][i[2]] || [];
-          e.blocs[i[0]][i[1]][i[2]].push(decl.parent.selector);
-
-          utils.declClean(decl);
-        } else if (decl.prop.match(/^structure-fraction/)) {
-          const i = decl.value.split('/');
-
-          e.fractions[i[1]] = e.fractions[i[1]] || [];
-          e.fractions[i[1]][i[0]] = e.fractions[i[1]][i[0]] || [];
-          e.fractions[i[1]][i[0]].push(decl.parent.selector);
-
-          utils.declClean(decl);
-        } else if (decl.prop.match(/^structure-blob/)) {
-          const i = decl.value.replace('/', '-').split('-');
-          e.blobs[i[0]] = e.blobs[i[0]] || [];
-          e.blobs[i[0]][i[2]] = e.blobs[i[0]][i[2]] || [];
-          e.blobs[i[0]][i[2]][i[1]] = e.blobs[i[0]][i[2]][i[1]] || [];
-          e.blobs[i[0]][i[2]][i[1]].push(decl.parent.selector);
-
-          utils.declClean(decl);
-        } else if (decl.prop.match(/^structure-columns/)) {
-          const i = decl.value.split('-');
-
-          i[2] = i[2] || '0';
-          e.columns[i[0]] = e.columns[i[0]] || [];
-          e.columns[i[0]][i[1]] = e.columns[i[0]][i[1]] || [];
-          e.columns[i[0]][i[1]][i[2]] = e.columns[i[0]][i[1]][i[2]] || [];
-          e.columns[i[0]][i[1]][i[2]].push(decl.parent.selector);
-
-          utils.declClean(decl);
-        } else if (decl.prop.match(/^structure-show/)) {
-          e.shows[decl.value] = e.shows[decl.value] || [];
-          e.shows[decl.value].push(decl.parent.selector);
-
-          utils.declClean(decl);
-        } else if (decl.prop.match(/^structure-right/)) {
-          e.rights[decl.value] = e.rights[decl.value] || [];
-          e.rights[decl.value].push(decl.parent.selector);
-
-          utils.declClean(decl);
         }
       });
       // console.log(util.inspect(e.columns, false, null));
