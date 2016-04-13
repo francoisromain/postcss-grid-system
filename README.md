@@ -1,15 +1,12 @@
 # PostCSS-structure [![Build Status][ci-img]][ci]
 
-http://francoisromain.github.io/postcss-structure/
-
-A [PostCSS] plugin to create CSS grids based on a fixed column width.
-
 [PostCSS]: https://github.com/postcss/postcss
 [ci-img]:  https://travis-ci.org/francoisromain/postcss-structure.svg
 [ci]:      https://travis-ci.org/francoisromain/postcss-structure
 
+http://francoisromain.github.io/postcss-structure/
 
-
+A [PostCSS] plugin to create CSS grids based on a fixed column width.
 
 ## Installation
 
