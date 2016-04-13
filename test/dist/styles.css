@@ -336,6 +336,12 @@ header {
   max-width: 20.5rem;
 }
 
+.xxxl {
+  font-size: 128px;
+  font-size: 8rem;
+  line-height: 0.75;
+}
+
 html.grid {
   background-size: 20.5rem 0.75rem;
   background-position: center top;

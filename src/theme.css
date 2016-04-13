@@ -85,6 +85,11 @@ header {
   max-width: var(--structure-unit);
 }
 
+.xxxl {
+  font-size: 8rem;
+  line-height: 0.75;
+}
+
 html.grid {
   background-size: var(--structure-unit) calc(var(--base-unit) /2);
   background-position: center top;

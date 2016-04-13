@@ -2979,3 +2979,35 @@ https://github.com/francoisromain/postcss-structure
 .show-8 { 
   structure: show 8;
 }
+
+.hide-1 { 
+  structure: hide 1;
+}
+
+.hide-2 { 
+  structure: hide 2;
+}
+
+.hide-3 { 
+  structure: hide 3;
+}
+
+.hide-4 { 
+  structure: hide 4;
+}
+
+.hide-5 { 
+  structure: hide 5;
+}
+
+.hide-6 { 
+  structure: hide 6;
+}
+
+.hide-7 { 
+  structure: hide 7;
+}
+
+.hide-8 { 
+  structure: hide 8;
+}

@@ -1882,6 +1882,12 @@ visibility: visible;
 
 }
 
+.hide-2 {
+display: none;
+visibility: hidden;
+
+}
+
 .right-2 {
 margin-left: auto;
 
@@ -2161,6 +2167,12 @@ width: 63rem;
 .show-3 {
 display: block;
 visibility: visible;
+
+}
+
+.hide-3 {
+display: none;
+visibility: hidden;
 
 }
 
@@ -2458,6 +2470,12 @@ width: 83.5rem;
 .show-4 {
 display: block;
 visibility: visible;
+
+}
+
+.hide-4 {
+display: none;
+visibility: hidden;
 
 }
 
@@ -2770,6 +2788,12 @@ width: 104rem;
 .show-5 {
 display: block;
 visibility: visible;
+
+}
+
+.hide-5 {
+display: none;
+visibility: hidden;
 
 }
 
@@ -3097,6 +3121,12 @@ width: 124.5rem;
 .show-6 {
 display: block;
 visibility: visible;
+
+}
+
+.hide-6 {
+display: none;
+visibility: hidden;
 
 }
 
@@ -3439,6 +3469,12 @@ width: 145rem;
 .show-7 {
 display: block;
 visibility: visible;
+
+}
+
+.hide-7 {
+display: none;
+visibility: hidden;
 
 }
 
@@ -3799,6 +3835,12 @@ visibility: visible;
 
 }
 
+.hide-8 {
+display: none;
+visibility: hidden;
+
+}
+
 .right-8 {
 margin-left: auto;
 
@@ -4127,6 +4169,12 @@ header {
   margin-left: 1.5rem;
   max-width: 328px;
   max-width: 20.5rem;
+}
+
+.xxxl {
+  font-size: 128px;
+  font-size: 8rem;
+  line-height: 0.75;
 }
 
 html.grid {
