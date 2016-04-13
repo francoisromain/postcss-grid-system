@@ -1,0 +1,13 @@
+@structure {
+  unit: 18rem;
+  gutter: 1.5rem;
+  padding: 1.5rem;
+  max: 8;
+  min: 2;
+  display: float;
+  align: center;
+}
+
+.container {
+  structure-element: container;
+}
