@@ -29,11 +29,15 @@ module.exports = postcss.plugin('postcss-structure', () => {
 
   return (css) => {
     css.walkAtRules('structure', (rule) => {
-      rule.each((decl) => {
-        if (decl.prop in opts) {
-          opts[decl.prop] = isNaN(decl.value) ?
-            decl.value.substring(1, decl.value.length - 1) :
-            Number(decl.value);
+      rule.walkDecls((decl) => {
+        if (decl.prop.match(/^unit/) ||
+            decl.prop.match(/^gutter/) ||
+            decl.prop.match(/^padding/) ||
+            decl.prop.match(/^max/) ||
+            decl.prop.match(/^min/)) {
+          opts[decl.prop] = parseFloat(decl.value, 10);
+        } else if (decl.prop.match(/^align/) || decl.prop.match(/^display/)) {
+          opts[decl.prop] = decl.value;
         }
       });
 
@@ -66,7 +70,6 @@ module.exports = postcss.plugin('postcss-structure', () => {
           utils.declClean(decl);
         } else if (decl.prop.match(/^structure-blob/)) {
           const i = decl.value.replace('/', '-').split('-');
-
           e.blobs[i[0]] = e.blobs[i[0]] || [];
           e.blobs[i[0]][i[2]] = e.blobs[i[0]][i[2]] || [];
           e.blobs[i[0]][i[2]][i[1]] = e.blobs[i[0]][i[2]][i[1]] || [];
