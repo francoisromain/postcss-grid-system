@@ -260,6 +260,30 @@ http://francoisromain.github.io/structure.css
   background-color: #ff5400;
 }
 
+/* Debug trick -------------------------------
+http://qr.ae/ROqymT */
+
+html.debug { background-color: rgba(255,0,0,.2); }
+
+html.debug * { background-color: rgba(0,255,0,.2); }
+
+html.debug * * { background-color: rgba(0,0,255,.2); }
+
+html.debug * * * { background-color: rgba(255,0,255,.2); }
+
+html.debug * * * * { background-color: rgba(0,255,255,.2); }
+
+html.debug * * * * * { background-color: rgba(255,255,0,.2); }
+
+html.debug * * * * * * { background-color: rgba(255,255,0,.2); }
+
+html.grid {
+  background-size: 20.5rem 0.75rem;
+  background-position: center top;
+  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.05) 0.01rem, transparent 0.09rem), -webkit-linear-gradient(left, rgba(255, 0, 0, 0.25) 0, transparent 0.25%), -webkit-linear-gradient(left, transparent 50%, rgba(255, 0, 0, 0.25) 50%, transparent 50.25%);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.05) 0.01rem, transparent 0.09rem), linear-gradient(90deg, rgba(255, 0, 0, 0.25) 0, transparent 0.25%), linear-gradient(90deg, transparent 50%, rgba(255, 0, 0, 0.25) 50%, transparent 50.25%);
+}
+
 /*
     Theme
 -------------------------------
