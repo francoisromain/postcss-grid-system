@@ -12,7 +12,7 @@ A [PostCSS] to create grid systems based on a fixed column width.
 
 ## Installation
 
-Install the [npm module](https://www.npmjs.com/package/postcss-structure)
+Install the [npm module](https://www.npmjs.com/package/postcss-structure):
 
     $ npm install postcss-structure --save-dev
 
@@ -24,15 +24,16 @@ postcss([ require('postcss-structure') ])
 
 See [PostCSS usage](https://github.com/postcss/postcss#usage) to setup with Gulp, Grunt, Webpack, npm scripts… 
 
-##### Example with a [npm script](https://docs.npmjs.com/misc/scripts) and [postcss-cli](https://www.npmjs.com/package/postcss-cli).
+##### Example with a [npm script](https://docs.npmjs.com/misc/scripts) and [postcss-cli](https://www.npmjs.com/package/postcss-cli):
 
-Add to package.json: 
+    $ npm install postcss-cli --save-dev
+
+Add a script to package.json:
 
 ``` js
 "scripts": {
   "build": "postcss -u postcss-structure -i src/styles.css -o dist/styles.css"
 }
-// -i is the input -o is the output
 ```
 
     $ npm run build
@@ -58,7 +59,7 @@ A media-query is created for each _unit_ multiple, from _min_ to _max_. When the
 
 ## Usage
 
-- [Container](#containers)
+- [Containers](#containers)
 - [Rows](#rows)
 - [Blocs](#blocs)
 - [Bloc fractions](#bloc-fractions)
@@ -72,7 +73,7 @@ A media-query is created for each _unit_ multiple, from _min_ to _max_. When the
 
 `structure: container`
 
-The container width is defined for each media-query.
+The container width is set for each media-query.
 
 ``` css
 
