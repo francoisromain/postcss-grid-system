@@ -4,7 +4,7 @@ const tests = {
   margin-right: -1.5rem
 }
 
-.row:after {
+.row::after {
   content: "";
   display: table;
   clear: both
@@ -44,7 +44,7 @@ const tests = {
   margin-right: -1.5rem
 }
 
-.row:after {
+.row::after {
   content: "";
   display: table;
   clear: both

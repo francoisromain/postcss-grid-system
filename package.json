@@ -1,6 +1,6 @@
 {
   "name": "postcss-structure",
-  "version": "0.7.8",
+  "version": "0.7.9",
   "description": "A PostCSS plugin to create CSS grids based on a fixed block width.",
   "keywords": [
     "postcss",

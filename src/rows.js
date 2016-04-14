@@ -18,7 +18,7 @@ export default (opts, rootCss, rows) => {
 
     rootCss.append(row);
 
-    rowClearfix.selectors = rows.map((selector) => `${selector}:after`);
+    rowClearfix.selectors = rows.map((selector) => `${selector}::after`);
     rowClearfix.append({ prop: 'content', value: '""' });
     rowClearfix.append({ prop: 'display', value: 'table' });
     rowClearfix.append({ prop: 'clear', value: 'both' });

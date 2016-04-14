@@ -40,7 +40,7 @@ const tests = {
     clear: both;
     margin-right: -1.5rem
 }
-.row:after {
+.row::after {
     content: "";
     display: table;
     clear: both

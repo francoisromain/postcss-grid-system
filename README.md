@@ -2,7 +2,7 @@
 
 [francoisromain.github.io/postcss-structure](http://francoisromain.github.io/postcss-structure)
 
-A [PostCSS] to create grid systems based on a fixed column width.
+A [PostCSS] plugin to create grid systems based on a fixed column width.
 
 [PostCSS]: https://github.com/postcss/postcss
 [ci-img]:  https://travis-ci.org/francoisromain/postcss-structure.svg
@@ -62,7 +62,7 @@ A media-query is created for each _unit_ multiple, from _min_ to _max_. When the
 - [Containers](#containers)
 - [Rows](#rows)
 - [Blocs](#blocs)
-- [Bloc fractions](#bloc-fractions)
+- [Fractions](#fractions)
 - [Blobs](#blobs)
 - [Columns](#columns)
 - [Show](#show)
@@ -127,7 +127,7 @@ Example: [input](https://github.com/francoisromain/postcss-structure/blob/gh-pag
 
 Example (with offset): [input](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/src/04.css), [output](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/dist/04.css), [markup](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/04.html)
 
-### Bloc fractions
+### Fractions
 
 `structure: fraction [ratio]/[total]`
 
