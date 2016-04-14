@@ -1,8 +1,8 @@
 # postcss-structure [![Build Status][ci-img]][ci]
 
-http://francoisromain.github.io/postcss-structure/
+[francoisromain.github.io/postcss-structure](http://francoisromain.github.io/postcss-structure)
 
-A [PostCSS] plugin to create CSS grids based on a fixed column width ([npm module](https://www.npmjs.com/package/postcss-structure)).
+A [PostCSS] to create grid systems based on a fixed column width.
 
 [PostCSS]: https://github.com/postcss/postcss
 [ci-img]:  https://travis-ci.org/francoisromain/postcss-structure.svg
@@ -12,6 +12,8 @@ A [PostCSS] plugin to create CSS grids based on a fixed column width ([npm modul
 
 ## Installation
 
+Install the [npm module](https://www.npmjs.com/package/postcss-structure)
+
     $ npm install postcss-structure --save-dev
 
 Require the PostCSS plugin:
@@ -20,11 +22,11 @@ Require the PostCSS plugin:
 postcss([ require('postcss-structure') ])
 ```
 
-See [PostCSS usage instructions](https://github.com/postcss/postcss#usage) to setup with Gulp, Grunt, Webpack, npm scripts… 
+See [PostCSS usage](https://github.com/postcss/postcss#usage) to setup with Gulp, Grunt, Webpack, npm scripts… 
 
-#### Example with [npm script](https://docs.npmjs.com/misc/scripts) and [postcss-cli](https://www.npmjs.com/package/postcss-cli).
+##### Example with a [npm script](https://docs.npmjs.com/misc/scripts) and [postcss-cli](https://www.npmjs.com/package/postcss-cli).
 
-Add this to package.json: 
+Add to package.json: 
 
 ``` js
 "scripts": {
@@ -37,11 +39,9 @@ Add this to package.json:
 
 ## Configuration
 
-In your stylesheet, set the global settings in a `@structure` declaration:
+Global settings rule (and default values):
 
 ``` css
-
-/* default values */ 
 
 @structure {
   unit:    20.5rem,  /* width of a single column */
@@ -106,7 +106,7 @@ Example: [input](https://github.com/francoisromain/postcss-structure/blob/gh-pag
 
 Blocs have a fixed width.
 
-- _breakpoint_: number of _units_ that fit into the screen. If the screen is narrower than the _breakpoint_, the bloc takes full width.
+- _breakpoint_: number of _units_ that fit into the screen. If the screen is narrower than the _breakpoint_, the bloc is fluid and takes full width.
 - _width_: width of the bloc.
 - _offset_ (optional): remaining space before the bloc can take its width. if (_width_ + _offset_) is wider than _breakpoint_, then _width_ shrinks first.
 
@@ -130,8 +130,8 @@ Example (with offset): [input](https://github.com/francoisromain/postcss-structu
 
 `structure: fraction [ratio]/[total]`
 
-- _ratio_: fraction of the total in one row.
-- _total_: aribitrary divider, relative to _unit_.
+- _ratio_: fraction of the _total_.
+- _total_: divider, relative to _unit_.
 
 ``` css
 
@@ -151,7 +151,7 @@ Unlike blocs, blobs width will change depending on the breakpoint.
 
 - _breakpoint_: number of _units_ that fit in the screen.
 - _ratio_: fraction of the _total_.
-- _total_: aribitrary divider, relative to the _breakpoint_.
+- _total_: divider, relative to the _breakpoint_.
 
 ``` css
 
