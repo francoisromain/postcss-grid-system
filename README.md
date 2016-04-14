@@ -1,48 +1,63 @@
-# PostCSS-structure [![Build Status][ci-img]][ci]
-
-[PostCSS]: https://github.com/postcss/postcss
-[ci-img]:  https://travis-ci.org/francoisromain/postcss-structure.svg
-[ci]:      https://travis-ci.org/francoisromain/postcss-structure
+# postcss-structure [![Build Status][ci-img]][ci]
 
 http://francoisromain.github.io/postcss-structure/
 
 A [PostCSS] plugin to create CSS grids based on a fixed column width.
 
+[PostCSS]: https://github.com/postcss/postcss
+[ci-img]:  https://travis-ci.org/francoisromain/postcss-structure.svg
+[ci]:      https://travis-ci.org/francoisromain/postcss-structure
+
+[npm](https://www.npmjs.com/package/postcss-structure)
+
 ## Installation
 
-Install PostCSS-structure from [npm](https://www.npmjs.com/package/postcss-structure):
+    $ npm install postcss-structure --save-dev
 
-```
-$ npm install postcss-structure --save-dev
-```
-
-Check [PostCSS usage instructions](https://github.com/postcss/postcss#usage) to setup with Gulp, Grunt, Webpack, npm scripts… 
-
-Add PostCSS-structure to the required PostCSS plugins:
+Require the PostCSS plugin:
 
 ``` js
 postcss([ require('postcss-structure') ])
 ```
 
-For example with a [npm script](https://docs.npmjs.com/misc/scripts) and [postcss-cli](https://www.npmjs.com/package/postcss-cli), add this to package.json: 
+See [PostCSS usage instructions](https://github.com/postcss/postcss#usage) to setup with Gulp, Grunt, Webpack, npm scripts… 
 
-```
+#### Example with [npm script](https://docs.npmjs.com/misc/scripts) and [postcss-cli](https://www.npmjs.com/package/postcss-cli).
+
+Add this to package.json: 
+
+``` js
 "scripts": {
-  "start": "postcss -u postcss-structure -i src/styles.css -o dist/styles.css"
+  "build": "postcss -u postcss-structure -i src/styles.css -o dist/styles.css"
 }
 // -i is the input -o is the output
 ```
 
-Run the script: 
+    $ npm run build
 
+## Configuration
+
+In your stylesheet, set the global settings in a `@structure` declaration:
+
+``` css
+
+/* default values */ 
+
+@structure {
+  unit:    20.5rem,  /* width of a single column */
+  gutter:  1.5rem,   /* width of the gutter */
+  padding: 1.5rem,   /* padding of the main container */
+  max:     8,        /* maximum number of blocs (wide screens) */
+  min:     2,        /* minimum number of blocs (mobile) */
+  align:   center,   /* center or left */ 
+  display: flex      /* float or flex */  
+}
 ```
-$ npm start
-```
 
+A media-query is created for each _unit_ multiple, from _min_ to _max_. When the screen is narrower than _min_ * _unit_, elements are fluids. 
 
-## Settings
+## Usage
 
-- [Global](#global)
 - [Container](#containers)
 - [Rows](#rows)
 - [Blocs](#blocs)
@@ -51,34 +66,6 @@ $ npm start
 - [Columns](#columns)
 - [Show](#show)
 - [Right](#right)
-
-### Global
-
-- _unit_: width of a single column
-- _gutter_: width of the gutter
-- _padding_: padding of the main container
-- _max_: maximum number of blocs
-- _min_: minimum number of blocs
-- _align_: center or left
-- _display_: float or flex
-
-A media-query is created for each _unit_ multiple, from _min_ to _max_.
-
-``` css
-
-/* default values */ 
-
-@structure {
-  unit:    20.5rem,
-  gutter:  1.5rem,
-  padding: 1.5rem,
-  max:     8,
-  min:     2,
-  align:   center,
-  display: flex      
-}
-```
-
 
 ### Containers
 
@@ -100,7 +87,7 @@ Example: [input](https://github.com/francoisromain/postcss-structure/blob/gh-pag
 
 `structure: row`
 
-Rows have a negative right margin and are intended to contain either a _bloc_ or a _blob_ element.
+Rows are intended to contain either a _bloc_ or a _blob_ element. They have a negative right margin.
 
 ``` css
 
