@@ -15,8 +15,9 @@
     <h1>postcss-structure</h1>
     <p><a href="https://github.com/francoisromain/postcss-structure">Github</a> | <a href="https://twitter.com/francoisromain">Twitter</a></p>
     <h4>A PostCSS plugin to create CSS grids based on a fixed column width.</h4>
+    <hr />
     <blockquote>The rule:<br />The fewer differences in the size of the illustrations,<br />the quieter the impression created by the design.</blockquote>
-    <p>Josef Muller Brockmann in <i>The designer and the grid</i>.</p>
+    <p class="s"><b>Josef Muller Brockmann</b><br />in <i>The designer and the grid</i>.</p>
     <hr />
   </header>
   <nav class="container" role="navigation">
@@ -49,7 +50,7 @@
   </nav>
   <main class="container" role="main">
     <h2 id="blocs">Blocs</h2>
-    <p><em>structure: bloc [breakpoint]-[width](-[offset]);</em></p>
+    <p><code>structure: bloc [breakpoint]-[width](-[offset]);</code></p>
     <h4>Blocs: active depending on <i>breakpoint</i></h4>
     <div class="row">
       <div class="bloc-2-1 bg-alt pad">bloc 2-1</div>
@@ -97,7 +98,7 @@
     </div>
     <hr />
     <h2 id="fractions">Bloc fractions</h2>
-    <p><em>structure: fraction [ratio]/[total];</em></p>
+    <p><code>structure: fraction [ratio]/[total];</code></p>
     <div class="row">
       <div class="bloc-one-half bg-alt pad">1/2</div>
       <div class="bloc-three-half bg-alt pad">3/2</div>
@@ -109,7 +110,7 @@
     </div>
     <hr />
     <h2 id="blobs">Blobs</h2>
-    <p><em>structure: blob [breakpoint]-[ratio]/[total];</em></p>
+    <p><code>structure: blob [breakpoint]-[ratio]/[total];</code></p>
     <div class="row">
       <div class="blob-0-1-8 bg-alt pad">0-1/8</div>
       <div class="blob-0-1-8 bg-alt pad">0-1/8</div>
@@ -151,7 +152,7 @@
     </div>
     <hr />
     <h2 id="show">Show</h2>
-    <p><em>structure: show [breakpoint]</em></p>
+    <p><code>structure: show [breakpoint];</code></p>
     <div class="row">
       <div class="bloc-2-1 bg-alt pad hide show-2">show 2</div>
       <div class="bloc-2-1 bg-alt pad hide show-3">show 3</div>
@@ -163,7 +164,7 @@
     </div>
     <hr />
     <h2 id="hide">Hide</h2>
-    <p><em>structure: hide [breakpoint]</em></p>
+    <p><code>structure: hide [breakpoint];</code></p>
     <div class="row">
       <div class="bloc-2-1 bg-alt pad hide-2">hide 2</div>
       <div class="bloc-2-1 bg-alt pad hide-3">hide 3</div>
@@ -175,7 +176,7 @@
     </div>
     <hr />
     <h2 id="right">Align right</h2>
-    <p><em>structure: right [breakpoint]</em></p>
+    <p><code>structure: right [breakpoint];</code></p>
     <div class="row">
       <div class="bloc-2-1 bg-alt pad right-2">right 2</div>
       <div class="bloc-2-1 bg-alt pad right-3">right 3</div>
@@ -187,7 +188,7 @@
     </div>
     <hr />
     <h2 id="columns">Columns</h2>
-    <p><em>structure: columns [breakpoint]-[columns](-[offset])</em></p>
+    <p><code>structure: columns [breakpoint]-[columns](-[offset]);</code></p>
     <p><b>CSS columns break the baseline grid.</b></p>
     <div class="columns-3-8 margin-top-m margin-bottom">
       <p>columns 3-8</p>
