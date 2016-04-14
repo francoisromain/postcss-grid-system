@@ -372,10 +372,10 @@ header {
 html.grid {
   background-size: 20.5rem 0.75rem;
   background-position: center top;
-  background-image: -webkit-linear-gradient(bottom, rgba(0,0,0,0.05) .01rem, transparent .09rem), 
+  background-image: -webkit-linear-gradient(rgba(0,0,0,0.05) .01rem, transparent .09rem), 
                     -webkit-linear-gradient(left, rgba(255,0,0,0.25) 0, transparent 0.25%),
                     -webkit-linear-gradient(left, transparent 50%, rgba(255,0,0,0.25) 50%, transparent 50.25%);
-  background-image: linear-gradient(0deg, rgba(0,0,0,0.05) .01rem, transparent .09rem), 
+  background-image: linear-gradient(rgba(0,0,0,0.05) .01rem, transparent .09rem), 
                     linear-gradient(90deg, rgba(255,0,0,0.25) 0, transparent 0.25%),
                     linear-gradient(90deg, transparent 50%, rgba(255,0,0,0.25) 50%, transparent 50.25%)
 }

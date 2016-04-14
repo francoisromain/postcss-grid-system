@@ -33,7 +33,7 @@
     "postcss-cssnext": "^2.5.2",
     "postcss-import": "^8.1.0",
     "postcss-structure": "0.7.9",
-    "structure.css": "^0.5.9"
+    "structure.css": "^0.5.10"
   },
   "babel": {
     "presets": [
