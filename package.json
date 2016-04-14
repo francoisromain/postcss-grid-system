@@ -32,8 +32,8 @@
     "postcss-cli": "^2.5.1",
     "postcss-cssnext": "^2.5.2",
     "postcss-import": "^8.1.0",
-    "postcss-structure": "0.7.5",
-    "structure.css": "^0.5.2"
+    "postcss-structure": "0.7.6",
+    "structure.css": "^0.5.3"
   },
   "babel": {
     "presets": [
