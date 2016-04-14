@@ -2,13 +2,13 @@
 
 http://francoisromain.github.io/postcss-structure/
 
-A [PostCSS] plugin to create CSS grids based on a fixed column width.
+A [PostCSS] plugin to create CSS grids based on a fixed column width ([npm module](https://www.npmjs.com/package/postcss-structure)).
 
 [PostCSS]: https://github.com/postcss/postcss
 [ci-img]:  https://travis-ci.org/francoisromain/postcss-structure.svg
 [ci]:      https://travis-ci.org/francoisromain/postcss-structure
 
-[npm](https://www.npmjs.com/package/postcss-structure)
+
 
 ## Installation
 
@@ -65,6 +65,7 @@ A media-query is created for each _unit_ multiple, from _min_ to _max_. When the
 - [Blobs](#blobs)
 - [Columns](#columns)
 - [Show](#show)
+- [Hide](#hide)
 - [Right](#right)
 
 ### Containers
