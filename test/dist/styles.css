@@ -20,7 +20,7 @@ http://francoisromain.github.io/structure.css
 
   /* s: 0.75rem = 12px */
 
-  /* m: 1rem = 16px */
+  /* m: 1rem = 18px */
 
   /* l: 2.25rem = 36 px */
 
@@ -32,21 +32,22 @@ http://francoisromain.github.io/structure.css
 
   /* typographic scale and vertical rhythm:
      cf http://type-scale.com/ or http://www.gridlover.net/app/
+     default to major third 1.250
   */
-
-  /* style: font-size / line-height */
-
+  
   /* h6, .xs: 10px / 12px */
 
   /* h5, .s: 12px / 24px */
 
   /* h4, .m: 16px / 24px */
 
-  /* h3, .l: 20px / 24px */
+  /* h3, .l: 28.4px / 24px */
 
-  /* h2, .xl: 24px / 36px */
+  /* h2, .xl: 37.9px / 36px */
 
-  /* h1, .xxl: 24px / 36px */
+  /* h1, .xxl: 39px / 48px */
+
+  /* .xxxl: 48px / 48px */
 
   /* .lead: 20px / 36px */
 
@@ -126,8 +127,8 @@ http://francoisromain.github.io/structure.css
 }
 
 .margin-top-m {
-  margin-top: 16px;
-  margin-top: 1rem;
+  margin-top: 18px;
+  margin-top: 1.125rem;
 }
 
 .margin-top-l {
@@ -161,8 +162,8 @@ http://francoisromain.github.io/structure.css
 }
 
 .margin-bottom-m {
-  margin-bottom: 16px;
-  margin-bottom: 1rem;
+  margin-bottom: 18px;
+  margin-bottom: 1.125rem;
 }
 
 .margin-bottom-l {
@@ -194,7 +195,8 @@ http://francoisromain.github.io/structure.css
   background: #bcb9af;
   text-align: center;
   border-radius: 0.375rem;
-  top: -2px;
+  top: -32px;
+  top: -2rem;
   right: 0;
   padding: 2px 12px;
   z-index: 999;
