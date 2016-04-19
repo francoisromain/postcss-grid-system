@@ -8,6 +8,7 @@ A [PostCSS] plugin to create grid systems based on a fixed column width.
 [ci-img]:  https://travis-ci.org/francoisromain/postcss-structure.svg
 [ci]:      https://travis-ci.org/francoisromain/postcss-structure
 
+* * * 
 
 ## Installation
 
@@ -37,6 +38,8 @@ Add a script to package.json:
 
     $ npm run build
 
+* * * 
+
 ## Configuration
 
 Global settings rule (and default values):
@@ -55,6 +58,8 @@ Global settings rule (and default values):
 ```
 
 A media-query is created for each _unit_ multiple, from _min_ to _max_. When the screen is narrower than _min_ * _unit_, elements are fluids. 
+
+* * * 
 
 ## Usage
 
