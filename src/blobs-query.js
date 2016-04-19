@@ -1,7 +1,7 @@
 import postcss from 'postcss';
 import utils from './utils';
 
-export default (opts, breakpoint, mediaQuery, blobs) => {
+export default (blobs, node, opts, breakpoint) => {
   if (blobs.length && blobs[breakpoint] && blobs[breakpoint].length) {
     for (let total = 2; total <= blobs[breakpoint].length; total++) {
       if (blobs[breakpoint][total]) {
@@ -19,7 +19,7 @@ export default (opts, breakpoint, mediaQuery, blobs) => {
               blobWidth.append({ prop: 'width', value: `calc(${blobWidthString})` });
             }
 
-            mediaQuery.append(blobWidth);
+            node.append(blobWidth);
           }
         }
       }

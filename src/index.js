@@ -24,13 +24,14 @@ module.exports = postcss.plugin('postcss-structure', () => {
     rights: [],
     shows: [],
     hides: [],
+    customStyles: [],
   };
 
   const rootCss = postcss.root();
 
   return (css) => {
-    css.walkAtRules('structure', (rule) => {
-      rule.walkDecls((decl) => {
+    css.walkAtRules('structure', (structureAtRule) => {
+      structureAtRule.walkDecls((decl) => {
         if (decl.prop.match(/^unit/) ||
           decl.prop.match(/^gutter/) ||
           decl.prop.match(/^padding/) ||
@@ -42,14 +43,23 @@ module.exports = postcss.plugin('postcss-structure', () => {
         }
       });
 
+      css.walkAtRules('structure-media', (mediaAtRule) => {
+        mediaAtRule.walkRules((rule) => {
+          e.customStyles[mediaAtRule.params] = e.customStyles[mediaAtRule.params] || [];
+          e.customStyles[mediaAtRule.params].push(rule);
+        });
+      });
+
       css.walkDecls((decl) => {
         if (decl.prop.match(/^structure/)) {
           const value = decl.value.split(' ');
           if (value[0] === 'container') {
             e.containers.push(decl.parent.selector);
+
             utils.declClean(decl);
           } else if (value[0] === 'row') {
             e.rows.push(decl.parent.selector);
+
             utils.declClean(decl);
           } else if (value[0] === 'bloc') {
             const i = value[1].split('-');
@@ -105,9 +115,9 @@ module.exports = postcss.plugin('postcss-structure', () => {
           }
         }
       });
-      // console.log(util.inspect(e.columns, false, null));
+      // console.log(util.inspect(e.customStyles, false, null));
       structure(opts, rootCss, e);
-      rule.replaceWith(rootCss);
+      structureAtRule.replaceWith(rootCss);
     });
   };
 });

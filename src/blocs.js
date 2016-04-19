@@ -1,7 +1,7 @@
 import postcss from 'postcss';
 import utils from './utils';
 
-export default (opts, rootCss, blocs) => {
+export default (blocs, node, opts) => {
   if (blocs.length) {
     const bloc = postcss.rule();
 
@@ -15,6 +15,6 @@ export default (opts, rootCss, blocs) => {
       bloc.append({ prop: 'clear', value: 'both' });
     }
 
-    rootCss.append(bloc);
+    node.append(bloc);
   }
 };

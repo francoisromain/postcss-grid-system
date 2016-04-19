@@ -9,7 +9,6 @@ A [PostCSS] plugin to create grid systems based on a fixed column width.
 [ci]:      https://travis-ci.org/francoisromain/postcss-structure
 
 
-
 ## Installation
 
 Install the [npm module](https://www.npmjs.com/package/postcss-structure):
@@ -68,6 +67,7 @@ A media-query is created for each _unit_ multiple, from _min_ to _max_. When the
 - [Show](#show)
 - [Hide](#hide)
 - [Right](#right)
+- [Custom styles](#custom-styles)
 
 ### Containers
 
@@ -83,7 +83,7 @@ The container width is set for each media-query.
 
 ```
 
-Example: [input](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/src/01.css), [output](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/dist/01.css), [markup](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/01.html)
+Example: [input](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/src/01.css), [output](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/dist/01.css), [markup](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/01.html), [demo](http://localhost/francoisromain.github.io/postcss-structure/test/01.html)
 
 ### Rows
 
@@ -99,7 +99,7 @@ Rows are intended to contain either a _bloc_ or a _blob_ element. They have a ne
 
 ```
 
-Example: [input](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/src/02.css), [output](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/dist/02.css), [markup](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/02.html)
+Example: [input](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/src/02.css), [output](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/dist/02.css), [markup](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/02.html), [demo](http://localhost/francoisromain.github.io/postcss-structure/test/02.html)
 
 ### Blocs
 
@@ -123,9 +123,9 @@ Blocs have a fixed width.
 
 ```
 
-Example: [input](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/src/03.css), [output](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/dist/03.css), [markup](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/03.html)
+Example: [input](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/src/03.css), [output](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/dist/03.css), [markup](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/03.html), [demo](http://localhost/francoisromain.github.io/postcss-structure/test/03.html)
 
-Example (with offset): [input](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/src/04.css), [output](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/dist/04.css), [markup](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/04.html)
+Example (with offset): [input](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/src/04.css), [output](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/dist/04.css), [markup](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/04.html), [demo](http://localhost/francoisromain.github.io/postcss-structure/test/04.html)
 
 ### Fractions
 
@@ -142,7 +142,7 @@ Example (with offset): [input](https://github.com/francoisromain/postcss-structu
 
 ```
 
-Example: [input](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/src/05.css), [output](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/dist/05.css), [markup](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/05.html)
+Example: [input](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/src/05.css), [output](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/dist/05.css), [markup](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/05.html), [demo](http://localhost/francoisromain.github.io/postcss-structure/test/05.html)
 
 ### Blobs
 
@@ -162,7 +162,7 @@ Unlike blocs, blobs width will change depending on the breakpoint.
 
 ```
 
-Example: [input](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/src/06.css), [output](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/dist/06.css), [markup](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/06.html)
+Example: [input](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/src/06.css), [output](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/dist/06.css), [markup](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/06.html), [demo](http://localhost/francoisromain.github.io/postcss-structure/test/06.html)
 
 ### Columns
 
@@ -184,9 +184,9 @@ Example: [input](https://github.com/francoisromain/postcss-structure/blob/gh-pag
 
 ```
 
-Example: [input](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/src/07.css), [output](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/dist/07.css), [markup](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/07.html)
+Example: [input](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/src/07.css), [output](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/dist/07.css), [markup](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/07.html), [demo](http://localhost/francoisromain.github.io/postcss-structure/test/07.html)
 
-Example (with offset): [input](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/src/08.css), [output](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/dist/08.css), [markup](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/08.html)
+Example (with offset): [input](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/src/08.css), [output](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/dist/08.css), [markup](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/08.html), [demo](http://localhost/francoisromain.github.io/postcss-structure/test/08.html)
 
 ### Show
 
@@ -200,7 +200,7 @@ Example (with offset): [input](https://github.com/francoisromain/postcss-structu
 }
 ```
 
-Example: [input](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/src/09.css), [output](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/dist/09.css), [markup](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/09.html)
+Example: [input](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/src/09.css), [output](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/dist/09.css), [markup](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/09.html), [demo](http://localhost/francoisromain.github.io/postcss-structure/test/09.html)
 
 ### Hide
 
@@ -226,4 +226,18 @@ Example: [input](https://github.com/francoisromain/postcss-structure/blob/gh-pag
 }
 ```
 
-Example: [input](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/src/10.css), [output](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/dist/10.css), [markup](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/10.html)
+Example: [input](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/src/10.css), [output](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/dist/10.css), [markup](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/10.html), [demo](http://localhost/francoisromain.github.io/postcss-structure/test/10.html)
+
+### Custom styles
+
+``` css
+@structure-media [breakpoint] {
+    .myClass {
+        …
+    }
+}
+```
+
+- _breakpoint_: classes are applied when the screen is wider than breakpoint. To set the default styles (mobile first), use `@structure-media 0 { …`.
+
+Example: [input](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/src/11.css), [output](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/dist/11.css), [markup](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/11.html), [demo](http://localhost/francoisromain.github.io/postcss-structure/test/11.html)

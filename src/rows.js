@@ -1,6 +1,6 @@
 import postcss from 'postcss';
 
-export default (opts, rootCss, rows) => {
+export default (rows, node, opts) => {
   if (rows.length) {
     const row = postcss.rule();
     const rowClearfix = postcss.rule();
@@ -16,13 +16,13 @@ export default (opts, rootCss, rows) => {
       row.append({ prop: 'align-content', value: 'flex-start' });
     }
 
-    rootCss.append(row);
+    node.append(row);
 
     rowClearfix.selectors = rows.map((selector) => `${selector}::after`);
     rowClearfix.append({ prop: 'content', value: '""' });
     rowClearfix.append({ prop: 'display', value: 'table' });
     rowClearfix.append({ prop: 'clear', value: 'both' });
 
-    rootCss.append(rowClearfix);
+    node.append(rowClearfix);
   }
 };

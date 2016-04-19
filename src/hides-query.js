@@ -1,6 +1,6 @@
 import postcss from 'postcss';
 
-export default (breakpoint, mediaQuery, hides) => {
+export default (hides, node, breakpoint) => {
   if (hides.length && hides[breakpoint] && hides[breakpoint].length) {
     const hide = postcss.rule();
 
@@ -8,6 +8,6 @@ export default (breakpoint, mediaQuery, hides) => {
     hide.append({ prop: 'display', value: 'none' });
     hide.append({ prop: 'visibility', value: 'hidden' });
 
-    mediaQuery.append(hide);
+    node.append(hide);
   }
 };

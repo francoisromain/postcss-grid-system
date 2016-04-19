@@ -1,6 +1,6 @@
 import postcss from 'postcss';
 
-export default (breakpoint, mediaQuery, shows) => {
+export default (shows, node, breakpoint) => {
   if (shows.length && shows[breakpoint] && shows[breakpoint].length) {
     const show = postcss.rule();
 
@@ -8,6 +8,6 @@ export default (breakpoint, mediaQuery, shows) => {
     show.append({ prop: 'display', value: 'block' });
     show.append({ prop: 'visibility', value: 'visible' });
 
-    mediaQuery.append(show);
+    node.append(show);
   }
 };

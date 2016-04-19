@@ -1,6 +1,6 @@
 import postcss from 'postcss';
 
-export default (opts, rootCss, containers) => {
+export default (containers, node, opts) => {
   if (containers.length) {
     const container = postcss.rule();
 
@@ -14,6 +14,6 @@ export default (opts, rootCss, containers) => {
       container.append({ prop: 'margin-right', value: 'auto' });
     }
 
-    rootCss.append(container);
+    node.append(container);
   }
 };

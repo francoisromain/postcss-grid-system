@@ -1,3 +1,6 @@
+0.8.0
+- feat: add custom styles feature
+
 0.7.3
 - feat: add hide feature
 

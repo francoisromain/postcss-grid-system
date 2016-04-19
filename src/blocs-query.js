@@ -1,7 +1,7 @@
 import postcss from 'postcss';
 import utils from './utils';
 
-export default (opts, breakpoint, mediaQuery, blocs) => {
+export default (blocs, node, opts, breakpoint) => {
   if (blocs.length) {
     const blocWidth = {};
 
@@ -53,7 +53,7 @@ export default (opts, breakpoint, mediaQuery, blocs) => {
 
     for (let i = 1; i <= breakpoint; i++) {
       if (blocWidth[i].selector) {
-        mediaQuery.append(blocWidth[i]);
+        node.append(blocWidth[i]);
       }
     }
   }

@@ -1,7 +1,7 @@
 import postcss from 'postcss';
 import utils from './utils';
 
-export default (opts, rootCss, fractions) => {
+export default (fractions, node, opts) => {
   if (fractions.length) {
     const fractionFloat = postcss.rule();
 
@@ -16,7 +16,7 @@ export default (opts, rootCss, fractions) => {
       fractionFloat.append({ prop: 'float', value: 'left' });
     }
 
-    rootCss.append(fractionFloat);
+    node.append(fractionFloat);
 
     for (let total = 2; total < fractions.length; total++) {
       if (fractions[total]) {
@@ -35,7 +35,7 @@ export default (opts, rootCss, fractions) => {
               fraction.append({ prop: 'width', value: `${fractionValue}rem` });
             }
 
-            rootCss.append(fraction);
+            node.append(fraction);
           }
         }
       }

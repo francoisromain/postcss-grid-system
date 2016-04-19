@@ -1,7 +1,7 @@
 import postcss from 'postcss';
 import utils from './utils';
 
-export default (opts, breakpoint, mediaQuery, blocs) => {
+export default (blocs, node, opts, breakpoint) => {
   if (blocs.length && blocs[breakpoint] && blocs[breakpoint].length && opts.display === 'float') {
     const blocFloat = postcss.rule();
 
@@ -23,6 +23,6 @@ export default (opts, breakpoint, mediaQuery, blocs) => {
       }
     }
 
-    mediaQuery.append(blocFloat);
+    node.append(blocFloat);
   }
 };

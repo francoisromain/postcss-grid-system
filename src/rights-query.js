@@ -1,6 +1,6 @@
 import postcss from 'postcss';
 
-export default (opts, breakpoint, mediaQuery, rights) => {
+export default (rights, node, opts, breakpoint) => {
   if (rights.length && rights[breakpoint] && rights[breakpoint].length) {
     const right = postcss.rule();
 
@@ -12,6 +12,6 @@ export default (opts, breakpoint, mediaQuery, rights) => {
       right.append({ prop: 'float', value: 'right' });
     }
 
-    mediaQuery.append(right);
+    node.append(right);
   }
 };

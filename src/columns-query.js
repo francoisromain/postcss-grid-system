@@ -1,7 +1,7 @@
 import postcss from 'postcss';
 import utils from './utils';
 
-export default (opts, breakpoint, mediaQuery, columns) => {
+export default (columns, node, opts, breakpoint) => {
   if (columns.length) {
     const columnCount = {};
 
@@ -46,7 +46,7 @@ export default (opts, breakpoint, mediaQuery, columns) => {
 
     for (let index = 1; index <= breakpoint; index++) {
       if (columnCount[index].selector) {
-        mediaQuery.append(columnCount[index]);
+        node.append(columnCount[index]);
       }
     }
   }

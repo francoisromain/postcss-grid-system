@@ -1,6 +1,6 @@
 import postcss from 'postcss';
 
-export default (opts, breakpoint, mediaQuery, containers) => {
+export default (containers, node, opts, breakpoint) => {
   if (containers.length) {
     const containerQuery = postcss.rule();
     const containerWidth = breakpoint * opts.unit - opts.gutter + 2 * opts.padding;
@@ -8,6 +8,6 @@ export default (opts, breakpoint, mediaQuery, containers) => {
     containerQuery.selectors = containers;
     containerQuery.append({ prop: 'width', value: `${containerWidth}rem` });
 
-    mediaQuery.append(containerQuery);
+    node.append(containerQuery);
   }
 };

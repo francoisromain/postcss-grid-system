@@ -1,7 +1,7 @@
 import postcss from 'postcss';
 import utils from './utils';
 
-export default (opts, rootCss, blocs) => {
+export default (blocs, node, opts) => {
   const bloc = postcss.rule();
   bloc.selectors = utils.flatten(blocs);
   bloc.append({ prop: 'margin-right', value: `${opts.gutter}rem` });
@@ -12,5 +12,5 @@ export default (opts, rootCss, blocs) => {
     bloc.append({ prop: 'clear', value: 'both' });
   }
 
-  rootCss.append(bloc);
+  node.append(bloc);
 };

@@ -1,7 +1,7 @@
 import postcss from 'postcss';
 import utils from './utils';
 
-export default (opts, breakpoint, mediaQuery, blobs) => {
+export default (blobs, node, opts, breakpoint) => {
   if (blobs.length && blobs[breakpoint] && blobs[breakpoint].length && opts.display === 'float') {
     const blobFloat = postcss.rule();
 
@@ -16,6 +16,6 @@ export default (opts, breakpoint, mediaQuery, blobs) => {
       }
     }
 
-    mediaQuery.append(blobFloat);
+    node.append(blobFloat);
   }
 };
