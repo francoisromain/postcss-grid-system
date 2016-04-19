@@ -47,6 +47,8 @@ module.exports = postcss.plugin('postcss-structure', () => {
         mediaAtRule.walkRules((rule) => {
           e.customStyles[mediaAtRule.params] = e.customStyles[mediaAtRule.params] || [];
           e.customStyles[mediaAtRule.params].push(rule);
+
+          utils.nodeClean(rule);
         });
       });
 
@@ -56,11 +58,11 @@ module.exports = postcss.plugin('postcss-structure', () => {
           if (value[0] === 'container') {
             e.containers.push(decl.parent.selector);
 
-            utils.declClean(decl);
+            utils.nodeClean(decl);
           } else if (value[0] === 'row') {
             e.rows.push(decl.parent.selector);
 
-            utils.declClean(decl);
+            utils.nodeClean(decl);
           } else if (value[0] === 'bloc') {
             const i = value[1].split('-');
 
@@ -70,7 +72,7 @@ module.exports = postcss.plugin('postcss-structure', () => {
             e.blocs[i[0]][i[1]][i[2]] = e.blocs[i[0]][i[1]][i[2]] || [];
             e.blocs[i[0]][i[1]][i[2]].push(decl.parent.selector);
 
-            utils.declClean(decl);
+            utils.nodeClean(decl);
           } else if (value[0] === 'fraction') {
             const i = value[1].split('/');
 
@@ -78,7 +80,7 @@ module.exports = postcss.plugin('postcss-structure', () => {
             e.fractions[i[1]][i[0]] = e.fractions[i[1]][i[0]] || [];
             e.fractions[i[1]][i[0]].push(decl.parent.selector);
 
-            utils.declClean(decl);
+            utils.nodeClean(decl);
           } else if (value[0] === 'blob') {
             const i = value[1].replace('/', '-').split('-');
             e.blobs[i[0]] = e.blobs[i[0]] || [];
@@ -86,7 +88,7 @@ module.exports = postcss.plugin('postcss-structure', () => {
             e.blobs[i[0]][i[2]][i[1]] = e.blobs[i[0]][i[2]][i[1]] || [];
             e.blobs[i[0]][i[2]][i[1]].push(decl.parent.selector);
 
-            utils.declClean(decl);
+            utils.nodeClean(decl);
           } else if (value[0] === 'columns') {
             const i = value[1].split('-');
 
@@ -96,22 +98,22 @@ module.exports = postcss.plugin('postcss-structure', () => {
             e.columns[i[0]][i[1]][i[2]] = e.columns[i[0]][i[1]][i[2]] || [];
             e.columns[i[0]][i[1]][i[2]].push(decl.parent.selector);
 
-            utils.declClean(decl);
+            utils.nodeClean(decl);
           } else if (value[0] === 'show') {
             e.shows[value[1]] = e.shows[value[1]] || [];
             e.shows[value[1]].push(decl.parent.selector);
 
-            utils.declClean(decl);
+            utils.nodeClean(decl);
           } else if (value[0] === 'hide') {
             e.hides[value[1]] = e.hides[value[1]] || [];
             e.hides[value[1]].push(decl.parent.selector);
 
-            utils.declClean(decl);
+            utils.nodeClean(decl);
           } else if (value[0] === 'right') {
             e.rights[value[1]] = e.rights[value[1]] || [];
             e.rights[value[1]].push(decl.parent.selector);
 
-            utils.declClean(decl);
+            utils.nodeClean(decl);
           }
         }
       });

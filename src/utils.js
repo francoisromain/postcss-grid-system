@@ -19,11 +19,11 @@ const utils = {
         selectors.toString();
     }
   },
-  declClean: function declClean(decl) {
-    if (decl.parent.nodes.length === 1) {
-      decl.parent.remove();
+  nodeClean: function nodeClean(node) {
+    if (node.parent.nodes.length === 1) {
+      node.parent.remove();
     } else {
-      decl.remove();
+      node.remove();
     }
   },
 };
