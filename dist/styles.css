@@ -1596,6 +1596,15 @@ https://github.com/francoisromain/postcss-structure
           column-gap: 1.5rem;
 }
 
+.custom {
+  background-color: plum;
+}
+
+.custom-2 {
+  background-color: plum;
+  color: white;
+}
+
 @media (min-width: 43.5rem) {
 
   .container {
@@ -1836,6 +1845,15 @@ https://github.com/francoisromain/postcss-structure
     -webkit-column-count: 2;
        -moz-column-count: 2;
             column-count: 2;
+  }
+
+  .custom {
+    background-color: deeppink;
+  }
+
+  .custom-2 {
+    background-color: deeppink;
+    color: silver;
   }
 }
 
@@ -2092,6 +2110,10 @@ https://github.com/francoisromain/postcss-structure
     -webkit-column-count: 3;
        -moz-column-count: 3;
             column-count: 3;
+  }
+
+  .custom {
+    background-color: orangered;
   }
 }
 
@@ -2361,6 +2383,10 @@ https://github.com/francoisromain/postcss-structure
     -webkit-column-count: 4;
        -moz-column-count: 4;
             column-count: 4;
+  }
+
+  .custom {
+    background-color: dodgerblue;
   }
 }
 
@@ -2643,6 +2669,10 @@ https://github.com/francoisromain/postcss-structure
     -webkit-column-count: 5;
        -moz-column-count: 5;
             column-count: 5;
+  }
+
+  .custom {
+    background-color: lightcoral;
   }
 }
 
@@ -2938,6 +2968,10 @@ https://github.com/francoisromain/postcss-structure
     -webkit-column-count: 6;
        -moz-column-count: 6;
             column-count: 6;
+  }
+
+  .custom {
+    background-color: gold;
   }
 }
 
@@ -3567,6 +3601,62 @@ https://github.com/francoisromain/postcss-structure
     -webkit-column-count: 8;
        -moz-column-count: 8;
             column-count: 8;
+  }
+}
+
+@structure-media 0 {
+  .custom {
+    background-color: plum;
+  }
+}
+
+@structure-media 1 {
+  .custom {
+    background-color: palegreen;
+  }
+}
+
+@structure-media 2 {
+  .custom {
+    background-color: deeppink;
+  }
+}
+
+@structure-media 3 {
+  .custom {
+    background-color: orangered;
+  }
+}
+
+@structure-media 4 {
+  .custom {
+    background-color: dodgerblue;
+  }
+}
+
+@structure-media 5 {
+  .custom {
+    background-color: lightcoral;
+  }
+}
+
+@structure-media 6 {
+  .custom {
+    background-color: gold;
+  }
+}
+
+@structure-media 0 {
+  .custom-2 {
+    background-color: plum;
+    color: white;
+  }
+}
+
+@structure-media 2 {
+  .custom-2 {
+    background-color: deeppink;
+    color: silver;
   }
 }
 

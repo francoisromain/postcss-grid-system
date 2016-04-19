@@ -16,8 +16,9 @@
     "css-08": "postcss --local-plugins -u ./postcss-structure/lib/index.js -i test/src/08.css -o test/dist/08.css",
     "css-09": "postcss --local-plugins -u ./postcss-structure/lib/index.js -i test/src/09.css -o test/dist/09.css",
     "css-10": "postcss --local-plugins -u ./postcss-structure/lib/index.js -i test/src/10.css -o test/dist/10.css",
+    "css-11": "postcss --local-plugins -u ./postcss-structure/lib/index.js -i test/src/11.css -o test/dist/11.css",
     "build": "npm run babel && npm run css",
-    "build-test": "npm run babel && npm run css && npm run css-structure && npm run css-test && npm run css-01 && npm run css-02 && npm run css-03 && npm run css-04 && npm run css-05 && npm run css-06 && npm run css-07 && npm run css-08 && npm run css-09 && npm run css-10",
+    "test": "npm run babel && npm run css && npm run css-structure && npm run css-test && npm run css-01 && npm run css-02 && npm run css-03 && npm run css-04 && npm run css-05 && npm run css-06 && npm run css-07 && npm run css-08 && npm run css-09 && npm run css-10 && npm run css-11",
     "watch": "onchange 'index.html' 'src/**/*.*' 'postcss-structure/src/**/*.*' -- npm run build",
     "reload": "livereload",
     "start": "npm-run-all --parallel watch reload"
