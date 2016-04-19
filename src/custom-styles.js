@@ -1,7 +1,7 @@
-export default (customStyles, node, breakpoint) => {
-  if (customStyles[breakpoint]) {
-    for (let rule = 0; rule < customStyles[breakpoint].length; rule++) {
-      node.append(customStyles[breakpoint][rule]);
+export default (customStyles, node) => {
+  if (customStyles) {
+    for (let rule = 0; rule < customStyles.length; rule++) {
+      node.append(customStyles[rule]);
     }
   }
 };

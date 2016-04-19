@@ -23,25 +23,25 @@ export default (opts, rootCss, e) => {
   blocs(e.blocs, rootCss, opts);
   fractions(e.fractions, rootCss, opts);
   blocs(e.blobs, rootCss, opts);
-  blobsFloatQuery(e.blobs, rootCss, opts, 0);
-  blobsQuery(e.blobs, rootCss, opts, 0);
+  blobsFloatQuery(e.blobs[0], rootCss, opts);
+  blobsQuery(e.blobs[0], rootCss, opts);
   columns(e.columns, rootCss, opts);
-  customStyles(e.customStyles, rootCss, 0);
+  customStyles(e.customStyles[0], rootCss);
 
   for (let breakpoint = opts.min; breakpoint <= opts.max; breakpoint++) {
     const queryWidth = breakpoint * opts.unit - opts.gutter + 2 * opts.padding + scrollbarsWidth;
     const mediaQuery = postcss.atRule({ name: 'media', params: `(min-width: ${queryWidth}rem)` });
 
     containersQuery(e.containers, mediaQuery, opts, breakpoint);
-    blocsFloatQuery(e.blocs, mediaQuery, opts, breakpoint);
+    blocsFloatQuery(e.blocs[breakpoint], mediaQuery, opts);
     blocsQuery(e.blocs, mediaQuery, opts, breakpoint);
-    blobsFloatQuery(e.blobs, mediaQuery, opts, breakpoint);
-    blobsQuery(e.blobs, mediaQuery, opts, breakpoint);
-    showsQuery(e.shows, mediaQuery, breakpoint);
-    hidesQuery(e.hides, mediaQuery, breakpoint);
-    rightsQuery(e.rights, mediaQuery, opts, breakpoint);
+    blobsFloatQuery(e.blobs[breakpoint], mediaQuery, opts);
+    blobsQuery(e.blobs[breakpoint], mediaQuery, opts);
+    showsQuery(e.shows[breakpoint], mediaQuery);
+    hidesQuery(e.hides[breakpoint], mediaQuery);
+    rightsQuery(e.rights[breakpoint], mediaQuery, opts);
     columnsQuery(e.columns, mediaQuery, opts, breakpoint);
-    customStyles(e.customStyles, mediaQuery, breakpoint);
+    customStyles(e.customStyles[breakpoint], mediaQuery);
 
     rootCss.append(mediaQuery);
   }

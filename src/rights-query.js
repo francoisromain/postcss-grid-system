@@ -1,10 +1,10 @@
 import postcss from 'postcss';
 
-export default (rights, node, opts, breakpoint) => {
-  if (rights.length && rights[breakpoint] && rights[breakpoint].length) {
+export default (rights, node, opts) => {
+  if (rights && rights.length) {
     const right = postcss.rule();
 
-    right.selectors = rights[breakpoint];
+    right.selectors = rights;
 
     if (opts.display === 'flex') {
       right.append({ prop: 'margin-left', value: 'auto' });

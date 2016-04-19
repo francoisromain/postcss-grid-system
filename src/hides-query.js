@@ -1,10 +1,10 @@
 import postcss from 'postcss';
 
-export default (hides, node, breakpoint) => {
-  if (hides.length && hides[breakpoint] && hides[breakpoint].length) {
+export default (hides, node) => {
+  if (hides && hides.length) {
     const hide = postcss.rule();
 
-    hide.selectors = hides[breakpoint];
+    hide.selectors = hides;
     hide.append({ prop: 'display', value: 'none' });
     hide.append({ prop: 'visibility', value: 'hidden' });
 
