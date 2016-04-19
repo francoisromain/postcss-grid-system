@@ -1598,10 +1598,6 @@ https://github.com/francoisromain/postcss-structure
 
 .custom {
   background-color: plum;
-}
-
-.custom-2 {
-  background-color: plum;
   color: white;
 }
 
@@ -1849,11 +1845,7 @@ https://github.com/francoisromain/postcss-structure
 
   .custom {
     background-color: deeppink;
-  }
-
-  .custom-2 {
-    background-color: deeppink;
-    color: silver;
+    color: white;
   }
 }
 
@@ -2114,6 +2106,7 @@ https://github.com/francoisromain/postcss-structure
 
   .custom {
     background-color: orangered;
+    color: silver;
   }
 }
 
@@ -2387,6 +2380,7 @@ https://github.com/francoisromain/postcss-structure
 
   .custom {
     background-color: dodgerblue;
+    color: white;
   }
 }
 
@@ -2673,6 +2667,7 @@ https://github.com/francoisromain/postcss-structure
 
   .custom {
     background-color: lightcoral;
+    color: silver;
   }
 }
 
@@ -2972,6 +2967,7 @@ https://github.com/francoisromain/postcss-structure
 
   .custom {
     background-color: gold;
+    color: white;
   }
 }
 
@@ -3601,62 +3597,6 @@ https://github.com/francoisromain/postcss-structure
     -webkit-column-count: 8;
        -moz-column-count: 8;
             column-count: 8;
-  }
-}
-
-@structure-media 0 {
-  .custom {
-    background-color: plum;
-  }
-}
-
-@structure-media 1 {
-  .custom {
-    background-color: palegreen;
-  }
-}
-
-@structure-media 2 {
-  .custom {
-    background-color: deeppink;
-  }
-}
-
-@structure-media 3 {
-  .custom {
-    background-color: orangered;
-  }
-}
-
-@structure-media 4 {
-  .custom {
-    background-color: dodgerblue;
-  }
-}
-
-@structure-media 5 {
-  .custom {
-    background-color: lightcoral;
-  }
-}
-
-@structure-media 6 {
-  .custom {
-    background-color: gold;
-  }
-}
-
-@structure-media 0 {
-  .custom-2 {
-    background-color: plum;
-    color: white;
-  }
-}
-
-@structure-media 2 {
-  .custom-2 {
-    background-color: deeppink;
-    color: silver;
   }
 }
 
