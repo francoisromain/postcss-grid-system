@@ -72,7 +72,7 @@ A media-query is created for each _unit_ multiple, from _min_ to _max_. When the
 - [Show](#show)
 - [Hide](#hide)
 - [Right](#right)
-- [Custom styles](#custom-styles)
+- [Media-queries](#media-queries)
 
 ### Containers
 
@@ -233,11 +233,11 @@ Example: [input](https://github.com/francoisromain/postcss-structure/blob/gh-pag
 
 Example: [input](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/src/10.css), [output](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/dist/10.css), [markup](https://github.com/francoisromain/postcss-structure/blob/gh-pages/test/10.html), [demo](http://localhost/francoisromain.github.io/postcss-structure/test/10.html)
 
-### Custom styles
+### Media queries
 
 ``` css
 @structure-media [breakpoint] {
-    .myClass {
+    .my-class {
         …
     }
 }
