@@ -16,6 +16,9 @@ const tests = {
 @structure-media 0 {
   .custom-1 {
     background-color: plum;
+    & .custom-3 {
+      color: red;
+    }
   }
 }
 
@@ -77,7 +80,10 @@ const tests = {
     margin-right: auto
 }
 .custom-1 {
-    background-color: plum
+    background-color: plum;
+    & .custom-3 {
+        color: red
+    }
 }
 .custom-2 {
     background-color: plum;

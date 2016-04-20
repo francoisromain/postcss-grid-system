@@ -30,6 +30,7 @@ module.exports = postcss.plugin('postcss-structure', () => {
   const rootCss = postcss.root();
 
   return (css) => {
+    let test = 0;
     css.walkAtRules('structure', (structureAtRule) => {
       structureAtRule.walkDecls((decl) => {
         if (decl.prop.match(/^unit/) ||
@@ -44,7 +45,7 @@ module.exports = postcss.plugin('postcss-structure', () => {
       });
 
       css.walkAtRules('structure-media', (mediaAtRule) => {
-        mediaAtRule.walkRules((rule) => {
+        mediaAtRule.each((rule) => {
           e.customStyles[mediaAtRule.params] = e.customStyles[mediaAtRule.params] || [];
           e.customStyles[mediaAtRule.params].push(rule);
 
