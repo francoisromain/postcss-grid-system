@@ -1,20 +1,12 @@
 const tests = {
-  input: `@structure {
-  unit: 20.5rem;
-  gutter: 1.5rem;
-  padding: 1.5rem;
-  max: 8;
-  min: 2;
-  display: float;
-  align: center;
-}
+  input: `@sstm-grid {}
 
 .container {
-  structure: container;
+  sstm-grid: container;
 }
 
 .row {
-  structure: row;
+  sstm-grid: row;
 }
 `,
   output: `.container {
@@ -26,7 +18,11 @@ const tests = {
 }
 .row {
     clear: both;
-    margin-right: -1.5rem
+    margin-right: -1.5rem;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+    align-content: flex-start
 }
 .row::after {
     content: "";

@@ -5,12 +5,12 @@ export default (columns, node, opts, breakpoint) => {
   if (columns.length) {
     const columnCount = {};
 
-    for (let index = 1; index <= breakpoint; index++) {
-      columnCount[index] = postcss.rule();
-      columnCount[index].append({ prop: 'column-count', value: index.toString() });
+    for (let i = 1; i <= breakpoint; i++) {
+      columnCount[i] = postcss.rule();
+      columnCount[i].append({ prop: 'column-count', value: i.toString() });
     }
 
-    for (let units = 1; units <= breakpoint; units++) {
+    for (let units = 0; units <= breakpoint; units++) {
       if (columns[units]) {
         for (let width = 1; width <= opts.max; width++) {
           if (columns[units][width]) {

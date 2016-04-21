@@ -1,11 +1,13 @@
 import postcss from 'postcss';
+import utils from './utils';
 
 export default (rows, node, opts) => {
   if (rows.length) {
     const row = postcss.rule();
     const rowClearfix = postcss.rule();
 
-    row.selectors = rows;
+    row.selectors = utils.flatten(rows);
+
     row.append({ prop: 'clear', value: 'both' });
     row.append({ prop: 'margin-right', value: `-${opts.gutter}rem` });
 

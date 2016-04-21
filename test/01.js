@@ -1,16 +1,8 @@
 const tests = {
-  input: `@structure {
-  unit: 20.5rem;
-  gutter: 1.5rem;
-  padding: 1.5rem;
-  max: 8;
-  min: 2;
-  display: float;
-  align: center;
-}
+  input: `@sstm-grid {}
 
 .container {
-  structure: container;
+  sstm-grid: container;
 }
 `,
   output: `.container {

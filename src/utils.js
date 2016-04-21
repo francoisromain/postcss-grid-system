@@ -19,13 +19,13 @@ const utils = {
         selectors.toString();
     }
   },
-  nodeClean: function nodeClean(node) {
-    if (node.parent.nodes.length === 1) {
+  nodeClean: function nodeClean(node, cleanParent) {
+    if (cleanParent && node.parent.nodes.length === 1) {
       node.parent.remove();
     } else {
       node.remove();
     }
-  },
+  }
 };
 
 export default utils;

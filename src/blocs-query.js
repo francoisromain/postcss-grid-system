@@ -15,7 +15,7 @@ export default (blocs, node, opts, breakpoint) => {
       }
     }
 
-    for (let units = 1; units <= breakpoint; units++) {
+    for (let units = 0; units <= breakpoint; units++) {
       if (blocs[units]) {
         for (let width = 1; width <= opts.max; width++) {
           if (blocs[units][width]) {

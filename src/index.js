@@ -1,9 +1,9 @@
 import postcss from 'postcss';
-import structure from './structure';
+import grid from './sstm-grid';
 import utils from './utils';
 // import util from 'util';
 
-module.exports = postcss.plugin('postcss-structure', () => {
+module.exports = postcss.plugin('css-system-grid', () => {
   const opts = {
     unit: 20.5,
     gutter: 1.5,
@@ -19,20 +19,64 @@ module.exports = postcss.plugin('postcss-structure', () => {
     rows: [],
     blocs: [],
     fractions: [],
-    blobs: [],
     columns: [],
-    rights: [],
-    shows: [],
-    hides: [],
-    customStyles: [],
+    rules: [],
   };
 
   const rootCss = postcss.root();
 
+  const walkDecls = function(node, breakpoint) {
+    node.walkDecls((decl) => {
+
+      if (decl.prop.match(/^sstm-grid/)) {
+        const value = decl.value.split(' ');
+        if (value[0] === 'container') {
+          e.containers[breakpoint] = e.containers[breakpoint] || [];
+          e.containers[breakpoint].push(decl.parent.selector);
+
+          utils.nodeClean(decl, true);
+        } else if (value[0] === 'row') {
+          e.rows[breakpoint] = e.rows[breakpoint] || [];
+          e.rows[breakpoint].push(decl.parent.selector);
+
+          utils.nodeClean(decl, true);
+        } else if (value[0] === 'bloc') {
+          const i = value[1].split('-');
+
+          i[1] = i[1] || '0';
+          e.blocs[breakpoint] = e.blocs[breakpoint] || [];
+          e.blocs[breakpoint][i[0]] = e.blocs[breakpoint][i[0]] || [];
+          e.blocs[breakpoint][i[0]][i[1]] = e.blocs[breakpoint][i[0]][i[1]] || [];
+          e.blocs[breakpoint][i[0]][i[1]].push(decl.parent.selector);
+
+          utils.nodeClean(decl, true);
+        } else if (value[0] === 'fraction') {
+          const i = value[1].split('/');
+
+          e.fractions[breakpoint] = e.fractions[breakpoint] || [];
+          e.fractions[breakpoint][i[1]] = e.fractions[breakpoint][i[1]] || [];
+          e.fractions[breakpoint][i[1]][i[0]] = e.fractions[breakpoint][i[1]][i[0]] || [];
+          e.fractions[breakpoint][i[1]][i[0]].push(decl.parent.selector);
+
+          utils.nodeClean(decl, true);
+        } else if (value[0] === 'columns') {
+          const i = value[1].split('-');
+
+          i[1] = i[1] || '0';
+          e.columns[breakpoint] = e.columns[breakpoint] || [];
+          e.columns[breakpoint][i[0]] = e.columns[breakpoint][i[0]] || [];
+          e.columns[breakpoint][i[0]][i[1]] = e.columns[breakpoint][i[0]][i[1]] || [];
+          e.columns[breakpoint][i[0]][i[1]].push(decl.parent.selector);
+
+          utils.nodeClean(decl, true);
+        }
+      }
+    });
+  }
+
   return (css) => {
-    let test = 0;
-    css.walkAtRules('structure', (structureAtRule) => {
-      structureAtRule.walkDecls((decl) => {
+    css.walkAtRules('sstm-grid', (gridAtRule) => {
+      gridAtRule.walkDecls((decl) => {
         if (decl.prop.match(/^unit/) ||
           decl.prop.match(/^gutter/) ||
           decl.prop.match(/^padding/) ||
@@ -44,83 +88,23 @@ module.exports = postcss.plugin('postcss-structure', () => {
         }
       });
 
-      css.walkAtRules('structure-media', (mediaAtRule) => {
-        mediaAtRule.each((rule) => {
-          e.customStyles[mediaAtRule.params] = e.customStyles[mediaAtRule.params] || [];
-          e.customStyles[mediaAtRule.params].push(rule);
+      css.walkAtRules('sstm-grid-media', (gridMediaAtRule) => {
+        walkDecls(gridMediaAtRule, gridMediaAtRule.params);
+        gridMediaAtRule.each((rule) => {
+          e.rules[gridMediaAtRule.params] = e.rules[gridMediaAtRule.params] || [];
+          e.rules[gridMediaAtRule.params].push(rule);
 
-          utils.nodeClean(rule);
+          utils.nodeClean(rule, true);
         });
+
+        utils.nodeClean(gridMediaAtRule);
       });
 
-      css.walkDecls((decl) => {
-        if (decl.prop.match(/^structure/)) {
-          const value = decl.value.split(' ');
-          if (value[0] === 'container') {
-            e.containers.push(decl.parent.selector);
+      walkDecls(css, 0);
 
-            utils.nodeClean(decl);
-          } else if (value[0] === 'row') {
-            e.rows.push(decl.parent.selector);
-
-            utils.nodeClean(decl);
-          } else if (value[0] === 'bloc') {
-            const i = value[1].split('-');
-
-            i[2] = i[2] || '0';
-            e.blocs[i[0]] = e.blocs[i[0]] || [];
-            e.blocs[i[0]][i[1]] = e.blocs[i[0]][i[1]] || [];
-            e.blocs[i[0]][i[1]][i[2]] = e.blocs[i[0]][i[1]][i[2]] || [];
-            e.blocs[i[0]][i[1]][i[2]].push(decl.parent.selector);
-
-            utils.nodeClean(decl);
-          } else if (value[0] === 'fraction') {
-            const i = value[1].split('/');
-
-            e.fractions[i[1]] = e.fractions[i[1]] || [];
-            e.fractions[i[1]][i[0]] = e.fractions[i[1]][i[0]] || [];
-            e.fractions[i[1]][i[0]].push(decl.parent.selector);
-
-            utils.nodeClean(decl);
-          } else if (value[0] === 'blob') {
-            const i = value[1].replace('/', '-').split('-');
-            e.blobs[i[0]] = e.blobs[i[0]] || [];
-            e.blobs[i[0]][i[2]] = e.blobs[i[0]][i[2]] || [];
-            e.blobs[i[0]][i[2]][i[1]] = e.blobs[i[0]][i[2]][i[1]] || [];
-            e.blobs[i[0]][i[2]][i[1]].push(decl.parent.selector);
-
-            utils.nodeClean(decl);
-          } else if (value[0] === 'columns') {
-            const i = value[1].split('-');
-
-            i[2] = i[2] || '0';
-            e.columns[i[0]] = e.columns[i[0]] || [];
-            e.columns[i[0]][i[1]] = e.columns[i[0]][i[1]] || [];
-            e.columns[i[0]][i[1]][i[2]] = e.columns[i[0]][i[1]][i[2]] || [];
-            e.columns[i[0]][i[1]][i[2]].push(decl.parent.selector);
-
-            utils.nodeClean(decl);
-          } else if (value[0] === 'show') {
-            e.shows[value[1]] = e.shows[value[1]] || [];
-            e.shows[value[1]].push(decl.parent.selector);
-
-            utils.nodeClean(decl);
-          } else if (value[0] === 'hide') {
-            e.hides[value[1]] = e.hides[value[1]] || [];
-            e.hides[value[1]].push(decl.parent.selector);
-
-            utils.nodeClean(decl);
-          } else if (value[0] === 'right') {
-            e.rights[value[1]] = e.rights[value[1]] || [];
-            e.rights[value[1]].push(decl.parent.selector);
-
-            utils.nodeClean(decl);
-          }
-        }
-      });
-      // console.log(util.inspect(e.customStyles, false, null));
-      structure(opts, rootCss, e);
-      structureAtRule.replaceWith(rootCss);
+      // console.log(util.inspect(e.containers, false, null));
+      grid(e, rootCss, opts);
+      gridAtRule.replaceWith(rootCss);
     });
   };
 });

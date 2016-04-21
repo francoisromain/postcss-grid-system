@@ -1,7 +1,7 @@
 {
-  "name": "postcss-structure",
-  "version": "0.8.5",
-  "description": "A PostCSS plugin to create CSS grids based on a fixed block width.",
+  "name": "postcss-sstm-grid",
+  "version": "0.1.0",
+  "description": "A PostCSS plugin to create grids based on a fixed block width.",
   "keywords": [
     "postcss",
     "css",
@@ -16,12 +16,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/francoisromain/postcss-structure.git"
+    "url": "https://github.com/francoisromain/postcss-sstm-grid.git"
   },
   "bugs": {
-    "url": "https://github.com/francoisromain/postcss-structure/issues"
+    "url": "https://github.com/francoisromain/postcss-sstm-grid/issues"
   },
-  "homepage": "https://github.com/francoisromain/postcss-structure",
+  "homepage": "https://github.com/francoisromain/postcss-sstm-grid",
   "dependencies": {
     "postcss": "^5.0.19"
   },

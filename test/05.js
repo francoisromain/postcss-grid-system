@@ -1,28 +1,20 @@
 const tests = {
-  input: `@structure {
-  unit: 20.5rem;
-  gutter: 1.5rem;
-  padding: 1.5rem;
-  max: 8;
-  min: 2;
-  display: float;
-  align: center;
-}
+  input: `@sstm-grid {}
 
 .container {
-  structure: container;
+  sstm-grid: container;
 }
 
 .row {
-  structure: row;
+  sstm-grid: row;
 }
 
 .bloc-one-third {
-  structure: fraction 1/3;
+  sstm-grid: fraction 1/3;
 }
 
 .bloc-three-fourth {
-  structure: fraction 3/4;
+  sstm-grid: fraction 3/4;
 }
 `,
   output: `.container {
@@ -34,7 +26,11 @@ const tests = {
 }
 .row {
     clear: both;
-    margin-right: -1.5rem
+    margin-right: -1.5rem;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+    align-content: flex-start
 }
 .row::after {
     content: "";
@@ -44,13 +40,13 @@ const tests = {
 .bloc-one-third, .bloc-three-fourth {
     margin-right: 1.5rem;
     margin-bottom: 1.5rem;
-    float: left
+    flex: 0 1 auto
 }
 .bloc-one-third {
-    width: 5.333333333333333rem
+    flex: 0 1 5.333333333333333rem
 }
 .bloc-three-fourth {
-    width: 13.875rem
+    flex: 0 1 13.875rem
 }
 @media (min-width: 43.5rem) {
     .container {
