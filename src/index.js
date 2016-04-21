@@ -1,9 +1,9 @@
 import postcss from 'postcss';
-import grid from './s-grid';
+import gridSystem from './grid-system';
 import utils from './utils';
 // import util from 'util';
 
-module.exports = postcss.plugin('css-system-grid', () => {
+module.exports = postcss.plugin('postcss-grid-system', () => {
   const opts = {
     unit: 20.5,
     gutter: 1.5,
@@ -28,7 +28,7 @@ module.exports = postcss.plugin('css-system-grid', () => {
   const walkDecls = function(node, breakpoint) {
     node.walkDecls((decl) => {
 
-      if (decl.prop.match(/^s-grid/)) {
+      if (decl.prop.match(/^gs/)) {
         const value = decl.value.split(' ');
         if (value[0] === 'container') {
           e.containers[breakpoint] = e.containers[breakpoint] || [];
@@ -75,8 +75,8 @@ module.exports = postcss.plugin('css-system-grid', () => {
   }
 
   return (css) => {
-    css.walkAtRules('s-grid', (gridAtRule) => {
-      gridAtRule.walkDecls((decl) => {
+    css.walkAtRules('gs', (gsAtRule) => {
+      gsAtRule.walkDecls((decl) => {
         if (decl.prop.match(/^unit/) ||
           decl.prop.match(/^gutter/) ||
           decl.prop.match(/^padding/) ||
@@ -88,7 +88,7 @@ module.exports = postcss.plugin('css-system-grid', () => {
         }
       });
 
-      css.walkAtRules('s-grid-media', (gridMediaAtRule) => {
+      css.walkAtRules('gs-media', (gridMediaAtRule) => {
         walkDecls(gridMediaAtRule, gridMediaAtRule.params);
         gridMediaAtRule.each((rule) => {
           e.rules[gridMediaAtRule.params] = e.rules[gridMediaAtRule.params] || [];
@@ -103,8 +103,8 @@ module.exports = postcss.plugin('css-system-grid', () => {
       walkDecls(css, 0);
 
       // console.log(util.inspect(e.containers, false, null));
-      grid(e, rootCss, opts);
-      gridAtRule.replaceWith(rootCss);
+      gridSystem(e, rootCss, opts);
+      gsAtRule.replaceWith(rootCss);
     });
   };
 });

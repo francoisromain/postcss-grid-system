@@ -1,12 +1,12 @@
 const tests = {
-  input: `@s-grid {}
+  input: `@gs {}
 
 .container {
-  s-grid: container;
+  gs: container;
 }
 
 .row {
-  s-grid: row;
+  gs: row;
 }
 `,
   output: `.container {
