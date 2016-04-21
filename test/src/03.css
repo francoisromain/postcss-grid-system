@@ -1,26 +1,26 @@
-@sstm-grid {}
+@s-grid {}
 
 .container {
-  sstm-grid: container;
+  s-grid: container;
 }
 
 .row {
-  sstm-grid: row;
+  s-grid: row;
 }
 
-@sstm-grid-media 3 {
+@s-grid-media 3 {
   .bloc-3-2 {
-    sstm-grid: bloc 2;
+    s-grid: bloc 2;
   }
 
   .bloc-3-2-bis {
-    sstm-grid: bloc 2;
+    s-grid: bloc 2;
   }
 }
 
-@sstm-grid-media 5 {
+@s-grid-media 5 {
   .bloc-5-3 {
-    sstm-grid: bloc 3;
+    s-grid: bloc 3;
   }
 
 }

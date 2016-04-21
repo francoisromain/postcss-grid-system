@@ -1,5 +1,5 @@
-@sstm-grid {}
+@s-grid {}
 
 .container {
-  sstm-grid: container;
+  s-grid: container;
 }

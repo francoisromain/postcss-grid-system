@@ -75,14 +75,14 @@ header {
 
 .img-left {
   float: left;
-  margin-right: var(--sstm-grid-gutter);
-  max-width: var(--sstm-grid-unit);
+  margin-right: var(--s-grid-gutter);
+  max-width: var(--s-grid-unit);
 }
 
 .img-right {
   float: right;
-  margin-left: var(--sstm-grid-gutter);
-  max-width: var(--sstm-grid-unit);
+  margin-left: var(--s-grid-gutter);
+  max-width: var(--s-grid-unit);
 }
 
 .xxxl {
