@@ -1,1 +1,1 @@
-gh-pages branch for [francoisromain.github.io/postcss-s-grid](http://francoisromain.github.io/postcss-s-grid/)
+gh-pages branch for [francoisromain.github.io/postcss-grid-system](http://francoisromain.github.io/postcss-grid-system/)

@@ -1,10 +1,10 @@
-@s-grid {}
+@gs {}
 
 .container {
-  s-grid: container;
+  gs: container;
 }
 
-@s-grid-media 0 {
+@gs-media 0 {
   .custom-1 {
     background-color: plum;
     & .custom-3 {
@@ -13,50 +13,50 @@
   }
 }
 
-@s-grid-media 1 {
+@gs-media 1 {
   .custom-1 {
     background-color: palegreen;
   }
 }
 
-@s-grid-media 2 {
+@gs-media 2 {
   .custom-1 {
     background-color: deeppink;
   }
 }
 
-@s-grid-media 3 {
+@gs-media 3 {
   .custom-1 {
     background-color: orangered;
   }
 }
 
-@s-grid-media 4 {
+@gs-media 4 {
   .custom-1 {
     background-color: dodgerblue;
   }
 }
 
-@s-grid-media 5 {
+@gs-media 5 {
   .custom-1 {
     background-color: lightcoral;
   }
 }
 
-@s-grid-media 6 {
+@gs-media 6 {
   .custom-1 {
     background-color: gold;
   }
 }
 
-@s-grid-media 0 {
+@gs-media 0 {
   .custom-2 {
     background-color: plum;
     color: white;
   }
 }
 
-@s-grid-media 2 {
+@gs-media 2 {
   .custom-2 {
     background-color: deeppink;
     color: silver;

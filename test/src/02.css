@@ -1,9 +1,9 @@
-@s-grid {}
+@gs {}
 
 .container {
-  s-grid: container;
+  gs: container;
 }
 
 .row {
-  s-grid: row;
+  gs: row;
 }

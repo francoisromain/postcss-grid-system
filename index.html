@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>postcss-s-grid</title>
+  <title>postcss-grid-system</title>
   <meta name="description" content="A PostCSS plugin to create CSS grids based on a fixed block width.">
   <meta name="keywords" content="Grid system, css, postcss, npm, masonry">
   <link rel="stylesheet" href="dist/styles.css">
@@ -12,8 +12,8 @@
 
 <body>
   <header class="container" role="banner">
-    <h1><a href="http://francoisromain.github.io/postcss-s/">postcss-s</a> / grid</h1>
-    <p><a href="https://github.com/francoisromain/postcss-s-grid">Github</a></p>
+    <h1>postcss-grid-system</h1>
+    <p><a href="https://github.com/francoisromain/postcss-grid-system">Github</a></p>
     <h4>A PostCSS plugin to create grids based on a fixed column width.</h4>
     <hr />
     <blockquote>The rule:
@@ -50,7 +50,7 @@
   </nav>
   <main class="container" role="main">
     <h2 id="settings">Settings</h2>
-    <pre>@s-grid {    /* default values */
+    <pre>@gs {    /* default values */
   unit:    20.5rem,  /* width of a single column */
   gutter:  1.5rem,   /* width of the gutter */
   padding: 1.5rem,   /* padding of the main container */
@@ -62,12 +62,12 @@
     <p>A media-query is created for each <i>unit</i> multiple, from <i>min</i> to <i>max</i>. When the screen is narrower than <i>min</i> * <i>unit</i>, elements are fluids. </p>
     <hr />
     <h2 id="media-queries">Media queries</h2>
-    <p><code>@s-grid-media [breakpoint] { .my-class { … } }</code></p>
+    <p><code>@gs-media [breakpoint] { .my-class { … } }</code></p>
     <p>Set styles to a specific media-queries.</p>
     <div class="custom pad margin-bottom">Custom styles</div>
     <hr />
     <h2 id="blocs">Blocs</h2>
-    <p><code>.my-class { s-grid: bloc [width](-[offset]); }</code></p>
+    <p><code>.my-class { gs: bloc [width](-[offset]); }</code></p>
     <h4><i>Width</i> is fixed</h4>
     <div class="row">
       <div class="bloc-2-1 bg-alt pad">bloc 1</div>
@@ -105,7 +105,7 @@
     </div>
     <hr />
     <h2 id="fractions">Fractions</h2>
-    <p><code>.my-class { s-grid: fraction [ratio]/[total]; }</code></p>
+    <p><code>.my-class { gs: fraction [ratio]/[total]; }</code></p>
     <div class="row">
       <div class="bloc-one-half bg-alt pad">1/2</div>
       <div class="bloc-three-half bg-alt pad">3/2</div>
@@ -117,7 +117,7 @@
     </div>
     <hr />
     <h2 id="columns">Columns</h2>
-    <p><code>.my-class { s-grid: columns [columns](-[offset]); }</code></p>
+    <p><code>.my-class { gs: columns [columns](-[offset]); }</code></p>
     <p><b>CSS columns break the baseline grid.</b></p>
     <div class="columns-2-8 margin-top-m margin-bottom">
       <p>columns 8: this will be up to 8 columns.</p>
