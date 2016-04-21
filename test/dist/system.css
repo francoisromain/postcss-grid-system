@@ -813,7 +813,9 @@ li > ul,
 
 .list-inline {
   padding: 0;
-  list-style: none
+  list-style: none;
+  margin-bottom: 18px;
+  margin-bottom: 1.125rem
 }
 
 .list-inline > li {

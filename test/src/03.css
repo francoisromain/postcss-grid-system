@@ -1,29 +1,26 @@
-@structure {
-  unit: 20.5rem;
-  gutter: 1.5rem;
-  padding: 1.5rem;
-  max: 8;
-  min: 2;
-  display: float;
-  align: center;
-}
+@sstm-grid {}
 
 .container {
-  structure: container;
+  sstm-grid: container;
 }
 
 .row {
-  structure: row;
+  sstm-grid: row;
 }
 
-.bloc-3-2 {
-  structure: bloc 3-2;
+@sstm-grid-media 3 {
+  .bloc-3-2 {
+    sstm-grid: bloc 2;
+  }
+
+  .bloc-3-2-bis {
+    sstm-grid: bloc 2;
+  }
 }
 
-.bloc-5-3 {
-  structure: bloc 5-3;
-}
+@sstm-grid-media 5 {
+  .bloc-5-3 {
+    sstm-grid: bloc 3;
+  }
 
-.bloc-3-2-bis {
-  structure: bloc 3-2;
 }

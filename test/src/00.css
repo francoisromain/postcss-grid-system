@@ -1,18 +1,10 @@
-@structure {
-  unit: 20.5rem;
-  gutter: 1.5rem;
-  padding: 1.5rem;
-  max: 8;
-  min: 2;
-  display: flex;
-  align: center;
-}
+@sstm-grid {}
 
 .container {
-  structure: container;
+  sstm-grid: container;
 }
 
-@structure-media 0 {
+@sstm-grid-media 0 {
   .custom-1 {
     background-color: plum;
     & .custom-3 {
@@ -21,50 +13,50 @@
   }
 }
 
-@structure-media 1 {
+@sstm-grid-media 1 {
   .custom-1 {
     background-color: palegreen;
   }
 }
 
-@structure-media 2 {
+@sstm-grid-media 2 {
   .custom-1 {
     background-color: deeppink;
   }
 }
 
-@structure-media 3 {
+@sstm-grid-media 3 {
   .custom-1 {
     background-color: orangered;
   }
 }
 
-@structure-media 4 {
+@sstm-grid-media 4 {
   .custom-1 {
     background-color: dodgerblue;
   }
 }
 
-@structure-media 5 {
+@sstm-grid-media 5 {
   .custom-1 {
     background-color: lightcoral;
   }
 }
 
-@structure-media 6 {
+@sstm-grid-media 6 {
   .custom-1 {
     background-color: gold;
   }
 }
 
-@structure-media 0 {
+@sstm-grid-media 0 {
   .custom-2 {
     background-color: plum;
     color: white;
   }
 }
 
-@structure-media 2 {
+@sstm-grid-media 2 {
   .custom-2 {
     background-color: deeppink;
     color: silver;

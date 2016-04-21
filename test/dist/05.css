@@ -7,7 +7,11 @@
 }
 .row {
     clear: both;
-    margin-right: -1.5rem
+    margin-right: -1.5rem;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+    align-content: flex-start
 }
 .row::after {
     content: "";
@@ -17,13 +21,13 @@
 .bloc-one-third, .bloc-three-fourth {
     margin-right: 1.5rem;
     margin-bottom: 1.5rem;
-    float: left
+    flex: 0 1 auto
 }
 .bloc-one-third {
-    width: 5.333333333333333rem
+    flex: 0 1 5.333333333333333rem
 }
 .bloc-three-fourth {
-    width: 13.875rem
+    flex: 0 1 13.875rem
 }
 @media (min-width: 43.5rem) {
     .container {

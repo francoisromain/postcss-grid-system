@@ -1,25 +1,17 @@
-@structure {
-  unit: 20.5rem;
-  gutter: 1.5rem;
-  padding: 1.5rem;
-  max: 8;
-  min: 2;
-  display: float;
-  align: center;
-}
+@sstm-grid {}
 
 .container {
-  structure: container;
+  sstm-grid: container;
 }
 
 .row {
-  structure: row;
+  sstm-grid: row;
 }
 
 .bloc-one-third {
-  structure: fraction 1/3;
+  sstm-grid: fraction 1/3;
 }
 
 .bloc-three-fourth {
-  structure: fraction 3/4;
+  sstm-grid: fraction 3/4;
 }
