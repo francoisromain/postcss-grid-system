@@ -1,5 +1,5 @@
 import postcss from 'postcss';
-import grid from './sstm-grid';
+import grid from './s-grid';
 import utils from './utils';
 // import util from 'util';
 
@@ -28,7 +28,7 @@ module.exports = postcss.plugin('css-system-grid', () => {
   const walkDecls = function(node, breakpoint) {
     node.walkDecls((decl) => {
 
-      if (decl.prop.match(/^sstm-grid/)) {
+      if (decl.prop.match(/^s-grid/)) {
         const value = decl.value.split(' ');
         if (value[0] === 'container') {
           e.containers[breakpoint] = e.containers[breakpoint] || [];
@@ -75,7 +75,7 @@ module.exports = postcss.plugin('css-system-grid', () => {
   }
 
   return (css) => {
-    css.walkAtRules('sstm-grid', (gridAtRule) => {
+    css.walkAtRules('s-grid', (gridAtRule) => {
       gridAtRule.walkDecls((decl) => {
         if (decl.prop.match(/^unit/) ||
           decl.prop.match(/^gutter/) ||
@@ -88,7 +88,7 @@ module.exports = postcss.plugin('css-system-grid', () => {
         }
       });
 
-      css.walkAtRules('sstm-grid-media', (gridMediaAtRule) => {
+      css.walkAtRules('s-grid-media', (gridMediaAtRule) => {
         walkDecls(gridMediaAtRule, gridMediaAtRule.params);
         gridMediaAtRule.each((rule) => {
           e.rules[gridMediaAtRule.params] = e.rules[gridMediaAtRule.params] || [];

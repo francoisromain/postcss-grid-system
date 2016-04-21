@@ -1,8 +1,8 @@
 const tests = {
-  input: `@sstm-grid {}
+  input: `@s-grid {}
 
 .container {
-  sstm-grid: container;
+  s-grid: container;
 }
 `,
   output: `.container {

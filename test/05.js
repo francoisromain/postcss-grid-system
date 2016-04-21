@@ -1,20 +1,20 @@
 const tests = {
-  input: `@sstm-grid {}
+  input: `@s-grid {}
 
 .container {
-  sstm-grid: container;
+  s-grid: container;
 }
 
 .row {
-  sstm-grid: row;
+  s-grid: row;
 }
 
 .bloc-one-third {
-  sstm-grid: fraction 1/3;
+  s-grid: fraction 1/3;
 }
 
 .bloc-three-fourth {
-  sstm-grid: fraction 3/4;
+  s-grid: fraction 3/4;
 }
 `,
   output: `.container {

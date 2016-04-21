@@ -1,24 +1,24 @@
 const tests = {
-  input: `@sstm-grid {}
+  input: `@s-grid {}
 
 .container {
-  sstm-grid: container;
+  s-grid: container;
 }
 
 
-@sstm-grid-media 2 {
+@s-grid-media 2 {
   .columns-2-2-4 {
-    sstm-grid: columns 2-4;
+    s-grid: columns 2-4;
   }
 
   .columns-2-2-4-bis {
-    sstm-grid: columns 2-4;
+    s-grid: columns 2-4;
   }
 }
 
-@sstm-grid-media 4 {
+@s-grid-media 4 {
   .columns-4-2-2 {
-    sstm-grid: columns 2-2;
+    s-grid: columns 2-2;
   }
 }
 `,

@@ -1,31 +1,31 @@
 const tests = {
-  input: `@sstm-grid {}
+  input: `@s-grid {}
 
 .container {
-  sstm-grid: container;
+  s-grid: container;
 }
 
 .row {
-  sstm-grid: row;
+  s-grid: row;
 }
 
-@sstm-grid-media 3 {
+@s-grid-media 3 {
   .bloc-3-2-6 {
-    sstm-grid: bloc 2-6;
+    s-grid: bloc 2-6;
   }
 
   .bloc-3-3-5 {
-    sstm-grid: bloc 3-5;
+    s-grid: bloc 3-5;
   }
 
   .bloc-3-3-5-bis {
-    sstm-grid: bloc 3-5;
+    s-grid: bloc 3-5;
   }
 }
 
-@sstm-grid-media 2 {
+@s-grid-media 2 {
   .bloc-2-6-1 {
-    sstm-grid: bloc 6-1;
+    s-grid: bloc 6-1;
   }
 }
 `,

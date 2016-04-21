@@ -1,11 +1,11 @@
 const tests = {
-  input: `@sstm-grid {}
+  input: `@s-grid {}
 
 .container {
-  sstm-grid: container;
+  s-grid: container;
 }
 
-@sstm-grid-media 0 {
+@s-grid-media 0 {
   .custom-1 {
     background-color: plum;
     & .custom-3 {
@@ -14,50 +14,50 @@ const tests = {
   }
 }
 
-@sstm-grid-media 1 {
+@s-grid-media 1 {
   .custom-1 {
     background-color: palegreen;
   }
 }
 
-@sstm-grid-media 2 {
+@s-grid-media 2 {
   .custom-1 {
     background-color: deeppink;
   }
 }
 
-@sstm-grid-media 3 {
+@s-grid-media 3 {
   .custom-1 {
     background-color: orangered;
   }
 }
 
-@sstm-grid-media 4 {
+@s-grid-media 4 {
   .custom-1 {
     background-color: dodgerblue;
   }
 }
 
-@sstm-grid-media 5 {
+@s-grid-media 5 {
   .custom-1 {
     background-color: lightcoral;
   }
 }
 
-@sstm-grid-media 6 {
+@s-grid-media 6 {
   .custom-1 {
     background-color: gold;
   }
 }
 
-@sstm-grid-media 0 {
+@s-grid-media 0 {
   .custom-2 {
     background-color: plum;
     color: white;
   }
 }
 
-@sstm-grid-media 2 {
+@s-grid-media 2 {
   .custom-2 {
     background-color: deeppink;
     color: silver;
