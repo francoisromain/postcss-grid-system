@@ -46,7 +46,7 @@ Global settings rule (and default values):
 
 ``` css
 
-@structure {
+@sstm-grid {
   unit:    20.5rem,  /* width of a single column */
   gutter:  1.5rem,   /* width of the gutter */
   padding: 1.5rem,   /* padding of the main container */
@@ -74,27 +74,27 @@ A **breakpoint** is created for each value from _min_ to _max_. When the screen 
 ### Media queries
 
 ``` css
-@structure-media [breakpoint] {
+@sstm-grid-media [breakpoint] {
     .my-class {
         …
     }
 }
 ```
 
-- _breakpoint_: apply classes when the screen is wider than _breakpoint_. To set the default styles (mobile first), use `@structure-media 0 { …`.
+- _breakpoint_: apply classes when the screen is wider than _breakpoint_. To set the default styles (mobile first), use `@sstm-grid-media 0 { …`.
 
 Example: [input](https://github.com/francoisromain/postcss-sstm-grid/blob/gh-pages/test/src/00.css), [output](https://github.com/francoisromain/postcss-sstm-grid/blob/gh-pages/test/dist/00.css), [markup](https://github.com/francoisromain/postcss-sstm-grid/blob/gh-pages/test/00.html), [demo](http://localhost/francoisromain.github.io/postcss-sstm-grid/test/00.html)
 
 ### Containers
 
-`structure: container`
+`sstm-grid: container`
 
 The container width is set for each _breakpoint_.
 
 ``` css
 
 .my-container {
-  structure: container;
+  sstm-grid: container;
 }
 
 ```
@@ -103,14 +103,14 @@ Example: [input](https://github.com/francoisromain/postcss-sstm-grid/blob/gh-pag
 
 ### Rows
 
-`structure: row`
+`sstm-grid: row`
 
 Rows are intended to contain either a _bloc_ or a _fraction_ element. They have a negative right margin.
 
 ``` css
 
 .my-row {
-  structure: row;
+  sstm-grid: row;
 }
 
 ```
@@ -119,7 +119,7 @@ Example: [input](https://github.com/francoisromain/postcss-sstm-grid/blob/gh-pag
 
 ### Blocs
 
-`structure: bloc [width](-[offset])`
+`sstm-grid: bloc [width](-[offset])`
 
 Blocs have a fixed width.
 
@@ -129,11 +129,11 @@ Blocs have a fixed width.
 ``` css
 
 .my-bloc {
-  structure: bloc 3-2;
+  sstm-grid: bloc 2;
 }
 
 .my-bloc-with-offset {
-  structure: bloc 3-2-3;
+  sstm-grid: bloc 2-3;
 }
 
 ```
@@ -144,7 +144,7 @@ Example (with offset): [input](https://github.com/francoisromain/postcss-sstm-gr
 
 ### Fractions
 
-`structure: fraction [ratio]/[total]`
+`sstm-grid: fraction [ratio]/[total]`
 
 - _ratio_: fraction of the _total_.
 - _total_: divider, relative to _unit_.
@@ -152,7 +152,7 @@ Example (with offset): [input](https://github.com/francoisromain/postcss-sstm-gr
 ``` css
 
 .my-fraction {
-  structure: fraction 3/2;
+  sstm-grid: fraction 3/2;
 }
 
 ```
@@ -162,7 +162,7 @@ Example: [input](https://github.com/francoisromain/postcss-sstm-grid/blob/gh-pag
 
 ### Columns
 
-`structure: columns [columns](-[offset])`
+`sstm-grid: columns [columns](-[offset])`
 
 - _columns_: number of columns.
 - _offset_ (optional): remaining space before the columns are active. If (_columns_ + _offset_) is greater than _breakpoint_, then _columns_ shrinks first.
@@ -170,11 +170,11 @@ Example: [input](https://github.com/francoisromain/postcss-sstm-grid/blob/gh-pag
 ``` css
 
 .my-columns {
-  structure: columns 3-4;
+  sstm-grid: columns 4;
 }
 
 .my-columns-with-offset {
-  structure: columns 3-4-2;
+  sstm-grid: columns 4-2;
 }
 
 ```

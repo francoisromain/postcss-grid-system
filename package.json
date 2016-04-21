@@ -1,6 +1,6 @@
 {
   "name": "postcss-sstm-grid",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A PostCSS plugin to create grids based on a fixed block width.",
   "keywords": [
     "postcss",
