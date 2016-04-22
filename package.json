@@ -1,9 +1,13 @@
 {
   "name": "francoisromain.github.io.postcss-grid-system",
   "version": "0.1.0",
+  "description": "gh-pages for postcss-grid-system",
+  "author": "Francois Romain <francoisromain@gmail.com>",
+  "license": "MIT",
+  "repository": "francoisromain/postcss-grid-system",
   "scripts": {
     "babel": "babel postcss-grid-system/src --out-dir postcss-grid-system/lib",
-    "css": "postcss --local-plugins -u postcss-import -u postcss-custom-properties -u postcss-calc -u ./postcss-grid-system -u postcss-cssnext -i src/styles.css -o dist/styles.css",
+    "css": "postcss --local-plugins -u postcss-import -u postcss-custom-properties -u ./postcss-grid-system -u postcss-cssnext -i src/styles.css -o dist/styles.css",
     "css-test": "postcss -u postcss-import -u postcss-cssnext -i test/src/styles.css -o test/dist/styles.css",
     "css-system": "postcss -u postcss-import -u postcss-cssnext -i test/src/system.css -o test/dist/system.css",
     "css-00": "postcss --local-plugins -u ./postcss-grid-system -i test/src/00.css -o test/dist/00.css",
