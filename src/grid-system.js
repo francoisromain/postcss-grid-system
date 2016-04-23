@@ -27,7 +27,7 @@ export default (e, rootCss, opts) => {
   rulesQuery(e.rules[0], rootCss);
 
   for (let breakpoint = opts.min; breakpoint <= opts.max; breakpoint++) {
-    const queryWidth = breakpoint * opts.unit - opts.gutter + 2 * opts.padding + scrollbarsWidth;
+    const queryWidth = breakpoint * opts.width - opts.gutter + 2 * opts.padding + scrollbarsWidth;
     const mediaQuery = postcss.atRule({ name: 'media', params: `(min-width: ${queryWidth}rem)` });
 
     containersQuery(e.containers, mediaQuery, opts, breakpoint);

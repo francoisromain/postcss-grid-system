@@ -47,17 +47,17 @@ Global settings rule (and default values):
 ``` css
 
 @gs {
-  unit:    20.5rem,  /* width of a single column */
-  gutter:  1.5rem,   /* width of the gutter */
-  padding: 1.5rem,   /* padding of the main container */
-  max:     8,        /* maximum number of blocs (wide screens) */
-  min:     2,        /* minimum number of blocs (mobile) */
-  align:   center,   /* center or left */ 
-  display: flex      /* float or flex */  
+  width:   20.5rem;  /* width of a single column */
+  gutter:  1.5rem;   /* width of the gutter */
+  padding: 1.5rem;   /* padding of the main container */
+  max:     8;        /* maximum number of blocs (wide screens) */
+  min:     2;        /* minimum number of blocs (mobile) */
+  align:   center;   /* center or left */ 
+  display: flex;     /* float or flex */  
 }
 ```
 
-A **breakpoint** is created for each value from _min_ to _max_. When the screen is narrower than _min_ * _unit_, elements are fluids. 
+A **breakpoint** is created for each value from _min_ to _max_. When the screen is narrower than _min_ * _width_, elements are fluids. 
 
 * * * 
 
@@ -147,7 +147,7 @@ Example (with offset): [input](https://github.com/francoisromain/postcss-grid-sy
 `gs: fraction [ratio]/[total]`
 
 - _ratio_: fraction of the _total_.
-- _total_: divider, relative to _unit_.
+- _total_: divider, relative to _width_.
 
 ``` css
 

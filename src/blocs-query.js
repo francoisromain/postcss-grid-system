@@ -7,7 +7,7 @@ export default (blocs, node, opts, breakpoint) => {
 
     for (let i = 1; i <= breakpoint; i++) {
       blocWidth[i] = postcss.rule();
-      const blocWidthValue = opts.unit * i - opts.gutter;
+      const blocWidthValue = opts.width * i - opts.gutter;
       if (opts.display === 'flex') {
         blocWidth[i].append({ prop: 'flex', value: `0 1 ${blocWidthValue}rem` });
       } else if (opts.display === 'float') {

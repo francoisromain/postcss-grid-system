@@ -1,5 +1,4 @@
 import postcss from 'postcss';
-import utils from './utils';
 
 export default (fractions, node, opts) => {
   if (fractions && fractions.length) {
@@ -10,7 +9,7 @@ export default (fractions, node, opts) => {
 
           if (fractionSelectors) {
             const fraction = postcss.rule();
-            const fractionValue = opts.unit * ratio / total - opts.gutter;
+            const fractionValue = opts.width * ratio / total - opts.gutter;
 
             fraction.selectors = fractionSelectors;
 

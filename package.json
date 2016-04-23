@@ -1,7 +1,7 @@
 {
   "name": "postcss-grid-system",
-  "version": "0.1.1",
-  "description": "A PostCSS plugin to create grids based on a fixed block width.",
+  "version": "0.1.2",
+  "description": "A PostCSS plugin to create grids based on a fixed column width.",
   "keywords": [
     "postcss",
     "css",
@@ -21,7 +21,7 @@
   "bugs": {
     "url": "https://github.com/francoisromain/postcss-grid-system/issues"
   },
-  "homepage": "https://github.com/francoisromain/postcss-grid-system",
+  "homepage": "http://francoisromain.github.io/postcss-grid-system/",
   "dependencies": {
     "postcss": "^5.0.19"
   },
@@ -37,7 +37,8 @@
     "babel-register": "^6.7.2",
     "eslint": "^2.8.0",
     "eslint-config-airbnb": "^7.0.0",
-    "eslint-plugin-react": "^5.0.1"
+    "eslint-plugin-jsx-a11y": "^0.6.2",
+    "eslint-plugin-react": "^4.3.0"
   },
   "eslintConfig": {
     "extends": "airbnb"

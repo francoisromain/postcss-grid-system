@@ -5,7 +5,7 @@ import utils from './utils';
 
 module.exports = postcss.plugin('postcss-grid-system', () => {
   const opts = {
-    unit: 20.5,
+    width: 20.5,
     gutter: 1.5,
     padding: 1.5,
     max: 8,
@@ -25,9 +25,8 @@ module.exports = postcss.plugin('postcss-grid-system', () => {
 
   const rootCss = postcss.root();
 
-  const walkDecls = function(node, breakpoint) {
+  const walkDecls = function walkDecls(node, breakpoint) {
     node.walkDecls((decl) => {
-
       if (decl.prop.match(/^gs/)) {
         const value = decl.value.split(' ');
         if (value[0] === 'container') {
@@ -72,12 +71,12 @@ module.exports = postcss.plugin('postcss-grid-system', () => {
         }
       }
     });
-  }
+  };
 
   return (css) => {
     css.walkAtRules('gs', (gsAtRule) => {
       gsAtRule.walkDecls((decl) => {
-        if (decl.prop.match(/^unit/) ||
+        if (decl.prop.match(/^width/) ||
           decl.prop.match(/^gutter/) ||
           decl.prop.match(/^padding/) ||
           decl.prop.match(/^max/) ||
@@ -108,85 +107,3 @@ module.exports = postcss.plugin('postcss-grid-system', () => {
     });
   };
 });
-
-/*
-bloc-units-width
--------------------------------
-size            1              2                3                4             5
------------------------------------------------------------------------------
-
-breakpoint 1
-width 1         1 to 7         -                -                -             -
-
-breakpoint 2
-width 1         (1)            2 to 7           -                -             -
-width 2         1              2 to 7           -                -             -
-
-breakpoint 3
-width 1         (1)            (2)              3 to 7           -             -
-width 2         (1)            (2)              3 to 7           -             -
-width 3         1              2                3 to 7           -             -
-
-breakpoint = 4
-width 1         (1)            (2)              (3)              4 to 7        -
-width 2         (1)            (2)              (3)              4 to 7        -
-width 3         (1)            (2)              (3)              4 to 7        -
-width 4         1              2                3                4 to 7        -
-
-etc.
-*/
-
-/*
-bloc-units-width-offset
-------------------------------
-size        1              2                3                4             5
------------------------------------------------------------------------------
-
-breakpoint 1
-            2-1 > 2-6      -                -                -             -
-            3-1 > 3-5      -                -                -             -
-            4-1 > 4-4      -                -                -             -
-            5-1 > 5-3      -                -                -             -
-            etc.
-
-breakpoint 2
-            (2-1 > 2-6)    -                -                -             -
-            (3-1 > 3-5)    -                -                -             -
-            (4-1 > 4-4)    -                -                -             -
-            (5-1 > 5-3)    -                -                -             -
-            etc.
-
-breakpoint 3
-            (2-2 > 2-6)    2-1              -                -             -
-            (3-2 > 3-5)    3-1              -                -             -
-            (4-2 > 4-4)    4-1              -                -             -
-            (5-2 > 5-3)    5-1              -                -             -
-            (6-2)          6-1              -                -             -
-            -              7-1              -                -             -
-
-breakpoint 4
-            (2-3 > 2-6)    2-2 (2-1)        -                -             -
-            (3-3 > 3-5)    3-2              3-1              -             -
-            (4-3 > 4-4)    4-2              4-1              -             -
-            (5-3)          5-2              5-1              -             -
-            -              6-2              6-1              -             -
-            -              -                7-1              -             -
-
-breakpoint 5
-            (2-4 > 2-6)    2-3 (2-1 > 2-2)  -                -             -
-            (3-4 > 3-5)    3-3              3-2 (3-1)        -             -
-            (4-4)          4-3              4-2              4-1           -
-            -              5-3              5-2              5-1           -
-            -              -                6-2              6-1           -
-            -              -                -                7-1
-
-breakpoint 6
-            (2-5 > 2-6)    2-4 (2-1 > 2-3)  -                -             -
-            (3-5)          3-4              3-3 (3-2 > 3-1)  -             -
-            -              4-4              4-3              4-2 (4-1)     -
-            -              5-4              5-3              5-2           5-1
-            -              -                -                6-2           6-1
-            -              -                -                -             7-1
-
-etc.
-*/
