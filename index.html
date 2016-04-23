@@ -51,7 +51,7 @@
   <main class="container" role="main">
     <h2 id="settings">Settings</h2>
     <pre>@gs {    /* default values */
-  unit:    20.5rem,  /* width of a single column */
+  width:    20.5rem, /* width of a single column */
   gutter:  1.5rem,   /* width of the gutter */
   padding: 1.5rem,   /* padding of the main container */
   max:     8,        /* maximum number of blocs (wide screens) */
@@ -59,7 +59,7 @@
   align:   center,   /* center or left */ 
   display: flex      /* float or flex */  
 }</pre>
-    <p>A media-query is created for each <i>unit</i> multiple, from <i>min</i> to <i>max</i>. When the screen is narrower than <i>min</i> * <i>unit</i>, elements are fluids. </p>
+    <p>A media-query is created for each <i>width</i> multiple, from <i>min</i> to <i>max</i>. When the screen is narrower than <i>min</i> * <i>width</i>, elements are fluids. </p>
     <hr />
     <h2 id="media-queries">Media queries</h2>
     <p><code>@gs-media [breakpoint] { .my-class { … } }</code></p>
@@ -130,21 +130,21 @@
     <div class="row">
       <div class="bloc-2-2-1">
         <div class="columns-2-2-1 margin-top-m margin-bottom">
-          <p>columns 2-1: this will be 2 columns on a screen wider than 3 units. </p>
+          <p>columns 2-1: this will be 2 columns on a screen wider than 3. </p>
           <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam quis risus eget urna mollis ornare vel eu leo. Vestibulum id ligula porta felis euismod semper. Sed posuere consectetur est at lobortis. Donec ullamcorper nulla non metus auctor fringilla.</p>
           <p>Curabitur blandit tempus porttitor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Donec ullamcorper nulla non metus auctor fringilla.</p>
         </div>
       </div>
       <div class="bloc-2-2-2">
         <div class="columns-2-2-2 margin-top-m margin-bottom">
-          <p>columns 2-2: this will be 2 columns on a screen wider than 4 units. </p>
+          <p>columns 2-2: this will be 2 columns on a screen wider than 4. </p>
           <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam quis risus eget urna mollis ornare vel eu leo. Vestibulum id ligula porta felis euismod semper. Sed posuere consectetur est at lobortis. Donec ullamcorper nulla non metus auctor fringilla.</p>
           <p>Curabitur blandit tempus porttitor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Donec ullamcorper nulla non metus auctor fringilla.</p>
         </div>
       </div>
       <div class="bloc-2-2-4">
         <div class="columns-2-2-4 margin-top-m margin-bottom">
-          <p>columns 2-4: this will be 2 columns if the screen is wider than 6 units (2 + 4). </p>
+          <p>columns 2-4: this will be 2 columns if the screen is wider than 6 (2 + 4). </p>
           <p>Nullam quis risus eget urna mollis ornare vel eu leo. Vestibulum id ligula porta felis euismod semper. Sed posuere consectetur est at lobortis. Donec ullamcorper nulla non metus auctor fringilla.</p>
           <p>Curabitur blandit tempus porttitor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Donec ullamcorper nulla non metus auctor fringilla.</p>
         </div>

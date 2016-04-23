@@ -365,22 +365,6 @@ header {
   clear: none;
 }
 
-.img-left {
-  float: left;
-  margin-right: 24px;
-  margin-right: 1.5rem;
-  max-width: 328px;
-  max-width: 20.5rem;
-}
-
-.img-right {
-  float: right;
-  margin-left: 24px;
-  margin-left: 1.5rem;
-  max-width: 328px;
-  max-width: 20.5rem;
-}
-
 .xxxl {
   font-size: 128px;
   font-size: 8rem;
