@@ -22,21 +22,7 @@ Require the PostCSS plugin:
 postcss([ require('postcss-grid-system') ])
 ```
 
-See [PostCSS usage](https://github.com/postcss/postcss#usage) to setup with Gulp, Grunt, Webpack, npm scripts… 
-
-##### Example with a [npm script](https://docs.npmjs.com/misc/scripts) and [postcss-cli](https://www.npmjs.com/package/postcss-cli):
-
-    $ npm install postcss-cli --save-dev
-
-Add a script to package.json:
-
-``` js
-"scripts": {
-  "build": "postcss -u postcss-grid-system -i src/styles.css -o dist/styles.css"
-}
-```
-
-    $ npm run build
+See [PostCSS docs](https://github.com/postcss/postcss#usage) to setup with Gulp, Grunt, Webpack, npm scripts… 
 
 * * * 
 
@@ -83,7 +69,7 @@ A **breakpoint** is created for each value from _min_ to _max_. When the screen 
 
 - _breakpoint_: apply classes when the screen is wider than _breakpoint_. To set the default styles (mobile first), use `@gs-media 0 { …`.
 
-Example: [input](https://github.com/francoisromain/postcss-grid-system/blob/gh-pages/test/src/00.css), [output](https://github.com/francoisromain/postcss-grid-system/blob/gh-pages/test/dist/00.css), [markup](https://github.com/francoisromain/postcss-grid-system/blob/gh-pages/test/00.html), [demo](http://localhost/francoisromain.github.io/postcss-grid-system/test/00.html)
+Example: [input](https://github.com/francoisromain/postcss-grid-system/blob/gh-pages/test/src/00.css), [output](https://github.com/francoisromain/postcss-grid-system/blob/gh-pages/test/dist/00.css), [markup](https://github.com/francoisromain/postcss-grid-system/blob/gh-pages/test/00.html), [demo](http://francoisromain.github.io/postcss-grid-system/test/00.html)
 
 ### Containers
 
@@ -99,7 +85,7 @@ The container width is set for each _breakpoint_.
 
 ```
 
-Example: [input](https://github.com/francoisromain/postcss-grid-system/blob/gh-pages/test/src/01.css), [output](https://github.com/francoisromain/postcss-grid-system/blob/gh-pages/test/dist/01.css), [markup](https://github.com/francoisromain/postcss-grid-system/blob/gh-pages/test/01.html), [demo](http://localhost/francoisromain.github.io/postcss-grid-system/test/01.html)
+Example: [input](https://github.com/francoisromain/postcss-grid-system/blob/gh-pages/test/src/01.css), [output](https://github.com/francoisromain/postcss-grid-system/blob/gh-pages/test/dist/01.css), [markup](https://github.com/francoisromain/postcss-grid-system/blob/gh-pages/test/01.html), [demo](http://francoisromain.github.io/postcss-grid-system/test/01.html)
 
 ### Rows
 
@@ -115,7 +101,7 @@ Rows are intended to contain either a _bloc_ or a _fraction_ element. They have 
 
 ```
 
-Example: [input](https://github.com/francoisromain/postcss-grid-system/blob/gh-pages/test/src/02.css), [output](https://github.com/francoisromain/postcss-grid-system/blob/gh-pages/test/dist/02.css), [markup](https://github.com/francoisromain/postcss-grid-system/blob/gh-pages/test/02.html), [demo](http://localhost/francoisromain.github.io/postcss-grid-system/test/02.html)
+Example: [input](https://github.com/francoisromain/postcss-grid-system/blob/gh-pages/test/src/02.css), [output](https://github.com/francoisromain/postcss-grid-system/blob/gh-pages/test/dist/02.css), [markup](https://github.com/francoisromain/postcss-grid-system/blob/gh-pages/test/02.html), [demo](http://francoisromain.github.io/postcss-grid-system/test/02.html)
 
 ### Blocs
 
@@ -138,9 +124,9 @@ Blocs have a fixed width.
 
 ```
 
-Example: [input](https://github.com/francoisromain/postcss-grid-system/blob/gh-pages/test/src/03.css), [output](https://github.com/francoisromain/postcss-grid-system/blob/gh-pages/test/dist/03.css), [markup](https://github.com/francoisromain/postcss-grid-system/blob/gh-pages/test/03.html), [demo](http://localhost/francoisromain.github.io/postcss-grid-system/test/03.html)
+Example: [input](https://github.com/francoisromain/postcss-grid-system/blob/gh-pages/test/src/03.css), [output](https://github.com/francoisromain/postcss-grid-system/blob/gh-pages/test/dist/03.css), [markup](https://github.com/francoisromain/postcss-grid-system/blob/gh-pages/test/03.html), [demo](http://francoisromain.github.io/postcss-grid-system/test/03.html)
 
-Example (with offset): [input](https://github.com/francoisromain/postcss-grid-system/blob/gh-pages/test/src/04.css), [output](https://github.com/francoisromain/postcss-grid-system/blob/gh-pages/test/dist/04.css), [markup](https://github.com/francoisromain/postcss-grid-system/blob/gh-pages/test/04.html), [demo](http://localhost/francoisromain.github.io/postcss-grid-system/test/04.html)
+Example (with offset): [input](https://github.com/francoisromain/postcss-grid-system/blob/gh-pages/test/src/04.css), [output](https://github.com/francoisromain/postcss-grid-system/blob/gh-pages/test/dist/04.css), [markup](https://github.com/francoisromain/postcss-grid-system/blob/gh-pages/test/04.html), [demo](http://francoisromain.github.io/postcss-grid-system/test/04.html)
 
 ### Fractions
 
@@ -157,7 +143,7 @@ Example (with offset): [input](https://github.com/francoisromain/postcss-grid-sy
 
 ```
 
-Example: [input](https://github.com/francoisromain/postcss-grid-system/blob/gh-pages/test/src/05.css), [output](https://github.com/francoisromain/postcss-grid-system/blob/gh-pages/test/dist/05.css), [markup](https://github.com/francoisromain/postcss-grid-system/blob/gh-pages/test/05.html), [demo](http://localhost/francoisromain.github.io/postcss-grid-system/test/05.html)
+Example: [input](https://github.com/francoisromain/postcss-grid-system/blob/gh-pages/test/src/05.css), [output](https://github.com/francoisromain/postcss-grid-system/blob/gh-pages/test/dist/05.css), [markup](https://github.com/francoisromain/postcss-grid-system/blob/gh-pages/test/05.html), [demo](http://francoisromain.github.io/postcss-grid-system/test/05.html)
 
 
 ### Columns
@@ -179,7 +165,7 @@ Example: [input](https://github.com/francoisromain/postcss-grid-system/blob/gh-p
 
 ```
 
-Example: [input](https://github.com/francoisromain/postcss-grid-system/blob/gh-pages/test/src/06.css), [output](https://github.com/francoisromain/postcss-grid-system/blob/gh-pages/test/dist/06.css), [markup](https://github.com/francoisromain/postcss-grid-system/blob/gh-pages/test/06.html), [demo](http://localhost/francoisromain.github.io/postcss-grid-system/test/06.html)
+Example: [input](https://github.com/francoisromain/postcss-grid-system/blob/gh-pages/test/src/06.css), [output](https://github.com/francoisromain/postcss-grid-system/blob/gh-pages/test/dist/06.css), [markup](https://github.com/francoisromain/postcss-grid-system/blob/gh-pages/test/06.html), [demo](http://francoisromain.github.io/postcss-grid-system/test/06.html)
 
-Example (with offset): [input](https://github.com/francoisromain/postcss-grid-system/blob/gh-pages/test/src/07.css), [output](https://github.com/francoisromain/postcss-grid-system/blob/gh-pages/test/dist/07.css), [markup](https://github.com/francoisromain/postcss-grid-system/blob/gh-pages/test/07.html), [demo](http://localhost/francoisromain.github.io/postcss-grid-system/test/07.html)
+Example (with offset): [input](https://github.com/francoisromain/postcss-grid-system/blob/gh-pages/test/src/07.css), [output](https://github.com/francoisromain/postcss-grid-system/blob/gh-pages/test/dist/07.css), [markup](https://github.com/francoisromain/postcss-grid-system/blob/gh-pages/test/07.html), [demo](http://francoisromain.github.io/postcss-grid-system/test/07.html)
 
