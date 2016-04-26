@@ -1,10 +1,10 @@
 # postcss-grid-system 
 
+[![npm version][npm-img]][npm] [![Build Status][ci-img]][ci] [![Dependency Status][dep-img]][dep]
+
 [francoisromain.github.io/postcss-grid-system][github.io]
 
 A [PostCSS] plugin to create grids based on a fixed column width.
-
-[![npm version][npm-img]][npm] [![Build Status][ci-img]][ci] [![Dependency Status][dep-img]][dep]
 
 [github.io]: http://francoisromain.github.io/postcss-grid-system
 [PostCSS]:   https://github.com/postcss/postcss
