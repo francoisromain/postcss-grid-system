@@ -28,7 +28,7 @@ module.exports = postcss.plugin('postcss-grid-system', () => {
   const walkDecls = function walkDecls(node, breakpoint) {
     node.walkDecls((decl) => {
       if (decl.prop.match(/^gs/)) {
-        const value = decl.value.split(' ');
+        const value = decl.value.split(/\s+(?![^\[]*\]|[^(]*\)|[^\{]*})/);
         if (value[0] === 'container') {
           e.containers[breakpoint] = e.containers[breakpoint] || [];
           e.containers[breakpoint].push(decl.parent.selector);
