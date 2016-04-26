@@ -25,7 +25,7 @@ const utils = {
     } else {
       node.remove();
     }
-  }
+  },
 };
 
 export default utils;

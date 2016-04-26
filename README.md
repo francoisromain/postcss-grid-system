@@ -1,12 +1,19 @@
-# postcss-grid-system [![Build Status][ci-img]][ci]
+# postcss-grid-system 
 
-[francoisromain.github.io/postcss-grid-system](http://francoisromain.github.io/postcss-grid-system)
+[francoisromain.github.io/postcss-grid-system][github.io]
 
 A [PostCSS] plugin to create grids based on a fixed column width.
 
-[PostCSS]: https://github.com/postcss/postcss
-[ci-img]:  https://travis-ci.org/francoisromain/postcss-grid-system.svg
-[ci]:      https://travis-ci.org/francoisromain/postcss-grid-system
+[![npm version][npm-img]][npm] [![Build Status][ci-img]][ci] [![Dependency Status][dep-img]][dep]
+
+[github.io]: http://francoisromain.github.io/postcss-grid-system
+[PostCSS]:   https://github.com/postcss/postcss
+[ci-img]:    https://travis-ci.org/francoisromain/postcss-grid-system.svg
+[ci]:        https://travis-ci.org/francoisromain/postcss-grid-system
+[npm-img]:   https://badge.fury.io/js/postcss-grid-system.svg
+[npm]:       https://badge.fury.io/js/postcss-grid-system
+[dep-img]:   https://david-dm.org/francoisromain/postcss-grid-system.svg
+[dep]:       https://david-dm.org/francoisromain/postcss-grid-system
 
 * * * 
 
