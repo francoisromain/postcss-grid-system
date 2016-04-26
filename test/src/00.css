@@ -5,59 +5,59 @@
 }
 
 @gs-media 0 {
-  .custom-1 {
+  .one {
     background-color: plum;
-    & .custom-3 {
+    & .three {
       color: red;
     }
   }
 }
 
 @gs-media 1 {
-  .custom-1 {
+  .one {
     background-color: palegreen;
   }
 }
 
 @gs-media 2 {
-  .custom-1 {
+  .one {
     background-color: deeppink;
   }
 }
 
 @gs-media 3 {
-  .custom-1 {
+  .one {
     background-color: orangered;
   }
 }
 
 @gs-media 4 {
-  .custom-1 {
+  .one {
     background-color: dodgerblue;
   }
 }
 
 @gs-media 5 {
-  .custom-1 {
+  .one {
     background-color: lightcoral;
   }
 }
 
 @gs-media 6 {
-  .custom-1 {
+  .one {
     background-color: gold;
   }
 }
 
 @gs-media 0 {
-  .custom-2 {
+  .two {
     background-color: plum;
     color: white;
   }
 }
 
 @gs-media 2 {
-  .custom-2 {
+  .two {
     background-color: deeppink;
     color: silver;
   }

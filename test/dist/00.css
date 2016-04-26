@@ -5,13 +5,13 @@
     margin-left: auto;
     margin-right: auto
 }
-.custom-1 {
+.one {
     background-color: plum;
-    & .custom-3 {
+    & .three {
         color: red
     }
 }
-.custom-2 {
+.two {
     background-color: plum;
     color: white
 }
@@ -19,10 +19,10 @@
     .container {
         width: 42.5rem
     }
-    .custom-1 {
+    .one {
         background-color: deeppink
     }
-    .custom-2 {
+    .two {
         background-color: deeppink;
         color: silver
     }
@@ -31,7 +31,7 @@
     .container {
         width: 63rem
     }
-    .custom-1 {
+    .one {
         background-color: orangered
     }
 }
@@ -39,7 +39,7 @@
     .container {
         width: 83.5rem
     }
-    .custom-1 {
+    .one {
         background-color: dodgerblue
     }
 }
@@ -47,7 +47,7 @@
     .container {
         width: 104rem
     }
-    .custom-1 {
+    .one {
         background-color: lightcoral
     }
 }
@@ -55,7 +55,7 @@
     .container {
         width: 124.5rem
     }
-    .custom-1 {
+    .one {
         background-color: gold
     }
 }
