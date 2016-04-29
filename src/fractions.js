@@ -17,6 +17,5 @@ export default (fractions, node, opts) => {
     }
 
     node.append(fractionFloat);
-
   }
 };

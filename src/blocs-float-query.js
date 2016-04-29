@@ -13,13 +13,6 @@ export default (blocs, node, opts) => {
         if (blocs[width][0]) {
           utils.selectorsAdd(blocFloat, blocs[width][0]);
         }
-        if (width > 1 && width < opts.max) {
-          for (let offset = 1; offset <= opts.max - width; offset++) {
-            if (blocs[width][offset]) {
-              utils.selectorsAdd(blocFloat, blocs[width][offset]);
-            }
-          }
-        }
       }
     }
 

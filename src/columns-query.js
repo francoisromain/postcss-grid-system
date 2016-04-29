@@ -23,22 +23,6 @@ export default (columns, node, opts, breakpoint) => {
             if (i1) {
               utils.selectorsAdd(columnCount[i1], columns[units][width][0]);
             }
-
-            if (width > 1 && width < opts.max) {
-              for (let offset = 1; offset <= opts.max - width; offset++) {
-                let i2 = false;
-                if (width + offset <= breakpoint && breakpoint === units) {
-                  i2 = width;
-                } else if (width + offset >= breakpoint && breakpoint - offset >= 1) {
-                  i2 = breakpoint - offset;
-                } else if (breakpoint === units) {
-                  i2 = 1;
-                }
-                if (i2) {
-                  utils.selectorsAdd(columnCount[i2], columns[units][width][offset]);
-                }
-              }
-            }
           }
         }
       }

@@ -29,23 +29,6 @@ export default (blocs, node, opts, breakpoint) => {
             if (i1) {
               utils.selectorsAdd(blocWidth[i1], blocs[units][width][0]);
             }
-
-            if (width > 1 && width < opts.max) {
-              for (let offset = 1; offset + width <= opts.max; offset++) {
-                let i2 = false;
-                if (width + offset <= breakpoint && units === breakpoint) {
-                  i2 = width;
-                } else if (width + offset >= breakpoint && breakpoint - offset > 1) {
-                  i2 = breakpoint - offset;
-                } else if (units === breakpoint) {
-                  i2 = 1;
-                }
-
-                if (i2) {
-                  utils.selectorsAdd(blocWidth[i2], blocs[units][width][offset]);
-                }
-              }
-            }
           }
         }
       }

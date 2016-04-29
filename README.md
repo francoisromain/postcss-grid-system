@@ -118,12 +118,11 @@ Rows are intended to contain either a _bloc_ or a _fraction_ element. They have 
 
 ### Blocs
 
-`gs: bloc [width](-[offset])`
+`gs: bloc [width]`
 
 Blocs have a fixed width.
 
 - _width_: width of the bloc.
-- _offset_ (optional): remaining space before the bloc can take its width. if (_width_ + _offset_) is wider than _breakpoint_, then _width_ shrinks first.
 
 ##### Example
 
@@ -133,15 +132,9 @@ Blocs have a fixed width.
   gs: bloc 2;
 }
 
-.my-bloc-with-offset {
-  gs: bloc 2-3;
-}
-
 ```
 
 03: [input](https://github.com/francoisromain/postcss-grid-system/blob/gh-pages/test/src/03.css), [output](https://github.com/francoisromain/postcss-grid-system/blob/gh-pages/test/dist/03.css), [markup](https://github.com/francoisromain/postcss-grid-system/blob/gh-pages/test/03.html), [demo](http://francoisromain.github.io/postcss-grid-system/test/03.html)
-
-04: [input](https://github.com/francoisromain/postcss-grid-system/blob/gh-pages/test/src/04.css), [output](https://github.com/francoisromain/postcss-grid-system/blob/gh-pages/test/dist/04.css), [markup](https://github.com/francoisromain/postcss-grid-system/blob/gh-pages/test/04.html), [demo](http://francoisromain.github.io/postcss-grid-system/test/04.html)
 
 ### Fractions
 
@@ -165,10 +158,9 @@ Blocs have a fixed width.
 
 ### Columns
 
-`gs: columns [columns](-[offset])`
+`gs: columns [columns]`
 
 - _columns_: number of columns.
-- _offset_ (optional): remaining space before the columns are active. If (_columns_ + _offset_) is greater than _breakpoint_, then _columns_ shrinks first.
 
 ##### Example
 
@@ -178,13 +170,7 @@ Blocs have a fixed width.
   gs: columns 4;
 }
 
-.my-columns-with-offset {
-  gs: columns 4-2;
-}
-
 ```
 
 06: [input](https://github.com/francoisromain/postcss-grid-system/blob/gh-pages/test/src/06.css), [output](https://github.com/francoisromain/postcss-grid-system/blob/gh-pages/test/dist/06.css), [markup](https://github.com/francoisromain/postcss-grid-system/blob/gh-pages/test/06.html), [demo](http://francoisromain.github.io/postcss-grid-system/test/06.html)
-
-07: [input](https://github.com/francoisromain/postcss-grid-system/blob/gh-pages/test/src/07.css), [output](https://github.com/francoisromain/postcss-grid-system/blob/gh-pages/test/dist/07.css), [markup](https://github.com/francoisromain/postcss-grid-system/blob/gh-pages/test/07.html), [demo](http://francoisromain.github.io/postcss-grid-system/test/07.html)
 
