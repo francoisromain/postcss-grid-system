@@ -6,17 +6,21 @@ https://github.com/francoisromain/postcss-grid-system
 */
 
 @gs {
-  width: var(--gs-width);
-  gutter: var(--gs-gutter);
-  padding: var(--gs-padding);
-  max: var(--gs-max);
-  min: var(--gs-min);
-  display: var(--gs-display);
-  align: var(--gs-align);
+  width: 20.5rem;
+  gutter: 1.5rem;
+  padding: 1.5rem;
+  max: 8;
+  min: 2;
+  display: flex;
+  align: center;
 }
 
 .container {
   gs: container;
+}
+
+.bloc-test {
+  gs: bloc 2;
 }
 
 .row {
@@ -60,108 +64,24 @@ https://github.com/francoisromain/postcss-grid-system
     gs: bloc 2;
   }
 
-  .bloc-1-2-1 {
-    gs: bloc 2-1;
-  }
-
-  .bloc-1-2-2 {
-    gs: bloc 2-2;
-  }
-
-  .bloc-1-2-3 {
-    gs: bloc 2-3;
-  }
-
-  .bloc-1-2-4 {
-    gs: bloc 2-4;
-  }
-
-  .bloc-1-2-5 {
-    gs: bloc 2-5;
-  }
-
-  .bloc-1-2-6 {
-    gs: bloc 2-6;
-  }
-
   .bloc-1-3 {
     gs: bloc 3;
-  }
-
-  .bloc-1-3-1 {
-    gs: bloc 3-1;
-  }
-
-  .bloc-1-3-2 {
-    gs: bloc 3-2;
-  }
-
-  .bloc-1-3-3 {
-    gs: bloc 3-3;
-  }
-
-  .bloc-1-3-4 {
-    gs: bloc 3-4;
-  }
-
-  .bloc-1-3-5 {
-    gs: bloc 3-5;
   }
 
   .bloc-1-4 {
     gs: bloc 4;
   }
 
-  .bloc-1-4-1 {
-    gs: bloc 4-1;
-  }
-
-  .bloc-1-4-2 {
-    gs: bloc 4-2;
-  }
-
-  .bloc-1-4-3 {
-    gs: bloc 4-3;
-  }
-
-  .bloc-1-4-4 {
-    gs: bloc 4-4;
-  }
-
   .bloc-1-5 {
     gs: bloc 5;
-  }
-
-  .bloc-1-5-1 {
-    gs: bloc 5-1;
-  }
-
-  .bloc-1-5-2 {
-    gs: bloc 5-2;
-  }
-
-  .bloc-1-5-3 {
-    gs: bloc 5-3;
   }
 
   .bloc-1-6 {
     gs: bloc 6;
   }
 
-  .bloc-1-6-1 {
-    gs: bloc 6-1;
-  }
-
-  .bloc-1-6-2 {
-    gs: bloc 6-2;
-  }
-
   .bloc-1-7 {
     gs: bloc 7;
-  }
-
-  .bloc-1-7-1 {
-    gs: bloc 7-1;
   }
 
   .bloc-1-8 {
@@ -178,108 +98,24 @@ https://github.com/francoisromain/postcss-grid-system
     gs: bloc 2;
   }
 
-  .bloc-2-2-1 {
-    gs: bloc 2-1;
-  }
-
-  .bloc-2-2-2 {
-    gs: bloc 2-2;
-  }
-
-  .bloc-2-2-3 {
-    gs: bloc 2-3;
-  }
-
-  .bloc-2-2-4 {
-    gs: bloc 2-4;
-  }
-
-  .bloc-2-2-5 {
-    gs: bloc 2-5;
-  }
-
-  .bloc-2-2-6 {
-    gs: bloc 2-6;
-  }
-
   .bloc-2-3 {
     gs: bloc 3;
-  }
-
-  .bloc-2-3-1 {
-    gs: bloc 3-1;
-  }
-
-  .bloc-2-3-2 {
-    gs: bloc 3-2;
-  }
-
-  .bloc-2-3-3 {
-    gs: bloc 3-3;
-  }
-
-  .bloc-2-3-4 {
-    gs: bloc 3-4;
-  }
-
-  .bloc-2-3-5 {
-    gs: bloc 3-5;
   }
 
   .bloc-2-4 {
     gs: bloc 4;
   }
 
-  .bloc-2-4-1 {
-    gs: bloc 4-1;
-  }
-
-  .bloc-2-4-2 {
-    gs: bloc 4-2;
-  }
-
-  .bloc-2-4-3 {
-    gs: bloc 4-3;
-  }
-
-  .bloc-2-4-4 {
-    gs: bloc 4-4;
-  }
-
   .bloc-2-5 {
     gs: bloc 5;
-  }
-
-  .bloc-2-5-1 {
-    gs: bloc 5-1;
-  }
-
-  .bloc-2-5-2 {
-    gs: bloc 5-2;
-  }
-
-  .bloc-2-5-3 {
-    gs: bloc 5-3;
   }
 
   .bloc-2-6 {
     gs: bloc 6;
   }
 
-  .bloc-2-6-1 {
-    gs: bloc 6-1;
-  }
-
-  .bloc-2-6-2 {
-    gs: bloc 6-2;
-  }
-
   .bloc-2-7 {
     gs: bloc 7;
-  }
-
-  .bloc-2-7-1 {
-    gs: bloc 7-1;
   }
 
   .bloc-2-8 {
@@ -296,108 +132,24 @@ https://github.com/francoisromain/postcss-grid-system
     gs: bloc 2;
   }
 
-  .bloc-3-2-1 {
-    gs: bloc 2-1;
-  }
-
-  .bloc-3-2-2 {
-    gs: bloc 2-2;
-  }
-
-  .bloc-3-2-3 {
-    gs: bloc 2-3;
-  }
-
-  .bloc-3-2-4 {
-    gs: bloc 2-4;
-  }
-
-  .bloc-3-2-5 {
-    gs: bloc 2-5;
-  }
-
-  .bloc-3-2-6 {
-    gs: bloc 2-6;
-  }
-
   .bloc-3-3 {
     gs: bloc 3;
-  }
-
-  .bloc-3-3-1 {
-    gs: bloc 3-1;
-  }
-
-  .bloc-3-3-2 {
-    gs: bloc 3-2;
-  }
-
-  .bloc-3-3-3 {
-    gs: bloc 3-3;
-  }
-
-  .bloc-3-3-4 {
-    gs: bloc 3-4;
-  }
-
-  .bloc-3-3-5 {
-    gs: bloc 3-5;
   }
 
   .bloc-3-4 {
     gs: bloc 4;
   }
 
-  .bloc-3-4-1 {
-    gs: bloc 4-1;
-  }
-
-  .bloc-3-4-2 {
-    gs: bloc 4-2;
-  }
-
-  .bloc-3-4-3 {
-    gs: bloc 4-3;
-  }
-
-  .bloc-3-4-4 {
-    gs: bloc 4-4;
-  }
-
   .bloc-3-5 {
     gs: bloc 5;
-  }
-
-  .bloc-3-5-1 {
-    gs: bloc 5-1;
-  }
-
-  .bloc-3-5-2 {
-    gs: bloc 5-2;
-  }
-
-  .bloc-3-5-3 {
-    gs: bloc 5-3;
   }
 
   .bloc-3-6 {
     gs: bloc 6;
   }
 
-  .bloc-3-6-1 {
-    gs: bloc 6-1;
-  }
-
-  .bloc-3-6-2 {
-    gs: bloc 6-2;
-  }
-
   .bloc-3-7 {
     gs: bloc 7;
-  }
-
-  .bloc-3-7-1 {
-    gs: bloc 7-1;
   }
 
   .bloc-3-8 {
@@ -414,108 +166,24 @@ https://github.com/francoisromain/postcss-grid-system
     gs: bloc 2;
   }
 
-  .bloc-4-2-1 {
-    gs: bloc 2-1;
-  }
-
-  .bloc-4-2-2 {
-    gs: bloc 2-2;
-  }
-
-  .bloc-4-2-3 {
-    gs: bloc 2-3;
-  }
-
-  .bloc-4-2-4 {
-    gs: bloc 2-4;
-  }
-
-  .bloc-4-2-5 {
-    gs: bloc 2-5;
-  }
-
-  .bloc-4-2-6 {
-    gs: bloc 2-6;
-  }
-
   .bloc-4-3 {
     gs: bloc 3;
-  }
-
-  .bloc-4-3-1 {
-    gs: bloc 3-1;
-  }
-
-  .bloc-4-3-2 {
-    gs: bloc 3-2;
-  }
-
-  .bloc-4-3-3 {
-    gs: bloc 3-3;
-  }
-
-  .bloc-4-3-4 {
-    gs: bloc 3-4;
-  }
-
-  .bloc-4-3-5 {
-    gs: bloc 3-5;
   }
 
   .bloc-4-4 {
     gs: bloc 4;
   }
 
-  .bloc-4-4-1 {
-    gs: bloc 4-1;
-  }
-
-  .bloc-4-4-2 {
-    gs: bloc 4-2;
-  }
-
-  .bloc-4-4-3 {
-    gs: bloc 4-3;
-  }
-
-  .bloc-4-4-4 {
-    gs: bloc 4-4;
-  }
-
   .bloc-4-5 {
     gs: bloc 5;
-  }
-
-  .bloc-4-5-1 {
-    gs: bloc 5-1;
-  }
-
-  .bloc-4-5-2 {
-    gs: bloc 5-2;
-  }
-
-  .bloc-4-5-3 {
-    gs: bloc 5-3;
   }
 
   .bloc-4-6 {
     gs: bloc 6;
   }
 
-  .bloc-4-6-1 {
-    gs: bloc 6-1;
-  }
-
-  .bloc-4-6-2 {
-    gs: bloc 6-2;
-  }
-
   .bloc-4-7 {
     gs: bloc 7;
-  }
-
-  .bloc-4-7-1 {
-    gs: bloc 7-1;
   }
 
   .bloc-4-8 {
@@ -532,108 +200,24 @@ https://github.com/francoisromain/postcss-grid-system
     gs: bloc 2;
   }
 
-  .bloc-5-2-1 {
-    gs: bloc 2-1;
-  }
-
-  .bloc-5-2-2 {
-    gs: bloc 2-2;
-  }
-
-  .bloc-5-2-3 {
-    gs: bloc 2-3;
-  }
-
-  .bloc-5-2-4 {
-    gs: bloc 2-4;
-  }
-
-  .bloc-5-2-5 {
-    gs: bloc 2-5;
-  }
-
-  .bloc-5-2-6 {
-    gs: bloc 2-6;
-  }
-
   .bloc-5-3 {
     gs: bloc 3;
-  }
-
-  .bloc-5-3-1 {
-    gs: bloc 3-1;
-  }
-
-  .bloc-5-3-2 {
-    gs: bloc 3-2;
-  }
-
-  .bloc-5-3-3 {
-    gs: bloc 3-3;
-  }
-
-  .bloc-5-3-4 {
-    gs: bloc 3-4;
-  }
-
-  .bloc-5-3-5 {
-    gs: bloc 3-5;
   }
 
   .bloc-5-4 {
     gs: bloc 4;
   }
 
-  .bloc-5-4-1 {
-    gs: bloc 4-1;
-  }
-
-  .bloc-5-4-2 {
-    gs: bloc 4-2;
-  }
-
-  .bloc-5-4-3 {
-    gs: bloc 4-3;
-  }
-
-  .bloc-5-4-4 {
-    gs: bloc 4-4;
-  }
-
   .bloc-5-5 {
     gs: bloc 5;
-  }
-
-  .bloc-5-5-1 {
-    gs: bloc 5-1;
-  }
-
-  .bloc-5-5-2 {
-    gs: bloc 5-2;
-  }
-
-  .bloc-5-5-3 {
-    gs: bloc 5-3;
   }
 
   .bloc-5-6 {
     gs: bloc 6;
   }
 
-  .bloc-5-6-1 {
-    gs: bloc 6-1;
-  }
-
-  .bloc-5-6-2 {
-    gs: bloc 6-2;
-  }
-
   .bloc-5-7 {
     gs: bloc 7;
-  }
-
-  .bloc-5-7-1 {
-    gs: bloc 7-1;
   }
 
   .bloc-5-8 {
@@ -650,108 +234,24 @@ https://github.com/francoisromain/postcss-grid-system
     gs: bloc 2;
   }
 
-  .bloc-6-2-1 {
-    gs: bloc 2-1;
-  }
-
-  .bloc-6-2-2 {
-    gs: bloc 2-2;
-  }
-
-  .bloc-6-2-3 {
-    gs: bloc 2-3;
-  }
-
-  .bloc-6-2-4 {
-    gs: bloc 2-4;
-  }
-
-  .bloc-6-2-5 {
-    gs: bloc 2-5;
-  }
-
-  .bloc-6-2-6 {
-    gs: bloc 2-6;
-  }
-
   .bloc-6-3 {
     gs: bloc 3;
-  }
-
-  .bloc-6-3-1 {
-    gs: bloc 3-1;
-  }
-
-  .bloc-6-3-2 {
-    gs: bloc 3-2;
-  }
-
-  .bloc-6-3-3 {
-    gs: bloc 3-3;
-  }
-
-  .bloc-6-3-4 {
-    gs: bloc 3-4;
-  }
-
-  .bloc-6-3-5 {
-    gs: bloc 3-5;
   }
 
   .bloc-6-4 {
     gs: bloc 4;
   }
 
-  .bloc-6-4-1 {
-    gs: bloc 4-1;
-  }
-
-  .bloc-6-4-2 {
-    gs: bloc 4-2;
-  }
-
-  .bloc-6-4-3 {
-    gs: bloc 4-3;
-  }
-
-  .bloc-6-4-4 {
-    gs: bloc 4-4;
-  }
-
   .bloc-6-5 {
     gs: bloc 5;
-  }
-
-  .bloc-6-5-1 {
-    gs: bloc 5-1;
-  }
-
-  .bloc-6-5-2 {
-    gs: bloc 5-2;
-  }
-
-  .bloc-6-5-3 {
-    gs: bloc 5-3;
   }
 
   .bloc-6-6 {
     gs: bloc 6;
   }
 
-  .bloc-6-6-1 {
-    gs: bloc 6-1;
-  }
-
-  .bloc-6-6-2 {
-    gs: bloc 6-2;
-  }
-
   .bloc-6-7 {
     gs: bloc 7;
-  }
-
-  .bloc-6-7-1 {
-    gs: bloc 7-1;
   }
 
   .bloc-6-8 {
@@ -768,108 +268,24 @@ https://github.com/francoisromain/postcss-grid-system
     gs: bloc 2;
   }
 
-  .bloc-7-2-1 {
-    gs: bloc 2-1;
-  }
-
-  .bloc-7-2-2 {
-    gs: bloc 2-2;
-  }
-
-  .bloc-7-2-3 {
-    gs: bloc 2-3;
-  }
-
-  .bloc-7-2-4 {
-    gs: bloc 2-4;
-  }
-
-  .bloc-7-2-5 {
-    gs: bloc 2-5;
-  }
-
-  .bloc-7-2-6 {
-    gs: bloc 2-6;
-  }
-
   .bloc-7-3 {
     gs: bloc 3;
-  }
-
-  .bloc-7-3-1 {
-    gs: bloc 3-1;
-  }
-
-  .bloc-7-3-2 {
-    gs: bloc 3-2;
-  }
-
-  .bloc-7-3-3 {
-    gs: bloc 3-3;
-  }
-
-  .bloc-7-3-4 {
-    gs: bloc 3-4;
-  }
-
-  .bloc-7-3-5 {
-    gs: bloc 3-5;
   }
 
   .bloc-7-4 {
     gs: bloc 4;
   }
 
-  .bloc-7-4-1 {
-    gs: bloc 4-1;
-  }
-
-  .bloc-7-4-2 {
-    gs: bloc 4-2;
-  }
-
-  .bloc-7-4-3 {
-    gs: bloc 4-3;
-  }
-
-  .bloc-7-4-4 {
-    gs: bloc 4-4;
-  }
-
   .bloc-7-5 {
     gs: bloc 5;
-  }
-
-  .bloc-7-5-1 {
-    gs: bloc 5-1;
-  }
-
-  .bloc-7-5-2 {
-    gs: bloc 5-2;
-  }
-
-  .bloc-7-5-3 {
-    gs: bloc 5-3;
   }
 
   .bloc-7-6 {
     gs: bloc 6;
   }
 
-  .bloc-7-6-1 {
-    gs: bloc 6-1;
-  }
-
-  .bloc-7-6-2 {
-    gs: bloc 6-2;
-  }
-
   .bloc-7-7 {
     gs: bloc 7;
-  }
-
-  .bloc-7-7-1 {
-    gs: bloc 7-1;
   }
 
   .bloc-7-8 {
@@ -886,114 +302,31 @@ https://github.com/francoisromain/postcss-grid-system
     gs: bloc 2;
   }
 
-  .bloc-8-2-1 {
-    gs: bloc 2-1;
-  }
-
-  .bloc-8-2-2 {
-    gs: bloc 2-2;
-  }
-
-  .bloc-8-2-3 {
-    gs: bloc 2-3;
-  }
-
-  .bloc-8-2-4 {
-    gs: bloc 2-4;
-  }
-
-  .bloc-8-2-5 {
-    gs: bloc 2-5;
-  }
-
-  .bloc-8-2-6 {
-    gs: bloc 2-6;
-  }
-
   .bloc-8-3 {
     gs: bloc 3;
-  }
-
-  .bloc-8-3-1 {
-    gs: bloc 3-1;
-  }
-
-  .bloc-8-3-2 {
-    gs: bloc 3-2;
-  }
-
-  .bloc-8-3-3 {
-    gs: bloc 3-3;
-  }
-
-  .bloc-8-3-4 {
-    gs: bloc 3-4;
-  }
-
-  .bloc-8-3-5 {
-    gs: bloc 3-5;
   }
 
   .bloc-8-4 {
     gs: bloc 4;
   }
 
-  .bloc-8-4-1 {
-    gs: bloc 4-1;
-  }
-
-  .bloc-8-4-2 {
-    gs: bloc 4-2;
-  }
-
-  .bloc-8-4-3 {
-    gs: bloc 4-3;
-  }
-
-  .bloc-8-4-4 {
-    gs: bloc 4-4;
-  }
-
   .bloc-8-5 {
     gs: bloc 5;
-  }
-
-  .bloc-8-5-1 {
-    gs: bloc 5-1;
-  }
-
-  .bloc-8-5-2 {
-    gs: bloc 5-2;
-  }
-
-  .bloc-8-5-3 {
-    gs: bloc 5-3;
   }
 
   .bloc-8-6 {
     gs: bloc 6;
   }
 
-  .bloc-8-6-1 {
-    gs: bloc 6-1;
-  }
-
-  .bloc-8-6-2 {
-    gs: bloc 6-2;
-  }
-
   .bloc-8-7 {
     gs: bloc 7;
-  }
-
-  .bloc-8-7-1 {
-    gs: bloc 7-1;
   }
 
   .bloc-8-8 {
     gs: bloc 8;
   }
 }
+
 @gs-media 1 {
   .columns-1-1 {
     gs: columns 1;
@@ -1003,108 +336,24 @@ https://github.com/francoisromain/postcss-grid-system
     gs: columns 2;
   }
 
-  .columns-1-2-1 {
-    gs: columns 2-1;
-  }
-
-  .columns-1-2-2 {
-    gs: columns 2-2;
-  }
-
-  .columns-1-2-3 {
-    gs: columns 2-3;
-  }
-
-  .columns-1-2-4 {
-    gs: columns 2-4;
-  }
-
-  .columns-1-2-5 {
-    gs: columns 2-5;
-  }
-
-  .columns-1-2-6 {
-    gs: columns 2-6;
-  }
-
   .columns-1-3 {
     gs: columns 3;
-  }
-
-  .columns-1-3-1 {
-    gs: columns 3-1;
-  }
-
-  .columns-1-3-2 {
-    gs: columns 3-2;
-  }
-
-  .columns-1-3-3 {
-    gs: columns 3-3;
-  }
-
-  .columns-1-3-4 {
-    gs: columns 3-4;
-  }
-
-  .columns-1-3-5 {
-    gs: columns 3-5;
   }
 
   .columns-1-4 {
     gs: columns 4;
   }
 
-  .columns-1-4-1 {
-    gs: columns 4-1;
-  }
-
-  .columns-1-4-2 {
-    gs: columns 4-2;
-  }
-
-  .columns-1-4-3 {
-    gs: columns 4-3;
-  }
-
-  .columns-1-4-4 {
-    gs: columns 4-4;
-  }
-
   .columns-1-5 {
     gs: columns 5;
-  }
-
-  .columns-1-5-1 {
-    gs: columns 5-1;
-  }
-
-  .columns-1-5-2 {
-    gs: columns 5-2;
-  }
-
-  .columns-1-5-3 {
-    gs: columns 5-3;
   }
 
   .columns-1-6 {
     gs: columns 6;
   }
 
-  .columns-1-6-1 {
-    gs: columns 6-1;
-  }
-
-  .columns-1-6-2 {
-    gs: columns 6-2;
-  }
-
   .columns-1-7 {
     gs: columns 7;
-  }
-
-  .columns-1-7-1 {
-    gs: columns 7-1;
   }
 
   .columns-1-8 {
@@ -1121,108 +370,24 @@ https://github.com/francoisromain/postcss-grid-system
     gs: columns 2;
   }
 
-  .columns-2-2-1 {
-    gs: columns 2-1;
-  }
-
-  .columns-2-2-2 {
-    gs: columns 2-2;
-  }
-
-  .columns-2-2-3 {
-    gs: columns 2-3;
-  }
-
-  .columns-2-2-4 {
-    gs: columns 2-4;
-  }
-
-  .columns-2-2-5 {
-    gs: columns 2-5;
-  }
-
-  .columns-2-2-6 {
-    gs: columns 2-6;
-  }
-
   .columns-2-3 {
     gs: columns 3;
-  }
-
-  .columns-2-3-1 {
-    gs: columns 3-1;
-  }
-
-  .columns-2-3-2 {
-    gs: columns 3-2;
-  }
-
-  .columns-2-3-3 {
-    gs: columns 3-3;
-  }
-
-  .columns-2-3-4 {
-    gs: columns 3-4;
-  }
-
-  .columns-2-3-5 {
-    gs: columns 3-5;
   }
 
   .columns-2-4 {
     gs: columns 4;
   }
 
-  .columns-2-4-1 {
-    gs: columns 4-1;
-  }
-
-  .columns-2-4-2 {
-    gs: columns 4-2;
-  }
-
-  .columns-2-4-3 {
-    gs: columns 4-3;
-  }
-
-  .columns-2-4-4 {
-    gs: columns 4-4;
-  }
-
   .columns-2-5 {
     gs: columns 5;
-  }
-
-  .columns-2-5-1 {
-    gs: columns 5-1;
-  }
-
-  .columns-2-5-2 {
-    gs: columns 5-2;
-  }
-
-  .columns-2-5-3 {
-    gs: columns 5-3;
   }
 
   .columns-2-6 {
     gs: columns 6;
   }
 
-  .columns-2-6-1 {
-    gs: columns 6-1;
-  }
-
-  .columns-2-6-2 {
-    gs: columns 6-2;
-  }
-
   .columns-2-7 {
     gs: columns 7;
-  }
-
-  .columns-2-7-1 {
-    gs: columns 7-1;
   }
 
   .columns-2-8 {
@@ -1239,108 +404,24 @@ https://github.com/francoisromain/postcss-grid-system
     gs: columns 2;
   }
 
-  .columns-3-2-1 {
-    gs: columns 2-1;
-  }
-
-  .columns-3-2-2 {
-    gs: columns 2-2;
-  }
-
-  .columns-3-2-3 {
-    gs: columns 2-3;
-  }
-
-  .columns-3-2-4 {
-    gs: columns 2-4;
-  }
-
-  .columns-3-2-5 {
-    gs: columns 2-5;
-  }
-
-  .columns-3-2-6 {
-    gs: columns 2-6;
-  }
-
   .columns-3-3 {
     gs: columns 3;
-  }
-
-  .columns-3-3-1 {
-    gs: columns 3-1;
-  }
-
-  .columns-3-3-2 {
-    gs: columns 3-2;
-  }
-
-  .columns-3-3-3 {
-    gs: columns 3-3;
-  }
-
-  .columns-3-3-4 {
-    gs: columns 3-4;
-  }
-
-  .columns-3-3-5 {
-    gs: columns 3-5;
   }
 
   .columns-3-4 {
     gs: columns 4;
   }
 
-  .columns-3-4-1 {
-    gs: columns 4-1;
-  }
-
-  .columns-3-4-2 {
-    gs: columns 4-2;
-  }
-
-  .columns-3-4-3 {
-    gs: columns 4-3;
-  }
-
-  .columns-3-4-4 {
-    gs: columns 4-4;
-  }
-
   .columns-3-5 {
     gs: columns 5;
-  }
-
-  .columns-3-5-1 {
-    gs: columns 5-1;
-  }
-
-  .columns-3-5-2 {
-    gs: columns 5-2;
-  }
-
-  .columns-3-5-3 {
-    gs: columns 5-3;
   }
 
   .columns-3-6 {
     gs: columns 6;
   }
 
-  .columns-3-6-1 {
-    gs: columns 6-1;
-  }
-
-  .columns-3-6-2 {
-    gs: columns 6-2;
-  }
-
   .columns-3-7 {
     gs: columns 7;
-  }
-
-  .columns-3-7-1 {
-    gs: columns 7-1;
   }
 
   .columns-3-8 {
@@ -1357,108 +438,24 @@ https://github.com/francoisromain/postcss-grid-system
     gs: columns 2;
   }
 
-  .columns-4-2-1 {
-    gs: columns 2-1;
-  }
-
-  .columns-4-2-2 {
-    gs: columns 2-2;
-  }
-
-  .columns-4-2-3 {
-    gs: columns 2-3;
-  }
-
-  .columns-4-2-4 {
-    gs: columns 2-4;
-  }
-
-  .columns-4-2-5 {
-    gs: columns 2-5;
-  }
-
-  .columns-4-2-6 {
-    gs: columns 2-6;
-  }
-
   .columns-4-3 {
     gs: columns 3;
-  }
-
-  .columns-4-3-1 {
-    gs: columns 3-1;
-  }
-
-  .columns-4-3-2 {
-    gs: columns 3-2;
-  }
-
-  .columns-4-3-3 {
-    gs: columns 3-3;
-  }
-
-  .columns-4-3-4 {
-    gs: columns 3-4;
-  }
-
-  .columns-4-3-5 {
-    gs: columns 3-5;
   }
 
   .columns-4-4 {
     gs: columns 4;
   }
 
-  .columns-4-4-1 {
-    gs: columns 4-1;
-  }
-
-  .columns-4-4-2 {
-    gs: columns 4-2;
-  }
-
-  .columns-4-4-3 {
-    gs: columns 4-3;
-  }
-
-  .columns-4-4-4 {
-    gs: columns 4-4;
-  }
-
   .columns-4-5 {
     gs: columns 5;
-  }
-
-  .columns-4-5-1 {
-    gs: columns 5-1;
-  }
-
-  .columns-4-5-2 {
-    gs: columns 5-2;
-  }
-
-  .columns-4-5-3 {
-    gs: columns 5-3;
   }
 
   .columns-4-6 {
     gs: columns 6;
   }
 
-  .columns-4-6-1 {
-    gs: columns 6-1;
-  }
-
-  .columns-4-6-2 {
-    gs: columns 6-2;
-  }
-
   .columns-4-7 {
     gs: columns 7;
-  }
-
-  .columns-4-7-1 {
-    gs: columns 7-1;
   }
 
   .columns-4-8 {
@@ -1475,108 +472,24 @@ https://github.com/francoisromain/postcss-grid-system
     gs: columns 2;
   }
 
-  .columns-5-2-1 {
-    gs: columns 2-1;
-  }
-
-  .columns-5-2-2 {
-    gs: columns 2-2;
-  }
-
-  .columns-5-2-3 {
-    gs: columns 2-3;
-  }
-
-  .columns-5-2-4 {
-    gs: columns 2-4;
-  }
-
-  .columns-5-2-5 {
-    gs: columns 2-5;
-  }
-
-  .columns-5-2-6 {
-    gs: columns 2-6;
-  }
-
   .columns-5-3 {
     gs: columns 3;
-  }
-
-  .columns-5-3-1 {
-    gs: columns 3-1;
-  }
-
-  .columns-5-3-2 {
-    gs: columns 3-2;
-  }
-
-  .columns-5-3-3 {
-    gs: columns 3-3;
-  }
-
-  .columns-5-3-4 {
-    gs: columns 3-4;
-  }
-
-  .columns-5-3-5 {
-    gs: columns 3-5;
   }
 
   .columns-5-4 {
     gs: columns 4;
   }
 
-  .columns-5-4-1 {
-    gs: columns 4-1;
-  }
-
-  .columns-5-4-2 {
-    gs: columns 4-2;
-  }
-
-  .columns-5-4-3 {
-    gs: columns 4-3;
-  }
-
-  .columns-5-4-4 {
-    gs: columns 4-4;
-  }
-
   .columns-5-5 {
     gs: columns 5;
-  }
-
-  .columns-5-5-1 {
-    gs: columns 5-1;
-  }
-
-  .columns-5-5-2 {
-    gs: columns 5-2;
-  }
-
-  .columns-5-5-3 {
-    gs: columns 5-3;
   }
 
   .columns-5-6 {
     gs: columns 6;
   }
 
-  .columns-5-6-1 {
-    gs: columns 6-1;
-  }
-
-  .columns-5-6-2 {
-    gs: columns 6-2;
-  }
-
   .columns-5-7 {
     gs: columns 7;
-  }
-
-  .columns-5-7-1 {
-    gs: columns 7-1;
   }
 
   .columns-5-8 {
@@ -1593,108 +506,24 @@ https://github.com/francoisromain/postcss-grid-system
     gs: columns 2;
   }
 
-  .columns-6-2-1 {
-    gs: columns 2-1;
-  }
-
-  .columns-6-2-2 {
-    gs: columns 2-2;
-  }
-
-  .columns-6-2-3 {
-    gs: columns 2-3;
-  }
-
-  .columns-6-2-4 {
-    gs: columns 2-4;
-  }
-
-  .columns-6-2-5 {
-    gs: columns 2-5;
-  }
-
-  .columns-6-2-6 {
-    gs: columns 2-6;
-  }
-
   .columns-6-3 {
     gs: columns 3;
-  }
-
-  .columns-6-3-1 {
-    gs: columns 3-1;
-  }
-
-  .columns-6-3-2 {
-    gs: columns 3-2;
-  }
-
-  .columns-6-3-3 {
-    gs: columns 3-3;
-  }
-
-  .columns-6-3-4 {
-    gs: columns 3-4;
-  }
-
-  .columns-6-3-5 {
-    gs: columns 3-5;
   }
 
   .columns-6-4 {
     gs: columns 4;
   }
 
-  .columns-6-4-1 {
-    gs: columns 4-1;
-  }
-
-  .columns-6-4-2 {
-    gs: columns 4-2;
-  }
-
-  .columns-6-4-3 {
-    gs: columns 4-3;
-  }
-
-  .columns-6-4-4 {
-    gs: columns 4-4;
-  }
-
   .columns-6-5 {
     gs: columns 5;
-  }
-
-  .columns-6-5-1 {
-    gs: columns 5-1;
-  }
-
-  .columns-6-5-2 {
-    gs: columns 5-2;
-  }
-
-  .columns-6-5-3 {
-    gs: columns 5-3;
   }
 
   .columns-6-6 {
     gs: columns 6;
   }
 
-  .columns-6-6-1 {
-    gs: columns 6-1;
-  }
-
-  .columns-6-6-2 {
-    gs: columns 6-2;
-  }
-
   .columns-6-7 {
     gs: columns 7;
-  }
-
-  .columns-6-7-1 {
-    gs: columns 7-1;
   }
 
   .columns-6-8 {
@@ -1711,108 +540,24 @@ https://github.com/francoisromain/postcss-grid-system
     gs: columns 2;
   }
 
-  .columns-7-2-1 {
-    gs: columns 2-1;
-  }
-
-  .columns-7-2-2 {
-    gs: columns 2-2;
-  }
-
-  .columns-7-2-3 {
-    gs: columns 2-3;
-  }
-
-  .columns-7-2-4 {
-    gs: columns 2-4;
-  }
-
-  .columns-7-2-5 {
-    gs: columns 2-5;
-  }
-
-  .columns-7-2-6 {
-    gs: columns 2-6;
-  }
-
   .columns-7-3 {
     gs: columns 3;
-  }
-
-  .columns-7-3-1 {
-    gs: columns 3-1;
-  }
-
-  .columns-7-3-2 {
-    gs: columns 3-2;
-  }
-
-  .columns-7-3-3 {
-    gs: columns 3-3;
-  }
-
-  .columns-7-3-4 {
-    gs: columns 3-4;
-  }
-
-  .columns-7-3-5 {
-    gs: columns 3-5;
   }
 
   .columns-7-4 {
     gs: columns 4;
   }
 
-  .columns-7-4-1 {
-    gs: columns 4-1;
-  }
-
-  .columns-7-4-2 {
-    gs: columns 4-2;
-  }
-
-  .columns-7-4-3 {
-    gs: columns 4-3;
-  }
-
-  .columns-7-4-4 {
-    gs: columns 4-4;
-  }
-
   .columns-7-5 {
     gs: columns 5;
-  }
-
-  .columns-7-5-1 {
-    gs: columns 5-1;
-  }
-
-  .columns-7-5-2 {
-    gs: columns 5-2;
-  }
-
-  .columns-7-5-3 {
-    gs: columns 5-3;
   }
 
   .columns-7-6 {
     gs: columns 6;
   }
 
-  .columns-7-6-1 {
-    gs: columns 6-1;
-  }
-
-  .columns-7-6-2 {
-    gs: columns 6-2;
-  }
-
   .columns-7-7 {
     gs: columns 7;
-  }
-
-  .columns-7-7-1 {
-    gs: columns 7-1;
   }
 
   .columns-7-8 {
@@ -1829,108 +574,24 @@ https://github.com/francoisromain/postcss-grid-system
     gs: columns 2;
   }
 
-  .columns-8-2-1 {
-    gs: columns 2-1;
-  }
-
-  .columns-8-2-2 {
-    gs: columns 2-2;
-  }
-
-  .columns-8-2-3 {
-    gs: columns 2-3;
-  }
-
-  .columns-8-2-4 {
-    gs: columns 2-4;
-  }
-
-  .columns-8-2-5 {
-    gs: columns 2-5;
-  }
-
-  .columns-8-2-6 {
-    gs: columns 2-6;
-  }
-
   .columns-8-3 {
     gs: columns 3;
-  }
-
-  .columns-8-3-1 {
-    gs: columns 3-1;
-  }
-
-  .columns-8-3-2 {
-    gs: columns 3-2;
-  }
-
-  .columns-8-3-3 {
-    gs: columns 3-3;
-  }
-
-  .columns-8-3-4 {
-    gs: columns 3-4;
-  }
-
-  .columns-8-3-5 {
-    gs: columns 3-5;
   }
 
   .columns-8-4 {
     gs: columns 4;
   }
 
-  .columns-8-4-1 {
-    gs: columns 4-1;
-  }
-
-  .columns-8-4-2 {
-    gs: columns 4-2;
-  }
-
-  .columns-8-4-3 {
-    gs: columns 4-3;
-  }
-
-  .columns-8-4-4 {
-    gs: columns 4-4;
-  }
-
   .columns-8-5 {
     gs: columns 5;
-  }
-
-  .columns-8-5-1 {
-    gs: columns 5-1;
-  }
-
-  .columns-8-5-2 {
-    gs: columns 5-2;
-  }
-
-  .columns-8-5-3 {
-    gs: columns 5-3;
   }
 
   .columns-8-6 {
     gs: columns 6;
   }
 
-  .columns-8-6-1 {
-    gs: columns 6-1;
-  }
-
-  .columns-8-6-2 {
-    gs: columns 6-2;
-  }
-
   .columns-8-7 {
     gs: columns 7;
-  }
-
-  .columns-8-7-1 {
-    gs: columns 7-1;
   }
 
   .columns-8-8 {
@@ -1947,7 +608,7 @@ https://github.com/francoisromain/postcss-grid-system
 
 @gs-media 1 {
   .show-1 {
-    display: block;
+    display: flex;
     visibility: visible;
   }
 
@@ -1964,8 +625,12 @@ https://github.com/francoisromain/postcss-grid-system
 
 @gs-media 2 {
   .show-2 {
-    display: block;
+    display: flex;
     visibility: visible;
+  }
+
+  .right-2 {
+    margin-left: auto;
   }
 
   .hide-2 {
@@ -1981,7 +646,7 @@ https://github.com/francoisromain/postcss-grid-system
 
 @gs-media 3 {
   .show-3 { 
-    display: block;
+    display: flex;
     visibility: visible;
   }
 
@@ -1998,7 +663,7 @@ https://github.com/francoisromain/postcss-grid-system
 
 @gs-media 4 {
   .show-4 { 
-    display: block;
+    display: flex;
     visibility: visible;
   }
 
@@ -2015,7 +680,7 @@ https://github.com/francoisromain/postcss-grid-system
 
 @gs-media 5 {
   .show-5 { 
-    display: block;
+    display: flex;
     visibility: visible;
   }
 
@@ -2032,7 +697,7 @@ https://github.com/francoisromain/postcss-grid-system
 
 @gs-media 6 {
   .show-6 { 
-    display: block;
+    display: flex;
     visibility: visible;
   }
 
@@ -2049,7 +714,7 @@ https://github.com/francoisromain/postcss-grid-system
 
 @gs-media 7 {
   .show-7 { 
-    display: block;
+    display: flex;
     visibility: visible;
   }
 
@@ -2061,7 +726,7 @@ https://github.com/francoisromain/postcss-grid-system
 
 @gs-media 8 {
   .show-8 { 
-    display: block;
+    display: flex;
     visibility: visible;
   }
 

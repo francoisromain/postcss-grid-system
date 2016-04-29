@@ -7,7 +7,8 @@
   <title>postcss-grid-system</title>
   <meta name="description" content="A PostCSS plugin to create CSS grids based on a fixed block width.">
   <meta name="keywords" content="Grid system, css, postcss, npm, masonry">
-  <link rel="stylesheet" href="dist/styles.css">
+  <link rel="stylesheet" href="http://francoisromain.github.io/system.css/dist/styles.css">
+  <link rel="stylesheet" href="dist/grid-system.css">
 </head>
 
 <body>
@@ -19,13 +20,13 @@
     <blockquote>The rule:
       <br />The fewer differences in the size of the illustrations,
       <br />the quieter the impression created by the design.</blockquote>
-    <p class="s"><b>Josef Muller Brockmann</b>
-      <br />in <i>Grid systems in graphic design</i>.</p>
+    <h5><b>Josef Muller Brockmann</b>
+      <br />in <i>Grid systems in graphic design</i>.</h5>
     <hr />
   </header>
   <nav class="container" role="navigation">
     <div class="row">
-      <div class="bloc-2-2-1 left">
+      <div class="bloc-2-1 left">
         <h2>Included</h2>
         <ul class="list-prefix">
           <li><a href="#media-queries">Media queries</a></li>
@@ -34,41 +35,135 @@
           <li><a href="#columns">Columns</a></li>
         </ul>
       </div>
-      <div class="bloc-2-1 right-2 show-2">
+      <div class="bloc-2-1 right-2">
         <h2>Current breakpoint</h2>
-        <h1 class="hide-2 color-brand xxxl">1</h1>
-        <h1 class="hide show-2 hide-3 color-brand xxxl">2</h1>
-        <h1 class="hide show-3 hide-4 color-brand xxxl">3</h1>
-        <h1 class="hide show-4 hide-5 color-brand xxxl">4</h1>
-        <h1 class="hide show-5 hide-6 color-brand xxxl">5</h1>
-        <h1 class="hide show-6 hide-7 color-brand xxxl">6</h1>
-        <h1 class="hide show-7 hide-8 color-brand xxxl">7</h1>
-        <h1 class="hide show-8">8</h1>
+        <p class="color-brand xxxl">
+          <span class="hide-2">1</span>
+          <span class="hide show-2 hide-3">2</span>
+          <span class="hide show-3 hide-4">3</span>
+          <span class="hide show-4 hide-5">4</span>
+          <span class="hide show-5 hide-6">5</span>
+          <span class="hide show-6 hide-7">6</span>
+          <span class="hide show-7 hide-8">7</span>
+          <span class="hide show-8">8</span>
+        </p>
       </div>
     </div>
     <hr />
   </nav>
   <main class="container" role="main">
     <h2 id="settings">Settings</h2>
-    <pre>@gs {    /* default values */
-  width:    20.5rem, /* width of a single column */
-  gutter:  1.5rem,   /* width of the gutter */
-  padding: 1.5rem,   /* padding of the main container */
-  max:     8,        /* maximum number of blocs (wide screens) */
-  min:     2,        /* minimum number of blocs (mobile) */
-  align:   center,   /* center or left */ 
-  display: flex      /* float or flex */  
-}</pre>
-    <p>A media-query is created for each <i>width</i> multiple, from <i>min</i> to <i>max</i>. When the screen is narrower than <i>min</i> * <i>width</i>, elements are fluids. </p>
+    <div class=row>
+      <div class="bloc-code">
+        <h4>Input</h4>
+        <pre><code class="language-css">@gs {                /* default values */
+  width:   20.5rem;  /* column width */
+  gutter:  1.5rem;   /* gutter width */
+  padding: 1.5rem;   /* container padding */
+  max:     8;        /* wide screens */
+  min:     2;        /* mobile screens */
+  align:   center;   /* center or left */ 
+  display: flex;     /* float or flex */  
+}</code></pre>
+      </div>
+      <div class="bloc-code">
+        <h4>Output</h4>
+        <pre><code class="language-css">/* Does not output anything. */
+/* All the media-queries are moved
+in the place of this atrule. */</code></pre>
+      </div>
+    </div>
+    <p>A <b>breakpoint</b> is created for each <i>width</i> multiple, from <i>min</i> to <i>max</i>. When the screen is narrower than <i>min</i> * <i>width</i>, elements are fluids. </p>
     <hr />
     <h2 id="media-queries">Media queries</h2>
-    <p><code>@gs-media [breakpoint] { .my-class { … } }</code></p>
-    <p>Set styles to a specific media-queries.</p>
-    <div class="custom pad margin-bottom">Custom styles</div>
+    <div class=row>
+      <div class="bloc-code">
+        <h4>Input</h4>
+        <pre><code class="language-css">@gs-media 0 { /* move the rules above */ 
+  .my-class {
+    …
+  }
+}
+
+@gs-media 2 {
+  .my-class {
+    …
+  }
+}
+
+@gs-media 3 {
+  .my-class {
+    …
+  }
+}</code></pre>
+      </div>
+      <div class="bloc-code">
+        <h4>Output</h4>
+        <pre><code class="language-css">.my-class {
+  …
+}
+
+@media (min-width: 43.5rem) {
+  .my-class {
+    …
+  }
+}
+
+@media (min-width: 64rem) {
+  .my-class {
+    …
+  }
+}</code></pre>
+      </div>
+    </div>
+    <h4>Example</h4>
+    <div class="custom pad margin-bottom">My styles</div>
+    <hr />
+    <h2 id="blocs">Rows</h2>
+    <div class=row>
+      <div class="bloc-code">
+        <h4>Input</h4>
+        <pre><code class="language-css">.my-class {
+  gs: row; 
+}</code></pre>
+      </div>
+      <div class="bloc-code">
+        <h4>Output</h4>
+        <pre><code class="language-css">.my-class {
+  clear: both;
+  margin-right: -1.5rem;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-start;
+  align-content: flex-start;
+}</code></pre>
+      </div>
+    </div>
     <hr />
     <h2 id="blocs">Blocs</h2>
-    <p><code>.my-class { gs: bloc [width](-[offset]); }</code></p>
-    <h4><i>Width</i> is fixed</h4>
+    <div class=row>
+      <div class="bloc-code">
+        <h4>Input</h4>
+        <pre><code class="language-css">.my-class {
+  gs: bloc 2; 
+}</code></pre>
+      </div>
+      <div class="bloc-code">
+        <h4>Output</h4>
+        <pre><code class="language-css">.my-class {
+  margin-right: 1.5rem;
+  margin-bottom: 1.5rem;
+  flex: 0 1 100%;
+}
+
+@media (min-width: 43.5rem) {
+  .my-class {
+    flex: 0 1 39.5rem;
+  }
+}</code></pre>
+      </div>
+    </div>
+    <h4>Example</h4>
     <div class="row">
       <div class="bloc-2-1 bg-alt pad">bloc 1</div>
       <div class="bloc-2-2 bg-alt pad">bloc 2</div>
@@ -79,33 +174,25 @@
       <div class="bloc-2-7 bg-alt pad">bloc 7</div>
       <div class="bloc-2-8 bg-alt pad">bloc 8</div>
     </div>
-    <h4><i>Offset</i> (optional)</h4>
-    <div class="row">
-      <div class="bloc-2-2-1 bg-alt pad">bloc 2-1</div>
-      <div class="bloc-2-2-2 bg-alt pad">bloc 2-2</div>
-      <div class="bloc-2-2-3 bg-alt pad">bloc 2-3</div>
-      <div class="bloc-2-2-4 bg-alt pad">bloc 2-4</div>
-      <div class="bloc-2-2-5 bg-alt pad">bloc 2-5</div>
-      <div class="bloc-2-2-6 bg-alt pad">bloc 2-6</div>
-      <div class="bloc-2-3-1 bg-alt pad">bloc 3-1</div>
-      <div class="bloc-2-3-2 bg-alt pad">bloc 3-2</div>
-      <div class="bloc-2-3-3 bg-alt pad">bloc 3-3</div>
-      <div class="bloc-2-3-4 bg-alt pad">bloc 3-4</div>
-      <div class="bloc-2-3-5 bg-alt pad">bloc 3-5</div>
-      <div class="bloc-2-4-1 bg-alt pad">bloc 4-1</div>
-      <div class="bloc-2-4-2 bg-alt pad">bloc 4-2</div>
-      <div class="bloc-2-4-3 bg-alt pad">bloc 4-3</div>
-      <div class="bloc-2-4-4 bg-alt pad">bloc 4-4</div>
-      <div class="bloc-2-5-1 bg-alt pad">bloc 5-1</div>
-      <div class="bloc-2-5-2 bg-alt pad">bloc 5-2</div>
-      <div class="bloc-2-5-3 bg-alt pad">bloc 5-3</div>
-      <div class="bloc-5-6-1 bg-alt pad">bloc 6-1</div>
-      <div class="bloc-5-6-2 bg-alt pad">bloc 6-2</div>
-      <div class="bloc-6-7-1 bg-alt pad">bloc 7-1</div>
-    </div>
     <hr />
     <h2 id="fractions">Fractions</h2>
-    <p><code>.my-class { gs: fraction [ratio]/[total]; }</code></p>
+    <div class=row>
+      <div class="bloc-code">
+        <h4>Input</h4>
+        <pre><code class="language-css">.my-class {
+  gs: fraction 1/3;
+}</code></pre>
+      </div>
+      <div class="bloc-code">
+        <h4>Output</h4>
+        <pre><code class="language-css">.my-class {
+  margin-right: 1.5rem;
+  margin-bottom: 1.5rem;
+  flex: 0 1 5.333333333333333rem;
+}</code></pre>
+      </div>
+    </div>
+    <h4>Example</h4>
     <div class="row">
       <div class="bloc-one-half bg-alt pad">1/2</div>
       <div class="bloc-three-half bg-alt pad">3/2</div>
@@ -117,34 +204,64 @@
     </div>
     <hr />
     <h2 id="columns">Columns</h2>
-    <p><code>.my-class { gs: columns [columns](-[offset]); }</code></p>
-    <p><b>CSS columns break the baseline grid.</b></p>
-    <div class="columns-2-8 margin-top-m margin-bottom">
-      <p>columns 8: this will be up to 8 columns.</p>
-      <p>Aenean lacinia bibendum nulla sed consectetur. Sed posuere consectetur est at lobortis. Nulla vitae elit libero, a pharetra augue. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
-      <p>Maecenas sed diam eget risus varius blandit sit amet non magna. Maecenas sed diam eget risus varius blandit sit amet non magna. Curabitur blandit tempus porttitor. Nullam id dolor id nibh ultricies vehicula ut id elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Curabitur blandit tempus porttitor.</p>
-      <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam quis risus eget urna mollis ornare vel eu leo. Vestibulum id ligula porta felis euismod semper. Sed posuere consectetur est at lobortis. Donec ullamcorper nulla non metus auctor fringilla.</p>
-      <p>Curabitur blandit tempus porttitor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Donec ullamcorper nulla non metus auctor fringilla.</p>
+    <div class=row>
+      <div class="bloc-code">
+        <h4>Input</h4>
+        <pre><code class="language-css">.my-class {
+  gs: columns 3; 
+}</code></pre>
+      </div>
+      <div class="bloc-code">
+        <h4>Output</h4>
+        <pre><code class="language-css">.my-class {
+  column-gap: 1.5rem;
+}
+
+@media (min-width: 43.5rem) {
+  .my-class {
+    column-count: 2;
+  }
+}
+
+@media (min-width: 64rem) {
+  .my-class {
+    column-count: 3;
+  }
+}</code></pre>
+      </div>
     </div>
-    <h4>With <i>offset</i></h4>
+    <h4>Example</h4>
+    <p>(CSS columns break the baseline grid.)</p>
+
     <div class="row">
-      <div class="bloc-2-2-1">
-        <div class="columns-2-2-1 margin-top-m margin-bottom">
-          <p>columns 2-1: this will be 2 columns on a screen wider than 3. </p>
+      <div class="bloc-2-8">
+        <div class="columns-2-8">
+          <p>columns 8: this will be up to 8 columns.</p>
+          <p>Aenean lacinia bibendum nulla sed consectetur. Sed posuere consectetur est at lobortis. Nulla vitae elit libero, a pharetra augue. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+          <p>Maecenas sed diam eget risus varius blandit sit amet non magna. Maecenas sed diam eget risus varius blandit sit amet non magna. Curabitur blandit tempus porttitor. Nullam id dolor id nibh ultricies vehicula ut id elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Curabitur blandit tempus porttitor.</p>
           <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam quis risus eget urna mollis ornare vel eu leo. Vestibulum id ligula porta felis euismod semper. Sed posuere consectetur est at lobortis. Donec ullamcorper nulla non metus auctor fringilla.</p>
           <p>Curabitur blandit tempus porttitor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Donec ullamcorper nulla non metus auctor fringilla.</p>
         </div>
       </div>
-      <div class="bloc-2-2-2">
-        <div class="columns-2-2-2 margin-top-m margin-bottom">
-          <p>columns 2-2: this will be 2 columns on a screen wider than 4. </p>
+    </div>
+    <div class="row">
+      <div class="bloc-2-2">
+        <div class="columns-2-2 margin-bottom">
+          <p>columns 2</p>
           <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam quis risus eget urna mollis ornare vel eu leo. Vestibulum id ligula porta felis euismod semper. Sed posuere consectetur est at lobortis. Donec ullamcorper nulla non metus auctor fringilla.</p>
           <p>Curabitur blandit tempus porttitor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Donec ullamcorper nulla non metus auctor fringilla.</p>
         </div>
       </div>
-      <div class="bloc-2-2-4">
-        <div class="columns-2-2-4 margin-top-m margin-bottom">
-          <p>columns 2-4: this will be 2 columns if the screen is wider than 6 (2 + 4). </p>
+      <div class="bloc-2-3">
+        <div class="columns-2-3 margin-bottom">
+          <p>columns 3</p>
+          <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam quis risus eget urna mollis ornare vel eu leo. Vestibulum id ligula porta felis euismod semper. Sed posuere consectetur est at lobortis. Donec ullamcorper nulla non metus auctor fringilla.</p>
+          <p>Curabitur blandit tempus porttitor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Donec ullamcorper nulla non metus auctor fringilla.</p>
+        </div>
+      </div>
+      <div class="bloc-2-4">
+        <div class="columns-2-4 margin-bottom">
+          <p>columns 4</p>
           <p>Nullam quis risus eget urna mollis ornare vel eu leo. Vestibulum id ligula porta felis euismod semper. Sed posuere consectetur est at lobortis. Donec ullamcorper nulla non metus auctor fringilla.</p>
           <p>Curabitur blandit tempus porttitor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Donec ullamcorper nulla non metus auctor fringilla.</p>
         </div>
@@ -157,6 +274,7 @@
       <p class="s">© 2016 <a href="http://francoisromain.com">François Romain</a> | <a href="https://twitter.com/francoisromain">Twitter</a> | <a href="https://github.com/francoisromain">Github</a></p>
     </div>
   </footer>
+  <script src="dist/prism.js"></script>
 </body>
 
 </html>
