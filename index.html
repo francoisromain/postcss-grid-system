@@ -29,6 +29,7 @@
       <div class="bloc-2-1 left">
         <h2>Included</h2>
         <ul class="list-prefix">
+          <li><a href="#containers">Containers</a></li>
           <li><a href="#media-queries">Media queries</a></li>
           <li><a href="#blocs">Blocs</a></li>
           <li><a href="#fractions">Fractions</a></li>
@@ -73,7 +74,61 @@
 in the place of this atrule. */</code></pre>
       </div>
     </div>
-    <p>A <b>breakpoint</b> is created for each <i>width</i> multiple, from <i>min</i> to <i>max</i>. When the screen is narrower than <i>min</i> * <i>width</i>, elements are fluids. </p>
+    <p>A <b>breakpoint</b> is created for each <i>width</i> multiple, from <i>min</i> to <i>max</i>.</p>
+    <hr />
+    <h2 id="containers">Containers</h2>
+    <div class=row>
+      <div class="bloc-code">
+        <h4>Input</h4>
+        <pre><code class="language-css">my-container {
+  gs: container;
+}</code></pre>
+      </div>
+      <div class="bloc-code">
+        <h4>Output</h4>
+        <pre><code class="language-css">@media (min-width: 43.5rem) {
+  .my-container {
+    width: 42.5rem;
+  }
+}
+
+@media (min-width: 64rem) {
+  .my-container {
+    width: 63rem;
+  }
+}
+
+@media (min-width: 84.5rem) {
+  .my-container {
+    width: 83.5rem;
+  }
+}
+
+@media (min-width: 105rem) {
+  .my-container {
+    width: 104rem;
+  }
+}
+
+@media (min-width: 125.5rem) {
+  .my-container {
+    width: 124.5rem;
+  }
+}
+
+@media (min-width: 146rem) {
+  .my-container {
+    width: 145rem;
+  }
+}
+
+@media (min-width: 166.5rem) {
+  .my-container {
+    width: 165.5rem;
+  }
+}</code></pre>
+      </div>
+    </div>
     <hr />
     <h2 id="media-queries">Media queries</h2>
     <div class=row>
