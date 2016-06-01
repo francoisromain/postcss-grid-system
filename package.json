@@ -1,6 +1,6 @@
 {
   "name": "postcss-grid-system",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "description": "A PostCSS plugin to create grids based on a fixed column width.",
   "keywords": [
     "postcss",

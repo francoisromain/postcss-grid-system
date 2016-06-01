@@ -1,5 +1,7 @@
 const tests = {
-  input: `@gs {}
+  input: `@gs {
+  display: float;
+}
 
 .container {
   gs: container;
@@ -15,13 +17,13 @@ const tests = {
   }
 
   .bloc-3-2-bis {
-    gs: bloc 2;
+    gs: bloc 2 right;
   }
 }
 
 @gs-media 5 {
   .bloc-5-3 {
-    gs: bloc 3 right;
+    gs: bloc 3;
   }
 
 }
@@ -35,21 +37,17 @@ const tests = {
 }
 .row {
     clear: both;
-    margin-right: -1.5rem;
-    display: flex;
-    flex-flow: row wrap;
-    align-items: flex-start;
-    align-content: flex-start
+    margin-right: -1.5rem
 }
 .row::after {
     content: "";
     display: table;
     clear: both
 }
-.bloc-3-2, .bloc-3-2-bis, .bloc-5-3 {
+.bloc-3-2-bis, .bloc-3-2, .bloc-5-3 {
     margin-right: 1.5rem;
     margin-bottom: 1.5rem;
-    flex: 0 1 100%
+    clear: both
 }
 @media (min-width: 43.5rem) {
     .container {
@@ -60,8 +58,16 @@ const tests = {
     .container {
         width: 63rem
     }
-    .bloc-3-2,.bloc-3-2-bis {
-        flex: 0 1 39.5rem
+    .bloc-3-2-bis {
+        float: right;
+        clear: none
+    }
+    .bloc-3-2 {
+        float: left;
+        clear: none
+    }
+    .bloc-3-2-bis,.bloc-3-2 {
+        width: 39.5rem
     }
 }
 @media (min-width: 84.5rem) {
@@ -74,10 +80,11 @@ const tests = {
         width: 104rem
     }
     .bloc-5-3 {
-        margin-left: auto
+        float: left;
+        clear: none
     }
     .bloc-5-3 {
-        flex: 0 1 60rem
+        width: 60rem
     }
 }
 @media (min-width: 125.5rem) {

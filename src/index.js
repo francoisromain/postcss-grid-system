@@ -40,14 +40,15 @@ module.exports = postcss.plugin('postcss-grid-system', () => {
 
           utils.nodeClean(decl, true);
         } else if (value[0] === 'bloc') {
-          const i = value[1].split('-');
-
-          i[1] = i[1] || '0';
           e.blocs[breakpoint] = e.blocs[breakpoint] || [];
-          e.blocs[breakpoint][i[0]] = e.blocs[breakpoint][i[0]] || [];
-          e.blocs[breakpoint][i[0]][i[1]] = e.blocs[breakpoint][i[0]][i[1]] || [];
-          e.blocs[breakpoint][i[0]][i[1]].push(decl.parent.selector);
-
+          e.blocs[breakpoint][value[1]] = e.blocs[breakpoint][value[1]] || [];
+          if (value[2] === 'right') {
+            e.blocs[breakpoint][value[1]][0] = e.blocs[breakpoint][value[1]][0] || [];
+            e.blocs[breakpoint][value[1]][0].push(decl.parent.selector);
+          } else {
+            e.blocs[breakpoint][value[1]][1] = e.blocs[breakpoint][value[1]][1] || [];
+            e.blocs[breakpoint][value[1]][1].push(decl.parent.selector);
+          }
           utils.nodeClean(decl, true);
         } else if (value[0] === 'fraction') {
           const i = value[1].split('/');

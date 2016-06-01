@@ -27,7 +27,8 @@ export default (blocs, node, opts, breakpoint) => {
             }
 
             if (i1) {
-              utils.selectorsAdd(blocWidth[i1], blocs[units][width][0]);
+              const selectors = utils.flatten(blocs[units][width]);
+              utils.selectorsAdd(blocWidth[i1], selectors);
             }
           }
         }

@@ -88,11 +88,12 @@ Example: [input](https://github.com/francoisromain/postcss-grid-system/blob/gh-p
 
 ### Blocs
 
-`gs: bloc [width]`
+`gs: bloc [width] [align]`
 
 Blocs have a fixed width.
 
 - _width_: width of the bloc.
+- _align_: _left_ or _right_.
 
 Example: [input](https://github.com/francoisromain/postcss-grid-system/blob/gh-pages/test/src/03.css), [output](https://github.com/francoisromain/postcss-grid-system/blob/gh-pages/test/dist/03.css), [markup](https://github.com/francoisromain/postcss-grid-system/blob/gh-pages/test/03.html), [demo](http://francoisromain.github.io/postcss-grid-system/test/03.html)
 

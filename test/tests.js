@@ -6,6 +6,7 @@ import test02 from './02';
 import test03 from './03';
 import test05 from './05';
 import test06 from './06';
+import test07 from './07';
 import plugin from '../src/index';
 
 function run(t, input, output, opts = {}) {
@@ -22,3 +23,4 @@ test('rows', t => run(t, test02.input, test02.output, {}));
 test('blocs', t => run(t, test03.input, test03.output, {}));
 test('bloc fractions', t => run(t, test05.input, test05.output, {}));
 test('columns', t => run(t, test06.input, test06.output, {}));
+test('blocs float', t => run(t, test07.input, test07.output, {}));

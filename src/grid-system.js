@@ -7,7 +7,7 @@ import columns from './columns';
 import containersQuery from './containers-query';
 import blocsQuery from './blocs-query';
 import fractionsQuery from './fractions-query';
-import blocsFloatQuery from './blocs-float-query';
+import blocsAlignQuery from './blocs-align-query';
 import columnsQuery from './columns-query';
 import rulesQuery from './rules-query';
 
@@ -20,7 +20,7 @@ export default (e, rootCss, opts) => {
   fractions(e.fractions, rootCss, opts);
   columns(e.columns, rootCss, opts);
 
-  blocsFloatQuery(e.blocs[0], rootCss, opts);
+  blocsAlignQuery(e.blocs[0], rootCss, opts);
   blocsQuery(e.blocs, rootCss, opts, 0);
   fractionsQuery(e.fractions[0], rootCss, opts);
   columnsQuery(e.columns, rootCss, opts, 0);
@@ -31,7 +31,7 @@ export default (e, rootCss, opts) => {
     const mediaQuery = postcss.atRule({ name: 'media', params: `(min-width: ${queryWidth}rem)` });
 
     containersQuery(e.containers, mediaQuery, opts, breakpoint);
-    blocsFloatQuery(e.blocs[breakpoint], mediaQuery, opts);
+    blocsAlignQuery(e.blocs[breakpoint], mediaQuery, opts);
     blocsQuery(e.blocs, mediaQuery, opts, breakpoint);
     fractionsQuery(e.fractions[breakpoint], mediaQuery, opts);
     columnsQuery(e.columns, mediaQuery, opts, breakpoint);

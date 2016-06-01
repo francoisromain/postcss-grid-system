@@ -6,6 +6,7 @@ export default (blocs, node, opts) => {
     const bloc = postcss.rule();
 
     bloc.selectors = utils.flatten(blocs);
+
     bloc.append({ prop: 'margin-right', value: `${opts.gutter}rem` });
     bloc.append({ prop: 'margin-bottom', value: `${opts.gutter}rem` });
 
