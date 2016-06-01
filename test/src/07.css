@@ -1,4 +1,6 @@
-@gs {}
+@gs {
+  display: float;
+}
 
 .container {
   gs: container;
@@ -14,13 +16,13 @@
   }
 
   .bloc-3-2-bis {
-    gs: bloc 2;
+    gs: bloc 2 right;
   }
 }
 
 @gs-media 5 {
   .bloc-5-3 {
-    gs: bloc 3 right;
+    gs: bloc 3;
   }
 
 }
