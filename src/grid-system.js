@@ -12,8 +12,6 @@ import columnsQuery from './columns-query';
 import rulesQuery from './rules-query';
 
 export default (e, rootCss, opts) => {
-  const scrollbarsWidth = 1;
-
   containers(e.containers, rootCss, opts);
   rows(e.rows, rootCss, opts);
   blocs(e.blocs, rootCss, opts);
@@ -27,7 +25,7 @@ export default (e, rootCss, opts) => {
   rulesQuery(e.rules[0], rootCss);
 
   for (let breakpoint = opts.min; breakpoint <= opts.max; breakpoint++) {
-    const queryWidth = breakpoint * opts.width - opts.gutter + 2 * opts.padding + scrollbarsWidth;
+    const queryWidth = breakpoint * opts.width - opts.gutter + 2 * opts.padding;
     const mediaQuery = postcss.atRule({ name: 'media', params: `(min-width: ${queryWidth}rem)` });
 
     containersQuery(e.containers, mediaQuery, opts, breakpoint);

@@ -51,12 +51,12 @@ const tests = {
     margin-bottom: 1.5rem;
     flex: 0 1 100%
 }
-@media (min-width: 43.5rem) {
+@media (min-width: 42.5rem) {
     .container {
         width: 42.5rem
     }
 }
-@media (min-width: 64rem) {
+@media (min-width: 63rem) {
     .container {
         width: 63rem
     }
@@ -64,12 +64,12 @@ const tests = {
         flex: 0 1 39.5rem
     }
 }
-@media (min-width: 84.5rem) {
+@media (min-width: 83.5rem) {
     .container {
         width: 83.5rem
     }
 }
-@media (min-width: 105rem) {
+@media (min-width: 104rem) {
     .container {
         width: 104rem
     }
@@ -80,17 +80,17 @@ const tests = {
         flex: 0 1 60rem
     }
 }
-@media (min-width: 125.5rem) {
+@media (min-width: 124.5rem) {
     .container {
         width: 124.5rem
     }
 }
-@media (min-width: 146rem) {
+@media (min-width: 145rem) {
     .container {
         width: 145rem
     }
 }
-@media (min-width: 166.5rem) {
+@media (min-width: 165.5rem) {
     .container {
         width: 165.5rem
     }

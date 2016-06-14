@@ -31,7 +31,7 @@ const tests = {
 .columns-2-4, .columns-2-4-bis, .columns-3-8 {
     column-gap: 1.5rem
 }
-@media (min-width: 43.5rem) {
+@media (min-width: 42.5rem) {
     .container {
         width: 42.5rem
     }
@@ -39,7 +39,7 @@ const tests = {
         column-count: 2
     }
 }
-@media (min-width: 64rem) {
+@media (min-width: 63rem) {
     .container {
         width: 63rem
     }
@@ -47,7 +47,7 @@ const tests = {
         column-count: 3
     }
 }
-@media (min-width: 84.5rem) {
+@media (min-width: 83.5rem) {
     .container {
         width: 83.5rem
     }
@@ -55,7 +55,7 @@ const tests = {
         column-count: 4
     }
 }
-@media (min-width: 105rem) {
+@media (min-width: 104rem) {
     .container {
         width: 104rem
     }
@@ -63,7 +63,7 @@ const tests = {
         column-count: 5
     }
 }
-@media (min-width: 125.5rem) {
+@media (min-width: 124.5rem) {
     .container {
         width: 124.5rem
     }
@@ -71,7 +71,7 @@ const tests = {
         column-count: 6
     }
 }
-@media (min-width: 146rem) {
+@media (min-width: 145rem) {
     .container {
         width: 145rem
     }
@@ -79,7 +79,7 @@ const tests = {
         column-count: 7
     }
 }
-@media (min-width: 166.5rem) {
+@media (min-width: 165.5rem) {
     .container {
         width: 165.5rem
     }
