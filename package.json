@@ -7,7 +7,7 @@
   "repository": "francoisromain/postcss-grid-system",
   "scripts": {
     "babel": "babel postcss-grid-system/src --out-dir postcss-grid-system/lib",
-    "css-grid-system": "postcss --local-plugins -u ./postcss-grid-system src/grid-system.css -o dist/grid-system.css",
+    "css": "postcss --local-plugins -u ./postcss-grid-system src/grid-system.css -o dist/grid-system.css",
     "css-00": "postcss --local-plugins -u ./postcss-grid-system -i test/src/00.css -o test/dist/00.css",
     "css-01": "postcss --local-plugins -u ./postcss-grid-system -i test/src/01.css -o test/dist/01.css",
     "css-02": "postcss --local-plugins -u ./postcss-grid-system -i test/src/02.css -o test/dist/02.css",
@@ -16,22 +16,21 @@
     "css-06": "postcss --local-plugins -u ./postcss-grid-system -i test/src/06.css -o test/dist/06.css",
     "css-07": "postcss --local-plugins -u ./postcss-grid-system -i test/src/07.css -o test/dist/07.css",
     "build": "npm run babel && npm run css",
-    "test": "npm run babel && npm run css-grid-system && npm run css-00 && npm run css-01 && npm run css-02 && npm run css-03&& npm run css-05 && npm run css-06 && npm run css-07",
+    "test": "npm run babel && npm run css && npm run css-00 && npm run css-01 && npm run css-02 && npm run css-03&& npm run css-05 && npm run css-06 && npm run css-07",
     "watch": "onchange 'index.html' 'src/**/*.*' 'postcss-grid-system/src/**/*.*' -- npm run build",
     "reload": "livereload",
     "start": "npm-run-all --parallel watch reload"
   },
   "devDependencies": {
-    "babel-cli": "^6.9.0",
+    "babel-cli": "^6.10.1",
     "babel-preset-es2015": "^6.9.0",
     "livereload": "^0.4.1",
-    "npm-run-all": "^2.1.1",
-    "onchange": "^2.4.0",
+    "npm-run-all": "^2.1.2",
+    "onchange": "^2.5.0",
     "postcss": "^5.0.21",
     "postcss-cli": "^2.5.2",
-    "postcss-cssnext": "^2.5.2",
-    "postcss-import": "^8.1.2",
-    "system.css": "^0.2.3"
+    "postcss-cssnext": "^2.6.0",
+    "postcss-import": "^8.1.2"
   },
   "babel": {
     "presets": [
