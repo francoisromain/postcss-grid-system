@@ -1,6 +1,6 @@
 {
   "name": "postcss-grid-system",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "A PostCSS plugin to create grids based on a fixed column width.",
   "keywords": [
     "postcss",
@@ -10,7 +10,8 @@
     "grid-system",
     "flexbox",
     "float",
-    "masonry"
+    "masonry",
+    "postcss-structure"
   ],
   "author": "Francois Romain <francoisromain@gmail.com>",
   "license": "MIT",
