@@ -7,7 +7,6 @@ import columns from './columns';
 import containersQuery from './containers-query';
 import blocsQuery from './blocs-query';
 import fractionsQuery from './fractions-query';
-import blocsAlignQuery from './blocs-align-query';
 import columnsQuery from './columns-query';
 import rulesQuery from './rules-query';
 // import util from 'util';
@@ -27,7 +26,6 @@ export default (e, rootCss, opts) => {
     const queryWidth = breakpoint * opts.width - opts.gutter + 2 * opts.padding;
     const mediaQuery = postcss.atRule({ name: 'media', params: `(min-width: ${queryWidth}rem)` });
 
-    blocsAlignQuery(e.blocs, mediaQuery, opts, breakpoint);
     blocsQuery(e.blocs, mediaQuery, opts, breakpoint);
 
     if (breakpoint >= opts.min) {

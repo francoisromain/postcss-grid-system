@@ -71,10 +71,10 @@ const tests = {
 }
 @media (min-width: 104rem) {
     .bloc-5-3 {
-        margin-left: auto
+        flex: 0 1 60rem
     }
     .bloc-5-3 {
-        flex: 0 1 60rem
+        margin-left: auto
     }
     .container {
         width: 104rem

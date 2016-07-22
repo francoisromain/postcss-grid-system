@@ -53,6 +53,9 @@ const tests = {
     }
 }
 @media (min-width: 63rem) {
+    .bloc-3-2, .bloc-3-2-bis {
+        width: 39.5rem
+    }
     .bloc-3-2-bis {
         float: right;
         clear: none
@@ -60,9 +63,6 @@ const tests = {
     .bloc-3-2 {
         float: left;
         clear: none
-    }
-    .bloc-3-2, .bloc-3-2-bis {
-        width: 39.5rem
     }
     .container {
         width: 63rem
@@ -75,11 +75,11 @@ const tests = {
 }
 @media (min-width: 104rem) {
     .bloc-5-3 {
-        float: left;
-        clear: none
+        width: 60rem
     }
     .bloc-5-3 {
-        width: 60rem
+        float: left;
+        clear: none
     }
     .container {
         width: 104rem
