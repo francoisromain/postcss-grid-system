@@ -57,11 +57,11 @@ const tests = {
     }
 }
 @media (min-width: 63rem) {
-    .container {
-        width: 63rem
-    }
     .bloc-3-2,.bloc-3-2-bis {
         flex: 0 1 39.5rem
+    }
+    .container {
+        width: 63rem
     }
 }
 @media (min-width: 83.5rem) {
@@ -70,14 +70,14 @@ const tests = {
     }
 }
 @media (min-width: 104rem) {
-    .container {
-        width: 104rem
-    }
     .bloc-5-3 {
         margin-left: auto
     }
     .bloc-5-3 {
         flex: 0 1 60rem
+    }
+    .container {
+        width: 104rem
     }
 }
 @media (min-width: 124.5rem) {

@@ -25,7 +25,7 @@ module.exports = postcss.plugin('postcss-grid-system', () => {
 
   const rootCss = postcss.root();
 
-  const walkDecls = function walkDecls(node, breakpoint) {
+  const walkDecls = (node, breakpoint) => {
     node.walkDecls((decl) => {
       if (decl.prop.match(/^gs/)) {
         const value = decl.value.split(/\s+(?![^\[]*\]|[^(]*\)|[^\{]*})/);
@@ -102,7 +102,7 @@ module.exports = postcss.plugin('postcss-grid-system', () => {
 
       walkDecls(css, 0);
 
-      // console.log(util.inspect(e.containers, false, null));
+      // console.log(util.inspect(e.blocs, false, null));
       gridSystem(e, rootCss, opts);
       gsAtRule.replaceWith(rootCss);
     });

@@ -10,6 +10,7 @@ import fractionsQuery from './fractions-query';
 import blocsAlignQuery from './blocs-align-query';
 import columnsQuery from './columns-query';
 import rulesQuery from './rules-query';
+// import util from 'util';
 
 export default (e, rootCss, opts) => {
   containers(e.containers, rootCss, opts);
@@ -18,23 +19,27 @@ export default (e, rootCss, opts) => {
   fractions(e.fractions, rootCss, opts);
   columns(e.columns, rootCss, opts);
 
-  blocsAlignQuery(e.blocs[0], rootCss, opts);
-  blocsQuery(e.blocs, rootCss, opts, 0);
   fractionsQuery(e.fractions[0], rootCss, opts);
   columnsQuery(e.columns, rootCss, opts, 0);
   rulesQuery(e.rules[0], rootCss);
 
-  for (let breakpoint = opts.min; breakpoint <= opts.max; breakpoint++) {
+  for (let breakpoint = 1; breakpoint <= opts.max; breakpoint++) {
     const queryWidth = breakpoint * opts.width - opts.gutter + 2 * opts.padding;
     const mediaQuery = postcss.atRule({ name: 'media', params: `(min-width: ${queryWidth}rem)` });
 
-    containersQuery(e.containers, mediaQuery, opts, breakpoint);
-    blocsAlignQuery(e.blocs[breakpoint], mediaQuery, opts);
+    blocsAlignQuery(e.blocs, mediaQuery, opts, breakpoint);
     blocsQuery(e.blocs, mediaQuery, opts, breakpoint);
-    fractionsQuery(e.fractions[breakpoint], mediaQuery, opts);
-    columnsQuery(e.columns, mediaQuery, opts, breakpoint);
-    rulesQuery(e.rules[breakpoint], mediaQuery);
 
-    rootCss.append(mediaQuery);
+    if (breakpoint >= opts.min) {
+      containersQuery(e.containers, mediaQuery, opts, breakpoint);
+      fractionsQuery(e.fractions[breakpoint], mediaQuery, opts);
+      columnsQuery(e.columns, mediaQuery, opts, breakpoint);
+      rulesQuery(e.rules[breakpoint], mediaQuery);
+    }
+
+    if (mediaQuery.nodes && mediaQuery.nodes.length) {
+      // console.log('booo', util.inspect(mediaQuery.nodes.length, false, null));
+      rootCss.append(mediaQuery);
+    }
   }
 };
