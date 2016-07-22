@@ -107,21 +107,29 @@ https://github.com/francoisromain/postcss-grid-system
     color: white
 }
 
-@media (min-width: 42.5rem) {
+@media (min-width: 22rem) {
 
-    .container {
+    .bloc-1-1 {
 
-        width: 42.5rem
+        flex: 0 1 19rem
     }
+}
+
+@media (min-width: 42.5rem) {
 
     .bloc-2-1 {
 
         flex: 0 1 19rem
     }
 
-    .bloc-test, .bloc-1-2, .bloc-1-3, .bloc-1-4, .bloc-1-5, .bloc-1-6, .bloc-1-7, .bloc-1-8, .bloc-2-2, .bloc-2-3, .bloc-2-4, .bloc-2-5, .bloc-2-6, .bloc-2-7, .bloc-2-8 {
+    .bloc-test, .bloc-1-2, .bloc-2-2 {
 
         flex: 0 1 39.5rem
+    }
+
+    .container {
+
+        width: 42.5rem
     }
 
     .columns-2-1 {
@@ -163,11 +171,6 @@ https://github.com/francoisromain/postcss-grid-system
 
 @media (min-width: 63rem) {
 
-    .container {
-
-        width: 63rem
-    }
-
     .bloc-3-1 {
 
         flex: 0 1 19rem
@@ -178,9 +181,14 @@ https://github.com/francoisromain/postcss-grid-system
         flex: 0 1 39.5rem
     }
 
-    .bloc-1-3, .bloc-1-4, .bloc-1-5, .bloc-1-6, .bloc-1-7, .bloc-1-8, .bloc-2-3, .bloc-2-4, .bloc-2-5, .bloc-2-6, .bloc-2-7, .bloc-2-8, .bloc-3-3, .bloc-3-4, .bloc-3-5, .bloc-3-6, .bloc-3-7, .bloc-3-8 {
+    .bloc-1-3, .bloc-2-3, .bloc-3-3 {
 
         flex: 0 1 60rem
+    }
+
+    .container {
+
+        width: 63rem
     }
 
     .columns-3-1 {
@@ -222,11 +230,6 @@ https://github.com/francoisromain/postcss-grid-system
 
 @media (min-width: 83.5rem) {
 
-    .container {
-
-        width: 83.5rem
-    }
-
     .bloc-4-1 {
 
         flex: 0 1 19rem
@@ -242,9 +245,14 @@ https://github.com/francoisromain/postcss-grid-system
         flex: 0 1 60rem
     }
 
-    .bloc-1-4, .bloc-1-5, .bloc-1-6, .bloc-1-7, .bloc-1-8, .bloc-2-4, .bloc-2-5, .bloc-2-6, .bloc-2-7, .bloc-2-8, .bloc-3-4, .bloc-3-5, .bloc-3-6, .bloc-3-7, .bloc-3-8, .bloc-4-4, .bloc-4-5, .bloc-4-6, .bloc-4-7, .bloc-4-8 {
+    .bloc-1-4, .bloc-2-4, .bloc-3-4, .bloc-4-4 {
 
         flex: 0 1 80.5rem
+    }
+
+    .container {
+
+        width: 83.5rem
     }
 
     .columns-4-1 {
@@ -291,11 +299,6 @@ https://github.com/francoisromain/postcss-grid-system
 
 @media (min-width: 104rem) {
 
-    .container {
-
-        width: 104rem
-    }
-
     .bloc-5-1 {
 
         flex: 0 1 19rem
@@ -316,9 +319,14 @@ https://github.com/francoisromain/postcss-grid-system
         flex: 0 1 80.5rem
     }
 
-    .bloc-1-5, .bloc-1-6, .bloc-1-7, .bloc-1-8, .bloc-2-5, .bloc-2-6, .bloc-2-7, .bloc-2-8, .bloc-3-5, .bloc-3-6, .bloc-3-7, .bloc-3-8, .bloc-4-5, .bloc-4-6, .bloc-4-7, .bloc-4-8, .bloc-5-5, .bloc-5-6, .bloc-5-7, .bloc-5-8 {
+    .bloc-1-5, .bloc-2-5, .bloc-3-5, .bloc-4-5, .bloc-5-5 {
 
         flex: 0 1 101rem
+    }
+
+    .container {
+
+        width: 104rem
     }
 
     .columns-5-1 {
@@ -370,11 +378,6 @@ https://github.com/francoisromain/postcss-grid-system
 
 @media (min-width: 124.5rem) {
 
-    .container {
-
-        width: 124.5rem
-    }
-
     .bloc-6-1 {
 
         flex: 0 1 19rem
@@ -400,9 +403,14 @@ https://github.com/francoisromain/postcss-grid-system
         flex: 0 1 101rem
     }
 
-    .bloc-1-6, .bloc-1-7, .bloc-1-8, .bloc-2-6, .bloc-2-7, .bloc-2-8, .bloc-3-6, .bloc-3-7, .bloc-3-8, .bloc-4-6, .bloc-4-7, .bloc-4-8, .bloc-5-6, .bloc-5-7, .bloc-5-8, .bloc-6-6, .bloc-6-7, .bloc-6-8 {
+    .bloc-1-6, .bloc-2-6, .bloc-3-6, .bloc-4-6, .bloc-5-6, .bloc-6-6 {
 
         flex: 0 1 121.5rem
+    }
+
+    .container {
+
+        width: 124.5rem
     }
 
     .columns-6-1 {
@@ -459,11 +467,6 @@ https://github.com/francoisromain/postcss-grid-system
 
 @media (min-width: 145rem) {
 
-    .container {
-
-        width: 145rem
-    }
-
     .bloc-7-1 {
 
         flex: 0 1 19rem
@@ -494,9 +497,14 @@ https://github.com/francoisromain/postcss-grid-system
         flex: 0 1 121.5rem
     }
 
-    .bloc-1-7, .bloc-1-8, .bloc-2-7, .bloc-2-8, .bloc-3-7, .bloc-3-8, .bloc-4-7, .bloc-4-8, .bloc-5-7, .bloc-5-8, .bloc-6-7, .bloc-6-8, .bloc-7-7, .bloc-7-8 {
+    .bloc-1-7, .bloc-2-7, .bloc-3-7, .bloc-4-7, .bloc-5-7, .bloc-6-7, .bloc-7-7 {
 
         flex: 0 1 142rem
+    }
+
+    .container {
+
+        width: 145rem
     }
 
     .columns-7-1 {
@@ -551,11 +559,6 @@ https://github.com/francoisromain/postcss-grid-system
 
 @media (min-width: 165.5rem) {
 
-    .container {
-
-        width: 165.5rem
-    }
-
     .bloc-8-1 {
 
         flex: 0 1 19rem
@@ -594,6 +597,11 @@ https://github.com/francoisromain/postcss-grid-system
     .bloc-1-8, .bloc-2-8, .bloc-3-8, .bloc-4-8, .bloc-5-8, .bloc-6-8, .bloc-7-8, .bloc-8-8 {
 
         flex: 0 1 162.5rem
+    }
+
+    .container {
+
+        width: 165.5rem
     }
 
     .columns-8-1 {
