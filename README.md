@@ -35,7 +35,21 @@ See [PostCSS docs](https://github.com/postcss/postcss#usage) to setup with Gulp,
 
 ## Configuration
 
-Global settings (and default values):
+#### Option 1: In javascript
+
+``` javascript
+{
+  width:   '20.5rem';/* width of a single column */
+  gutter:  '1.5rem'; /* width of the gutter */
+  padding: '1.5rem'; /* padding of the main container */
+  max:     8;        /* maximum number of blocs (wide screens) */
+  min:     2;        /* minimum number of blocs (mobile) */
+  align:   'center'; /* center or left */ 
+  display: 'flex';   /* float or flex */  
+}
+```
+
+#### Option 2: in css
 
 ``` css
 
@@ -49,6 +63,8 @@ Global settings (and default values):
   display: flex;     /* float or flex */  
 }
 ```
+
+If no configuration, see the default values above.
 
 A **breakpoint** is created for each value from _min_ to _max_. When the screen is narrower than _min_ * _width_, elements are fluids. 
 

@@ -87,7 +87,7 @@ const tests = {
         column-count: 8
     }
 }
-`,
-};
+`
+}
 
-export default tests;
+export default tests
