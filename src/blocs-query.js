@@ -36,8 +36,6 @@ export default (blocs, node, opts, breakpoint) => {
       }
     }
 
-    console.log('opts.max', opts.max)
-
     for (let unit = 0; unit <= opts.max; unit++) {
       if (unit < breakpoint) {
         blocWidthFill(unit, breakpoint)
