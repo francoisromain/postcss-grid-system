@@ -95,7 +95,6 @@ const tests = {
         width: 165.5rem
     }
 }
-`
-}
+` };
 
-export default tests
+export default tests;
