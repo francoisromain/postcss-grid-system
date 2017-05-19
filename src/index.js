@@ -2,7 +2,7 @@ import postcss from 'postcss';
 import gridSystem from './grid-system';
 import utils from './utils';
 
-const postcssGridSystem = postcss.plugin('postcss-grid-system', (opts) => {
+module.exports = postcss.plugin('postcss-grid-system', (opts) => {
   const options = {
     width: 20.5,
     gutter: 1.5,
@@ -109,5 +109,3 @@ const postcssGridSystem = postcss.plugin('postcss-grid-system', (opts) => {
     });
   };
 });
-
-export default postcssGridSystem;
