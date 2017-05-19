@@ -7,14 +7,14 @@
   "repository": "francoisromain/postcss-grid-system",
   "scripts": {
     "babel": "babel postcss-grid-system/src --out-dir postcss-grid-system/lib",
-    "css": "postcss --local-plugins -u ./postcss-grid-system src/grid-system.css -o dist/grid-system.css",
-    "css-00": "postcss --local-plugins -u ./postcss-grid-system -i test/src/00.css -o test/dist/00.css",
-    "css-01": "postcss --local-plugins -u ./postcss-grid-system -i test/src/01.css -o test/dist/01.css",
-    "css-02": "postcss --local-plugins -u ./postcss-grid-system -i test/src/02.css -o test/dist/02.css",
-    "css-03": "postcss --local-plugins -u ./postcss-grid-system -i test/src/03.css -o test/dist/03.css",
-    "css-05": "postcss --local-plugins -u ./postcss-grid-system -i test/src/05.css -o test/dist/05.css",
-    "css-06": "postcss --local-plugins -u ./postcss-grid-system -i test/src/06.css -o test/dist/06.css",
-    "css-07": "postcss --local-plugins -u ./postcss-grid-system -i test/src/07.css -o test/dist/07.css",
+    "css": "postcss src/grid-system.css -o dist/grid-system.css",
+    "css-00": "postcss test/src/00.css -o test/dist/00.css",
+    "css-01": "postcss test/src/01.css -o test/dist/01.css",
+    "css-02": "postcss test/src/02.css -o test/dist/02.css",
+    "css-03": "postcss test/src/03.css -o test/dist/03.css",
+    "css-05": "postcss test/src/05.css -o test/dist/05.css",
+    "css-06": "postcss test/src/06.css -o test/dist/06.css",
+    "css-07": "postcss test/src/07.css -o test/dist/07.css",
     "build": "npm run babel && npm run css",
     "test": "npm run babel && npm run css && npm run css-00 && npm run css-01 && npm run css-02 && npm run css-03&& npm run css-05 && npm run css-06 && npm run css-07",
     "watch": "onchange 'index.html' 'src/**/*.*' 'postcss-grid-system/src/**/*.*' -- npm run build",
@@ -22,22 +22,17 @@
     "start": "npm-run-all --parallel watch reload"
   },
   "devDependencies": {
-    "babel-cli": "^6.11.4",
-    "babel-preset-es2015": "^6.9.0",
-    "livereload": "^0.5.0",
-    "npm-run-all": "^2.3.0",
-    "onchange": "^2.5.0",
-    "postcss": "^5.1.0",
-    "postcss-cli": "^2.5.2",
-    "postcss-cssnext": "^2.7.0",
-    "postcss-import": "^8.1.2"
+    "babel-cli": "^6.24.1",
+    "babel-preset-es2015": "^6.24.1",
+    "livereload": "^0.6.2",
+    "npm-run-all": "^4.0.2",
+    "onchange": "^3.2.1",
+    "postcss": "^6.0.1",
+    "postcss-cli": "^4.0.0"
   },
   "babel": {
     "presets": [
       "es2015"
     ]
-  },
-  "stylelint": {
-    "extends": "stylelint-config-standard"
   }
 }
