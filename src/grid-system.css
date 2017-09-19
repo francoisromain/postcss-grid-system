@@ -55,40 +55,6 @@ https://github.com/francoisromain/postcss-grid-system
   gs: fraction 5/4;
 }
 
-@gs-media 1 {
-  .bloc-1-1 {
-    gs: bloc 1;
-  }
-
-  .bloc-1-2 {
-    gs: bloc 2;
-  }
-
-  .bloc-1-3 {
-    gs: bloc 3;
-  }
-
-  .bloc-1-4 {
-    gs: bloc 4;
-  }
-
-  .bloc-1-5 {
-    gs: bloc 5;
-  }
-
-  .bloc-1-6 {
-    gs: bloc 6;
-  }
-
-  .bloc-1-7 {
-    gs: bloc 7;
-  }
-
-  .bloc-1-8 {
-    gs: bloc 8;
-  }
-}
-
 @gs-media 2 {
   .bloc-2-1 {
     gs: bloc 1;
