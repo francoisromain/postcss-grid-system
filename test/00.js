@@ -6,64 +6,63 @@ const tests = {
 }
 
 @gs-media 0 {
-  .custom-1 {
+  .one {
     background-color: plum;
-    & .custom-3 {
+    & .three {
       color: red;
     }
   }
 }
 
 @gs-media 1 {
-  .custom-1 {
+  .one {
     background-color: palegreen;
   }
 }
 
 @gs-media 2 {
-  .custom-1 {
+  .one {
     background-color: deeppink;
   }
 }
 
 @gs-media 3 {
-  .custom-1 {
+  .one {
     background-color: orangered;
   }
 }
 
 @gs-media 4 {
-  .custom-1 {
+  .one {
     background-color: dodgerblue;
   }
 }
 
 @gs-media 5 {
-  .custom-1 {
+  .one {
     background-color: lightcoral;
   }
 }
 
 @gs-media 6 {
-  .custom-1 {
+  .one {
     background-color: gold;
   }
 }
 
 @gs-media 0 {
-  .custom-2 {
+  .two {
     background-color: plum;
     color: white;
   }
 }
 
 @gs-media 2 {
-  .custom-2 {
+  .two {
     background-color: deeppink;
     color: silver;
   }
-}
-`,
+}`,
   output: `.container {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
@@ -71,70 +70,69 @@ const tests = {
     margin-left: auto;
     margin-right: auto;
 }
-.custom-1 {
+  .one {
     background-color: plum;
-    & .custom-3 {
+    & .three {
       color: red;
     }
   }
-.custom-2 {
+  .two {
     background-color: plum;
     color: white;
   }
-@media (min-width: 42.5rem) {
+  @media (min-width: 42.5rem) {
     .container {
         width: 42.5rem;
     }
-  .custom-1 {
+  .one {
     background-color: deeppink;
   }
-  .custom-2 {
+  .two {
     background-color: deeppink;
     color: silver;
   }
 }
-@media (min-width: 63rem) {
+  @media (min-width: 63rem) {
     .container {
         width: 63rem;
     }
-  .custom-1 {
+  .one {
     background-color: orangered;
   }
 }
-@media (min-width: 83.5rem) {
+  @media (min-width: 83.5rem) {
     .container {
         width: 83.5rem;
     }
-  .custom-1 {
+  .one {
     background-color: dodgerblue;
   }
 }
-@media (min-width: 104rem) {
+  @media (min-width: 104rem) {
     .container {
         width: 104rem;
     }
-  .custom-1 {
+  .one {
     background-color: lightcoral;
   }
 }
-@media (min-width: 124.5rem) {
+  @media (min-width: 124.5rem) {
     .container {
         width: 124.5rem;
     }
-  .custom-1 {
+  .one {
     background-color: gold;
   }
 }
-@media (min-width: 145rem) {
+  @media (min-width: 145rem) {
     .container {
         width: 145rem;
     }
 }
-@media (min-width: 165.5rem) {
+  @media (min-width: 165.5rem) {
     .container {
         width: 165.5rem;
     }
-}
-` };
+}` };
 
 export default tests;
