@@ -3,19 +3,19 @@ import utils from './utils';
 
 export default (fractions, node, opts) => {
   if (fractions.length) {
-    const fractionFloat = postcss.rule();
+    const fraction = postcss.rule();
 
-    fractionFloat.selectors = utils.flatten(fractions);
+    fraction.selectors = utils.flatten(fractions);
 
-    fractionFloat.append({ prop: 'margin-right', value: `${opts.gutter}rem` });
-    fractionFloat.append({ prop: 'margin-bottom', value: `${opts.gutter}rem` });
+    fraction.append({ prop: 'margin-right', value: `${opts.gutter}rem` });
+    fraction.append({ prop: 'margin-bottom', value: `${opts.gutter}rem` });
 
     if (opts.display === 'flex') {
-      fractionFloat.append({ prop: 'flex', value: '0 1 auto' });
+      fraction.append({ prop: 'flex', value: '0 1 100%' });
     } else if (opts.display === 'float') {
-      fractionFloat.append({ prop: 'float', value: 'left' });
+      fraction.append({ prop: 'clear', value: 'both' });
     }
 
-    node.append(fractionFloat);
+    node.append(fraction);
   }
 };

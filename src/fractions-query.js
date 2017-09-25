@@ -16,6 +16,8 @@ export default (fractions, node, opts) => {
             if (opts.display === 'flex') {
               fraction.append({ prop: 'flex', value: `0 1 ${fractionValue}rem` });
             } else if (opts.display === 'float') {
+              fraction.append({ prop: 'float', value: 'left' });
+              fraction.append({ prop: 'clear', value: 'none' });
               fraction.append({ prop: 'width', value: `${fractionValue}rem` });
             }
 

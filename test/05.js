@@ -40,7 +40,7 @@ const tests = {
 .bloc-one-third, .bloc-three-fourth {
     margin-right: 1.5rem;
     margin-bottom: 1.5rem;
-    flex: 0 1 auto
+    flex: 0 1 100%
 }
 .bloc-one-third {
     flex: 0 1 5.333333333333333rem
