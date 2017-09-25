@@ -10,6 +10,18 @@
   gs: row;
 }
 
+@gs-media 1 {
+  .bloc-1 {
+    gs: bloc 1;
+  }
+}
+
+@gs-media 2 {
+  .bloc-2 {
+    gs: bloc 2;
+  }
+}
+
 @gs-media 3 {
   .bloc-3-2 {
     gs: bloc 2;

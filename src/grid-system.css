@@ -27,35 +27,35 @@ https://github.com/francoisromain/postcss-grid-system
   gs: row;
 }
 
-.bloc-one-half {
-  gs: fraction 1/2;
-}
-
-.bloc-three-half {
-  gs: fraction 3/2;
-}
-
-.bloc-one-third {
-  gs: fraction 1/3;
-}
-
-.bloc-two-third {
-  gs: fraction 2/3;
-}
-
-.bloc-one-fourth {
-  gs: fraction 1/4;
-}
-
-.bloc-three-fourth {
-  gs: fraction 3/4;
-}
-
-.bloc-five-fourth {
-  gs: fraction 5/4;
-}
-
 @gs-media 2 {
+  .bloc-one-half {
+    gs: fraction 1/2;
+  }
+
+  .bloc-three-half {
+    gs: fraction 3/2;
+  }
+
+  .bloc-one-third {
+    gs: fraction 1/3;
+  }
+
+  .bloc-two-third {
+    gs: fraction 2/3;
+  }
+
+  .bloc-one-fourth {
+    gs: fraction 1/4;
+  }
+
+  .bloc-three-fourth {
+    gs: fraction 3/4;
+  }
+
+  .bloc-five-fourth {
+    gs: fraction 5/4;
+  }
+
   .bloc-2-1 {
     gs: bloc 1;
   }
@@ -611,12 +611,12 @@ https://github.com/francoisromain/postcss-grid-system
 }
 
 @gs-media 3 {
-  .show-3 { 
+  .show-3 {
     display: flex;
     visibility: visible;
   }
 
-  .hide-3 { 
+  .hide-3 {
     display: none;
     visibility: hidden;
   }
@@ -628,12 +628,12 @@ https://github.com/francoisromain/postcss-grid-system
 }
 
 @gs-media 4 {
-  .show-4 { 
+  .show-4 {
     display: flex;
     visibility: visible;
   }
 
-  .hide-4 { 
+  .hide-4 {
     display: none;
     visibility: hidden;
   }
@@ -645,12 +645,12 @@ https://github.com/francoisromain/postcss-grid-system
 }
 
 @gs-media 5 {
-  .show-5 { 
+  .show-5 {
     display: flex;
     visibility: visible;
   }
 
-  .hide-5 { 
+  .hide-5 {
     display: none;
     visibility: hidden;
   }
@@ -662,12 +662,12 @@ https://github.com/francoisromain/postcss-grid-system
 }
 
 @gs-media 6 {
-  .show-6 { 
+  .show-6 {
     display: flex;
     visibility: visible;
   }
 
-  .hide-6 { 
+  .hide-6 {
     display: none;
     visibility: hidden;
   }
@@ -679,24 +679,24 @@ https://github.com/francoisromain/postcss-grid-system
 }
 
 @gs-media 7 {
-  .show-7 { 
+  .show-7 {
     display: flex;
     visibility: visible;
   }
 
-  .hide-7 { 
+  .hide-7 {
     display: none;
     visibility: hidden;
   }
 }
 
 @gs-media 8 {
-  .show-8 { 
+  .show-8 {
     display: flex;
     visibility: visible;
   }
 
-  .hide-8 { 
+  .hide-8 {
     display: none;
     visibility: hidden;
   }

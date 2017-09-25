@@ -37,39 +37,11 @@ https://github.com/francoisromain/postcss-grid-system
 .bloc-one-half, .bloc-three-half, .bloc-one-third, .bloc-two-third, .bloc-one-fourth, .bloc-three-fourth, .bloc-five-fourth {
     margin-right: 1.5rem;
     margin-bottom: 1.5rem;
-    flex: 0 1 auto;
+    flex: 0 1 100%;
 }
 
 .columns-1-1, .columns-1-2, .columns-1-3, .columns-1-4, .columns-1-5, .columns-1-6, .columns-1-7, .columns-1-8, .columns-2-1, .columns-2-2, .columns-2-3, .columns-2-4, .columns-2-5, .columns-2-6, .columns-2-7, .columns-2-8, .columns-3-1, .columns-3-2, .columns-3-3, .columns-3-4, .columns-3-5, .columns-3-6, .columns-3-7, .columns-3-8, .columns-4-1, .columns-4-2, .columns-4-3, .columns-4-4, .columns-4-5, .columns-4-6, .columns-4-7, .columns-4-8, .columns-5-1, .columns-5-2, .columns-5-3, .columns-5-4, .columns-5-5, .columns-5-6, .columns-5-7, .columns-5-8, .columns-6-1, .columns-6-2, .columns-6-3, .columns-6-4, .columns-6-5, .columns-6-6, .columns-6-7, .columns-6-8, .columns-7-1, .columns-7-2, .columns-7-3, .columns-7-4, .columns-7-5, .columns-7-6, .columns-7-7, .columns-7-8, .columns-8-1, .columns-8-2, .columns-8-3, .columns-8-4, .columns-8-5, .columns-8-6, .columns-8-7, .columns-8-8 {
     column-gap: 1.5rem;
-}
-
-.bloc-one-half {
-    flex: 0 1 8.75rem;
-}
-
-.bloc-three-half {
-    flex: 0 1 29.25rem;
-}
-
-.bloc-one-third {
-    flex: 0 1 5.333333333333333rem;
-}
-
-.bloc-two-third {
-    flex: 0 1 12.166666666666666rem;
-}
-
-.bloc-one-fourth {
-    flex: 0 1 3.625rem;
-}
-
-.bloc-three-fourth {
-    flex: 0 1 13.875rem;
-}
-
-.bloc-five-fourth {
-    flex: 0 1 24.125rem;
 }
 
 .custom {
@@ -89,6 +61,34 @@ https://github.com/francoisromain/postcss-grid-system
 
     .container {
         width: 42.5rem;
+    }
+
+    .bloc-one-half {
+        flex: 0 1 8.75rem;
+    }
+
+    .bloc-three-half {
+        flex: 0 1 29.25rem;
+    }
+
+    .bloc-one-third {
+        flex: 0 1 5.333333333333333rem;
+    }
+
+    .bloc-two-third {
+        flex: 0 1 12.166666666666666rem;
+    }
+
+    .bloc-one-fourth {
+        flex: 0 1 3.625rem;
+    }
+
+    .bloc-three-fourth {
+        flex: 0 1 13.875rem;
+    }
+
+    .bloc-five-fourth {
+        flex: 0 1 24.125rem;
     }
 
     .columns-2-1 {
@@ -147,12 +147,12 @@ https://github.com/francoisromain/postcss-grid-system
     .columns-1-3, .columns-1-4, .columns-1-5, .columns-1-6, .columns-1-7, .columns-1-8, .columns-2-3, .columns-2-4, .columns-2-5, .columns-2-6, .columns-2-7, .columns-2-8, .columns-3-3, .columns-3-4, .columns-3-5, .columns-3-6, .columns-3-7, .columns-3-8 {
         column-count: 3;
     }
-  .show-3 { 
+  .show-3 {
     display: flex;
     visibility: visible;
   }
 
-  .hide-3 { 
+  .hide-3 {
     display: none;
     visibility: hidden;
   }
@@ -200,12 +200,12 @@ https://github.com/francoisromain/postcss-grid-system
     .columns-1-4, .columns-1-5, .columns-1-6, .columns-1-7, .columns-1-8, .columns-2-4, .columns-2-5, .columns-2-6, .columns-2-7, .columns-2-8, .columns-3-4, .columns-3-5, .columns-3-6, .columns-3-7, .columns-3-8, .columns-4-4, .columns-4-5, .columns-4-6, .columns-4-7, .columns-4-8 {
         column-count: 4;
     }
-  .show-4 { 
+  .show-4 {
     display: flex;
     visibility: visible;
   }
 
-  .hide-4 { 
+  .hide-4 {
     display: none;
     visibility: hidden;
   }
@@ -261,12 +261,12 @@ https://github.com/francoisromain/postcss-grid-system
     .columns-1-5, .columns-1-6, .columns-1-7, .columns-1-8, .columns-2-5, .columns-2-6, .columns-2-7, .columns-2-8, .columns-3-5, .columns-3-6, .columns-3-7, .columns-3-8, .columns-4-5, .columns-4-6, .columns-4-7, .columns-4-8, .columns-5-5, .columns-5-6, .columns-5-7, .columns-5-8 {
         column-count: 5;
     }
-  .show-5 { 
+  .show-5 {
     display: flex;
     visibility: visible;
   }
 
-  .hide-5 { 
+  .hide-5 {
     display: none;
     visibility: hidden;
   }
@@ -330,12 +330,12 @@ https://github.com/francoisromain/postcss-grid-system
     .columns-1-6, .columns-1-7, .columns-1-8, .columns-2-6, .columns-2-7, .columns-2-8, .columns-3-6, .columns-3-7, .columns-3-8, .columns-4-6, .columns-4-7, .columns-4-8, .columns-5-6, .columns-5-7, .columns-5-8, .columns-6-6, .columns-6-7, .columns-6-8 {
         column-count: 6;
     }
-  .show-6 { 
+  .show-6 {
     display: flex;
     visibility: visible;
   }
 
-  .hide-6 { 
+  .hide-6 {
     display: none;
     visibility: hidden;
   }
@@ -407,12 +407,12 @@ https://github.com/francoisromain/postcss-grid-system
     .columns-1-7, .columns-1-8, .columns-2-7, .columns-2-8, .columns-3-7, .columns-3-8, .columns-4-7, .columns-4-8, .columns-5-7, .columns-5-8, .columns-6-7, .columns-6-8, .columns-7-7, .columns-7-8 {
         column-count: 7;
     }
-  .show-7 { 
+  .show-7 {
     display: flex;
     visibility: visible;
   }
 
-  .hide-7 { 
+  .hide-7 {
     display: none;
     visibility: hidden;
   }
@@ -487,12 +487,12 @@ https://github.com/francoisromain/postcss-grid-system
     .columns-1-8, .columns-2-8, .columns-3-8, .columns-4-8, .columns-5-8, .columns-6-8, .columns-7-8, .columns-8-8 {
         column-count: 8;
     }
-  .show-8 { 
+  .show-8 {
     display: flex;
     visibility: visible;
   }
 
-  .hide-8 { 
+  .hide-8 {
     display: none;
     visibility: hidden;
   }
