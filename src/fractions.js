@@ -1,11 +1,11 @@
 import postcss from 'postcss';
-import utils from './utils';
+import { flatten } from './utils';
 
-const f = (fractions, node, opts) => {
+export default (fractions, node, opts) => {
   if (fractions.length) {
     const fraction = postcss.rule();
 
-    fraction.selectors = utils.flatten(fractions);
+    fraction.selectors = flatten(fractions);
 
     fraction.append({ prop: 'margin-right', value: `${opts.gutter}rem` });
     fraction.append({ prop: 'margin-bottom', value: `${opts.gutter}rem` });
@@ -19,5 +19,3 @@ const f = (fractions, node, opts) => {
     node.append(fraction);
   }
 };
-
-export default f;

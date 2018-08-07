@@ -1,8 +1,8 @@
 import postcss from 'postcss';
-import utils from './utils';
+import { nodeClean } from './utils';
 import gridSystem from './grid-system';
 
-const postcssGridSystem = postcss.plugin('postcss-grid-system', (opts) => {
+module.exports = postcss.plugin('postcss-grid-system', (opts) => {
   const options = {
     width: 20.5,
     gutter: 1.5,
@@ -34,12 +34,12 @@ const postcssGridSystem = postcss.plugin('postcss-grid-system', (opts) => {
           e.containers[breakpoint] = e.containers[breakpoint] || [];
           e.containers[breakpoint].push(decl.parent.selector);
 
-          utils.nodeClean(decl, true);
+          nodeClean(decl, true);
         } else if (value[0] === 'row') {
           e.rows[breakpoint] = e.rows[breakpoint] || [];
           e.rows[breakpoint].push(decl.parent.selector);
 
-          utils.nodeClean(decl, true);
+          nodeClean(decl, true);
         } else if (value[0] === 'bloc') {
           e.blocs[breakpoint] = e.blocs[breakpoint] || [];
           e.blocs[breakpoint][value[1]] = e.blocs[breakpoint][value[1]] || [];
@@ -50,7 +50,7 @@ const postcssGridSystem = postcss.plugin('postcss-grid-system', (opts) => {
             e.blocs[breakpoint][value[1]][1] = e.blocs[breakpoint][value[1]][1] || [];
             e.blocs[breakpoint][value[1]][1].push(decl.parent.selector);
           }
-          utils.nodeClean(decl, true);
+          nodeClean(decl, true);
         } else if (value[0] === 'fraction') {
           const i = value[1].split('/');
 
@@ -59,7 +59,7 @@ const postcssGridSystem = postcss.plugin('postcss-grid-system', (opts) => {
           e.fractions[breakpoint][i[1]][i[0]] = e.fractions[breakpoint][i[1]][i[0]] || [];
           e.fractions[breakpoint][i[1]][i[0]].push(decl.parent.selector);
 
-          utils.nodeClean(decl, true);
+          nodeClean(decl, true);
         } else if (value[0] === 'columns') {
           const i = value[1].split('-');
 
@@ -69,7 +69,7 @@ const postcssGridSystem = postcss.plugin('postcss-grid-system', (opts) => {
           e.columns[breakpoint][i[0]][i[1]] = e.columns[breakpoint][i[0]][i[1]] || [];
           e.columns[breakpoint][i[0]][i[1]].push(decl.parent.selector);
 
-          utils.nodeClean(decl, true);
+          nodeClean(decl, true);
         }
       }
     });
@@ -97,10 +97,10 @@ const postcssGridSystem = postcss.plugin('postcss-grid-system', (opts) => {
           e.rules[gridMediaAtRule.params] = e.rules[gridMediaAtRule.params] || [];
           e.rules[gridMediaAtRule.params].push(rule);
 
-          utils.nodeClean(rule, true);
+          nodeClean(rule, true);
         });
 
-        utils.nodeClean(gridMediaAtRule);
+        nodeClean(gridMediaAtRule);
       });
 
       walkDecls(root, 0);
@@ -111,5 +111,3 @@ const postcssGridSystem = postcss.plugin('postcss-grid-system', (opts) => {
     });
   };
 });
-
-export default postcssGridSystem;

@@ -1,12 +1,12 @@
 import postcss from 'postcss';
-import utils from './utils';
+import { flatten } from './utils';
 
-const r = (rows, node, opts) => {
+export default (rows, node, opts) => {
   if (rows.length) {
     const row = postcss.rule();
     const rowClearFix = postcss.rule();
 
-    row.selectors = utils.flatten(rows);
+    row.selectors = flatten(rows);
 
     row.append({ prop: 'clear', value: 'both' });
     row.append({ prop: 'margin-right', value: `-${opts.gutter}rem` });
@@ -28,5 +28,3 @@ const r = (rows, node, opts) => {
     node.append(rowClearFix);
   }
 };
-
-export default r;

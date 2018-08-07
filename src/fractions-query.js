@@ -1,6 +1,6 @@
 import postcss from 'postcss';
 
-const fractionsQuery = (fractions, node, opts) => {
+export default (fractions, node, opts) => {
   if (fractions && fractions.length) {
     for (let total = 2; total < fractions.length; total += 1) {
       if (fractions[total]) {
@@ -31,5 +31,3 @@ const fractionsQuery = (fractions, node, opts) => {
     }
   }
 };
-
-export default fractionsQuery;

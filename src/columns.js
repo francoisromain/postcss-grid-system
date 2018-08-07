@@ -1,15 +1,13 @@
 import postcss from 'postcss';
-import utils from './utils';
+import { flatten } from './utils';
 
-const c = (columns, node, opts) => {
+export default (columns, node, opts) => {
   if (columns.length) {
     const columnsGap = postcss.rule();
 
-    columnsGap.selectors = utils.flatten(columns);
+    columnsGap.selectors = flatten(columns);
     columnsGap.append({ prop: 'column-gap', value: `${opts.gutter}rem` });
 
     node.append(columnsGap);
   }
 };
-
-export default c;

@@ -1,7 +1,7 @@
 import postcss from 'postcss';
-import utils from './utils';
+import { selectorsAdd } from './utils';
 
-const columnsQuery = (columns, node, opts, breakpoint) => {
+export default (columns, node, opts, breakpoint) => {
   if (columns.length) {
     const columnCount = {};
 
@@ -21,7 +21,7 @@ const columnsQuery = (columns, node, opts, breakpoint) => {
               i1 = width;
             }
             if (i1) {
-              utils.selectorsAdd(columnCount[i1], columns[units][width][0]);
+              selectorsAdd(columnCount[i1], columns[units][width][0]);
             }
           }
         }
@@ -35,5 +35,3 @@ const columnsQuery = (columns, node, opts, breakpoint) => {
     }
   }
 };
-
-export default columnsQuery;

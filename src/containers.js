@@ -1,11 +1,11 @@
 import postcss from 'postcss';
-import utils from './utils';
+import { flatten } from './utils';
 
-const c = (containers, node, opts) => {
+export default (containers, node, opts) => {
   if (containers.length) {
     const container = postcss.rule();
 
-    container.selectors = utils.flatten(containers);
+    container.selectors = flatten(containers);
 
     container.append({ prop: 'padding-left', value: `${opts.padding}rem` });
     container.append({ prop: 'padding-right', value: `${opts.padding}rem` });
@@ -19,5 +19,3 @@ const c = (containers, node, opts) => {
     node.append(container);
   }
 };
-
-export default c;

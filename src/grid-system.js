@@ -11,7 +11,7 @@ import columnsQuery from './columns-query';
 import rulesQuery from './rules-query';
 // import util from 'util';
 
-const gridSystem = (e, rootCss, opts) => {
+export default (e, rootCss, opts) => {
   containers(e.containers, rootCss, opts);
   rows(e.rows, rootCss, opts);
   blocs(e.blocs, rootCss, opts);
@@ -44,5 +44,3 @@ const gridSystem = (e, rootCss, opts) => {
     }
   }
 };
-
-export default gridSystem;

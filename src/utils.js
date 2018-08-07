@@ -1,29 +1,25 @@
-const utils = {
-  flatten(arr) {
-    const that = this;
+const flatten = arr => arr.reduce((flat, next) => {
+  if (!next) {
+    return flat;
+  }
 
-    return arr.reduce((flat, next) => {
-      if (!next) {
-        return flat;
-      }
+  return flat.concat(Array.isArray(next) ? flatten(next) : next);
+}, []);
 
-      return flat.concat(Array.isArray(next) ? that.flatten(next) : next);
-    }, []);
-  },
-  selectorsAdd(rule, selectors) {
-    if (selectors) {
-      const r = rule;
+const selectorsAdd = (rule, selectors) => {
+  if (selectors) {
+    const r = rule;
 
-      r.selector = r.selector ? `${r.selector}, ${selectors.toString()}` : selectors.toString();
-    }
-  },
-  nodeClean(node, cleanParent) {
-    if (cleanParent && node.parent.nodes.length === 1) {
-      node.parent.remove();
-    } else {
-      node.remove();
-    }
-  },
+    r.selector = r.selector ? `${r.selector}, ${selectors.toString()}` : selectors.toString();
+  }
 };
 
-export default utils;
+const nodeClean = (node, cleanParent) => {
+  if (cleanParent && node.parent.nodes.length === 1) {
+    node.parent.remove();
+  } else {
+    node.remove();
+  }
+};
+
+export { flatten, selectorsAdd, nodeClean };

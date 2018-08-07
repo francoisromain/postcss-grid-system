@@ -1,7 +1,7 @@
 import postcss from 'postcss';
-import utils from './utils';
+import { selectorsAdd } from './utils';
 
-const blocsQuery = (blocs, node, opts, breakpoint) => {
+export default (blocs, node, opts, breakpoint) => {
   if (blocs.length) {
     const blocWidth = {};
     const blocLeft = {};
@@ -9,12 +9,12 @@ const blocsQuery = (blocs, node, opts, breakpoint) => {
 
     const blocWidthFill = (unit, width) => {
       if (blocs[unit] && blocs[unit][width] && blocs[unit][width][1]) {
-        utils.selectorsAdd(blocWidth[width], blocs[unit][width][1]);
-        utils.selectorsAdd(blocLeft[width], blocs[unit][width][1]);
+        selectorsAdd(blocWidth[width], blocs[unit][width][1]);
+        selectorsAdd(blocLeft[width], blocs[unit][width][1]);
       }
       if (blocs[unit] && blocs[unit][width] && blocs[unit][width][0]) {
-        utils.selectorsAdd(blocWidth[width], blocs[unit][width][0]);
-        utils.selectorsAdd(blocRight[width], blocs[unit][width][0]);
+        selectorsAdd(blocWidth[width], blocs[unit][width][0]);
+        selectorsAdd(blocRight[width], blocs[unit][width][0]);
       }
     };
 
@@ -67,5 +67,3 @@ const blocsQuery = (blocs, node, opts, breakpoint) => {
     }
   }
 };
-
-export default blocsQuery;
