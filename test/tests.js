@@ -7,14 +7,14 @@ import test03 from './03';
 import test05 from './05';
 import test06 from './06';
 import test07 from './07';
-import plugin from '../src/index';
+import plugin from '../lib/index';
 
-const run = (t, input, output, opts = {}) =>
-  postcss([plugin(opts)]).process(input)
-    .then((result) => {
-      t.deepEqual(result.css, output);
-      t.deepEqual(result.warnings().length, 0);
-    });
+const run = (t, input, output, opts = {}) => postcss([plugin(opts)])
+  .process(input)
+  .then((result) => {
+    t.deepEqual(result.css, output);
+    t.deepEqual(result.warnings().length, 0);
+  });
 
 test('media queries', t => run(t, test00.input, test00.output, {}));
 test('containers', t => run(t, test01.input, test01.output, {}));

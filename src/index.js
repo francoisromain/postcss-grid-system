@@ -1,8 +1,8 @@
 import postcss from 'postcss';
-import gridSystem from './grid-system';
 import utils from './utils';
+import gridSystem from './grid-system';
 
-module.exports = postcss.plugin('postcss-grid-system', (opts) => {
+const postcssGridSystem = postcss.plugin('postcss-grid-system', (opts) => {
   const options = {
     width: 20.5,
     gutter: 1.5,
@@ -78,12 +78,14 @@ module.exports = postcss.plugin('postcss-grid-system', (opts) => {
   return (root) => {
     root.walkAtRules('gs', (gsAtRule) => {
       gsAtRule.walkDecls((decl) => {
-        if (decl.prop.match(/^width/) ||
-          decl.prop.match(/^gutter/) ||
-          decl.prop.match(/^padding/) ||
-          decl.prop.match(/^max/) ||
-          decl.prop.match(/^min/)) {
-          options[decl.prop] = parseFloat(decl.value, 10);
+        if (
+          decl.prop.match(/^width/)
+          || decl.prop.match(/^gutter/)
+          || decl.prop.match(/^padding/)
+          || decl.prop.match(/^max/)
+          || decl.prop.match(/^min/)
+        ) {
+          options[decl.prop] = parseFloat(decl.value);
         } else if (decl.prop.match(/^align/) || decl.prop.match(/^display/)) {
           options[decl.prop] = decl.value;
         }
@@ -109,3 +111,5 @@ module.exports = postcss.plugin('postcss-grid-system', (opts) => {
     });
   };
 });
+
+export default postcssGridSystem;

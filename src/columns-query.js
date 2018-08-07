@@ -1,7 +1,7 @@
 import postcss from 'postcss';
 import utils from './utils';
 
-export default (columns, node, opts, breakpoint) => {
+const columnsQuery = (columns, node, opts, breakpoint) => {
   if (columns.length) {
     const columnCount = {};
 
@@ -14,7 +14,7 @@ export default (columns, node, opts, breakpoint) => {
       if (columns[units]) {
         for (let width = 1; width <= opts.max; width += 1) {
           if (columns[units][width]) {
-            let i1 = false;
+            let i1 = null;
             if (width >= breakpoint) {
               i1 = breakpoint;
             } else if (breakpoint === units) {
@@ -35,3 +35,5 @@ export default (columns, node, opts, breakpoint) => {
     }
   }
 };
+
+export default columnsQuery;

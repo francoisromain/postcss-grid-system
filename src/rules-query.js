@@ -1,7 +1,9 @@
-export default (rules, node) => {
+const rulesQuery = (rules, node) => {
   if (rules) {
     for (let rule = 0; rule < rules.length; rule += 1) {
       node.append(rules[rule]);
     }
   }
 };
+
+export default rulesQuery;

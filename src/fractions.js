@@ -1,7 +1,7 @@
 import postcss from 'postcss';
 import utils from './utils';
 
-export default (fractions, node, opts) => {
+const f = (fractions, node, opts) => {
   if (fractions.length) {
     const fraction = postcss.rule();
 
@@ -19,3 +19,5 @@ export default (fractions, node, opts) => {
     node.append(fraction);
   }
 };
+
+export default f;

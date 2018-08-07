@@ -9,9 +9,9 @@ import blocsQuery from './blocs-query';
 import fractionsQuery from './fractions-query';
 import columnsQuery from './columns-query';
 import rulesQuery from './rules-query';
-// import util from 'util'
+// import util from 'util';
 
-export default (e, rootCss, opts) => {
+const gridSystem = (e, rootCss, opts) => {
   containers(e.containers, rootCss, opts);
   rows(e.rows, rootCss, opts);
   blocs(e.blocs, rootCss, opts);
@@ -23,8 +23,11 @@ export default (e, rootCss, opts) => {
   rulesQuery(e.rules[0], rootCss);
 
   for (let breakpoint = 1; breakpoint <= opts.max; breakpoint += 1) {
-    const queryWidth = ((breakpoint * opts.width) - opts.gutter) + (2 * opts.padding);
-    const mediaQuery = postcss.atRule({ name: 'media', params: `(min-width: ${queryWidth}rem)` });
+    const queryWidth = breakpoint * opts.width - opts.gutter + 2 * opts.padding;
+    const mediaQuery = postcss.atRule({
+      name: 'media',
+      params: `(min-width: ${queryWidth}rem)`,
+    });
 
     blocsQuery(e.blocs, mediaQuery, opts, breakpoint);
 
@@ -41,3 +44,5 @@ export default (e, rootCss, opts) => {
     }
   }
 };
+
+export default gridSystem;

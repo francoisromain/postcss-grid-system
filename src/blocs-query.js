@@ -1,7 +1,7 @@
 import postcss from 'postcss';
 import utils from './utils';
 
-export default (blocs, node, opts, breakpoint) => {
+const blocsQuery = (blocs, node, opts, breakpoint) => {
   if (blocs.length) {
     const blocWidth = {};
     const blocLeft = {};
@@ -22,17 +22,23 @@ export default (blocs, node, opts, breakpoint) => {
       blocLeft[width] = postcss.rule();
       blocRight[width] = postcss.rule();
       blocWidth[width] = postcss.rule();
-      const blocWidthValue = (opts.width * width) - opts.gutter;
+      const blocWidthValue = opts.width * width - opts.gutter;
       if (opts.display === 'float') {
         blocLeft[width].append({ prop: 'float', value: 'left' });
         blocLeft[width].append({ prop: 'clear', value: 'none' });
 
         blocRight[width].append({ prop: 'float', value: 'right' });
         blocRight[width].append({ prop: 'clear', value: 'none' });
-        blocWidth[width].append({ prop: 'width', value: `${blocWidthValue}rem` });
+        blocWidth[width].append({
+          prop: 'width',
+          value: `${blocWidthValue}rem`,
+        });
       } else {
         blocRight[width].append({ prop: 'margin-left', value: 'auto' });
-        blocWidth[width].append({ prop: 'flex', value: `0 1 ${blocWidthValue}rem` });
+        blocWidth[width].append({
+          prop: 'flex',
+          value: `0 1 ${blocWidthValue}rem`,
+        });
       }
     }
 
@@ -61,3 +67,5 @@ export default (blocs, node, opts, breakpoint) => {
     }
   }
 };
+
+export default blocsQuery;

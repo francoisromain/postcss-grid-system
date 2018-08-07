@@ -14,9 +14,7 @@ const utils = {
     if (selectors) {
       const r = rule;
 
-      r.selector = r.selector
-        ? `${r.selector}, ${selectors.toString()}`
-        : selectors.toString();
+      r.selector = r.selector ? `${r.selector}, ${selectors.toString()}` : selectors.toString();
     }
   },
   nodeClean(node, cleanParent) {

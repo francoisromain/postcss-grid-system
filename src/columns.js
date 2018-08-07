@@ -1,7 +1,7 @@
 import postcss from 'postcss';
 import utils from './utils';
 
-export default (columns, node, opts) => {
+const c = (columns, node, opts) => {
   if (columns.length) {
     const columnsGap = postcss.rule();
 
@@ -11,3 +11,5 @@ export default (columns, node, opts) => {
     node.append(columnsGap);
   }
 };
+
+export default c;

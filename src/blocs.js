@@ -1,7 +1,7 @@
 import postcss from 'postcss';
 import utils from './utils';
 
-export default (blocs, node, opts) => {
+const b = (blocs, node, opts) => {
   if (blocs.length) {
     const bloc = postcss.rule();
 
@@ -19,3 +19,5 @@ export default (blocs, node, opts) => {
     node.append(bloc);
   }
 };
+
+export default b;

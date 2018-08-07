@@ -1,7 +1,7 @@
 import postcss from 'postcss';
 import utils from './utils';
 
-export default (containers, node, opts) => {
+const c = (containers, node, opts) => {
   if (containers.length) {
     const container = postcss.rule();
 
@@ -19,3 +19,5 @@ export default (containers, node, opts) => {
     node.append(container);
   }
 };
+
+export default c;

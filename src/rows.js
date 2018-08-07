@@ -1,10 +1,10 @@
 import postcss from 'postcss';
 import utils from './utils';
 
-export default (rows, node, opts) => {
+const r = (rows, node, opts) => {
   if (rows.length) {
     const row = postcss.rule();
-    const rowClearfix = postcss.rule();
+    const rowClearFix = postcss.rule();
 
     row.selectors = utils.flatten(rows);
 
@@ -20,11 +20,13 @@ export default (rows, node, opts) => {
 
     node.append(row);
 
-    rowClearfix.selectors = rows.map(selector => `${selector}::after`);
-    rowClearfix.append({ prop: 'content', value: '""' });
-    rowClearfix.append({ prop: 'display', value: 'table' });
-    rowClearfix.append({ prop: 'clear', value: 'both' });
+    rowClearFix.selectors = rows.map(selector => `${selector}::after`);
+    rowClearFix.append({ prop: 'content', value: '""' });
+    rowClearFix.append({ prop: 'display', value: 'table' });
+    rowClearFix.append({ prop: 'clear', value: 'both' });
 
-    node.append(rowClearfix);
+    node.append(rowClearFix);
   }
 };
+
+export default r;
