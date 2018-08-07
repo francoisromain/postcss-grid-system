@@ -1,6 +1,6 @@
 {
   "name": "postcss-grid-system",
-  "version": "0.4.12",
+  "version": "0.4.13",
   "description": "A PostCSS plugin to create grids based on a fixed column width.",
   "keywords": [
     "postcss",
@@ -25,7 +25,7 @@
   "homepage": "http://francoisromain.github.io/postcss-grid-system/",
   "main": "./lib/index.js",
   "scripts": {
-    "build": "babel src/index.js --out-dir lib",
+    "build": "babel src --out-dir lib",
     "test": "npm run build && ava"
   },
   "dependencies": {
@@ -68,7 +68,7 @@
         "@babel/preset-env",
         {
           "targets": {
-            "node": "10"
+            "node": "current"
           }
         }
       ]
