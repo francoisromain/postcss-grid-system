@@ -1,5 +1,3 @@
 module.exports = {
-  plugins: [
-    require('./postcss-grid-system')()
-  ]
-}
+  plugins: [require('./postcss-grid-system')()]
+};
