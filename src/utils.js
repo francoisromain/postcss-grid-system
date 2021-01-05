@@ -1,16 +1,19 @@
-const flatten = arr => arr.reduce((flat, next) => {
-  if (!next) {
-    return flat;
-  }
+const flatten = (arr) =>
+  arr.reduce((flat, next) => {
+    if (!next) {
+      return flat;
+    }
 
-  return flat.concat(Array.isArray(next) ? flatten(next) : next);
-}, []);
+    return flat.concat(Array.isArray(next) ? flatten(next) : next);
+  }, []);
 
 const selectorsAdd = (rule, selectors) => {
   if (selectors) {
     const r = rule;
 
-    r.selector = r.selector ? `${r.selector}, ${selectors.toString()}` : selectors.toString();
+    r.selector = r.selector
+      ? `${r.selector}, ${selectors.toString()}`
+      : selectors.toString();
   }
 };
 

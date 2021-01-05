@@ -20,7 +20,7 @@ export default (rows, node, opts) => {
 
     node.append(row);
 
-    rowClearFix.selectors = rows.map(selector => `${selector}::after`);
+    rowClearFix.selectors = rows.map((selector) => `${selector}::after`);
     rowClearFix.append({ prop: 'content', value: '""' });
     rowClearFix.append({ prop: 'display', value: 'table' });
     rowClearFix.append({ prop: 'clear', value: 'both' });

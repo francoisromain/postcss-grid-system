@@ -2,7 +2,7 @@ import postcss from 'postcss';
 import { nodeClean } from './utils';
 import gridSystem from './grid-system';
 
-module.exports = postcss.plugin('postcss-grid-system', (opts) => {
+module.exports = (opts) => {
   const options = {
     width: 20.5,
     gutter: 1.5,
@@ -44,10 +44,12 @@ module.exports = postcss.plugin('postcss-grid-system', (opts) => {
           e.blocs[breakpoint] = e.blocs[breakpoint] || [];
           e.blocs[breakpoint][value[1]] = e.blocs[breakpoint][value[1]] || [];
           if (value[2] === 'right') {
-            e.blocs[breakpoint][value[1]][0] = e.blocs[breakpoint][value[1]][0] || [];
+            e.blocs[breakpoint][value[1]][0] =
+              e.blocs[breakpoint][value[1]][0] || [];
             e.blocs[breakpoint][value[1]][0].push(decl.parent.selector);
           } else {
-            e.blocs[breakpoint][value[1]][1] = e.blocs[breakpoint][value[1]][1] || [];
+            e.blocs[breakpoint][value[1]][1] =
+              e.blocs[breakpoint][value[1]][1] || [];
             e.blocs[breakpoint][value[1]][1].push(decl.parent.selector);
           }
           nodeClean(decl, true);
@@ -56,7 +58,8 @@ module.exports = postcss.plugin('postcss-grid-system', (opts) => {
 
           e.fractions[breakpoint] = e.fractions[breakpoint] || [];
           e.fractions[breakpoint][i[1]] = e.fractions[breakpoint][i[1]] || [];
-          e.fractions[breakpoint][i[1]][i[0]] = e.fractions[breakpoint][i[1]][i[0]] || [];
+          e.fractions[breakpoint][i[1]][i[0]] =
+            e.fractions[breakpoint][i[1]][i[0]] || [];
           e.fractions[breakpoint][i[1]][i[0]].push(decl.parent.selector);
 
           nodeClean(decl, true);
@@ -66,7 +69,8 @@ module.exports = postcss.plugin('postcss-grid-system', (opts) => {
           i[1] = i[1] || '0';
           e.columns[breakpoint] = e.columns[breakpoint] || [];
           e.columns[breakpoint][i[0]] = e.columns[breakpoint][i[0]] || [];
-          e.columns[breakpoint][i[0]][i[1]] = e.columns[breakpoint][i[0]][i[1]] || [];
+          e.columns[breakpoint][i[0]][i[1]] =
+            e.columns[breakpoint][i[0]][i[1]] || [];
           e.columns[breakpoint][i[0]][i[1]].push(decl.parent.selector);
 
           nodeClean(decl, true);
@@ -75,39 +79,43 @@ module.exports = postcss.plugin('postcss-grid-system', (opts) => {
     });
   };
 
-  return (root) => {
-    root.walkAtRules('gs', (gsAtRule) => {
-      gsAtRule.walkDecls((decl) => {
-        if (
-          decl.prop.match(/^width/)
-          || decl.prop.match(/^gutter/)
-          || decl.prop.match(/^padding/)
-          || decl.prop.match(/^max/)
-          || decl.prop.match(/^min/)
-        ) {
-          options[decl.prop] = parseFloat(decl.value);
-        } else if (decl.prop.match(/^align/) || decl.prop.match(/^display/)) {
-          options[decl.prop] = decl.value;
-        }
-      });
-
-      root.walkAtRules('gs-media', (gridMediaAtRule) => {
-        walkDecls(gridMediaAtRule, gridMediaAtRule.params);
-        gridMediaAtRule.each((rule) => {
-          e.rules[gridMediaAtRule.params] = e.rules[gridMediaAtRule.params] || [];
-          e.rules[gridMediaAtRule.params].push(rule);
-
-          nodeClean(rule, true);
+  return {
+    postcssPlugin: 'postcss-grid-system',
+    Once(root) {
+      root.walkAtRules('gs', (gsAtRule) => {
+        gsAtRule.walkDecls((decl) => {
+          if (
+            decl.prop.match(/^width/) ||
+            decl.prop.match(/^gutter/) ||
+            decl.prop.match(/^padding/) ||
+            decl.prop.match(/^max/) ||
+            decl.prop.match(/^min/)
+          ) {
+            options[decl.prop] = parseFloat(decl.value);
+          } else if (decl.prop.match(/^align/) || decl.prop.match(/^display/)) {
+            options[decl.prop] = decl.value;
+          }
         });
 
-        nodeClean(gridMediaAtRule);
+        root.walkAtRules('gs-media', (gridMediaAtRule) => {
+          walkDecls(gridMediaAtRule, gridMediaAtRule.params);
+          gridMediaAtRule.each((rule) => {
+            e.rules[gridMediaAtRule.params] =
+              e.rules[gridMediaAtRule.params] || [];
+            e.rules[gridMediaAtRule.params].push(rule);
+
+            nodeClean(rule, true);
+          });
+
+          nodeClean(gridMediaAtRule);
+        });
+
+        walkDecls(root, 0);
+
+        // console.log(util.inspect(e.blocs, false, null))
+        gridSystem(e, rootCss, options);
+        gsAtRule.replaceWith(rootCss);
       });
-
-      walkDecls(root, 0);
-
-      // console.log(util.inspect(e.blocs, false, null))
-      gridSystem(e, rootCss, options);
-      gsAtRule.replaceWith(rootCss);
-    });
+    },
   };
-});
+};

@@ -1,4 +1,4 @@
-# postcss-grid-system 
+# postcss-grid-system
 
 [![npm version][npm-img]][npm] [![Build Status][ci-img]][ci] [![Dependency Status][dep-img]][dep]
 
@@ -7,74 +7,75 @@
 A [PostCSS] plugin to create grids based on a fixed column width.
 
 [github.io]: http://francoisromain.github.io/postcss-grid-system
-[PostCSS]:   https://github.com/postcss/postcss
-[ci-img]:    https://travis-ci.org/francoisromain/postcss-grid-system.svg
-[ci]:        https://travis-ci.org/francoisromain/postcss-grid-system
-[npm-img]:   https://badge.fury.io/js/postcss-grid-system.svg
-[npm]:       https://badge.fury.io/js/postcss-grid-system
-[dep-img]:   https://david-dm.org/francoisromain/postcss-grid-system.svg
-[dep]:       https://david-dm.org/francoisromain/postcss-grid-system
+[postcss]: https://github.com/postcss/postcss
+[ci-img]: https://travis-ci.org/francoisromain/postcss-grid-system.svg
+[ci]: https://travis-ci.org/francoisromain/postcss-grid-system
+[npm-img]: https://badge.fury.io/js/postcss-grid-system.svg
+[npm]: https://badge.fury.io/js/postcss-grid-system
+[dep-img]: https://david-dm.org/francoisromain/postcss-grid-system.svg
+[dep]: https://david-dm.org/francoisromain/postcss-grid-system
 
-* * * 
+---
 
 ## Installation
 
 Install the [npm package](https://www.npmjs.com/package/postcss-grid-system):
 
-    $ npm install postcss-grid-system --save-dev
+```bash
+npm install postcss postcss-grid-system --save-dev
+```
 
 Require with PostCSS:
 
-``` js
-postcss([ require('postcss-grid-system') ])
+```js
+postcss([require('postcss-grid-system')]);
 ```
 
-See [PostCSS docs](https://github.com/postcss/postcss#usage) to setup with Gulp, Grunt, Webpack, npm scripts… 
+See [PostCSS docs](https://github.com/postcss/postcss#usage) to setup with Gulp, Grunt, Webpack, npm scripts…
 
-* * * 
+---
 
 ## Configuration
 
 #### Option 1: In javascript
 
-``` javascript
+```javascript
 {
-  width:   '20.5rem';/* width of a single column */
-  gutter:  '1.5rem'; /* width of the gutter */
+  width: '20.5rem'; /* width of a single column */
+  gutter: '1.5rem'; /* width of the gutter */
   padding: '1.5rem'; /* padding of the main container */
-  max:     8;        /* maximum number of blocs (wide screens) */
-  min:     2;        /* minimum number of blocs (mobile) */
-  align:   'center'; /* center or left */ 
-  display: 'flex';   /* float or flex */  
+  max: 8; /* maximum number of blocs (wide screens) */
+  min: 2; /* minimum number of blocs (mobile) */
+  align: 'center'; /* center or left */
+  display: 'flex'; /* float or flex */
 }
 ```
 
 #### Option 2: in css
 
-``` css
-
+```css
 @gs {
-  width:   20.5rem;  /* width of a single column */
-  gutter:  1.5rem;   /* width of the gutter */
-  padding: 1.5rem;   /* padding of the main container */
-  max:     8;        /* maximum number of blocs (wide screens) */
-  min:     2;        /* minimum number of blocs (mobile) */
-  align:   center;   /* center or left */ 
-  display: flex;     /* float or flex */  
+  width: 20.5rem; /* width of a single column */
+  gutter: 1.5rem; /* width of the gutter */
+  padding: 1.5rem; /* padding of the main container */
+  max: 8; /* maximum number of blocs (wide screens) */
+  min: 2; /* minimum number of blocs (mobile) */
+  align: center; /* center or left */
+  display: flex; /* float or flex */
 }
 ```
 
 If no configuration, see the default values above.
 
-A **breakpoint** is created for each value from _min_ to _max_. When the screen is narrower than _min_ * _width_, elements are fluids. 
+A **breakpoint** is created for each value from _min_ to _max_. When the screen is narrower than _min_ \* _width_, elements are fluids.
 
-* * * 
+---
 
 ## Usage
 
 ### Media queries
 
-``` css
+```css
 @gs-media [breakpoint] {
     .my-class {
         …
@@ -122,7 +123,6 @@ Example: [input](https://github.com/francoisromain/postcss-grid-system/blob/gh-p
 
 Example: [input](https://github.com/francoisromain/postcss-grid-system/blob/gh-pages/test/src/05.css), [output](https://github.com/francoisromain/postcss-grid-system/blob/gh-pages/test/dist/05.css), [markup](https://github.com/francoisromain/postcss-grid-system/blob/gh-pages/test/05.html), [demo](http://francoisromain.github.io/postcss-grid-system/test/05.html)
 
-
 ### Columns
 
 `gs: columns [columns]`
@@ -130,4 +130,3 @@ Example: [input](https://github.com/francoisromain/postcss-grid-system/blob/gh-p
 - _columns_: number of columns.
 
 Example: [input](https://github.com/francoisromain/postcss-grid-system/blob/gh-pages/test/src/06.css), [output](https://github.com/francoisromain/postcss-grid-system/blob/gh-pages/test/dist/06.css), [markup](https://github.com/francoisromain/postcss-grid-system/blob/gh-pages/test/06.html), [demo](http://francoisromain.github.io/postcss-grid-system/test/06.html)
-

@@ -100,6 +100,7 @@ const tests = {
         width: 165.5rem
     }
 }
-` };
+`,
+};
 
 export default tests;
