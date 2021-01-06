@@ -56,12 +56,12 @@ const tests = {
     .bloc-3-2, .bloc-3-2-bis {
         width: 39.5rem
     }
-    .bloc-3-2-bis {
-        float: right;
-        clear: none
-    }
     .bloc-3-2 {
         float: left;
+        clear: none
+    }
+    .bloc-3-2-bis {
+        float: right;
         clear: none
     }
     .container {

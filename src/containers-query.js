@@ -1,20 +1,20 @@
-import postcss from 'postcss';
 import { selectorsAdd } from './utils';
 
-export default (containers, node, opts, breakpoint) => {
-  if (containers.length) {
-    const containerQuery = postcss.rule();
-    const containerWidth =
-      breakpoint * opts.width - opts.gutter + 2 * opts.padding;
+export default (containers, opts, breakpoint, { rule }) => {
+  const containerQuery = rule();
+  const containerWidth =
+    breakpoint * opts.width - opts.gutter + 2 * opts.padding;
 
-    for (let i = 0; i <= breakpoint; i += 1) {
-      if (containers[i] && containers[i].length) {
-        selectorsAdd(containerQuery, containers[i]);
-      }
+  for (let i = 0; i <= breakpoint; i += 1) {
+    if (containers[i] && containers[i].length) {
+      containerQuery.selector = selectorsAdd(
+        containerQuery.selector,
+        containers[i]
+      );
     }
-
-    containerQuery.append({ prop: 'width', value: `${containerWidth}rem` });
-
-    node.append(containerQuery);
   }
+
+  containerQuery.append({ prop: 'width', value: `${containerWidth}rem` });
+
+  return containerQuery;
 };

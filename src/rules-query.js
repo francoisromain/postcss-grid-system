@@ -1,7 +1,8 @@
-export default (rules, node) => {
-  if (rules) {
-    for (let rule = 0; rule < rules.length; rule += 1) {
-      node.append(rules[rule]);
-    }
+export default (rules) => {
+  const res = [];
+  for (let rule = 0; rule < rules.length; rule += 1) {
+    res.push(rules[rule]);
   }
+
+  return res;
 };

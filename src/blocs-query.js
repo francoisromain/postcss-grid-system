@@ -1,69 +1,85 @@
-import postcss from 'postcss';
 import { selectorsAdd } from './utils';
 
-export default (blocs, node, opts, breakpoint) => {
-  if (blocs.length) {
-    const blocWidth = {};
-    const blocLeft = {};
-    const blocRight = {};
+export default (blocs, opts, breakpoint, { rule }) => {
+  const blocWidthIndex = {};
+  const blocLeftIndex = {};
+  const blocRightIndex = {};
+  const blocWidths = [];
+  const blocLefts = [];
+  const blocRights = [];
 
-    const blocWidthFill = (unit, width) => {
-      if (blocs[unit] && blocs[unit][width] && blocs[unit][width][1]) {
-        selectorsAdd(blocWidth[width], blocs[unit][width][1]);
-        selectorsAdd(blocLeft[width], blocs[unit][width][1]);
-      }
-      if (blocs[unit] && blocs[unit][width] && blocs[unit][width][0]) {
-        selectorsAdd(blocWidth[width], blocs[unit][width][0]);
-        selectorsAdd(blocRight[width], blocs[unit][width][0]);
-      }
-    };
-
-    for (let width = 1; width <= breakpoint; width += 1) {
-      blocLeft[width] = postcss.rule();
-      blocRight[width] = postcss.rule();
-      blocWidth[width] = postcss.rule();
-      const blocWidthValue = opts.width * width - opts.gutter;
-      if (opts.display === 'float') {
-        blocLeft[width].append({ prop: 'float', value: 'left' });
-        blocLeft[width].append({ prop: 'clear', value: 'none' });
-
-        blocRight[width].append({ prop: 'float', value: 'right' });
-        blocRight[width].append({ prop: 'clear', value: 'none' });
-        blocWidth[width].append({
-          prop: 'width',
-          value: `${blocWidthValue}rem`,
-        });
-      } else {
-        blocRight[width].append({ prop: 'margin-left', value: 'auto' });
-        blocWidth[width].append({
-          prop: 'flex',
-          value: `0 1 ${blocWidthValue}rem`,
-        });
-      }
+  const fill = (unit, width) => {
+    if (blocs[unit] && blocs[unit][width] && blocs[unit][width][1]) {
+      blocWidthIndex[width].selector = selectorsAdd(
+        blocWidthIndex[width].selector,
+        blocs[unit][width][1]
+      );
+      blocLeftIndex[width].selector = selectorsAdd(
+        blocLeftIndex[width].selector,
+        blocs[unit][width][1]
+      );
     }
 
-    for (let unit = 0; unit <= opts.max; unit += 1) {
-      if (unit < breakpoint) {
-        blocWidthFill(unit, breakpoint);
-      } else if (unit === breakpoint) {
-        for (let width = 0; width <= breakpoint; width += 1) {
-          blocWidthFill(unit, width);
-        }
-      }
+    if (blocs[unit] && blocs[unit][width] && blocs[unit][width][0]) {
+      blocWidthIndex[width].selector = selectorsAdd(
+        blocWidthIndex[width].selector,
+        blocs[unit][width][0]
+      );
+      blocRightIndex[width].selector = selectorsAdd(
+        blocRightIndex[width].selector,
+        blocs[unit][width][0]
+      );
     }
+  };
 
-    for (let width = 1; width <= breakpoint; width += 1) {
-      if (blocWidth[width].selector && blocWidth[width].nodes.length) {
-        node.append(blocWidth[width]);
-      }
+  for (let width = 1; width <= breakpoint; width += 1) {
+    blocLeftIndex[width] = rule();
+    blocRightIndex[width] = rule();
+    blocWidthIndex[width] = rule();
 
-      if (blocRight[width].selector && blocRight[width].nodes.length) {
-        node.append(blocRight[width]);
-      }
+    const value = opts.width * width - opts.gutter;
+    if (opts.display === 'float') {
+      blocLeftIndex[width].append({ prop: 'float', value: 'left' });
+      blocLeftIndex[width].append({ prop: 'clear', value: 'none' });
 
-      if (blocLeft[width].selector && blocLeft[width].nodes.length) {
-        node.append(blocLeft[width]);
+      blocRightIndex[width].append({ prop: 'float', value: 'right' });
+      blocRightIndex[width].append({ prop: 'clear', value: 'none' });
+      blocWidthIndex[width].append({
+        prop: 'width',
+        value: `${value}rem`,
+      });
+    } else {
+      blocRightIndex[width].append({ prop: 'margin-left', value: 'auto' });
+      blocWidthIndex[width].append({
+        prop: 'flex',
+        value: `0 1 ${value}rem`,
+      });
+    }
+  }
+
+  for (let unit = 0; unit <= opts.max; unit += 1) {
+    if (unit < breakpoint) {
+      fill(unit, breakpoint);
+    } else if (unit === breakpoint) {
+      for (let width = 0; width <= breakpoint; width += 1) {
+        fill(unit, width);
       }
     }
   }
+
+  for (let width = 1; width <= breakpoint; width += 1) {
+    if (blocWidthIndex[width].selector && blocWidthIndex[width].nodes.length) {
+      blocWidths.push(blocWidthIndex[width]);
+    }
+
+    if (blocRightIndex[width].selector && blocRightIndex[width].nodes.length) {
+      blocRights.push(blocRightIndex[width]);
+    }
+
+    if (blocLeftIndex[width].selector && blocLeftIndex[width].nodes.length) {
+      blocLefts.push(blocLeftIndex[width]);
+    }
+  }
+
+  return { blocWidths, blocRights, blocLefts };
 };

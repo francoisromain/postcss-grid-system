@@ -1,8 +1,7 @@
-import postcss from 'postcss';
-import { nodeClean } from './utils';
+import { nodeRemove } from './utils';
 import gridSystem from './grid-system';
 
-module.exports = (opts) => {
+const postcssGridSystem = (opts) => {
   const options = {
     width: 20.5,
     gutter: 1.5,
@@ -24,22 +23,17 @@ module.exports = (opts) => {
     rules: [],
   };
 
-  const rootCss = postcss.root();
-
   const walkDecls = (node, breakpoint) => {
     node.walkDecls((decl) => {
       if (decl.prop.match(/^gs/)) {
         const value = decl.value.split(/\s+(?![^[]*\]|[^(]*\)|[^{]*})/);
+
         if (value[0] === 'container') {
           e.containers[breakpoint] = e.containers[breakpoint] || [];
           e.containers[breakpoint].push(decl.parent.selector);
-
-          nodeClean(decl, true);
         } else if (value[0] === 'row') {
           e.rows[breakpoint] = e.rows[breakpoint] || [];
           e.rows[breakpoint].push(decl.parent.selector);
-
-          nodeClean(decl, true);
         } else if (value[0] === 'bloc') {
           e.blocs[breakpoint] = e.blocs[breakpoint] || [];
           e.blocs[breakpoint][value[1]] = e.blocs[breakpoint][value[1]] || [];
@@ -52,7 +46,6 @@ module.exports = (opts) => {
               e.blocs[breakpoint][value[1]][1] || [];
             e.blocs[breakpoint][value[1]][1].push(decl.parent.selector);
           }
-          nodeClean(decl, true);
         } else if (value[0] === 'fraction') {
           const i = value[1].split('/');
 
@@ -61,8 +54,6 @@ module.exports = (opts) => {
           e.fractions[breakpoint][i[1]][i[0]] =
             e.fractions[breakpoint][i[1]][i[0]] || [];
           e.fractions[breakpoint][i[1]][i[0]].push(decl.parent.selector);
-
-          nodeClean(decl, true);
         } else if (value[0] === 'columns') {
           const i = value[1].split('-');
 
@@ -72,18 +63,19 @@ module.exports = (opts) => {
           e.columns[breakpoint][i[0]][i[1]] =
             e.columns[breakpoint][i[0]][i[1]] || [];
           e.columns[breakpoint][i[0]][i[1]].push(decl.parent.selector);
-
-          nodeClean(decl, true);
         }
+
+        nodeRemove(decl, true);
       }
     });
   };
 
   return {
     postcssPlugin: 'postcss-grid-system',
-    Once(root) {
-      root.walkAtRules('gs', (gsAtRule) => {
-        gsAtRule.walkDecls((decl) => {
+
+    Once(rootNode, { rule, root, atRule }) {
+      rootNode.walkAtRules('gs', (atRuleNode) => {
+        atRuleNode.walkDecls((decl) => {
           if (
             decl.prop.match(/^width/) ||
             decl.prop.match(/^gutter/) ||
@@ -97,25 +89,29 @@ module.exports = (opts) => {
           }
         });
 
-        root.walkAtRules('gs-media', (gridMediaAtRule) => {
+        rootNode.walkAtRules('gs-media', (gridMediaAtRule) => {
           walkDecls(gridMediaAtRule, gridMediaAtRule.params);
-          gridMediaAtRule.each((rule) => {
+
+          gridMediaAtRule.each((mediaAtRule) => {
             e.rules[gridMediaAtRule.params] =
               e.rules[gridMediaAtRule.params] || [];
-            e.rules[gridMediaAtRule.params].push(rule);
+            e.rules[gridMediaAtRule.params].push(mediaAtRule);
 
-            nodeClean(rule, true);
+            nodeRemove(mediaAtRule, true);
           });
 
-          nodeClean(gridMediaAtRule);
+          nodeRemove(gridMediaAtRule);
         });
 
-        walkDecls(root, 0);
+        walkDecls(rootNode, 0);
 
         // console.log(util.inspect(e.blocs, false, null))
-        gridSystem(e, rootCss, options);
-        gsAtRule.replaceWith(rootCss);
+
+        const newNode = gridSystem(e, options, { rule, root, atRule });
+        atRuleNode.replaceWith(newNode);
       });
     },
   };
 };
+
+module.exports = postcssGridSystem;

@@ -7,17 +7,15 @@ const flatten = (arr) =>
     return flat.concat(Array.isArray(next) ? flatten(next) : next);
   }, []);
 
-const selectorsAdd = (rule, selectors) => {
-  if (selectors) {
-    const r = rule;
+const selectorsAdd = (selector, selectors) => {
+  if (selectors && selector) return `${selector}, ${selectors.toString()}`;
 
-    r.selector = r.selector
-      ? `${r.selector}, ${selectors.toString()}`
-      : selectors.toString();
-  }
+  if (selectors) return selectors.toString();
+
+  return selector;
 };
 
-const nodeClean = (node, cleanParent) => {
+const nodeRemove = (node, cleanParent) => {
   if (cleanParent && node.parent.nodes.length === 1) {
     node.parent.remove();
   } else {
@@ -25,4 +23,4 @@ const nodeClean = (node, cleanParent) => {
   }
 };
 
-export { flatten, selectorsAdd, nodeClean };
+export { flatten, selectorsAdd, nodeRemove };
